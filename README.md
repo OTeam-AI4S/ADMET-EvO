@@ -1,38 +1,212 @@
 # ADMET-EvO
 
-ADMET-EvO is an evolutionary research agent for protocol-safe model discovery on the 22-task [Therapeutics Data Commons (TDC) ADMET benchmark group](https://tdcommons.ai/benchmark/admet_group/overview/).
+ADMET-EvO is a reproducible workflow for model search and frozen test evaluation on the [Therapeutics Data Commons (TDC) ADMET benchmarks](https://tdcommons.ai/benchmark/admet_group/overview/).
 
-The agent profiles each endpoint, proposes bounded experiments, evaluates candidates only on training/validation splits, promotes robust finalists across validation seeds, searches simple prediction ensembles, and freezes the selected recipe before the TDC test split is evaluated. The language-model planner is optional; model training, evaluation, protocol enforcement, and finalist freezing are deterministic Python components.
+It combines molecular representations, classical and gradient-boosted models, multi-seed validation, optional prediction ensembling, and a test-set firewall. Model selection happens on the training and validation splits. The selected configuration is then frozen and evaluated on the test split with at least five seeds.
 
-## Initial TDC submission
+## Workflow
 
-The first public submission covers the three endpoints for which ADMET-EvO v0.2.1 is estimated to place first against the TDC leaderboards captured on 10 August 2026.
+```mermaid
+flowchart LR
+    A[Load a TDC benchmark] --> B[Profile the training and validation data]
+    B --> C[Generate bounded experiment candidates]
+    C --> D[Train and score on validation data]
+    D --> E[Compare candidates across validation seeds]
+    E --> F[Select a model or prediction ensemble]
+    F --> G[Freeze configuration and write SHA-256 lock]
+    G --> H[Retrain and evaluate with five or more seeds]
+    H --> I[Save scores, predictions, and audit records]
+    D -->|experiment history| C
+```
 
-| Dataset | Metric | ADMET-EvO | Runs | Estimated rank |
-|---|---|---:|---:|---:|
-| AMES | AUROC, higher is better | 0.874 +/- 0.001 | 5 | 1 |
-| PPBR_AZ | MAE, lower is better | 7.302 +/- 0.042 | 5 | 1 |
-| Solubility_AqSolDB | MAE, lower is better | 0.739 +/- 0.002 | 5 | 1 |
+The workflow has two separate commands:
 
-These are test-set results from five independent TDC runs using seeds 1, 2, 3, 4, and 5. The finalist configuration was fixed before test evaluation. The full non-peer-reviewed technical report is available in [`MANUSCRIPT.md`](MANUSCRIPT.md). Machine-readable scores and finalist recipes are in [`results/`](results/), and the submission-ready description is in [`docs/tdc_submission.md`](docs/tdc_submission.md).
+- `search` can access only training and validation data. It profiles the endpoint, evaluates candidate pipelines, repeats promising candidates across validation seeds, and writes a finalist configuration.
+- `finalize` accepts a serialized finalist, writes a freeze lock, trains it independently for every requested seed, and calls TDC's official test evaluator. A different finalist cannot be reused in the same finalization directory.
 
-Leaderboard positions are estimates until the TDC maintainers accept and publish the submission.
+## Installation
 
-## Method
+Python 3.10 through 3.12 is supported. Clone the repository and create the CPU environment:
 
-ADMET-EvO uses a bounded model and molecular-representation registry:
+```bash
+git clone https://github.com/YilinWang33/ADMET-EvO.git
+cd ADMET-EvO
+conda env create -f environment-cpu.yml
+conda activate admet-agent
+```
 
-- molecular fingerprints and descriptors, including Morgan, Avalon, ErG, MACCS, atom-pair, torsion, and RDKit 2D features;
-- classical and gradient-boosted learners, including Extra Trees, Random Forest, SVM, XGBoost, LightGBM, and CatBoost;
-- validation-only sequential planning, robust multi-seed finalist selection, and prediction-level ensembling;
-- a test firewall that prevents test access during search and records a SHA-256 freeze lock before final evaluation;
-- SQLite/JSONL experiment memory for reproducible provenance and cross-task recipe reuse.
+For CUDA-enabled XGBoost, create the GPU environment from a GPU node whose driver is compatible with the installed CUDA runtime:
 
-See [`docs/v2_architecture.md`](docs/v2_architecture.md) for the protocol and component boundaries.
+```bash
+conda env create -f environment-gpu.yml
+conda activate admet-agent-gpu
+```
 
-## Exact score reproduction
+The TDC datasets are downloaded by PyTDC on first use and cached under the directory passed to `--data-dir`.
 
-The reported scores do not require an OpenAI API key or any other external API. Install the exact finalization environment and run the three frozen finalists:
+## Basic commands
+
+List the available benchmark names:
+
+```bash
+admet-agent list
+```
+
+List the registered molecular representations, models, and allowed hyperparameters:
+
+```bash
+admet-agent tools
+```
+
+Validate an experiment specification without training it:
+
+```bash
+admet-agent validate-spec examples/experiment.json
+```
+
+All commands also expose their complete argument list through `--help`:
+
+```bash
+admet-agent search --help
+admet-agent finalize --help
+```
+
+## Run a search
+
+The default rule-based search does not require an API key:
+
+```bash
+admet-agent search \
+  --task AMES \
+  --brain rules \
+  --seed 1 \
+  --rounds 2 \
+  --validation-seeds 1,2,3,4,5 \
+  --robust-top-k 3 \
+  --device cpu \
+  --workers 8 \
+  --data-dir data \
+  --run-dir runs/ames-search
+```
+
+Important search arguments:
+
+| Argument | Meaning |
+|---|---|
+| `--task NAME` | Select one benchmark. Repeat the argument to search several benchmarks. |
+| `--all` | Search every registered benchmark instead of using `--task`. |
+| `--seed N` | Seed used for the initial search round. |
+| `--rounds N` | Number of propose, evaluate, and refine rounds. |
+| `--validation-seeds LIST` | Comma-separated seeds used to check the strongest candidates for stability. |
+| `--robust-top-k N` | Number of candidates promoted to multi-seed validation. |
+| `--no-ensemble` | Disable validation-selected prediction blending. |
+| `--brain rules\|openai\|hybrid` | Choose the candidate planner. `rules` is local and is the default. |
+| `--device auto\|cpu\|cuda` | Select the training device. |
+| `--workers N` | Set the number of parallel CPU workers passed to supported models. |
+| `--data-dir PATH` | Set the PyTDC data and feature-cache directory. |
+| `--run-dir PATH` | Set the directory for experiment history and generated artifacts. |
+
+To search several benchmarks in one invocation, repeat `--task`:
+
+```bash
+admet-agent search \
+  --task AMES \
+  --task PPBR_AZ \
+  --validation-seeds 1,2,3 \
+  --run-dir runs/multi-search
+```
+
+When search succeeds, the selected configuration for each benchmark is written to:
+
+```text
+<run-dir>/tasks/<task>/finalist_seed_<seed>.json
+```
+
+That JSON file is already in the task-to-configuration mapping format required by `finalize`.
+
+## Finalize a selected configuration
+
+Finalization requires at least five unique seeds. Use a new `--run-dir` whenever the finalist changes:
+
+```bash
+admet-agent finalize \
+  --task AMES \
+  --seeds 1,2,3,4,5 \
+  --finalists runs/ames-search/tasks/AMES/finalist_seed_1.json \
+  --device cpu \
+  --workers 8 \
+  --data-dir data \
+  --run-dir runs/ames-final
+```
+
+For multiple benchmarks, pass a single JSON file containing one entry per benchmark and repeat `--task`:
+
+```bash
+admet-agent finalize \
+  --task AMES \
+  --task PPBR_AZ \
+  --seeds 1,2,3,4,5 \
+  --finalists results/top1_finalists.json \
+  --run-dir runs/multi-final
+```
+
+The finalization output is:
+
+```text
+<run-dir>/
+├── environment.json
+├── memory.jsonl
+├── experiments.sqlite
+└── final/
+    ├── freeze.json
+    ├── results.json
+    ├── predictions_seed_1.npz
+    ├── predictions_seed_2.npz
+    ├── predictions_seed_3.npz
+    ├── predictions_seed_4.npz
+    └── predictions_seed_5.npz
+```
+
+- `freeze.json` contains the exact finalist mapping and its SHA-256 hash.
+- `results.json` contains the seeds, TDC metrics, finalist configuration, hash, and per-run audit records.
+- `predictions_seed_*.npz` contains the test predictions produced by each independent seed.
+- `environment.json` records Python, platform, device, worker, and GPU information.
+
+## Optional model planner
+
+The local `rules` planner is sufficient to run the complete workflow. An OpenAI-compatible planner can optionally propose candidates during `search`; it is never used by `finalize`.
+
+Create the credential file outside the repository:
+
+```bash
+mkdir -p ~/.config/admet-agent
+chmod 700 ~/.config/admet-agent
+```
+
+Save the following as `~/.config/admet-agent/openai.env` and restrict its permissions with `chmod 600 ~/.config/admet-agent/openai.env`:
+
+```dotenv
+OPENAI_API_KEY=your-key
+# Optional for an OpenAI-compatible endpoint:
+# OPENAI_BASE_URL=https://example.com/v1
+```
+
+Run either the API planner alone or the hybrid planner:
+
+```bash
+admet-agent search \
+  --task AMES \
+  --brain hybrid \
+  --model gpt-5.6-sol \
+  --api-config ~/.config/admet-agent/openai.env \
+  --run-dir runs/ames-hybrid
+```
+
+Only task profiles, registered tool definitions, and validation history are sent to the planner. Credentials are not copied into the run directory. Request identifiers and token counts are recorded in `<run-dir>/api_usage.jsonl`.
+
+## Reproduce the frozen examples
+
+For the closest dependency match to the checked-in frozen configurations, use the pinned reproduction requirements:
 
 ```bash
 python -m venv .venv
@@ -43,68 +217,27 @@ python -m pip install -e . --no-deps
 DEVICE=cuda WORKERS=8 ./scripts/reproduce_top1.sh
 ```
 
-This runs seeds 1-5 separately for each endpoint, saves per-seed predictions, calls TDC's official `evaluate_many`, and verifies the submitted scores and task-specific SHA-256 freeze hashes. A CUDA-capable GPU is required to match the submitted AMES XGBoost configuration; `DEVICE=cpu` is available for portability.
+The script runs each frozen configuration with seeds 1 through 5, saves the predictions, evaluates them through TDC, and verifies both the recorded metrics and the freeze hashes. `DEVICE=cpu` can be used for a portable run; CUDA is needed to match configurations that use GPU XGBoost.
 
-## Development installation
-
-Python 3.10-3.12 is supported.
-
-```bash
-conda env create -f environment-cpu.yml
-conda activate admet-agent
-pip install -e '.[ranking,dev]'
-```
-
-For GPU-capable XGBoost outside the exact reproduction environment, use `environment-gpu.yml` and install the `gpu` extra as appropriate for the CUDA environment.
-
-## Usage
-
-List the canonical TDC endpoints and registered tools:
-
-```bash
-admet-agent list
-admet-agent tools
-```
-
-Run validation-only search:
-
-```bash
-admet-agent search \
-  --task AMES \
-  --rounds 2 \
-  --validation-seeds 1,2,3,4,5 \
-  --robust-top-k 3 \
-  --run-dir runs/ames-search
-```
-
-Evaluate a frozen finalist under the five-run TDC protocol:
-
-```bash
-admet-agent finalize \
-  --task AMES \
-  --seeds 1,2,3,4,5 \
-  --finalists results/top1_finalists.json \
-  --run-dir runs/ames-final
-```
-
-The TDC data are downloaded through PyTDC and are not included in this repository.
-
-## Reproducibility and test policy
-
-Search code can access only TDC `train_val` data and validation metrics. Finalization requires at least five unique seeds and a serialized finalist mapping. The finalist mapping is hashed before test evaluation, and the same hash is recorded for every final run. Tests cover task metadata, experiment contracts, test-access guards, finalist freezing, robust selection, and ensemble behavior.
-
-The optional language-model planner only proposes bounded validation experiments. It is not used during frozen finalist training or test evaluation, it never receives test labels or test metrics, and it is not required to reproduce the submitted results. API credentials are intentionally excluded from the repository; users who repeat LLM-guided search must provide their own credentials. API-free rule-based search is also supported.
-
-Run the checks with:
+## Tests
 
 ```bash
 python -m pytest -q
 ```
 
+The tests cover experiment validation, task metadata, test-access guards, multi-seed selection, ensemble behavior, finalist freezing, and reproducibility artifacts.
+
+## More documentation
+
+- [Architecture and protocol](docs/v2_architecture.md)
+- [Technical report](MANUSCRIPT.md)
+- [Optional planner contract](docs/gpt56_integration.md)
+- [TDC submission notes](docs/tdc_submission.md)
+- [Example finalist mapping](examples/finalists.example.json)
+
 ## Contact
 
-- Yilin Wang
-- Valhalla Technology
+Yilin Wang, Valhalla Technology
 
 ## License
 
