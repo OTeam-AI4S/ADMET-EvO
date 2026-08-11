@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use ADMET-EvO, please cite this software and the TDC benchmark."
+title: "ADMET-EvO: An Evolutionary Research Agent for Protocol-Safe ADMET Model Discovery"
+type: software
+version: 0.2.1
+date-released: 2026-08-11
+authors:
+  - family-names: Wang
+    given-names: Yilin
+    affiliation: Valhalla Technology
+repository-code: "https://github.com/YilinWang33/ADMET-EvO"
+url: "https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.md"
+license: MIT

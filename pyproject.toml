@@ -5,7 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "admet-agent"
 version = "0.2.1"
-description = "Self-evolving, protocol-safe research agent for TDC ADMET leaderboards"
+description = "ADMET-EvO: an evolutionary, protocol-safe research agent for TDC ADMET leaderboards"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Yilin Wang" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
   "PyTDC>=0.4.1",
@@ -33,6 +36,11 @@ dev = ["pytest>=8", "ruff>=0.5"]
 
 [project.scripts]
 admet-agent = "admet_agent.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/YilinWang33/ADMET-EvO"
+Documentation = "https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.md"
+Repository = "https://github.com/YilinWang33/ADMET-EvO"
 
 [tool.setuptools.packages.find]
 include = ["admet_agent*"]

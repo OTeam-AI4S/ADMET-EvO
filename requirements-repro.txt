@@ -1,0 +1,11 @@
+# Exact environment used for the reported five-seed finalization runs.
+# Install the project itself with: pip install -e . --no-deps
+PyTDC==1.1.15
+rdkit==2026.3.5
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.5
+scikit-learn==1.9.0
+joblib==1.5.3
+xgboost==3.2.0
+lightgbm==4.7.0

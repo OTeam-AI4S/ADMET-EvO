@@ -14,7 +14,7 @@ The first public submission covers the three endpoints for which ADMET-EvO v0.2.
 | PPBR_AZ | MAE, lower is better | 7.302 +/- 0.042 | 5 | 1 |
 | Solubility_AqSolDB | MAE, lower is better | 0.739 +/- 0.002 | 5 | 1 |
 
-These are test-set results from five independent TDC runs using seeds 1, 2, 3, 4, and 5. The finalist configuration was fixed before test evaluation. Machine-readable scores and finalist recipes are in [`results/`](results/), and the submission-ready description is in [`docs/tdc_submission.md`](docs/tdc_submission.md).
+These are test-set results from five independent TDC runs using seeds 1, 2, 3, 4, and 5. The finalist configuration was fixed before test evaluation. The full non-peer-reviewed technical report is available in [`MANUSCRIPT.md`](MANUSCRIPT.md). Machine-readable scores and finalist recipes are in [`results/`](results/), and the submission-ready description is in [`docs/tdc_submission.md`](docs/tdc_submission.md).
 
 Leaderboard positions are estimates until the TDC maintainers accept and publish the submission.
 
@@ -30,7 +30,22 @@ ADMET-EvO uses a bounded model and molecular-representation registry:
 
 See [`docs/v2_architecture.md`](docs/v2_architecture.md) for the protocol and component boundaries.
 
-## Installation
+## Exact score reproduction
+
+The reported scores do not require an OpenAI API key or any other external API. Install the exact finalization environment and run the three frozen finalists:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements-repro.txt
+python -m pip install -e . --no-deps
+DEVICE=cuda WORKERS=8 ./scripts/reproduce_top1.sh
+```
+
+This runs seeds 1-5 separately for each endpoint, saves per-seed predictions, calls TDC's official `evaluate_many`, and verifies the submitted scores and task-specific SHA-256 freeze hashes. A CUDA-capable GPU is required to match the submitted AMES XGBoost configuration; `DEVICE=cpu` is available for portability.
+
+## Development installation
 
 Python 3.10-3.12 is supported.
 
@@ -40,7 +55,7 @@ conda activate admet-agent
 pip install -e '.[ranking,dev]'
 ```
 
-For GPU-capable XGBoost, use `environment-gpu.yml` and install the `gpu` extra as appropriate for the CUDA environment.
+For GPU-capable XGBoost outside the exact reproduction environment, use `environment-gpu.yml` and install the `gpu` extra as appropriate for the CUDA environment.
 
 ## Usage
 
@@ -78,6 +93,8 @@ The TDC data are downloaded through PyTDC and are not included in this repositor
 
 Search code can access only TDC `train_val` data and validation metrics. Finalization requires at least five unique seeds and a serialized finalist mapping. The finalist mapping is hashed before test evaluation, and the same hash is recorded for every final run. Tests cover task metadata, experiment contracts, test-access guards, finalist freezing, robust selection, and ensemble behavior.
 
+The optional language-model planner only proposes bounded validation experiments. It is not used during frozen finalist training or test evaluation, it never receives test labels or test metrics, and it is not required to reproduce the submitted results. API credentials are intentionally excluded from the repository; users who repeat LLM-guided search must provide their own credentials. API-free rule-based search is also supported.
+
 Run the checks with:
 
 ```bash
@@ -86,5 +103,9 @@ python -m pytest -q
 
 ## Contact
 
-Yilin Wang
-Valhalla Technology
+- Yilin Wang
+- Valhalla Technology
+
+## License
+
+ADMET-EvO is released under the [MIT License](LICENSE).

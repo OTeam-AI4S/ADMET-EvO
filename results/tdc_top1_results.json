@@ -8,28 +8,36 @@
     "split": "TDC default scaffold split",
     "seeds": [1, 2, 3, 4, 5],
     "selection": "validation only",
-    "test_policy": "finalist serialized and SHA-256 locked before test evaluation"
+    "test_policy": "finalist serialized and SHA-256 locked before test evaluation",
+    "tdc_data_sha256": "bd0005246cb6f1672333c28ad202112a8bf071ab65d847848715030308faf1f1",
+    "external_api_required_for_finalization": false
   },
   "results": {
     "AMES": {
+      "dataset_key": "ames",
       "metric": "AUROC",
       "direction": "maximize",
       "mean": 0.874,
       "std": 0.001,
+      "model_size_trees": 1000,
       "freeze_sha256": "15882461be0977edbdc4a32c36b3bcbbee6e659e6b5ab25bd1f044ea13e4e5b0"
     },
     "PPBR_AZ": {
+      "dataset_key": "ppbr_az",
       "metric": "MAE",
       "direction": "minimize",
       "mean": 7.302,
       "std": 0.042,
+      "model_size_trees": 2000,
       "freeze_sha256": "0f9e2cfac44f5321b80e5cd3c010d23dfcf74ba05cf24c1b9c5d8c9c454029e0"
     },
     "Solubility_AqSolDB": {
+      "dataset_key": "solubility_aqsoldb",
       "metric": "MAE",
       "direction": "minimize",
       "mean": 0.739,
       "std": 0.002,
+      "model_size_trees": 1400,
       "freeze_sha256": "a8c5944296c3616d0a1ed9d341ffab715ced71f4cc0c7574e65310d943113a86"
     }
   }

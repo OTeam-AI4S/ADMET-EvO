@@ -6,6 +6,7 @@
 - Contact: Yilin Wang
 - Affiliation: Valhalla Technology
 - Code: https://github.com/YilinWang33/ADMET-EvO
+- Technical report: https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.md
 
 ## Short method description
 
@@ -27,7 +28,9 @@ ADMET-EvO is an evolutionary research agent for protocol-safe ADMET model discov
 
 ## Parameters and hardware
 
-The submission consists of tree ensembles rather than a single neural network, so a neural-network parameter count is not applicable. Individual estimator counts and hyperparameters are recorded in `results/top1_finalists.json`. Experiments ran on Linux with Python 3.11, eight workers, and access to one NVIDIA A100-SXM4 80 GB GPU. Scikit-learn tree components execute on CPU; supported gradient-boosting components can use the configured accelerator.
+The submission consists of tree ensembles rather than a single neural network, so a dense neural-network parameter count is not applicable. AMES contains 1,000 fitted trees, PPBR_AZ contains 2,000, and Solubility_AqSolDB contains 1,400; the median submitted model size is 1,400 trees. Individual estimator counts and hyperparameters are recorded in `results/top1_finalists.json`.
+
+Experiments ran as Slurm jobs on Linux with Python 3.11, eight CPU workers, 64 GB host memory, and one allocated NVIDIA A100-SXM4 80 GB GPU. AMES used CPU Extra Trees and CUDA XGBoost. PPBR_AZ and Solubility_AqSolDB used CPU LightGBM; the allocated GPU was not used by those LightGBM components.
 
 ## Evaluation and reproducibility
 
@@ -37,3 +40,9 @@ The submission consists of tree ensembles rather than a single neural network, s
 - Validation-only candidate selection and ensemble weighting.
 - Frozen finalist configuration before test evaluation.
 - Per-endpoint SHA-256 freeze hashes included in the machine-readable results.
+- Exact package versions in `requirements-repro.txt`.
+- One-command reproduction and verification in `scripts/reproduce_top1.sh`.
+
+## API requirements
+
+No external API is required to reproduce the submitted results. The optional language-model planner is limited to proposing experiments during validation-only search and never receives test labels or test metrics. Frozen finalist training, prediction, and TDC evaluation run locally without API calls. Users who wish to repeat optional LLM-guided search must provide their own credentials; API keys are never included in this repository.
