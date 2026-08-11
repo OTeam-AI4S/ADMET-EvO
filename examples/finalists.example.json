@@ -1,0 +1,15 @@
+{
+  "Caco2_Wang": {
+    "task": "Caco2_Wang",
+    "seed": 1,
+    "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+    "model": "random_forest",
+    "imbalance": "none",
+    "hyperparameters": {},
+    "budget": {
+      "max_candidates": 3,
+      "max_minutes": 60
+    },
+    "hypothesis": "frozen validation winner"
+  }
+}

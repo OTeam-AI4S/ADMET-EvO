@@ -1,0 +1,16 @@
+{
+  "task": "Caco2_Wang",
+  "seed": 1,
+  "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+  "model": "catboost",
+  "imbalance": "none",
+  "hyperparameters": {
+    "depth": 8,
+    "learning_rate": 0.05
+  },
+  "budget": {
+    "max_candidates": 3,
+    "max_minutes": 60
+  },
+  "hypothesis": "Rich 2D representations improve scaffold generalization"
+}

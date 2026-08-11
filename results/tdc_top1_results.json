@@ -1,0 +1,36 @@
+{
+  "model": "ADMET-EvO",
+  "version": "0.2.1",
+  "contact": "Yilin Wang",
+  "affiliation": "Valhalla Technology",
+  "protocol": {
+    "benchmark_group": "ADMET_Group",
+    "split": "TDC default scaffold split",
+    "seeds": [1, 2, 3, 4, 5],
+    "selection": "validation only",
+    "test_policy": "finalist serialized and SHA-256 locked before test evaluation"
+  },
+  "results": {
+    "AMES": {
+      "metric": "AUROC",
+      "direction": "maximize",
+      "mean": 0.874,
+      "std": 0.001,
+      "freeze_sha256": "15882461be0977edbdc4a32c36b3bcbbee6e659e6b5ab25bd1f044ea13e4e5b0"
+    },
+    "PPBR_AZ": {
+      "metric": "MAE",
+      "direction": "minimize",
+      "mean": 7.302,
+      "std": 0.042,
+      "freeze_sha256": "0f9e2cfac44f5321b80e5cd3c010d23dfcf74ba05cf24c1b9c5d8c9c454029e0"
+    },
+    "Solubility_AqSolDB": {
+      "metric": "MAE",
+      "direction": "minimize",
+      "mean": 0.739,
+      "std": 0.002,
+      "freeze_sha256": "a8c5944296c3616d0a1ed9d341ffab715ced71f4cc0c7574e65310d943113a86"
+    }
+  }
+}

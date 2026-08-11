@@ -1,0 +1,10 @@
+# Create this environment from an allocated GPU node after matching the site's CUDA driver.
++# Do not install the CPU "ranking" extra here because xgboost-cpu and xgboost are alternatives.
+name: admet-agent-gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -e .[strong,search,gpu,openai,dev]

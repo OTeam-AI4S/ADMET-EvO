@@ -1,0 +1,127 @@
+{
+  "AMES": {
+    "task": "AMES",
+    "kind": "ensemble",
+    "hypothesis": "validation-selected blend of complementary candidates",
+    "weights": [0.75, 0.25],
+    "members": [
+      {
+        "task": "AMES",
+        "seed": 0,
+        "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+        "model": "extra_trees",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {},
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "strong multi-view baseline with extra_trees"
+      },
+      {
+        "task": "AMES",
+        "seed": 0,
+        "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+        "model": "xgboost",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {},
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "strong multi-view baseline with xgboost"
+      }
+    ]
+  },
+  "PPBR_AZ": {
+    "task": "PPBR_AZ",
+    "kind": "ensemble",
+    "hypothesis": "validation-selected blend of complementary candidates",
+    "weights": [0.5, 0.5],
+    "members": [
+      {
+        "task": "PPBR_AZ",
+        "seed": 0,
+        "representations": ["morgan_count", "atom_pair", "maccs", "rdkit2d"],
+        "model": "lightgbm",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {
+          "colsample_bytree": 0.8,
+          "learning_rate": 0.025,
+          "max_depth": 5,
+          "min_child_samples": 20,
+          "n_estimators": 1000,
+          "num_leaves": 15,
+          "reg_alpha": 0.1,
+          "reg_lambda": 5.0,
+          "subsample": 0.8
+        },
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "test count and topological features complementary to binary ECFP"
+      },
+      {
+        "task": "PPBR_AZ",
+        "seed": 0,
+        "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+        "model": "lightgbm",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {
+          "colsample_bytree": 0.33372257189899684,
+          "learning_rate": 0.02228869142958843,
+          "max_depth": 7,
+          "min_child_samples": 29,
+          "n_estimators": 1000,
+          "num_leaves": 49,
+          "reg_alpha": 0.06448659499165932,
+          "reg_lambda": 0.6869391590681246,
+          "subsample": 0.9576353844058
+        },
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "Optuna TPE refinement informed by completed validation trials"
+      }
+    ]
+  },
+  "Solubility_AqSolDB": {
+    "task": "Solubility_AqSolDB",
+    "kind": "ensemble",
+    "hypothesis": "validation-selected blend of complementary candidates",
+    "weights": [0.75, 0.25],
+    "members": [
+      {
+        "task": "Solubility_AqSolDB",
+        "seed": 0,
+        "representations": ["morgan", "avalon", "erg", "rdkit2d"],
+        "model": "lightgbm",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {},
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "strong multi-view baseline with lightgbm"
+      },
+      {
+        "task": "Solubility_AqSolDB",
+        "seed": 0,
+        "representations": ["morgan_r3", "avalon", "erg", "rdkit2d"],
+        "model": "lightgbm",
+        "imbalance": "none",
+        "device": "cuda",
+        "n_jobs": 8,
+        "hyperparameters": {
+          "colsample_bytree": 0.7,
+          "learning_rate": 0.035,
+          "max_depth": 7,
+          "min_child_samples": 12,
+          "n_estimators": 800,
+          "num_leaves": 31,
+          "reg_lambda": 3.0,
+          "subsample": 0.9
+        },
+        "budget": {"max_candidates": 6, "max_minutes": 60},
+        "hypothesis": "increase circular radius while retaining transferable descriptors"
+      }
+    ]
+  }
+}
