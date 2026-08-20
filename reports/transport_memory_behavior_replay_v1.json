@@ -13,7 +13,7 @@
     "feature-domain-shift": true,
     "model-estimator-family": true
   },
-  "ranking_changed_tasks": 14,
+  "ranking_changed_tasks": 2,
   "rows": [
     {
       "no_memory_action": "feature-domain-shift",
@@ -44,7 +44,7 @@
     },
     {
       "no_memory_action": "model-imbalance-aware",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.0,
       "selection_changed": false,
       "task": "CYP2C9_Substrate_CarbonMangels",
@@ -53,7 +53,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.02905572516778765,
       "selection_changed": false,
       "task": "CYP2C9_Veith",
@@ -62,7 +62,7 @@
     },
     {
       "no_memory_action": "model-imbalance-aware",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.0,
       "selection_changed": false,
       "task": "CYP2D6_Substrate_CarbonMangels",
@@ -71,7 +71,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.029748812449279405,
       "selection_changed": false,
       "task": "CYP2D6_Veith",
@@ -80,7 +80,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.018500176103764893,
       "selection_changed": false,
       "task": "CYP3A4_Substrate_CarbonMangels",
@@ -89,7 +89,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.03170564581123925,
       "selection_changed": false,
       "task": "CYP3A4_Veith",
@@ -116,7 +116,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.02141968732881172,
       "selection_changed": false,
       "task": "Clearance_Microsome_AZ",
@@ -125,7 +125,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.018665564562411086,
       "selection_changed": false,
       "task": "DILI",
@@ -152,7 +152,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.03247309213876226,
       "selection_changed": false,
       "task": "LD50_Zhu",
@@ -161,7 +161,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.02720901812441978,
       "selection_changed": false,
       "task": "Lipophilicity_AstraZeneca",
@@ -170,7 +170,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.029049857001130053,
       "selection_changed": false,
       "task": "PPBR_AZ",
@@ -188,7 +188,7 @@
     },
     {
       "no_memory_action": "feature-domain-shift",
-      "ranking_changed": true,
+      "ranking_changed": false,
       "selected_utility_delta": 0.03135076701756623,
       "selection_changed": false,
       "task": "Solubility_AqSolDB",

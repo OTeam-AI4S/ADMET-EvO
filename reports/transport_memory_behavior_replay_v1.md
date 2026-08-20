@@ -4,7 +4,7 @@ Status: **NO BEHAVIORAL ADVANTAGE DEMONSTRATED**
 
 - Historical hardness cards replayed: 22/22
 - Selected actions changed: 0/22
-- Full action rankings changed: 14/22
+- Full action rankings changed: 2/22
 - Selected utilities changed: 17/22
 - Test loaded: false
 

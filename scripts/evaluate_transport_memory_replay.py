@@ -34,6 +34,12 @@ def main() -> None:
     memory = ResearchOutcomeMemory(
         root / "runs/v5-transport-grid/transport_action_outcomes.jsonl"
     )
+    confirmation_path = root / "reports/post_memory_confirmation_v1.json"
+    confirmation = (
+        json.loads(confirmation_path.read_text(encoding="utf-8"))
+        if confirmation_path.exists()
+        else None
+    )
     planner = EffectFirstResearchPlanner()
     rows = []
     planner_actions = set()
@@ -79,6 +85,12 @@ def main() -> None:
         ),
         "ranking_changed_tasks": sum(row["ranking_changed"] for row in rows),
         "behavioral_memory_advantage_demonstrated": False,
+        "independent_confirmation_completed": confirmation is not None,
+        "independent_negative_gate_confirmation_passed": (
+            confirmation.get("pruning_success_gate_passed")
+            if confirmation is not None
+            else None
+        ),
         "planner_action_coverage": {
             action_id: action_id in planner_actions
             for action_id in (
@@ -92,11 +104,11 @@ def main() -> None:
             "global_prior_has_no_hardness_by_action_interaction",
             "eligible_priors_do_not_change_the_top_selected_action",
             "data_quality_filter_prior_is_neutral_after_all_inconclusive_outcomes",
-            "no_independent_post_memory_endpoint_cohort_has_been_executed",
+            "independent_confirmation_refuted_global_negative_pruning",
         ],
         "next_gate": (
-            "Preregister predicted action choices on an independent endpoint cohort, then "
-            "execute matched actions before comparing memory versus no-memory regret."
+            "Require a new task-type/hardness-stratified cohort with at least five "
+            "independent endpoints per destructive gate; keep global pruning disabled."
         ),
         "rows": rows,
     }
@@ -120,8 +132,9 @@ def main() -> None:
         "the top action; the data prior correctly stays neutral.",
         "",
         "Therefore the framework may claim protocol-bound cross-task evidence retention,",
-        "not a memory-driven behavioral or predictive advantage. The next valid upgrade is",
-        "an independent post-memory endpoint cohort with choices frozen before execution.",
+        "not a memory-driven behavioral or predictive advantage. The independent cohort",
+        "has now refuted global negative pruning; the next valid upgrade requires a new",
+        "task-type/hardness-stratified cohort while destructive pruning remains disabled.",
         "",
     ]
     (root / "reports/transport_memory_behavior_replay_v1.md").write_text(
