@@ -1,0 +1,24 @@
+{
+  "duplicate_identifiers": {},
+  "entry_count": 15,
+  "manuscript_citation_count": 15,
+  "missing_persistent_identifiers": [],
+  "missing_required_fields": {},
+  "missing_required_keys": [],
+  "passed": true,
+  "required_entry_count": 15,
+  "required_keys_present": true,
+  "sources": {
+    "bibliography": {
+      "path": "paper/references.bib",
+      "sha256": "7eabb3781e1823440cc88c7d37bb604821f7c172b9013a811abf1f3bc17f4964"
+    },
+    "manuscript": {
+      "path": "MANUSCRIPT_V24.md",
+      "sha256": "c081425dc072c059cfa8a5ecee514fda798b31ac0f43e826bf0018e439f6430b"
+    }
+  },
+  "uncited_bibliography_entries": [],
+  "unresolved_manuscript_citations": [],
+  "version": "v2.7"
+}

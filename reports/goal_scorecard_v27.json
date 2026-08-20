@@ -1,0 +1,708 @@
+{
+  "freeze_sha256": "693db6936485d59791eacfd9005d18efca00056274c11c1cc80efd962058c84b",
+  "goal": {
+    "required_top10": 22,
+    "required_top5": 15,
+    "total_tasks": 22
+  },
+  "leaderboard_captured_at": "2026-08-17T13:50:54.441113+00:00",
+  "official_results_complete": true,
+  "promotion_candidates": [
+    "Pgp_Broccatelli",
+    "Clearance_Microsome_AZ",
+    "CYP3A4_Substrate_CarbonMangels"
+  ],
+  "provenance": {
+    "AMES": {
+      "freeze_sha256": "15882461be0977edbdc4a32c36b3bcbbee6e659e6b5ab25bd1f044ea13e4e5b0",
+      "source": "runs/leaderboard-v21/tasks/AMES/final/results.json",
+      "source_version": "v2.1"
+    },
+    "BBB_Martins": {
+      "freeze_sha256": "6c3b120f05a453a88054e2e856e38e4f77a16c1b01f675ab21ce4e6a966cfddc",
+      "source": "runs/leaderboard-v21/tasks/BBB_Martins/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Bioavailability_Ma": {
+      "checkpoint_sha256": "6d0f8febad73e437772ebffc2ac32253d79f86ee138cfc233590ae50fb1cfeb9",
+      "freeze": "runs/v27-official/Bioavailability_Ma/final/freeze.json",
+      "freeze_sha256": "fac41647270241d18cfed8f83a8983c5c653b63a7b2a6bff0c598684c4e63259",
+      "prediction_hashes": {
+        "1": "4aa7d5178d084e06081526f5a8fe053c4e852ead3ade7ea4b91fd9c229d45d95",
+        "2": "3b5260091eb6aea1d49b65df3a6000e3760fcc4539f38fb2d2fc68b0b36e512f",
+        "3": "18fc02238703b75cda1dd14898dafb07f0a2186f232a38ea95bf5c4c346ad100",
+        "4": "dee1776d0bf961cbd12163ff5ce1c2cee4b5e149310bcb42f487c4a7ea67cae4",
+        "5": "4ea1f512ef68460fe730350bdcd3ec8b2dece4a6f60ab7cf571e42457ff24755"
+      },
+      "result_file_sha256": "30455865edd344249bc3db6aedaca6314214a27debcf5181844ec41bf849a7d5",
+      "seed_records": {
+        "1": {
+          "execution_audit": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_1/execution_audit.json",
+          "expert_predictions_sha256": "60f8bc1c2fc573264114217fe9cfc2195aecd3f075c86342283762edc4c827b9",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "ed15c855b429d537c9f9705d4c9fe1c2de08693edb92ca01473ac1d3118d9e41",
+          "input_sha256": "bbf9f72b218a5f7ec732c831d67a656661327bc38ab2f92c2638b580fa115e67",
+          "runtime_report": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_1/maplight_gnn/runtime_report.json"
+        },
+        "2": {
+          "execution_audit": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_2/execution_audit.json",
+          "expert_predictions_sha256": "04acb517ae02bef299ed9cdb524e1fa5740750ac2c822714b29389d737ace25f",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "fe38692080543151f058f4aa2e00b1b76389205fb6659732fb9775be6e0021ca",
+          "input_sha256": "04b0cc956694ef024184b546298a0d06387421de7fd02e54096c9866a4cb601c",
+          "runtime_report": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_2/maplight_gnn/runtime_report.json"
+        },
+        "3": {
+          "execution_audit": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_3/execution_audit.json",
+          "expert_predictions_sha256": "b6bac1252694be4d667502cdada35656d6737235906bb44808757c6a0f88daa3",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "20fa30d964708f7955639bcdb3f68c53a0e0e3fd1d78e477dd8ad5081f94ca9d",
+          "input_sha256": "c00265fdc921d067121e899cb5e919c6c46e5cfdae7e6cb8d04d0a7ea6fef679",
+          "runtime_report": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_3/maplight_gnn/runtime_report.json"
+        },
+        "4": {
+          "execution_audit": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_4/execution_audit.json",
+          "expert_predictions_sha256": "2934c48ecbd3b25159056a793ad81d1f05060af6caf98cefcedd24983df2abd0",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "8a377dd8ea4910bba52746385291c5851540dab538f9a60a55fcaf1d2900d577",
+          "input_sha256": "e5ffa0bdecca3a53240e83ae853f367c8a74f68662b99b37c7590f06ae678b57",
+          "runtime_report": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_4/maplight_gnn/runtime_report.json"
+        },
+        "5": {
+          "execution_audit": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_5/execution_audit.json",
+          "expert_predictions_sha256": "8a08b7bf0bc30717dc7a40cad665ebf422f28d96e31d1899fcb716b809d91287",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "be8271cb317279cecafdc49a50fdf502083d66ac99542eedfd2b5426ffbd9cc9",
+          "input_sha256": "6efe6bf79ff40aeb1763acd8d77a6f2dc57c8b31db29d411bfd246726fa477ab",
+          "runtime_report": "runs/v27-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_5/maplight_gnn/runtime_report.json"
+        }
+      },
+      "source": "runs/v27-official/Bioavailability_Ma/final/results.json",
+      "source_version": "v2.7",
+      "test_labels_passed_to_executor": false,
+      "upstream_sha256": "74fbd1c98d9afa7fa4bda1add21efd429e20dee0a4b0fb8fa7e9b3825c21fe13"
+    },
+    "CYP2C9_Substrate_CarbonMangels": {
+      "checkpoint_sha256": "6d0f8febad73e437772ebffc2ac32253d79f86ee138cfc233590ae50fb1cfeb9",
+      "freeze": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/freeze.json",
+      "freeze_sha256": "27a896c4ce12ecc2f67395e11455717532a9aee2ae4f924ba71aecf2bae14d40",
+      "prediction_hashes": {
+        "1": "89207ab49dc1008e872b093397d808d5ac451182869716e4518062bbcc7302b5",
+        "2": "e02eed862d9a755b48f7ba90f702e4eee73f8edb76d136a15a2e52aa303208fd",
+        "3": "e3b321b531e435893b2100c25d5646c77a59d261340f658bbdefbba71cae6c98",
+        "4": "08ed18094c42bb1e68f23b3e94e0d900d542eab3d886575e16a2b92ae96a45eb",
+        "5": "23bd222f6b801bd5f43a90d2f3e8f20c310faec1c20d092f58e7c0a43d490af8"
+      },
+      "result_file_sha256": "d3a0c1cc0a8ebd0b7e1a39e14ab16e67e90a2de7c6655ffd4d79287501178e5d",
+      "seed_records": {
+        "1": {
+          "execution_audit": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_1/execution_audit.json",
+          "expert_predictions_sha256": "d5837f1f6e4c256cd88dfab010ff310e67599831c9538b0b027e4931447b8559",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "246e61b8cc1eefd321b221339dd76367d61af57ba4104ff2970fb1ee0702d6b1",
+          "input_sha256": "22795c992908d265b4c01e094a8eaa64981473c47a03000d37d39d9b8906afe2",
+          "runtime_report": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_1/maplight_gnn/runtime_report.json"
+        },
+        "2": {
+          "execution_audit": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_2/execution_audit.json",
+          "expert_predictions_sha256": "2eb594275837b98a8cd22e19fd73646718443df782c30cc1f0876b3a34334683",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "ac414871a5e9a89947ab30cbd6ef27b5366e6d292c9a9a15d23a348e163aaf98",
+          "input_sha256": "4138339d6241041e7350888c53894818770f6a40bd82afc0a99bf4fcb4192f30",
+          "runtime_report": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_2/maplight_gnn/runtime_report.json"
+        },
+        "3": {
+          "execution_audit": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_3/execution_audit.json",
+          "expert_predictions_sha256": "004f065c94e904a76c61d9605fbb95560416515821def872c37d654deaa69e1f",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "805872e94097721c5bfe219ae6e2a82b8aa3dae21903b396a0b40676ccb860a4",
+          "input_sha256": "b16851e652e83359233613512463a9fa3d10f4eaff6c594afc961f67014c7203",
+          "runtime_report": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_3/maplight_gnn/runtime_report.json"
+        },
+        "4": {
+          "execution_audit": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_4/execution_audit.json",
+          "expert_predictions_sha256": "358213bc23fcd0a666e8873ce1c05812ccf65cba6e33fe50d0f62dcd1d182597",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "79a2f8a457b1c4d2f4fc4fafbfa382f7c1bf2e608cdea931d50ec7c875e783f8",
+          "input_sha256": "3b7c1616e9215a28634d6d97cc28f7eb03374b2c136194024a34023bba97a273",
+          "runtime_report": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_4/maplight_gnn/runtime_report.json"
+        },
+        "5": {
+          "execution_audit": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_5/execution_audit.json",
+          "expert_predictions_sha256": "c176541c6cf178a43e60b957f84de028858ab85d425b75c3bd337956a8042c96",
+          "feature_cache_hit": false,
+          "feature_manifest_sha256": "ce1e06bacca3700452d0fd9f100001dfe16efd71ab8a8ab064ad2b869c4103e8",
+          "input_sha256": "124595f8ee12682b6b5f2b0edccb55ded9a64250969cb8d7e1795f52b952b4e9",
+          "runtime_report": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/artifacts/CYP2C9_Substrate_CarbonMangels/seed_5/maplight_gnn/runtime_report.json"
+        }
+      },
+      "source": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.7",
+      "test_labels_passed_to_executor": false,
+      "upstream_sha256": "74fbd1c98d9afa7fa4bda1add21efd429e20dee0a4b0fb8fa7e9b3825c21fe13"
+    },
+    "CYP2C9_Veith": {
+      "freeze_sha256": "52240831a5650cdd9b51eab82c3c7cd991da20962fb005d11e7c200cca68d1c9",
+      "source": "runs/leaderboard-v21/tasks/CYP2C9_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2D6_Substrate_CarbonMangels": {
+      "freeze_sha256": "d2685ca3267d5c0113304e13dfe918167f1f309dcaaa6cb893a747c3bd239000",
+      "source": "runs/leaderboard-v21/tasks/CYP2D6_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2D6_Veith": {
+      "freeze_sha256": "3973e82486ac2afaf68c65c7ab47161ec43df6b54e7c74a027ca12c5387a7bcb",
+      "source": "runs/leaderboard-v21/tasks/CYP2D6_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP3A4_Substrate_CarbonMangels": {
+      "freeze_sha256": "e9887b29a44a9478f5d1769e6ae5b3c4ec582da08385cf57bb283adf8675b316",
+      "source": "runs/leaderboard-v21/tasks/CYP3A4_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP3A4_Veith": {
+      "freeze_sha256": "86b17e9023c30431ea085d426579109c934255a08c5014cdca39d39ca03543d0",
+      "source": "runs/leaderboard-v21/tasks/CYP3A4_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Caco2_Wang": {
+      "freeze_sha256": "9a2e4fc51a28b51be088dc027f8ceeee6e29636dc6c80a10350a1875e328e589",
+      "source": "runs/leaderboard-v21/tasks/Caco2_Wang/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Clearance_Hepatocyte_AZ": {
+      "freeze_sha256": "5eb44e79614ed10b107dbd1c94e786d06101f27566ec2f9fe70ffa1e54acbd34",
+      "source": "runs/leaderboard-v21/tasks/Clearance_Hepatocyte_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Clearance_Microsome_AZ": {
+      "freeze_sha256": "7436e3b0566e49ec79ba7fdbfc97c2c310ba42c5afb7b5b09a533fccfae5c8cb",
+      "source": "runs/leaderboard-v21/tasks/Clearance_Microsome_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "DILI": {
+      "freeze": "runs/v24-official/DILI/final/freeze.json",
+      "freeze_sha256": "a4b1bb3c1665a754f2eef185c893aacbc7a01930e33bb089d79a18f3ef45bd1a",
+      "source": "runs/v24-official/DILI/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "HIA_Hou": {
+      "freeze_sha256": "8453dab57b7b8e2f3bc65a64e395fe14ec2d94b0405b30dde5f9f0c6e5e04861",
+      "source": "runs/leaderboard-v21/tasks/HIA_Hou/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Half_Life_Obach": {
+      "freeze": "runs/v24-official/Half_Life_Obach/final/freeze.json",
+      "freeze_sha256": "caff75e428d6b47316b682017147891e49178f0e0699be9abbb14a993fb58d79",
+      "source": "runs/v24-official/Half_Life_Obach/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "LD50_Zhu": {
+      "freeze_sha256": "72327fbe34dfa0efe520079090356b942993ab6d8d437d3e8069ffb952202bee",
+      "source": "runs/leaderboard-v21/tasks/LD50_Zhu/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Lipophilicity_AstraZeneca": {
+      "freeze": "runs/v24-official/Lipophilicity_AstraZeneca/final/freeze.json",
+      "freeze_sha256": "2039ba592fc4f84d74b180a13c8dbb3d64326e5a038eb702ca2fbc040c2d1796",
+      "source": "runs/v24-official/Lipophilicity_AstraZeneca/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "PPBR_AZ": {
+      "freeze_sha256": "0f9e2cfac44f5321b80e5cd3c010d23dfcf74ba05cf24c1b9c5d8c9c454029e0",
+      "source": "runs/leaderboard-v21/tasks/PPBR_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Pgp_Broccatelli": {
+      "freeze_sha256": "49f845a42554a492a28bd1198af07763b761d0fde04428934da82e356be414f5",
+      "source": "runs/leaderboard-v21/tasks/Pgp_Broccatelli/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Solubility_AqSolDB": {
+      "freeze_sha256": "a8c5944296c3616d0a1ed9d341ffab715ced71f4cc0c7574e65310d943113a86",
+      "source": "runs/leaderboard-v21/tasks/Solubility_AqSolDB/final/results.json",
+      "source_version": "v2.1"
+    },
+    "VDss_Lombardo": {
+      "freeze_sha256": "dbfa072f5410d5bbbd93b42bd2a08b42e267c3589bcdeda5cf136193d7d0571a",
+      "source": "runs/leaderboard-v21/tasks/VDss_Lombardo/final/results.json",
+      "source_version": "v2.1"
+    },
+    "hERG": {
+      "freeze": "runs/v24-official/hERG/final/freeze.json",
+      "freeze_sha256": "9af0fb2101a6476036794fd6841133086a3a6f839ecd3e8572d3010ab72eb7a4",
+      "source": "runs/v24-official/hERG/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    }
+  },
+  "rank_statistics": {
+    "mean_rank": 4.545454545454546,
+    "median_rank": 4.0
+  },
+  "rescue_outcomes": {
+    "Bioavailability_Ma": {
+      "candidate_official": 0.731,
+      "candidate_official_std": 0.007,
+      "decision": "accept_improvement_below_top10",
+      "estimated_rank": 21,
+      "fresh_validation_mean": 0.7093311325036087,
+      "official_delta": 0.03400000000000003,
+      "previous_official": 0.697,
+      "remaining_top10_gap": 0.19100000000000006,
+      "retained_score": 0.731,
+      "selection_after_official_result": false,
+      "top10_threshold": 0.922,
+      "validation_to_official_delta": 0.021668867496391298
+    },
+    "CYP2C9_Substrate_CarbonMangels": {
+      "candidate_official": 0.434,
+      "candidate_official_std": 0.009,
+      "decision": "accept_top10_rescue",
+      "estimated_rank": 5,
+      "fresh_validation_mean": 0.43666828150238113,
+      "official_delta": 0.09399999999999997,
+      "previous_official": 0.34,
+      "remaining_top10_gap": 0.0,
+      "retained_score": 0.434,
+      "selection_after_official_result": false,
+      "top10_threshold": 0.392,
+      "validation_to_official_delta": -0.0026682815023811313
+    }
+  },
+  "rescue_top10": [
+    "Bioavailability_Ma"
+  ],
+  "source": "https://tdcommons.ai/benchmark/admet_group/01caco2/",
+  "status": {
+    "goal_met": false,
+    "top10": 21,
+    "top10_deficit": 1,
+    "top5": 18,
+    "top5_deficit": 0
+  },
+  "tasks": [
+    {
+      "direction": "maximize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(extra_trees+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.874,
+      "std": 0.001,
+      "task": "AMES",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.842,
+      "top5_threshold": 0.852
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 2,
+      "finalist": "ensemble(random_forest+random_forest)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.921,
+      "std": 0.002,
+      "task": "BBB_Martins",
+      "tie_worst_rank": 2,
+      "top10_threshold": 0.905,
+      "top5_threshold": 0.913
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 21,
+      "finalist": "recipe(maplight_gnn)",
+      "improvement_to_top10": 0.19100000000000006,
+      "improvement_to_top5": 0.19800000000000006,
+      "metric": "auroc",
+      "priority": "rescue_top10",
+      "score": 0.731,
+      "std": 0.007,
+      "task": "Bioavailability_Ma",
+      "tie_worst_rank": 21,
+      "top10_threshold": 0.922,
+      "top5_threshold": 0.929
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 5,
+      "finalist": "recipe(maplight_gnn)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.434,
+      "std": 0.009,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.392,
+      "top5_threshold": 0.433
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 5,
+      "finalist": "ensemble(lightgbm+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.799,
+      "std": 0.001,
+      "task": "CYP2C9_Veith",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.758,
+      "top5_threshold": 0.789
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.721,
+      "std": 0.004,
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.677,
+      "top5_threshold": 0.704
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.721,
+      "std": 0.001,
+      "task": "CYP2D6_Veith",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.649,
+      "top5_threshold": 0.719
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 9,
+      "finalist": "ensemble(svm_rbf+svm_rbf)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.017000000000000015,
+      "metric": "auroc",
+      "priority": "promote_top5",
+      "score": 0.633,
+      "std": 0.0,
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "tie_worst_rank": 10,
+      "top10_threshold": 0.63,
+      "top5_threshold": 0.65
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(xgboost+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.885,
+      "std": 0.001,
+      "task": "CYP3A4_Veith",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.862,
+      "top5_threshold": 0.881
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 4,
+      "finalist": "lightgbm",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.283,
+      "std": 0.007,
+      "task": "Caco2_Wang",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.326,
+      "top5_threshold": 0.287
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(xgboost+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.456,
+      "std": 0.022,
+      "task": "Clearance_Hepatocyte_AZ",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.43,
+      "top5_threshold": 0.446
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 8,
+      "finalist": "ensemble(xgboost+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.03400000000000003,
+      "metric": "spearman",
+      "priority": "promote_top5",
+      "score": 0.591,
+      "std": 0.007,
+      "task": "Clearance_Microsome_AZ",
+      "tie_worst_rank": 8,
+      "top10_threshold": 0.578,
+      "top5_threshold": 0.625
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "recipe(raw(2d_lightgbm@0.33+2d_extra_trees@0.33+finetuned_unimol2@0.33))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.92,
+      "std": 0.004,
+      "task": "DILI",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.887,
+      "top5_threshold": 0.917
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 2,
+      "finalist": "ensemble(extra_trees+extra_trees)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.99,
+      "std": 0.001,
+      "task": "HIA_Hou",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.975,
+      "top5_threshold": 0.986
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 1,
+      "finalist": "recipe(rank(finetuned_unimol2@0.33+fixed_rank_top3@0.33+rank_target_xgboost@0.33))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.59,
+      "std": 0.03,
+      "task": "Half_Life_Obach",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.372,
+      "top5_threshold": 0.544
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 5,
+      "finalist": "ensemble(random_forest+random_forest)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.591,
+      "std": 0.001,
+      "task": "LD50_Zhu",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.63,
+      "top5_threshold": 0.606
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "recipe(finetuned_unimol2)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.392,
+      "std": 0.006,
+      "task": "Lipophilicity_AstraZeneca",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.539,
+      "top5_threshold": 0.512
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 7.302,
+      "std": 0.042,
+      "task": "PPBR_AZ",
+      "tie_worst_rank": 1,
+      "top10_threshold": 8.68,
+      "top5_threshold": 7.788
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 8,
+      "finalist": "random_forest",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.017000000000000015,
+      "metric": "auroc",
+      "priority": "promote_top5",
+      "score": 0.912,
+      "std": 0.003,
+      "task": "Pgp_Broccatelli",
+      "tie_worst_rank": 8,
+      "top10_threshold": 0.895,
+      "top5_threshold": 0.929
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.739,
+      "std": 0.002,
+      "task": "Solubility_AqSolDB",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.829,
+      "top5_threshold": 0.789
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "extra_trees",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.673,
+      "std": 0.001,
+      "task": "VDss_Lombardo",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.497,
+      "top5_threshold": 0.609
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 5,
+      "finalist": "recipe(raw(2d_lightgbm@0.50+finetuned_unimol2@0.50))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.86,
+      "std": 0.009,
+      "task": "hERG",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.825,
+      "top5_threshold": 0.856
+    }
+  ],
+  "upgrade_tasks": [
+    "Bioavailability_Ma",
+    "CYP2C9_Substrate_CarbonMangels"
+  ]
+}

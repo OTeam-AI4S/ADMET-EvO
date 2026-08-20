@@ -1,0 +1,447 @@
+{
+  "analysis_role": "retrospective_accounting_of_recorded_validation_compute",
+  "comparability_warning": "Wall times come from different experiment phases and environments and are not hardware-normalized. Only matched within-protocol ratios are interpreted.",
+  "expert_measurements": [
+    {
+      "expert": "2d_lightgbm",
+      "mean_wall_seconds": 2.462864235416055,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "DILI",
+      "source": "runs/unimol2-pilot-v22/DILI/results.json",
+      "source_sha256": "9e10b0dd95c824ebed759b7cc139819644f055ce1c517de9fca824dd2d93d43b",
+      "total_wall_seconds": 12.314321177080274
+    },
+    {
+      "expert": "2d_extra_trees",
+      "mean_wall_seconds": 5.073519479110837,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "DILI",
+      "source": "runs/unimol2-pilot-v22/DILI/results.json",
+      "source_sha256": "9e10b0dd95c824ebed759b7cc139819644f055ce1c517de9fca824dd2d93d43b",
+      "total_wall_seconds": 25.367597395554185
+    },
+    {
+      "expert": "finetuned_unimol2",
+      "mean_wall_seconds": 360.75934666180984,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "DILI",
+      "source": "runs/unimol2-pilot-v22/DILI/results.json",
+      "source_sha256": "9e10b0dd95c824ebed759b7cc139819644f055ce1c517de9fca824dd2d93d43b",
+      "total_wall_seconds": 1803.7967333090492
+    },
+    {
+      "expert": "2d_lightgbm",
+      "mean_wall_seconds": 3.1856546266004444,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "hERG",
+      "source": "runs/unimol2-pilot-v22/hERG/results.json",
+      "source_sha256": "9a7e8bf7e28c0715d90949c7531059ce6c9645eab0d55797d794b04943817a74",
+      "total_wall_seconds": 15.928273133002222
+    },
+    {
+      "expert": "2d_extra_trees",
+      "mean_wall_seconds": 5.236090357229114,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "hERG",
+      "source": "runs/unimol2-pilot-v22/hERG/results.json",
+      "source_sha256": "9a7e8bf7e28c0715d90949c7531059ce6c9645eab0d55797d794b04943817a74",
+      "total_wall_seconds": 26.180451786145568
+    },
+    {
+      "expert": "finetuned_unimol2",
+      "mean_wall_seconds": 384.8315326035023,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "hERG",
+      "source": "runs/unimol2-pilot-v22/hERG/results.json",
+      "source_sha256": "9a7e8bf7e28c0715d90949c7531059ce6c9645eab0d55797d794b04943817a74",
+      "total_wall_seconds": 1924.1576630175114
+    },
+    {
+      "expert": "finetuned_unimol2_84m",
+      "mean_wall_seconds": 3773.4057994881646,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "Lipophilicity_AstraZeneca",
+      "source": "runs/unimol2-scale-ablation-84m-b8/84m/Lipophilicity_AstraZeneca/lr_0.0001",
+      "source_files_sha256": [
+        "1f9fd7cd4a32d6e9c5d53111183223724cca59bd6e0143ab089273aa8c08183f",
+        "4c48dc96b6218c68bddd2c9f2d8c93e18e7fbe54bfe60fde7466020bfc56cd4f",
+        "5a4994c0def6efa75de2f0d4029e4e7a22f8494bc6d89c28282207ac2feb87ae",
+        "10d1841324d2b37ead236fd084884a7f2a6ba0b0fe1cdafdd615f7ec61a629a0",
+        "eb14d9f047cd1953c1bb0ca7827e3f61c6fd2c99cab0ad87b1ad87e27007ea74"
+      ],
+      "total_wall_seconds": 18867.028997440822
+    },
+    {
+      "expert": "finetuned_unimol2_164m",
+      "mean_wall_seconds": 7662.772567320289,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 5,
+      "scope": "Lipophilicity_AstraZeneca",
+      "source": "runs/unimol2-scale-ablation-b8/164m/Lipophilicity_AstraZeneca/lr_0.0001",
+      "source_files_sha256": [
+        "435068c83d88b0fd7b9c10d5cb4b83921450049ef72655869241ebbe7b4ba142",
+        "e2419c2ab8cb258b56fa29023e2dc45507cfe0c91cd7397d20232ec4d30306e4",
+        "4741fb0d0b7dfc45a3bdc5b81cfc059850e112195c82ba12d6d036ce1500fc0e",
+        "1048eacb9d682cd2dc1016369609d71454cb75b5bbf4ef0c5d541be52b1b956a",
+        "80406a2f49ba715356d34984dd3242477ace514a665d10e5f227bad9052be6eb"
+      ],
+      "total_wall_seconds": 38313.862836601445
+    },
+    {
+      "expert": "MapLight and MapLight+GNN confirmation campaign",
+      "mean_wall_seconds": 15.962372756449621,
+      "peak_memory_mib": null,
+      "peak_memory_status": "not_recorded",
+      "replicates": 20,
+      "scope": "Bioavailability_Ma + CYP2C9_Substrate_CarbonMangels",
+      "source": "runs/v27-maplight-gnn-confirmation/result.json",
+      "source_sha256": "cc92d54c212397d7227a6c1babd7867d1267a8b196b3efea81fed9138210e660",
+      "timing_scope": "campaign wall time divided by 20 task/seed/model fits; shared feature generation means this is not an isolated per-fit benchmark",
+      "total_wall_seconds": 319.24745512899244
+    }
+  ],
+  "official_results_used": false,
+  "official_test_loaded": false,
+  "peak_memory_coverage": {
+    "records_measured": 0,
+    "records_missing": 31,
+    "records_total": 31
+  },
+  "peak_memory_warning": "Historical runs did not record process or CUDA peak memory. Missing values are reported explicitly; absolute peak-memory claims require a fresh instrumented rerun.",
+  "router_replay": {
+    "score_policy_total_hours": 2.488488885099262,
+    "selected_to_score_total_cost_ratio": 0.10282172648693318,
+    "selected_total_hours": 0.2558707235094496,
+    "source": "runs/v24-router-replay/report.json",
+    "source_sha256": "c677901c671e07a3f4675058f492efa5d3c331e68b07ec85175d076d54b7db51",
+    "task_count": 22,
+    "tasks": [
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 59.574065891793,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 59.574065891793,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "AMES",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 83.88967024511658,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 3.850769216893241,
+        "selected_to_score_cost_ratio": 0.04590278166121893,
+        "task": "BBB_Martins",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 12.740778156090528,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 2.9785148978699,
+        "selected_to_score_cost_ratio": 0.23377809905952,
+        "task": "Bioavailability_Ma",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 5.084855399094522,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 5.084855399094522,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "CYP2C9_Substrate_CarbonMangels",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 25.44916040915996,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 6.830122520215809,
+        "selected_to_score_cost_ratio": 0.26838301973048323,
+        "task": "CYP2C9_Veith",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 3.544205592945218,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 1.6069334270432591,
+        "selected_to_score_cost_ratio": 0.4533973509442789,
+        "task": "CYP2D6_Substrate_CarbonMangels",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 49.61431863135658,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 49.61431863135658,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "CYP2D6_Veith",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 17.34192861430347,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 17.34192861430347,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "CYP3A4_Substrate_CarbonMangels",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 15.023199958959594,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 6.9875933597795665,
+        "selected_to_score_cost_ratio": 0.4651201727240726,
+        "task": "CYP3A4_Veith",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 5.169873475795612,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 5.169873475795612,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "Caco2_Wang",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 14.673330227145925,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 14.673330227145925,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "Clearance_Hepatocyte_AZ",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 16.244259285507724,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 16.244259285507724,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "Clearance_Microsome_AZ",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 4.687618823722005,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 2.218253734987229,
+        "selected_to_score_cost_ratio": 0.473215467896325,
+        "task": "DILI",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 17.159213226288557,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 10.420460581080988,
+        "selected_to_score_cost_ratio": 0.607280791004826,
+        "task": "HIA_Hou",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 14.183728584321216,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 14.183728584321216,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "Half_Life_Obach",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 7957.255893103778,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 122.86315448884852,
+        "selected_to_score_cost_ratio": 0.015440392534734103,
+        "task": "LD50_Zhu",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 21.18779785791412,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 12.379225315991789,
+        "selected_to_score_cost_ratio": 0.5842620077370556,
+        "task": "Lipophilicity_AstraZeneca",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 39.64734840532765,
+        "selected_action": "fuse",
+        "selected_recipe_seconds": 39.64734840532765,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "PPBR_AZ",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 3.229863360291347,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 3.229863360291347,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "Pgp_Broccatelli",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 81.59394781803712,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 14.971075925976038,
+        "selected_to_score_cost_ratio": 0.18348267642795119,
+        "task": "Solubility_AqSolDB",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 509.085852118209,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 509.085852118209,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "VDss_Lombardo",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "peak_memory_mib": null,
+        "peak_memory_status": "not_recorded",
+        "score_policy_recipe_seconds": 2.1790771721862257,
+        "selected_action": "stop_2d",
+        "selected_recipe_seconds": 2.1790771721862257,
+        "selected_to_score_cost_ratio": 1.0,
+        "task": "hERG",
+        "validation_seeds": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "validation_seed_count": 3
+  },
+  "selection_or_freeze_changed": false,
+  "version": "v27-compute-memory-appendix-1"
+}

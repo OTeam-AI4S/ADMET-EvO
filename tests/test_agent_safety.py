@@ -9,6 +9,7 @@ from admet_agent.schemas import ExperimentSpec, RunResult, TaskProfile
 def test_hyperparameters_are_filtered_per_model():
     values = Hyperparameters(
         n_estimators=500, min_samples_leaf=2, max_features=0.7,
+        n_members=None, majority_ratio=None,
         criterion="squared_error", bootstrap=True, max_samples=0.8,
         iterations=700, depth=7, learning_rate=0.04, l2_leaf_reg=3.0,
         random_strength=1.0, max_depth=6, subsample=0.8,

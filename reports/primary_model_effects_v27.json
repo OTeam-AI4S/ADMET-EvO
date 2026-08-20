@@ -1,0 +1,129 @@
+{
+  "analysis_role": "post_hoc_descriptive_summary_of_completed_paired_validation_experiments",
+  "caution": "Five split seeds are paired computational replicates, not independent samples of chemical tasks; intervals and standardized effects are descriptive.",
+  "contrasts": {
+    "Bioavailability_Ma:maplight_gnn_minus_maplight": {
+      "candidate": "maplight_gnn",
+      "control": "maplight",
+      "effect": {
+        "cohen_dz": 1.248923155965205,
+        "exact_two_sided_sign_flip_p": 0.125,
+        "losses": 1,
+        "mean_oriented_gain": 0.023525919895408108,
+        "n": 5,
+        "paired_t_95_ci": [
+          0.00013674048974758948,
+          0.04691509930106863
+        ],
+        "sample_sd": 0.018836963493744,
+        "small_sample_corrected_dz": 0.999138524772164,
+        "standard_error": 0.008424146172338703,
+        "ties": 0,
+        "values": [
+          -0.0015082956259426794,
+          0.02473958333333337,
+          0.02252816020025028,
+          0.05146198830409354,
+          0.020408163265306034
+        ],
+        "wins": 4
+      },
+      "metric": "auroc",
+      "seeds": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "task": "Bioavailability_Ma"
+    },
+    "CYP2C9_Substrate_CarbonMangels:maplight_gnn_minus_maplight": {
+      "candidate": "maplight_gnn",
+      "control": "maplight",
+      "effect": {
+        "cohen_dz": 0.5545695642869514,
+        "exact_two_sided_sign_flip_p": 0.1875,
+        "losses": 1,
+        "mean_oriented_gain": 0.034224567811283,
+        "n": 5,
+        "paired_t_95_ci": [
+          -0.04240317457121288,
+          0.11085231019377889
+        ],
+        "sample_sd": 0.06171375065504705,
+        "small_sample_corrected_dz": 0.4436556514295611,
+        "standard_error": 0.027599228322231474,
+        "ties": 0,
+        "values": [
+          0.10096249742146046,
+          0.005729563390807213,
+          -0.05801725787619738,
+          0.062208020202783376,
+          0.06024001591756134
+        ],
+        "wins": 4
+      },
+      "metric": "auprc",
+      "seeds": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "task": "CYP2C9_Substrate_CarbonMangels"
+    },
+    "Lipophilicity_AstraZeneca:unimol2_164m_minus_84m": {
+      "candidate": "unimol2_164m",
+      "candidate_to_control_runtime_ratio": 2.0307311152062386,
+      "control": "unimol2_84m",
+      "effect": {
+        "cohen_dz": -1.032804276805864,
+        "exact_two_sided_sign_flip_p": 0.125,
+        "losses": 4,
+        "mean_oriented_gain": -0.00934233670461746,
+        "n": 5,
+        "paired_t_95_ci": [
+          -0.020573935377985027,
+          0.001889261968750106
+        ],
+        "sample_sd": 0.009045602264071119,
+        "small_sample_corrected_dz": -0.8262434214446913,
+        "standard_error": 0.004045316311977805,
+        "ties": 0,
+        "values": [
+          0.004107991774876918,
+          -0.011629611492156966,
+          -0.02066394523211884,
+          -0.006717737141109681,
+          -0.01180838143257873
+        ],
+        "wins": 1
+      },
+      "metric": "mae",
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "task": "Lipophilicity_AstraZeneca"
+    }
+  },
+  "official_test_loaded": false,
+  "selection_or_freeze_changed": false,
+  "sources": {
+    "maplight_gnn_confirmation": {
+      "path": "runs/v27-maplight-gnn-confirmation/result.json",
+      "sha256": "cc92d54c212397d7227a6c1babd7867d1267a8b196b3efea81fed9138210e660"
+    },
+    "unimol2_scale": {
+      "path": "runs/v23-ablation-study/lipophilicity_scale_comparison.json",
+      "sha256": "34741172bef6dec57ff65f3f53c125634558f7b35a1df471ba1187b2d42ccdc1"
+    }
+  },
+  "test_labels_used": false,
+  "version": "v27-primary-model-effects-1"
+}

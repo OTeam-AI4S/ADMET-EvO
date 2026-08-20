@@ -1,0 +1,189 @@
+{
+  "arms": {
+    "agent_feedback_loop": {
+      "case_count": 2,
+      "dimensions": {
+        "bounded_low_information_stop": 1.0,
+        "explicit_parent_link": 1.0,
+        "feedback_conditioned_response": 1.0,
+        "matched_pair_protection": 1.0,
+        "no_high_cost_escalation": 1.0
+      },
+      "macro_process_score": 1.0,
+      "rows": [
+        {
+          "decision_kind": "repair_evidence",
+          "explicit_parent_link": true,
+          "high_cost_escalation": false,
+          "matched_pair_protected": true,
+          "parent_axis": "model",
+          "parent_status": "inconclusive",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": true,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "decision_kind": "switch_axis",
+          "explicit_parent_link": true,
+          "high_cost_escalation": false,
+          "matched_pair_protected": true,
+          "parent_axis": "data",
+          "parent_status": "refuted",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": true,
+          "task": "hERG"
+        }
+      ]
+    },
+    "complete_rules_feedback_loop": {
+      "case_count": 2,
+      "dimensions": {
+        "bounded_low_information_stop": 1.0,
+        "explicit_parent_link": 1.0,
+        "feedback_conditioned_response": 1.0,
+        "matched_pair_protection": 1.0,
+        "no_high_cost_escalation": 1.0
+      },
+      "macro_process_score": 1.0,
+      "rows": [
+        {
+          "decision_kind": "repair_evidence",
+          "explicit_parent_link": true,
+          "high_cost_escalation": false,
+          "matched_pair_protected": true,
+          "parent_axis": "model",
+          "parent_status": "inconclusive",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": true,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "decision_kind": "switch_axis",
+          "explicit_parent_link": true,
+          "high_cost_escalation": false,
+          "matched_pair_protected": true,
+          "parent_axis": "data",
+          "parent_status": "refuted",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": true,
+          "task": "hERG"
+        }
+      ]
+    },
+    "conventional_automl_scalar_search": {
+      "case_count": 2,
+      "dimensions": {
+        "bounded_low_information_stop": 0.0,
+        "explicit_parent_link": 0.0,
+        "feedback_conditioned_response": 0.5,
+        "matched_pair_protection": 0.0,
+        "no_high_cost_escalation": 1.0
+      },
+      "macro_process_score": 0.3,
+      "rows": [
+        {
+          "decision_kind": "scalar_model_search",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "model",
+          "parent_status": "inconclusive",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": false,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "decision_kind": "scalar_model_search",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "data",
+          "parent_status": "refuted",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": false,
+          "task": "hERG"
+        }
+      ]
+    },
+    "expanded_automl_scalar_search": {
+      "case_count": 2,
+      "dimensions": {
+        "bounded_low_information_stop": 0.0,
+        "explicit_parent_link": 0.0,
+        "feedback_conditioned_response": 0.5,
+        "matched_pair_protection": 0.0,
+        "no_high_cost_escalation": 1.0
+      },
+      "macro_process_score": 0.3,
+      "rows": [
+        {
+          "decision_kind": "scalar_model_search",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "model",
+          "parent_status": "inconclusive",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": false,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "decision_kind": "scalar_model_search",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "data",
+          "parent_status": "refuted",
+          "selected_axis": "model",
+          "stopped_after_low_information_child": false,
+          "task": "hERG"
+        }
+      ]
+    },
+    "seeded_random_action": {
+      "case_count": 2,
+      "dimensions": {
+        "bounded_low_information_stop": 1.0,
+        "explicit_parent_link": 0.0,
+        "feedback_conditioned_response": 0.5,
+        "matched_pair_protection": 0.0,
+        "no_high_cost_escalation": 1.0
+      },
+      "macro_process_score": 0.5,
+      "rows": [
+        {
+          "decision_kind": "stop",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "model",
+          "parent_status": "inconclusive",
+          "selected_axis": null,
+          "stopped_after_low_information_child": true,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "decision_kind": "stop",
+          "explicit_parent_link": false,
+          "high_cost_escalation": false,
+          "matched_pair_protected": false,
+          "parent_axis": "data",
+          "parent_status": "refuted",
+          "selected_axis": null,
+          "stopped_after_low_information_child": true,
+          "task": "hERG"
+        }
+      ]
+    }
+  },
+  "case_count": 2,
+  "claim_scope": "locked_two_case_policy_replay_not_independent_evaluation",
+  "interpretation": {
+    "automl_boundary": "Explicit feedback linkage, matched controls and bounded stopping are process capabilities absent from scalar AutoML search.",
+    "rules_boundary": "Complete rules exactly reproduce the two observed cases, so this does not establish learned reasoning beyond deterministic rules.",
+    "upgrade_requirement": "Use independently authored unseen composite episodes with ambiguous feedback and multiple feasible remediations."
+  },
+  "policy_seed": 20260820,
+  "protocol": "locked-corrective-feedback-policy-controls-v1",
+  "test_loaded": false
+}

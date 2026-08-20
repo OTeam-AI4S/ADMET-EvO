@@ -1,0 +1,36 @@
+{
+  "comparison": {
+    "all_parameter_tensors_bitwise_equal": true,
+    "maximum_absolute_parameter_difference": 0.0,
+    "parameter_tensor_count": 57,
+    "parameter_value_count": 1860905,
+    "same_parameter_keys": true,
+    "same_parameter_shapes": true,
+    "serialization_bytes_expected_to_differ": true
+  },
+  "molfeat": {
+    "bytes": 7467310,
+    "deserialized_type": "dgllife.model.gnn.gin.GIN",
+    "sha256": "6d0f8febad73e437772ebffc2ac32253d79f86ee138cfc233590ae50fb1cfeb9",
+    "state_dict_key_count": 57,
+    "url": "https://fs.molfeat.datamol.io/artifacts/dgllife/gin_supervised_masking/0/model.save"
+  },
+  "observed_at": "2026-08-17",
+  "official_dgllife": {
+    "bytes": 7454321,
+    "sha256": "a43274c29be5a8cf38f990794d0dc3fcc0572dfa5524240e77ed1c6aa1b54fb8",
+    "state_dict_key_count": 57,
+    "url": "https://data.dgl.ai/dgllife/pre_trained/gin_supervised_masking.pth"
+  },
+  "official_test_loaded": false,
+  "provenance": {
+    "artifact_specific_license_metadata_present": false,
+    "dgllife_version": "0.3.2",
+    "official_downloader": "https://github.com/awslabs/dgl-lifesci/blob/v0.3.2/python/dgllife/model/pretrain/__init__.py",
+    "official_url_declaration": "https://github.com/awslabs/dgl-lifesci/blob/v0.3.2/python/dgllife/model/pretrain/property_prediction.py",
+    "source_spdx": "Apache-2.0"
+  },
+  "schema_version": "gin-checkpoint-equivalence-v27-1",
+  "selection_or_freeze_changed": false,
+  "verified": true
+}

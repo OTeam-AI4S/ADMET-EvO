@@ -1,0 +1,101 @@
+{
+  "findings": [
+    {
+      "identical_model_score_std": [
+        {
+          "mean": 0.892,
+          "model": "AttentiveFP",
+          "std": 0.012
+        },
+        {
+          "mean": 0.929,
+          "model": "AttrMasking",
+          "std": 0.006
+        },
+        {
+          "mean": 0.818,
+          "model": "Basic ML",
+          "std": 0.0
+        },
+        {
+          "mean": 0.908,
+          "model": "CNN (DeepPurpose)",
+          "std": 0.012
+        },
+        {
+          "mean": 0.86,
+          "model": "Chemprop",
+          "std": 0.036
+        },
+        {
+          "mean": 0.886,
+          "model": "Chemprop-RDKit",
+          "std": 0.016
+        },
+        {
+          "mean": 0.923,
+          "model": "ContextPred",
+          "std": 0.005
+        },
+        {
+          "mean": 0.845,
+          "model": "Euclia ML model",
+          "std": 0.003
+        },
+        {
+          "mean": 0.895,
+          "model": "GCN",
+          "std": 0.021
+        },
+        {
+          "mean": 0.93,
+          "model": "MapLight",
+          "std": 0.002
+        },
+        {
+          "mean": 0.938,
+          "model": "MapLight + GNN",
+          "std": 0.002
+        },
+        {
+          "mean": 0.88,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "std": 0.006
+        },
+        {
+          "mean": 0.902,
+          "model": "NeuralFP",
+          "std": 0.02
+        },
+        {
+          "mean": 0.918,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "std": 0.007
+        },
+        {
+          "mean": 0.929,
+          "model": "SimGCN",
+          "std": 0.01
+        },
+        {
+          "mean": 0.935,
+          "model": "ZairaChem",
+          "std": 0.006
+        }
+      ],
+      "jaccard": 0.8,
+      "left_metric": "auroc",
+      "left_task": "Bioavailability_Ma",
+      "right_metric": "auroc",
+      "right_task": "Pgp_Broccatelli",
+      "shared_entries": 16,
+      "union_entries": 20
+    }
+  ],
+  "integrity_status": "manual_verification_required",
+  "interpretation": "High cross-task overlap of exact (model, mean, std) triples is a leaderboard-integrity warning. It does not prove which page is wrong and must not be used to silently replace a threshold.",
+  "minimum_jaccard": 0.75,
+  "snapshot_captured_at": "2026-08-13T07:09:00.663311+00:00",
+  "snapshot_source": "https://tdcommons.ai/benchmark/admet_group/01caco2/",
+  "task_count": 22
+}

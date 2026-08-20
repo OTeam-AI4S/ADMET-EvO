@@ -1,0 +1,317 @@
+{
+  "evidence": {
+    "baseline_scorecard": {
+      "bytes": 9783,
+      "path": "reports/goal_scorecard.json",
+      "sha256": "bc6a6dfd3b6ced71f0bd8b139d27f0d49d9df3a5b7be04e3709a1cfb91170426"
+    },
+    "data_isolation_audit": {
+      "bytes": 7786,
+      "path": "runs/v23-ablation-study/data_isolation_audit.json",
+      "sha256": "8f2b3ab51962a4d6af120061e70da9809abd71570a0b9e7ed3d60d8ad77594a2"
+    },
+    "final_scorecard": {
+      "bytes": 17093,
+      "path": "reports/goal_scorecard_v24.json",
+      "sha256": "6cb06412459b7831b1db4aec75f1165a3f63e9cbc23a4a28df7cc4f769e8fbee"
+    },
+    "full_freeze": {
+      "bytes": 41129,
+      "path": "runs/v24-freeze/full-22-task.json",
+      "sha256": "6fb81fe7b9f4e1518aae74a0fc0fe40a4e68db0dc6485bbf4b07c4cefdb95c83"
+    },
+    "leaderboard_snapshot": {
+      "bytes": 59610,
+      "path": "reports/leaderboard_snapshot_2026-08-13.json",
+      "sha256": "d867e88ee7f95e129a42f76472d28a4c3a0b53664791039cf961d93ce8898f1d"
+    },
+    "paper_readiness": {
+      "bytes": 6923,
+      "path": "reports/paper_readiness_v24.md",
+      "sha256": "082da4dc83c2144ae93f9a0c912e5ba5466b7d61b6e90d1c4dcf0e4ebec4755b"
+    },
+    "rescue_ledger": {
+      "bytes": 2433,
+      "path": "runs/v24-rescue-ledger/report.json",
+      "sha256": "ec2b62dffabf52daee1062d2bb0b91584206f89d254d8efa4603edf32d10e18a"
+    },
+    "research_plan": {
+      "bytes": 14321,
+      "path": "docs/v24_research_plan.md",
+      "sha256": "644a8f7a11aeb6933a90cfe625ef229bf62e74f460e5f213ff4a0c18f9276b29"
+    },
+    "router_context": {
+      "bytes": 41799,
+      "path": "runs/v24-router-context/report.json",
+      "sha256": "59d0c3c8f19f9dfa903f0c9c0b757754321d149fd02531d5de858ab8d68a9403"
+    },
+    "router_error_analysis": {
+      "bytes": 17310,
+      "path": "runs/v24-router-error-analysis/report.json",
+      "sha256": "60dd37a9e652705c5b963e8c77b1febca9d6d119fb6e40c57e025f9ff77565d4"
+    },
+    "router_loso": {
+      "bytes": 71599,
+      "path": "runs/v24-router-loso/report.json",
+      "sha256": "2ee08cffc32b0279459e3b3846fd947921c6f25b43597880c58355632a74d897"
+    },
+    "router_replay": {
+      "bytes": 29794,
+      "path": "runs/v24-router-replay/report.json",
+      "sha256": "c677901c671e07a3f4675058f492efa5d3c331e68b07ec85175d076d54b7db51"
+    },
+    "working_manuscript": {
+      "bytes": 16697,
+      "path": "MANUSCRIPT_V24.md",
+      "sha256": "0b8a0130cc10bacbca0e08d439d5a408b7a643b10c00327fb442770c77c00f2d"
+    }
+  },
+  "full_freeze_sha256": "2265b92ce20168a779d36f673fcb6f583639891083c71370c9f353a9b18f81de",
+  "manifest_sha256": "8e43cfc423ed32d6d1c3e33cfc7285d19ce94c48eabef86989ef75f1c3756b05",
+  "official_results": {
+    "DILI": {
+      "freeze": "runs/v24-official/DILI/final/freeze.json",
+      "freeze_sha256": "a4b1bb3c1665a754f2eef185c893aacbc7a01930e33bb089d79a18f3ef45bd1a",
+      "result": [
+        0.92,
+        0.004
+      ],
+      "result_file": {
+        "bytes": 3432,
+        "sha256": "0c483d680d82f59d8d2724a15e4522003345001dadf3b1f2f199d4eaa5bd49b3"
+      },
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source": "runs/v24-official/DILI/final/results.json",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "Half_Life_Obach": {
+      "freeze": "runs/v24-official/Half_Life_Obach/final/freeze.json",
+      "freeze_sha256": "caff75e428d6b47316b682017147891e49178f0e0699be9abbb14a993fb58d79",
+      "result": [
+        0.59,
+        0.03
+      ],
+      "result_file": {
+        "bytes": 3634,
+        "sha256": "ed97b0d89b52e729fb2f212ee2e405e4c5e5e35765bcc7d4ec0ded8d0fe32973"
+      },
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source": "runs/v24-official/Half_Life_Obach/final/results.json",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "Lipophilicity_AstraZeneca": {
+      "freeze": "runs/v24-official/Lipophilicity_AstraZeneca/final/freeze.json",
+      "freeze_sha256": "2039ba592fc4f84d74b180a13c8dbb3d64326e5a038eb702ca2fbc040c2d1796",
+      "result": [
+        0.392,
+        0.006
+      ],
+      "result_file": {
+        "bytes": 3418,
+        "sha256": "86f2687f4b0b880b65720c015676a5c6ba574eee8f83e68f9c818a9e991cd546"
+      },
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source": "runs/v24-official/Lipophilicity_AstraZeneca/final/results.json",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "hERG": {
+      "freeze": "runs/v24-official/hERG/final/freeze.json",
+      "freeze_sha256": "9af0fb2101a6476036794fd6841133086a3a6f839ecd3e8572d3010ab72eb7a4",
+      "result": [
+        0.86,
+        0.009
+      ],
+      "result_file": {
+        "bytes": 3312,
+        "sha256": "8207e50e1b224f1c8c210fdf34772937af1f03fd5ca5691f5d9c341e3a859f78"
+      },
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source": "runs/v24-official/hERG/final/results.json",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    }
+  },
+  "pending_official_tasks": [],
+  "source_files": {
+    "admet_agent/evidence_router.py": {
+      "bytes": 3744,
+      "sha256": "35ea0d2a9c4aeb5b0866ce2ef63217c83f0065ae6f5c9fb654b16554a08154dc"
+    },
+    "admet_agent/frozen_executor.py": {
+      "bytes": 11193,
+      "sha256": "9e00a29693f4388f31c033c05627f7f1b38a97a2579380b78dcdbb22159491bb"
+    },
+    "admet_agent/frozen_recipe.py": {
+      "bytes": 4954,
+      "sha256": "c72df255801380f316906010cc53f8b1d442a0f9df105997446b97d1b342c9cc"
+    },
+    "scripts/analyze_router_failures.py": {
+      "bytes": 10668,
+      "sha256": "50c4f48019c29ee6e86d19c0b56b70389fe8ecb48efaa80eaa53b806023b981d"
+    },
+    "scripts/build_v24_full_freeze.py": {
+      "bytes": 5349,
+      "sha256": "1b1494d4ae1e4465fcc9bb6b87dff4ea736377e391ef5d40d7ca1c1911598d79"
+    },
+    "scripts/build_v24_goal_scorecard.py": {
+      "bytes": 6706,
+      "sha256": "93c837e400b0b337dccdcdcec8a2a88423f88bd6acfed2b95ff3f4f7fd91a9a4"
+    },
+    "scripts/evaluate_router_context_ablation.py": {
+      "bytes": 9750,
+      "sha256": "d328918c112769b75afd1c594619bab5a3ebf933fde1d6c13a110b140b102195"
+    },
+    "scripts/evaluate_router_loso.py": {
+      "bytes": 14457,
+      "sha256": "afb7f99bc10d9b5dfd360a04f6e99d2112f78f62cc74145e75fc2eedd76fe093"
+    },
+    "scripts/summarize_v24_rescue_experiments.py": {
+      "bytes": 6493,
+      "sha256": "863b2840def7798d02d82e679fbf37c5be7cdc35a6bb50181a756b0f87040be4"
+    }
+  },
+  "status": "official_results_complete",
+  "upgrade_tasks": [
+    "DILI",
+    "Half_Life_Obach",
+    "Lipophilicity_AstraZeneca",
+    "hERG"
+  ],
+  "validation_firewalls": {
+    "data_isolation_audit": {
+      "official_test_loaded": false
+    },
+    "rescue_ledger": {
+      "official_test_loaded": false,
+      "test_labels_used": false
+    },
+    "router_context": {
+      "leaderboard_used": false,
+      "official_test_loaded": false
+    },
+    "router_error_analysis": {
+      "leaderboard_used": false,
+      "official_test_loaded": false
+    },
+    "router_loso": {
+      "official_test_loaded": false
+    },
+    "router_replay": {
+      "official_test_loaded": false
+    }
+  },
+  "verified_official_tasks": [
+    "DILI",
+    "Half_Life_Obach",
+    "Lipophilicity_AstraZeneca",
+    "hERG"
+  ],
+  "version": "v2.4"
+}

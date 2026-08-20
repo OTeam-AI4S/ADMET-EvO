@@ -1,0 +1,24 @@
+{
+  "aggregate_cost_ratio": 0.2780324339961261,
+  "blockers": [],
+  "bootstrap_95_ci": [
+    -0.001481944399078114,
+    0.0005852598611697207
+  ],
+  "estimated_cost_reduction": 0.7219675660038739,
+  "evidence_scope": "fresh_validation_practical_noninferiority_vs_score_selection; not Agent-vs-AutoML predictive superiority",
+  "material_regressions": 2,
+  "mean_oriented_gain": -0.0003484901977758833,
+  "nonmaterial_task_rate": 0.9090909090909091,
+  "passed": true,
+  "policy": {
+    "maximum_aggregate_cost_ratio": 0.35,
+    "minimum_nonmaterial_task_rate": 0.9,
+    "noninferiority_margin": 0.005,
+    "version": "practical-efficiency-gate-v1"
+  },
+  "task_count": 22,
+  "test_loaded": false,
+  "worst_oriented_gain": -0.008967906920142599,
+  "worst_task": "BBB_Martins"
+}

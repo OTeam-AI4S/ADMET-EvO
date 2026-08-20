@@ -4,7 +4,17 @@ ADMET-EvO is a reproducible workflow for model search and frozen test evaluation
 
 It combines molecular representations, classical and gradient-boosted models, multi-seed validation, optional prediction ensembling, and a test-set firewall. Model selection happens on the training and validation splits. The selected configuration is then frozen and evaluated on the test split with at least five seeds.
 
+The original three-task technical report remains in `MANUSCRIPT.md`. The
+evidence-backed 22-task v2.4 working paper, including negative results and
+explicit incomplete claims, is in `MANUSCRIPT_V24.md`.
+
 ## Workflow
+
+The v3 research loop is restricted to the canonical 22 TDC ADMET endpoints. It
+adds endpoint contracts, multi-dimensional hardness diagnosis, auditable data
+curation actions, effect-first action routing, a hash-chained evidence ledger,
+and a standardized autonomy scorecard. See
+[`docs/tdc22_research_agent_v3.md`](docs/tdc22_research_agent_v3.md).
 
 ```mermaid
 flowchart LR
@@ -23,6 +33,7 @@ The workflow has two separate commands:
 
 - `search` can access only training and validation data. It profiles the endpoint, evaluates candidate pipelines, repeats promising candidates across validation seeds, and writes a finalist configuration.
 - `finalize` accepts a serialized finalist, writes a freeze lock, trains it independently for every requested seed, and calls TDC's official test evaluator. A different finalist cannot be reused in the same finalization directory.
+- Frozen `recipe` finalists support preregistered heterogeneous raw/rank blends, including full fine-tuned Uni-Mol2, transformed-target experts, and OOF-selected sub-ensembles. The executor fits on `train+valid` and receives only test SMILES at prediction time.
 
 ## Installation
 
@@ -43,6 +54,32 @@ conda activate admet-agent-gpu
 ```
 
 The TDC datasets are downloaded by PyTDC on first use and cached under the directory passed to `--data-dir`.
+
+### Optional Uni-Mol2 representation
+
+Install the optional Uni-Mol2 dependencies in the active CPU or GPU environment:
+
+```bash
+python -m pip install -e '.[unimol]'
+```
+
+The registered `unimol2` representation uses the frozen official 84M encoder and
+its molecular CLS embedding. It can be combined with the existing 2D features in
+an experiment specification, for example:
+
+```json
+{
+  "representations": ["unimol2", "morgan", "rdkit2d"],
+  "model": "extra_trees"
+}
+```
+
+`admet-agent tools` reports whether the optional dependency is available. When it
+is installed, the rule planner includes one Uni-Mol2 candidate in its initial
+search. The official pretrained weights are downloaded on first use and the
+resulting embeddings are stored in the run directory's feature cache. Use
+`--device cuda` for practical benchmark-scale extraction; CPU inference is
+supported but can be slow.
 
 ## Basic commands
 
@@ -82,7 +119,7 @@ admet-agent search \
   --seed 1 \
   --rounds 2 \
   --validation-seeds 1,2,3,4,5 \
-  --robust-top-k 3 \
+  --robust-top-k 6 \
   --device cpu \
   --workers 8 \
   --data-dir data \
@@ -98,8 +135,12 @@ Important search arguments:
 | `--seed N` | Seed used for the initial search round. |
 | `--rounds N` | Number of propose, evaluate, and refine rounds. |
 | `--validation-seeds LIST` | Comma-separated seeds used to check the strongest candidates for stability. |
-| `--robust-top-k N` | Number of candidates promoted to multi-seed validation. |
+| `--robust-top-k N` | Number of model-diverse candidates promoted to multi-seed validation. |
 | `--no-ensemble` | Disable validation-selected prediction blending. |
+| `--selection-policy score\|lcb\|cost-aware-lcb` | Select by mean score, reliability-adjusted LCB, or LCB minus normalized log compute cost. |
+| `--uncertainty-penalty FLOAT` | Multiplier on cross-seed validation standard deviation for LCB selection. |
+| `--cost-penalty FLOAT` | Native-metric penalty on normalized log compute for cost-aware LCB selection. |
+| `--effect-priority FLOAT` | Weight on expected scientific effect when routing research actions; default `0.80`. |
 | `--brain rules\|openai\|hybrid` | Choose the candidate planner. `rules` is local and is the default. |
 | `--device auto\|cpu\|cuda` | Select the training device. |
 | `--workers N` | Set the number of parallel CPU workers passed to supported models. |
@@ -138,6 +179,17 @@ admet-agent finalize \
   --data-dir data \
   --run-dir runs/ames-final
 ```
+
+For the v2.4 heterogeneous finalists, generate the validation-only freeze bundle first:
+
+```bash
+python scripts/build_v24_freeze_manifest.py
+```
+
+This writes `runs/v24-freeze/finalists.mapping.json`, which is directly accepted by
+`--finalists`. The accompanying manifest hashes all validation evidence and runtime
+sources and remains `ready_for_official_test: false` until a pinned GPU smoke test is
+recorded.
 
 For multiple benchmarks, pass a single JSON file containing one entry per benchmark and repeat `--task`:
 
@@ -226,6 +278,11 @@ python -m pytest -q
 ```
 
 The tests cover experiment validation, task metadata, test-access guards, multi-seed selection, ensemble behavior, finalist freezing, and reproducibility artifacts.
+
+For AUROC, AUPRC, and Spearman tasks, ensemble search evaluates both weighted
+raw predictions and equal-weight percentile-rank blends. Rank blending removes
+incompatible probability scales between model families. Multi-seed promotion
+prefers model diversity before filling the remaining slots by validation score.
 
 ## More documentation
 

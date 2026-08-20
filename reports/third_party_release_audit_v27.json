@@ -1,0 +1,140 @@
+{
+  "dependencies": {
+    "gin_supervised_masking": {
+      "checkpoint": {
+        "anonymous_access_verified": true,
+        "bytes": 7467310,
+        "checkpoint_specific_license_explicit": false,
+        "direct_url": "https://fs.molfeat.datamol.io/artifacts/dgllife/gin_supervised_masking/0/model.save",
+        "http_observation": "anonymous HTTP GET returned 200 for metadata and model",
+        "license_boundary": "The Molfeat tensors exactly match the DGL-LifeSci official artifact, but source SPDX metadata still does not prove a checkpoint redistribution license.",
+        "metadata_license_field": null,
+        "metadata_sha256": "75ea305d643d800b8b272819a78b842d5aca1c4ad55d47207321ab9b81d44d02",
+        "metadata_url": "https://fs.molfeat.datamol.io/artifacts/dgllife/gin_supervised_masking/0/metadata.json",
+        "official_dgllife_sha256": "a43274c29be5a8cf38f990794d0dc3fcc0572dfa5524240e77ed1c6aa1b54fb8",
+        "official_dgllife_url": "https://data.dgl.ai/dgllife/pre_trained/gin_supervised_masking.pth",
+        "official_parameter_equivalence": {
+          "all_parameter_tensors_bitwise_equal": true,
+          "maximum_absolute_parameter_difference": 0.0,
+          "parameter_tensor_count": 57,
+          "parameter_value_count": 1860905,
+          "verified": true
+        },
+        "registration_required": false,
+        "sha256": "6d0f8febad73e437772ebffc2ac32253d79f86ee138cfc233590ae50fb1cfeb9"
+      },
+      "essential": true,
+      "included_in_reviewer_bundle": false,
+      "redistribution_policy": "external_link_only_verified_against_official_dgllife_parameters",
+      "runtime": {
+        "packages": {
+          "dgl": "2.1.0",
+          "dgllife": "0.3.2",
+          "molfeat": "0.11.0"
+        }
+      },
+      "source_repositories": [
+        {
+          "license": "MIT",
+          "license_url": "https://github.com/receptor-ai/tdc-admet-bench/blob/main/LICENSE",
+          "name": "MapLight audited source",
+          "url": "https://github.com/receptor-ai/tdc-admet-bench",
+          "verified": true
+        },
+        {
+          "license": "Apache-2.0",
+          "license_url": "https://github.com/datamol-io/molfeat/blob/main/LICENSE",
+          "name": "Molfeat",
+          "url": "https://github.com/datamol-io/molfeat",
+          "verified": true
+        },
+        {
+          "license": "Apache-2.0",
+          "license_url": "https://github.com/awslabs/dgl-lifesci/blob/master/LICENSE",
+          "name": "DGL-LifeSci",
+          "url": "https://github.com/awslabs/dgl-lifesci",
+          "verified": true
+        }
+      ],
+      "used_by_tasks": [
+        "Bioavailability_Ma",
+        "CYP2C9_Substrate_CarbonMangels"
+      ]
+    },
+    "unimol2_84m": {
+      "checkpoint": {
+        "anonymous_access_verified": true,
+        "bytes": 336632021,
+        "checkpoint_specific_license_explicit": true,
+        "direct_url": "https://huggingface.co/dptech/Uni-Mol2/resolve/main/modelzoo/84M/checkpoint.pt?download=true",
+        "gated": false,
+        "http_observation": "anonymous 302 to public CDN followed by HTTP 200",
+        "license": "MIT",
+        "path": "modelzoo/84M/checkpoint.pt",
+        "private": false,
+        "registration_required": false,
+        "repository": "https://huggingface.co/dptech/Uni-Mol2",
+        "repository_commit": "bf37d253c0f5ac61f468137eb00059978a104ff0",
+        "sha256": "5b9241630f1cf0b173fb06d1e76096e5daf5f91c3e51b066ba69524dafe60e35"
+      },
+      "essential": true,
+      "included_in_reviewer_bundle": false,
+      "redistribution_policy": "external_link_only_in_project_bundle",
+      "runtime": {
+        "package": "unimol-tools",
+        "version": "0.1.5"
+      },
+      "source_license": {
+        "spdx": "MIT",
+        "url": "https://github.com/deepmodeling/unimol_tools/blob/main/LICENSE",
+        "verified": true
+      },
+      "source_repository": "https://github.com/deepmodeling/unimol_tools",
+      "used_by_tasks": [
+        "DILI",
+        "Half_Life_Obach",
+        "Lipophilicity_AstraZeneca",
+        "hERG"
+      ]
+    }
+  },
+  "gates": {
+    "bundle_safe_for_external_deposit": true,
+    "checkpoint_specific_licenses_verified": false,
+    "ready_for_external_deposit": true,
+    "registration_free_checkpoint_access_verified": true,
+    "remaining_external_gate": "deposit the prepared link-only bundle and mint a DOI; do not add third-party checkpoint files unless their artifact licenses are made explicit",
+    "safe_to_redistribute_third_party_checkpoints": false,
+    "source_code_licenses_verified": true,
+    "third_party_checkpoints_in_bundle": false
+  },
+  "observed_at": "2026-08-17",
+  "policy": {
+    "bundle_action": "exclude all third-party checkpoints and publish immutable URLs plus hashes",
+    "fail_closed_rule": "A package or source-repository license is not treated as a checkpoint license unless the model repository or artifact metadata explicitly says so.",
+    "link_only_release_justification": "The bundle contains no third-party checkpoint bytes; the public DGL and Molfeat URLs plus exact parameter-equivalence evidence are sufficient to reacquire the model.",
+    "official_test_loaded": false,
+    "selection_or_freeze_changed": false
+  },
+  "schema_version": "third-party-release-audit-v27-1",
+  "scope": {
+    "essential_dependency_count": 2,
+    "final_mapping_minimol_used": false,
+    "frozen_task_count": 22,
+    "rejected_experiments_are_not_release_dependencies": true
+  },
+  "sources": {
+    "frozen_mapping": {
+      "path": "runs/v27-maplight-gnn-freeze/full-22-task.mapping.json",
+      "sha256": "17523aa1d5583437833f7f22aecceff5d0932f466104936b0be4ce5ee363e98d"
+    },
+    "gin_checkpoint_equivalence": {
+      "path": "reports/gin_checkpoint_equivalence_v27.json",
+      "sha256": "ed91ca2c87e797e8990726edd5f13f390fea02091550e86d1d84c73698dd9aa0"
+    },
+    "maplight_predictor": {
+      "path": "scripts/predict_maplight_gnn.py",
+      "sha256": "8e2cb018a4342b9fda4c5bc055ce7adc4b6d8c43009b42c67f0d2bb3607a1ad5"
+    }
+  }
+}

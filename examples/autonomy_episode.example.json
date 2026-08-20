@@ -1,0 +1,36 @@
+{
+  "episodes": [
+    {
+      "task": "AMES",
+      "baseline_validation_score": 0.75,
+      "agent_validation_score": 0.80,
+      "baseline_compute_seconds": 3600,
+      "agent_compute_seconds": 7200,
+      "attempted_actions": 6,
+      "preregistered_actions": 6,
+      "supported_actions": 2,
+      "validation_std": 0.01,
+      "baseline_test_score": null,
+      "agent_test_score": null,
+      "faults_present": 3,
+      "faults_detected": 3,
+      "false_fault_alarms": 0,
+      "reproducible_runs": 5,
+      "requested_reproducible_runs": 5,
+      "protocol_violations": 0,
+      "test_feedback_events": 0,
+      "source_manifests_complete": 0,
+      "external_sources_used": 0,
+      "actions_by_axis": {
+        "feature": 2,
+        "model": 2,
+        "data": 1,
+        "replicate": 1,
+        "stop": 0
+      },
+      "stopped_appropriately": true,
+      "abstained_on_ood": true,
+      "novel_supported_actions": 1
+    }
+  ]
+}

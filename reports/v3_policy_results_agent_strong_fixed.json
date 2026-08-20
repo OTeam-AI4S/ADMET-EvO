@@ -1,0 +1,463 @@
+{
+  "arms": {
+    "agent": {
+      "actions_attempted": 262,
+      "compute_seconds": 23871.88890274684,
+      "task_names": [
+        "AMES",
+        "BBB_Martins",
+        "Bioavailability_Ma",
+        "CYP2C9_Substrate_CarbonMangels",
+        "CYP2C9_Veith",
+        "CYP2D6_Substrate_CarbonMangels",
+        "CYP2D6_Veith",
+        "CYP3A4_Substrate_CarbonMangels",
+        "CYP3A4_Veith",
+        "Caco2_Wang",
+        "Clearance_Hepatocyte_AZ",
+        "Clearance_Microsome_AZ",
+        "DILI",
+        "HIA_Hou",
+        "Half_Life_Obach",
+        "LD50_Zhu",
+        "Lipophilicity_AstraZeneca",
+        "PPBR_AZ",
+        "Pgp_Broccatelli",
+        "Solubility_AqSolDB",
+        "VDss_Lombardo",
+        "hERG"
+      ],
+      "tasks": 22
+    },
+    "strong_fixed": {
+      "actions_attempted": 22,
+      "compute_seconds": 1155.7065481817117,
+      "task_names": [
+        "AMES",
+        "BBB_Martins",
+        "Bioavailability_Ma",
+        "CYP2C9_Substrate_CarbonMangels",
+        "CYP2C9_Veith",
+        "CYP2D6_Substrate_CarbonMangels",
+        "CYP2D6_Veith",
+        "CYP3A4_Substrate_CarbonMangels",
+        "CYP3A4_Veith",
+        "Caco2_Wang",
+        "Clearance_Hepatocyte_AZ",
+        "Clearance_Microsome_AZ",
+        "DILI",
+        "HIA_Hou",
+        "Half_Life_Obach",
+        "LD50_Zhu",
+        "Lipophilicity_AstraZeneca",
+        "PPBR_AZ",
+        "Pgp_Broccatelli",
+        "Solubility_AqSolDB",
+        "VDss_Lombardo",
+        "hERG"
+      ],
+      "tasks": 22
+    }
+  },
+  "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+  "protocol_version": "tdc22-policy-benchmark-v3",
+  "results": [
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 401.1680946723791,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "AMES",
+      "validation_score": 0.8802666435657253,
+      "validation_std": 0.03144135401589957
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 284.1266707094619,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "BBB_Martins",
+      "validation_score": 0.9448659811286104,
+      "validation_std": 0.01714549528949191
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 300.655650642002,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Bioavailability_Ma",
+      "validation_score": 0.7229757025919816,
+      "validation_std": 0.11767932410894968
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 294.01195882377215,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "validation_score": 0.4801166326762486,
+      "validation_std": 0.17191654158067265
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 1774.3657364195678,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2C9_Veith",
+      "validation_score": 0.8179386892071057,
+      "validation_std": 0.018336760053718437
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 125.47555945243221,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "validation_score": 0.6579060561615657,
+      "validation_std": 0.09937419602203466
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 1660.7311314701801,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2D6_Veith",
+      "validation_score": 0.7241554464046718,
+      "validation_std": 0.031273406999173865
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 266.9271878406871,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "validation_score": 0.7107080468412805,
+      "validation_std": 0.04103498981633425
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 930.6787941759685,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP3A4_Veith",
+      "validation_score": 0.8723705101910232,
+      "validation_std": 0.009431763350802183
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 523.2850370222004,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Caco2_Wang",
+      "validation_score": 0.3550083260944476,
+      "validation_std": 0.04855536174554992
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 2190.739689119626,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Clearance_Hepatocyte_AZ",
+      "validation_score": 0.4433248827423026,
+      "validation_std": 0.10314787082827864
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 729.3983281631954,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Clearance_Microsome_AZ",
+      "validation_score": 0.553449876147271,
+      "validation_std": 0.05735935901260171
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 228.1366729339352,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "DILI",
+      "validation_score": 0.8753196638274158,
+      "validation_std": 0.05248990370850935
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 242.50826767727267,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "HIA_Hou",
+      "validation_score": 0.9907274427947366,
+      "validation_std": 0.0043140600427172705
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 1108.5966813901905,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Half_Life_Obach",
+      "validation_score": 0.3381110001740362,
+      "validation_std": 0.07194091561017961
+    },
+    {
+      "actions_attempted": 10,
+      "arm": "agent",
+      "compute_seconds": 5056.885670371121,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "LD50_Zhu",
+      "validation_score": 0.4875754383199725,
+      "validation_std": 0.030237523383427688
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 1155.828860728303,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Lipophilicity_AstraZeneca",
+      "validation_score": 0.5191934702809171,
+      "validation_std": 0.027102091447673476
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 1000.5098090849351,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "PPBR_AZ",
+      "validation_score": 9.036195866566024,
+      "validation_std": 1.192419285147661
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 282.7116067261668,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Pgp_Broccatelli",
+      "validation_score": 0.9647987192746967,
+      "validation_std": 0.019834333635891082
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 2646.328706949833,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Solubility_AqSolDB",
+      "validation_score": 0.8122313294697937,
+      "validation_std": 0.11328479140077372
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 2477.0922360699624,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "VDss_Lombardo",
+      "validation_score": 0.67486632099511,
+      "validation_std": 0.05883548302363946
+    },
+    {
+      "actions_attempted": 12,
+      "arm": "agent",
+      "compute_seconds": 191.72655230364762,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "hERG",
+      "validation_score": 0.8905914631038909,
+      "validation_std": 0.02875917595561353
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 78.2410156079568,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "AMES",
+      "validation_score": 0.8667882577119551,
+      "validation_std": 0.033237888349247145
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 37.61480867478531,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "BBB_Martins",
+      "validation_score": 0.9391393606900962,
+      "validation_std": 0.02516167770855261
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 11.629379871068522,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Bioavailability_Ma",
+      "validation_score": 0.689817032289416,
+      "validation_std": 0.128839345010216
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 11.633297933964059,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "validation_score": 0.4801166326762486,
+      "validation_std": 0.17191654158067265
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 167.24571510090027,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2C9_Veith",
+      "validation_score": 0.8158964020113132,
+      "validation_std": 0.022026147217623648
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 11.791269492008723,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "validation_score": 0.6366996482500644,
+      "validation_std": 0.1009739167653858
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 184.09847339906264,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP2D6_Veith",
+      "validation_score": 0.7204347265764043,
+      "validation_std": 0.02919094001248458
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 12.506008545053191,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "validation_score": 0.6814098299637961,
+      "validation_std": 0.03275048169145507
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 170.05484365310986,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "CYP3A4_Veith",
+      "validation_score": 0.867332207996381,
+      "validation_std": 0.011800445269809057
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 20.112523204879835,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Caco2_Wang",
+      "validation_score": 0.35893170784189193,
+      "validation_std": 0.04718356143214614
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 26.818931163987145,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Clearance_Hepatocyte_AZ",
+      "validation_score": 0.4234363468171855,
+      "validation_std": 0.10453500220730402
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 25.73942972382065,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Clearance_Microsome_AZ",
+      "validation_score": 0.536318795032483,
+      "validation_std": 0.05276210750416041
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 7.558817493962124,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "DILI",
+      "validation_score": 0.8676896273407901,
+      "validation_std": 0.05174513073432477
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 8.26603955286555,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "HIA_Hou",
+      "validation_score": 0.9795442918507934,
+      "validation_std": 0.015312848167873584
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 15.915316167054698,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Half_Life_Obach",
+      "validation_score": 0.07335830318412839,
+      "validation_std": 0.11716612418613297
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 75.14699472498614,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "LD50_Zhu",
+      "validation_score": 0.49270738099939876,
+      "validation_std": 0.03184620327882233
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 74.03549104603007,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Lipophilicity_AstraZeneca",
+      "validation_score": 0.5191934702809171,
+      "validation_std": 0.027102091447673476
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 47.64222162705846,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "PPBR_AZ",
+      "validation_score": 9.236366095814802,
+      "validation_std": 1.2629036601158947
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 21.804727099020965,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Pgp_Broccatelli",
+      "validation_score": 0.9499543616044427,
+      "validation_std": 0.031445560833297345
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 103.72791681892704,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "Solubility_AqSolDB",
+      "validation_score": 0.815391565451811,
+      "validation_std": 0.11672455840060648
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 32.319536381051876,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "VDss_Lombardo",
+      "validation_score": 0.42692727935484004,
+      "validation_std": 0.06491127153105059
+    },
+    {
+      "actions_attempted": 1,
+      "arm": "strong_fixed",
+      "compute_seconds": 11.803790900157765,
+      "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+      "task": "hERG",
+      "validation_score": 0.8905914631038909,
+      "validation_std": 0.02875917595561353
+    }
+  ],
+  "test_loaded": false
+}

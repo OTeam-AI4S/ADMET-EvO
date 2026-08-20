@@ -118,15 +118,22 @@ class ExperimentDatabase:
         maximize = metric != "mae"
         recipes: dict[tuple[str, str, str], list[float]] = defaultdict(list)
         for task_rows in by_task.values():
+            task_recipe_scores: dict[tuple[str, str, str], list[float]] = defaultdict(list)
+            for row in task_rows:
+                key = (row["model"], row["representations"], row["hyperparameters"])
+                task_recipe_scores[key].append(float(row["validation_score"]))
+            aggregated = [
+                (key, sum(values) / len(values))
+                for key, values in task_recipe_scores.items()
+            ]
             ordered = sorted(
-                task_rows,
-                key=lambda row: row["validation_score"],
+                aggregated,
+                key=lambda item: item[1],
                 reverse=maximize,
             )
             denominator = max(1, len(ordered) - 1)
-            for rank, row in enumerate(ordered):
+            for rank, (key, _) in enumerate(ordered):
                 percentile = 1.0 - rank / denominator
-                key = (row["model"], row["representations"], row["hyperparameters"])
                 recipes[key].append(percentile)
         ranked = sorted(
             recipes.items(),

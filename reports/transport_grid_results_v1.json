@@ -1,0 +1,508 @@
+{
+  "action_count": 3,
+  "action_priors": {
+    "data-quality-filter": {
+      "category": "absorption",
+      "effect_multiplier": 1.0,
+      "inconclusive": 5,
+      "mean_oriented_delta": null,
+      "observational_mean_oriented_delta": -0.0018845340932429643,
+      "observational_observations": 5,
+      "observational_posterior_support_probability": 0.5,
+      "observations": 5,
+      "posterior_support_probability": 0.5,
+      "refuted": 0,
+      "routing_eligibility_blockers": [
+        "transport_outcome_variation_missing"
+      ],
+      "routing_eligible": false,
+      "supported": 0,
+      "transport_eligible_observations": 5
+    },
+    "feature-domain-shift": {
+      "category": "absorption",
+      "effect_multiplier": 1.0555555555555556,
+      "inconclusive": 0,
+      "mean_oriented_delta": 0.006501324900821876,
+      "observational_mean_oriented_delta": 0.006501324900821876,
+      "observational_observations": 5,
+      "observational_posterior_support_probability": 0.5555555555555556,
+      "observations": 5,
+      "posterior_support_probability": 0.5555555555555556,
+      "refuted": 2,
+      "routing_eligibility_blockers": [],
+      "routing_eligible": true,
+      "supported": 3,
+      "transport_eligible_observations": 5
+    },
+    "model-estimator-family": {
+      "category": "absorption",
+      "effect_multiplier": 0.7777777777777778,
+      "inconclusive": 1,
+      "mean_oriented_delta": -0.015476650341541068,
+      "observational_mean_oriented_delta": -0.015476650341541068,
+      "observational_observations": 5,
+      "observational_posterior_support_probability": 0.2777777777777778,
+      "observations": 5,
+      "posterior_support_probability": 0.2777777777777778,
+      "refuted": 4,
+      "routing_eligibility_blockers": [],
+      "routing_eligible": true,
+      "supported": 0,
+      "transport_eligible_observations": 5
+    }
+  },
+  "actual_fit_seconds": 1234.3826305109542,
+  "avoided_duplicate_control_fit_seconds": 510.5811513774097,
+  "avoided_duplicate_control_fits": 50,
+  "claim_boundary": {
+    "not_supported": "The grid does not prove end-to-end Agent superiority over AutoML, context-specific routing advantage, or benefit from every data action.",
+    "supported": "A prospective complete grid produced transport-eligible global priors for the listed routing-eligible actions while retaining all negative and inconclusive outcomes."
+  },
+  "completed_fits": 100,
+  "endpoint_count": 5,
+  "episodes": [
+    {
+      "action_id": "feature-domain-shift",
+      "axis": "feature",
+      "category": "absorption",
+      "delta_std": 0.005389840153004214,
+      "mean_oriented_delta": 0.012277456609669635,
+      "oriented_seed_deltas": [
+        0.0053023781174420526,
+        0.018779156249975004,
+        0.018307217291001765,
+        0.008373796282238943,
+        0.010624735107690408
+      ],
+      "positive_delta_rate": 1.0,
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "model-estimator-family",
+      "axis": "model",
+      "category": "absorption",
+      "delta_std": 0.0146492979714624,
+      "mean_oriented_delta": -0.004974459601932035,
+      "oriented_seed_deltas": [
+        0.0032026134041942544,
+        0.01056942263517513,
+        -0.011666862449993431,
+        -0.03044100413028411,
+        0.0034635325312479814
+      ],
+      "positive_delta_rate": 0.6,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "data-quality-filter",
+      "axis": "data",
+      "category": "absorption",
+      "delta_std": 0.00312394081152475,
+      "mean_oriented_delta": -0.0007975850188900347,
+      "oriented_seed_deltas": [
+        9.710143968832963e-06,
+        0.0029194094477185684,
+        0.0006568981959400033,
+        -0.001109391018278505,
+        -0.006464551863799073
+      ],
+      "positive_delta_rate": 0.6,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "feature-domain-shift",
+      "axis": "feature",
+      "category": "distribution",
+      "delta_std": 0.007691801523446973,
+      "mean_oriented_delta": -0.005412140754854566,
+      "oriented_seed_deltas": [
+        -0.007925407925407968,
+        0.0066154502774221635,
+        -0.016868279569892453,
+        -0.006861063464836947,
+        -0.0020214030915576275
+      ],
+      "positive_delta_rate": 0.2,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "model-estimator-family",
+      "axis": "model",
+      "category": "distribution",
+      "delta_std": 0.009929340887585437,
+      "mean_oriented_delta": -0.007555824271741773,
+      "oriented_seed_deltas": [
+        -0.0012820512820512775,
+        0.001920614596670922,
+        -0.004435483870967594,
+        -0.02637221269296741,
+        -0.007609988109393506
+      ],
+      "positive_delta_rate": 0.2,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "data-quality-filter",
+      "axis": "data",
+      "category": "distribution",
+      "delta_std": 0.004544105204540958,
+      "mean_oriented_delta": -0.004512560913251695,
+      "oriented_seed_deltas": [
+        -0.013170163170163174,
+        -0.003734528382415614,
+        0.00026881720430116385,
+        -0.003073184676958274,
+        -0.0028537455410225787
+      ],
+      "positive_delta_rate": 0.2,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "feature-domain-shift",
+      "axis": "feature",
+      "category": "metabolism",
+      "delta_std": 0.009651550439307335,
+      "mean_oriented_delta": -0.012868768784691963,
+      "oriented_seed_deltas": [
+        -0.015240480742050422,
+        -0.019911543309721447,
+        -0.009192914195838897,
+        0.0037947231764347,
+        -0.023793628852283755
+      ],
+      "positive_delta_rate": 0.2,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "model-estimator-family",
+      "axis": "model",
+      "category": "metabolism",
+      "delta_std": 0.011098443756390264,
+      "mean_oriented_delta": -0.01212549911745855,
+      "oriented_seed_deltas": [
+        -0.02316153284874689,
+        -0.009674287307772755,
+        0.0024756132256432695,
+        -0.0038026154177137617,
+        -0.026464673238702607
+      ],
+      "positive_delta_rate": 0.2,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "data-quality-filter",
+      "axis": "data",
+      "category": "metabolism",
+      "delta_std": 0.0008821832904686394,
+      "mean_oriented_delta": -0.0029029780798910166,
+      "oriented_seed_deltas": [
+        -0.0019440853356751386,
+        -0.002707253326554082,
+        -0.0020157579255887237,
+        -0.00409960008658794,
+        -0.003748193725049198
+      ],
+      "positive_delta_rate": 0.0,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "feature-domain-shift",
+      "axis": "feature",
+      "category": "excretion",
+      "delta_std": 0.026451203185916112,
+      "mean_oriented_delta": 0.025677160878728577,
+      "oriented_seed_deltas": [
+        -0.01025275632518352,
+        0.036811037435304284,
+        0.06497365335329963,
+        0.0036949507122169267,
+        0.03315891921800557
+      ],
+      "positive_delta_rate": 0.8,
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "model-estimator-family",
+      "axis": "model",
+      "category": "excretion",
+      "delta_std": 0.02619691110860898,
+      "mean_oriented_delta": -0.040381788980825936,
+      "oriented_seed_deltas": [
+        -0.06456483399213697,
+        -0.009012448744500412,
+        -0.05209669886149759,
+        -0.008834019627321665,
+        -0.06740094367867305
+      ],
+      "positive_delta_rate": 0.0,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "data-quality-filter",
+      "axis": "data",
+      "category": "excretion",
+      "delta_std": 0.014918439079183141,
+      "mean_oriented_delta": -0.0017056128567765172,
+      "oriented_seed_deltas": [
+        0.0033677170651945643,
+        0.001714450403838108,
+        -0.00023524264325291977,
+        0.015935097411177934,
+        -0.029310086520840273
+      ],
+      "positive_delta_rate": 0.6,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "feature-domain-shift",
+      "axis": "feature",
+      "category": "toxicity",
+      "delta_std": 0.013638928285144953,
+      "mean_oriented_delta": 0.01283291655525769,
+      "oriented_seed_deltas": [
+        0.010183692284979007,
+        -0.004726591138563663,
+        0.036137627316453313,
+        0.017066148400271264,
+        0.005503705913148527
+      ],
+      "positive_delta_rate": 0.8,
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "model-estimator-family",
+      "axis": "model",
+      "category": "toxicity",
+      "delta_std": 0.005858084559761981,
+      "mean_oriented_delta": -0.01234567973574704,
+      "oriented_seed_deltas": [
+        -0.009723088160067506,
+        -0.01928435393096234,
+        -0.01315036797330893,
+        -0.016954810230233597,
+        -0.0026157783841628257
+      ],
+      "positive_delta_rate": 0.0,
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "action_id": "data-quality-filter",
+      "axis": "data",
+      "category": "toxicity",
+      "delta_std": 0.000978064733062858,
+      "mean_oriented_delta": 0.0004960664025944417,
+      "oriented_seed_deltas": [
+        0.0009375014305598728,
+        -0.0011744317269577476,
+        0.001622345609863518,
+        3.567855904140771e-05,
+        0.0010592381404651574
+      ],
+      "positive_delta_rate": 0.8,
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "execution_source_sha256": "d72e0502cd609aa7fc25d3a2b76ab217889381d3ed49e6ed57f9f3593fb9fa6a",
+  "expected_fits": 100,
+  "failed_fits": 0,
+  "fit_seconds_by_role": {
+    "data-quality-filter": 746.2811541740084,
+    "feature-domain-shift": 162.83069469814654,
+    "model-estimator-family": 69.98020595009439,
+    "shared-control": 255.29057568870485
+  },
+  "full_three_action_memory_ready": false,
+  "grid_complete": true,
+  "matched_episode_count": 15,
+  "naive_repeated_control_fit_seconds": 1744.9637818883639,
+  "outcomes_by_action": {
+    "data-quality-filter": {
+      "inconclusive": 5
+    },
+    "feature-domain-shift": {
+      "refuted": 2,
+      "supported": 3
+    },
+    "model-estimator-family": {
+      "inconclusive": 1,
+      "refuted": 4
+    }
+  },
+  "protocol_sha256": "500a7dd3d312f56348c4fe2f49d1c9d3e21deb19594997436021cc5b81db0e79",
+  "routing_blocked_actions": [
+    "data-quality-filter"
+  ],
+  "routing_eligible_actions": [
+    "feature-domain-shift",
+    "model-estimator-family"
+  ],
+  "runner_sha256": "b6a85cad6953297ba83dfe8e9f4bae10d0b4628d58a3e0f6181e82e4729ac1b1",
+  "shared_control_compute_reduction_fraction": 0.2926027214300513,
+  "source_audit": {
+    "changed_files": [
+      "admet_agent/action_evidence.py",
+      "admet_agent/action_memory.py",
+      "admet_agent/brain.py",
+      "admet_agent/research_loop.py"
+    ],
+    "current_matches_execution_source": false,
+    "current_source_sha256": "5f6c072bb00b36baafd56a180e52f358f5a2562cf991328ce1f111eab7900c38",
+    "execution_kernel_changed_files": [],
+    "execution_kernel_identical": true,
+    "frozen_source_sha256": "d72e0502cd609aa7fc25d3a2b76ab217889381d3ed49e6ed57f9f3593fb9fa6a"
+  },
+  "test_loaded": false,
+  "unimol2_fits": 0,
+  "version": "prospective-transport-grid-report-v1"
+}

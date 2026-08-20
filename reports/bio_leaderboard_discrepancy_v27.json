@@ -1,0 +1,232 @@
+{
+  "assessment": {
+    "authoritative_correction_obtained": false,
+    "most_supported_explanation": "The displayed Bioavailability rows are inconsistent with current-data reproduction and are exactly copied from the distinct Pgp endpoint for all 16 Pgp entries. Dataset/version or leaderboard-record corruption is therefore substantially better supported than a local implementation failure.",
+    "policy": "Do not replace the displayed 0.922 Top-10 threshold and do not mark the 22-task goal complete until TDC issues an authoritative correction or a legitimate frozen model reaches the displayed threshold.",
+    "root_cause_proven": false,
+    "status": "confirmed_material_leaderboard_discrepancy"
+  },
+  "audit_repository": {
+    "commit": "3e5472ce159a29b872219ffaaa4a11b4a2660f77",
+    "leaderboard_path": "vendor/tdc-admet-bench-audit/data/tdc_admet_leaderboard.json",
+    "leaderboard_sha256": "5ff7241361c3f75007924f7688262c32ad9425628f296281b23f2d67046c9d4c",
+    "url": "https://github.com/receptor-ai/tdc-admet-bench"
+  },
+  "checks": {
+    "all_pgp_rows_exactly_contained_in_bio": true,
+    "bio_pgp_have_different_dataset_sizes": true,
+    "confirmation_has_zero_identity_overlap": true,
+    "confirmation_never_loaded_official_test": true,
+    "current_bio_minimol_exactly_equals_historical_pgp_minimol": true,
+    "current_snapshot_matches_audit_repository_bio": true,
+    "current_snapshot_matches_audit_repository_pgp": true,
+    "cyp_positive_control_within_0_01": true,
+    "goal_scorecard_remains_unmet": true,
+    "historical_bio_and_pgp_scores_are_distinct": true,
+    "local_bio_exactly_matches_published_reproduction": true
+  },
+  "cross_page_evidence": {
+    "bio_dataset_size": 640,
+    "bio_entry_count": 20,
+    "current_bio_minimol": {
+      "mean": 0.942,
+      "model": "MiniMol",
+      "std": 0.002
+    },
+    "exact_shared_model_mean_std": 16,
+    "historical_bio_minimol": {
+      "mean": 0.689,
+      "rank": 5,
+      "std": 0.02
+    },
+    "historical_pgp_minimol": {
+      "mean": 0.942,
+      "rank": 1,
+      "std": 0.002
+    },
+    "identical_rows": [
+      {
+        "mean": 0.892,
+        "model": "AttentiveFP",
+        "std": 0.012
+      },
+      {
+        "mean": 0.929,
+        "model": "AttrMasking",
+        "std": 0.006
+      },
+      {
+        "mean": 0.818,
+        "model": "Basic ML",
+        "std": 0.0
+      },
+      {
+        "mean": 0.908,
+        "model": "CNN (DeepPurpose)",
+        "std": 0.012
+      },
+      {
+        "mean": 0.86,
+        "model": "Chemprop",
+        "std": 0.036
+      },
+      {
+        "mean": 0.886,
+        "model": "Chemprop-RDKit",
+        "std": 0.016
+      },
+      {
+        "mean": 0.923,
+        "model": "ContextPred",
+        "std": 0.005
+      },
+      {
+        "mean": 0.845,
+        "model": "Euclia ML model",
+        "std": 0.003
+      },
+      {
+        "mean": 0.895,
+        "model": "GCN",
+        "std": 0.021
+      },
+      {
+        "mean": 0.93,
+        "model": "MapLight",
+        "std": 0.002
+      },
+      {
+        "mean": 0.938,
+        "model": "MapLight + GNN",
+        "std": 0.002
+      },
+      {
+        "mean": 0.88,
+        "model": "Morgan + MLP (DeepPurpose)",
+        "std": 0.006
+      },
+      {
+        "mean": 0.902,
+        "model": "NeuralFP",
+        "std": 0.02
+      },
+      {
+        "mean": 0.918,
+        "model": "RDKit2D + MLP (DeepPurpose)",
+        "std": 0.007
+      },
+      {
+        "mean": 0.929,
+        "model": "SimGCN",
+        "std": 0.01
+      },
+      {
+        "mean": 0.935,
+        "model": "ZairaChem",
+        "std": 0.006
+      }
+    ],
+    "jaccard": 0.8,
+    "pgp_containment": 1.0,
+    "pgp_dataset_size": 1212,
+    "pgp_entry_count": 16,
+    "same_values_in_audit_repository_snapshot": true
+  },
+  "goal_effect": {
+    "displayed_estimated_rank": 21,
+    "displayed_top10_threshold": 0.922,
+    "goal_met": false,
+    "historical_june_2024_rank_upper_bound": 5,
+    "historical_reference_is_not_current_rank_evidence": true,
+    "threshold_override_allowed": false,
+    "verified_top10_count": 21,
+    "verified_top5_count": 18
+  },
+  "historical_primary_report": {
+    "as_of": "June 2024",
+    "bio": {
+      "minimol": {
+        "mean": 0.689,
+        "rank": 5,
+        "std": 0.02
+      },
+      "tdc_sota": {
+        "mean": 0.748,
+        "std": 0.033
+      }
+    },
+    "commit_observed_at_audit": "41642328affbb35e4950b7b7a9020aa95919b503",
+    "extraction": "manual_transcription_from_upstream_README_performance_table",
+    "pgp": {
+      "minimol": {
+        "mean": 0.942,
+        "rank": 1,
+        "std": 0.002
+      },
+      "tdc_sota": {
+        "mean": 0.938,
+        "std": 0.002
+      }
+    },
+    "repository": "https://github.com/graphcore-research/minimol"
+  },
+  "local_reproduction": {
+    "bio": {
+      "displayed_tdc_maplight_gnn": 0.938,
+      "fresh_validation_mean": 0.7093311325036087,
+      "mean": 0.731,
+      "method": "MapLight + GNN",
+      "published_reproduction_absolute_delta": 0.0,
+      "result_path": "runs/v27-official/Bioavailability_Ma/final/results.json",
+      "result_sha256": "30455865edd344249bc3db6aedaca6314214a27debcf5181844ec41bf849a7d5",
+      "std": 0.007,
+      "validation_to_official_delta": 0.021668867496391298
+    },
+    "confirmation_path": "runs/v27-maplight-gnn-confirmation/result.json",
+    "confirmation_sha256": "cc92d54c212397d7227a6c1babd7867d1267a8b196b3efea81fed9138210e660",
+    "cross_split_identity_overlap": 0,
+    "cyp_positive_control": {
+      "absolute_delta": 0.0030000000000000027,
+      "displayed_tdc_mean": 0.437,
+      "mean": 0.434,
+      "method": "MapLight + GNN",
+      "result_path": "runs/v27-official/CYP2C9_Substrate_CarbonMangels/final/results.json",
+      "result_sha256": "d3a0c1cc0a8ebd0b7e1a39e14ab16e67e90a2de7c6655ffd4d79287501178e5d",
+      "std": 0.009
+    },
+    "official_test_loaded_during_selection": false,
+    "test_labels_used_during_selection": false
+  },
+  "published_audit": {
+    "doi": "10.1021/acs.jcim.6c00819",
+    "extraction": "manual_transcription_from_published_table_2",
+    "published_maplight": {
+      "mean": 0.741,
+      "std": 0.007
+    },
+    "published_maplight_gnn": {
+      "mean": 0.731,
+      "std": 0.007
+    },
+    "table": 2,
+    "title": "An End-User Audit of Reproducibility, Data Leakage, and Overfitting of the Top-Ranked ADMET Prediction Models in TDC Leaderboards",
+    "url": "https://pubs.acs.org/doi/10.1021/acs.jcim.6c00819"
+  },
+  "schema_version": "bio-leaderboard-discrepancy-v27-1",
+  "snapshot": {
+    "bio_url": "https://tdcommons.ai/benchmark/admet_group/04bioav/",
+    "captured_at": "2026-08-17T13:50:54.441113+00:00",
+    "path": "reports/leaderboard_snapshot_2026-08-17.json",
+    "pgp_url": "https://tdcommons.ai/benchmark/admet_group/03pgp/",
+    "sha256": "13ca5c2022bd67c03e57287269c0b148041e79e0de1f9cd031d33154937d23b1"
+  },
+  "tdc_public_issue": {
+    "created_at": "2026-06-08T04:13:44Z",
+    "maintainer_comments_observed_at_audit": 0,
+    "meaning": "The same Bio/Pgp mapping problem was publicly reported before this work, but an open user report without a maintainer response is not an authoritative correction.",
+    "number": 394,
+    "state_observed_at_audit": "open",
+    "title": "[Bug] Score discrepancy and data contamination in Bioavailability_Ma leaderboard",
+    "url": "https://github.com/mims-harvard/TDC/issues/394"
+  }
+}

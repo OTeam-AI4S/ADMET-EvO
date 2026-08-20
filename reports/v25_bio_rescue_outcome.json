@@ -1,0 +1,157 @@
+{
+  "artifacts": [
+    {
+      "bytes": 29920,
+      "path": "runs/v25-rescue-freeze/full-22-task.json",
+      "sha256": "15b86faf7ef85141545bd0c770936c3f2c2fbed866e189897c8787cba995f575"
+    },
+    {
+      "bytes": 23259,
+      "path": "runs/v25-rescue-freeze/full-22-task.mapping.json",
+      "sha256": "b431bec431c7f3d971ebedd3ccdb76930e94314aea56ddb09eb09e56ade1b376"
+    },
+    {
+      "bytes": 545,
+      "path": "runs/v25-official/Bioavailability_Ma/final/freeze.json",
+      "sha256": "330ba84438f386ae7186460a3fc66781aadc02b36a76aad5499773edfdb5f8a9"
+    },
+    {
+      "bytes": 3355,
+      "path": "runs/v25-official/Bioavailability_Ma/final/results.json",
+      "sha256": "32f74cebdea68350330b115f4a414e23b32b0ceb8bfc5fa0ce2c4d5f1463ad97"
+    },
+    {
+      "bytes": 384,
+      "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_1/execution_audit.json",
+      "sha256": "b15d6fed568bcb54d9b4809703bc8181f3b390126d925e022740b7742294a30b"
+    },
+    {
+      "bytes": 1258,
+      "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_1.npz",
+      "sha256": "8113a42d22358a45ea9a490ce8616eb396d933bc56ccad3c74d5591821d2ce17"
+    },
+    {
+      "bytes": 384,
+      "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_2/execution_audit.json",
+      "sha256": "e72cbb163cbbcb936b38233ce538161c52b197af1482a2ed1a981854bbd6f646"
+    },
+    {
+      "bytes": 1259,
+      "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_2.npz",
+      "sha256": "1bb8aee5462425bff72383ed2f75388fa87ff87cf406d3038b49097df05b5cbd"
+    },
+    {
+      "bytes": 384,
+      "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_3/execution_audit.json",
+      "sha256": "16ddcd585019b5deb7e34edb7b49b92ead570b1ed2a441d558a1f648d2cd3cbe"
+    },
+    {
+      "bytes": 1260,
+      "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_3.npz",
+      "sha256": "014bf050b6340ae3142733935cc54d7f032b0f0d73a3259875525dae57a2aca8"
+    },
+    {
+      "bytes": 384,
+      "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_4/execution_audit.json",
+      "sha256": "86f5fe113fdcba42daf32a05a480242a76233a502f89d6c74ecfade842a2efb9"
+    },
+    {
+      "bytes": 1265,
+      "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_4.npz",
+      "sha256": "ff5b988c6d3eabf5c8fdec9f7dbec1dba0c337a1437f421f68532c06c4e7b9a3"
+    },
+    {
+      "bytes": 384,
+      "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_5/execution_audit.json",
+      "sha256": "d406e98584269a95707f769a19f5114255ef273b5c3098e4005ca953a9161c6a"
+    },
+    {
+      "bytes": 1258,
+      "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_5.npz",
+      "sha256": "848698120a08f8917d575e011fe749a5945b09a7604dc56a381f78cbbcbefb8f"
+    }
+  ],
+  "decision": "reject_keep_previous_official",
+  "execution": {
+    "freeze": "runs/v25-official/Bioavailability_Ma/final/freeze.json",
+    "freeze_sha256": "610635fe9edc090f9d75f42d15e664d0d0486799b15cabb40511e28109e48cb8",
+    "predictions": {
+      "1": {
+        "bytes": 1258,
+        "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_1.npz",
+        "sha256": "8113a42d22358a45ea9a490ce8616eb396d933bc56ccad3c74d5591821d2ce17"
+      },
+      "2": {
+        "bytes": 1259,
+        "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_2.npz",
+        "sha256": "1bb8aee5462425bff72383ed2f75388fa87ff87cf406d3038b49097df05b5cbd"
+      },
+      "3": {
+        "bytes": 1260,
+        "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_3.npz",
+        "sha256": "014bf050b6340ae3142733935cc54d7f032b0f0d73a3259875525dae57a2aca8"
+      },
+      "4": {
+        "bytes": 1265,
+        "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_4.npz",
+        "sha256": "ff5b988c6d3eabf5c8fdec9f7dbec1dba0c337a1437f421f68532c06c4e7b9a3"
+      },
+      "5": {
+        "bytes": 1258,
+        "path": "runs/v25-official/Bioavailability_Ma/final/predictions_seed_5.npz",
+        "sha256": "848698120a08f8917d575e011fe749a5945b09a7604dc56a381f78cbbcbefb8f"
+      }
+    },
+    "recipe_audits": {
+      "1": {
+        "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_1/execution_audit.json",
+        "test_labels_passed_to_executor": false
+      },
+      "2": {
+        "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_2/execution_audit.json",
+        "test_labels_passed_to_executor": false
+      },
+      "3": {
+        "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_3/execution_audit.json",
+        "test_labels_passed_to_executor": false
+      },
+      "4": {
+        "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_4/execution_audit.json",
+        "test_labels_passed_to_executor": false
+      },
+      "5": {
+        "path": "runs/v25-official/Bioavailability_Ma/final/artifacts/Bioavailability_Ma/seed_5/execution_audit.json",
+        "test_labels_passed_to_executor": false
+      }
+    },
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "official_test_runs_after_upgrade": 1,
+  "preregistration": {
+    "full_22_task_freeze": "runs/v25-rescue-freeze/full-22-task.json",
+    "full_22_task_freeze_sha256": "e75451c7af84a14b27e9c1a3324340317dd9c6646e78bce18d493abad7d6bda9",
+    "upgrade_tasks": [
+      "Bioavailability_Ma"
+    ]
+  },
+  "reason": "one-shot official candidate underperformed the previous official score",
+  "scores": {
+    "candidate_official": 0.675,
+    "candidate_official_std": 0.0,
+    "fresh_scaffold_confirmation_mean": 0.7537936254213548,
+    "official_delta": -0.02199999999999991,
+    "previous_official": 0.697,
+    "retained_scorecard_score": 0.697,
+    "validation_to_official_delta": -0.07879362542135471
+  },
+  "selection_after_official_result": false,
+  "task": "Bioavailability_Ma",
+  "test_labels_passed_to_executor": false,
+  "version": "v2.5-bioavailability-rescue-outcome"
+}

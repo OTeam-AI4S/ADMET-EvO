@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Literal, Sequence
+from typing import Literal
+
 from pydantic import BaseModel, ConfigDict, Field
+
 from .registry import planner_catalog
 from .schemas import Budget, ExperimentSpec, RunResult, TaskProfile
 
@@ -12,6 +15,8 @@ from .schemas import Budget, ExperimentSpec, RunResult, TaskProfile
 class Hyperparameters(BaseModel):
     model_config = ConfigDict(extra="forbid")
     n_estimators: int | None
+    n_members: int | None
+    majority_ratio: float | None
     min_samples_leaf: int | None
     max_features: float | Literal["sqrt", "log2"] | None
     criterion: Literal["squared_error", "absolute_error", "gini", "entropy", "log_loss"] | None
@@ -39,6 +44,7 @@ class Hyperparameters(BaseModel):
         allowed = {
             "extra_trees": {"n_estimators", "min_samples_leaf", "max_features", "criterion", "bootstrap", "max_samples"},
             "random_forest": {"n_estimators", "min_samples_leaf", "max_features", "criterion", "bootstrap", "max_samples"},
+            "balanced_extra_trees": {"n_estimators", "n_members", "majority_ratio", "min_samples_leaf", "max_features", "criterion"},
             "catboost": {"iterations", "depth", "learning_rate", "l2_leaf_reg", "random_strength"},
             "xgboost": {"n_estimators", "max_depth", "learning_rate", "subsample", "colsample_bytree",
                         "min_child_weight", "reg_alpha", "reg_lambda"},
@@ -51,8 +57,8 @@ class Hyperparameters(BaseModel):
 
 class Candidate(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    representations: list[Literal["morgan", "morgan_r3", "morgan_count", "avalon", "erg", "maccs", "rdkit_fp", "atom_pair", "torsion", "rdkit2d"]] = Field(min_length=1, max_length=4)
-    model: Literal["extra_trees", "random_forest", "catboost", "xgboost", "lightgbm", "svm_rbf"]
+    representations: list[Literal["morgan", "morgan_r3", "morgan_count", "avalon", "erg", "maccs", "rdkit_fp", "atom_pair", "torsion", "rdkit2d", "unimol2"]] = Field(min_length=1, max_length=4)
+    model: Literal["extra_trees", "random_forest", "balanced_extra_trees", "catboost", "xgboost", "lightgbm", "svm_rbf"]
     imbalance: Literal["none", "class_weight"]
     hyperparameters: Hyperparameters
     hypothesis: str
@@ -78,9 +84,19 @@ class OpenAIPlanner:
         self.client = OpenAI(api_key=config["OPENAI_API_KEY"], base_url=config.get("OPENAI_BASE_URL"))
         self.audit_path = audit_path
         self.cross_task_evidence: list[dict] = []
+        self.hardness_card: dict = {}
+        self.research_plan: dict = {}
 
-    def set_context(self, *, cross_task_evidence: list[dict]) -> None:
+    def set_context(
+        self,
+        *,
+        cross_task_evidence: list[dict],
+        hardness_card: dict | None = None,
+        research_plan: dict | None = None,
+    ) -> None:
         self.cross_task_evidence = cross_task_evidence
+        self.hardness_card = hardness_card or {}
+        self.research_plan = research_plan or {}
 
     @staticmethod
     def _read_config(path: Path) -> dict[str, str]:
@@ -110,8 +126,10 @@ class OpenAIPlanner:
             "prior_validation_runs": [item.to_dict() for item in history],
             "tool_catalog": planner_catalog(),
             "cross_task_evidence": self.cross_task_evidence,
+            "hardness_card": self.hardness_card,
             "allowed": {"imbalance": ["none", "class_weight"]},
             "constraints": {"n_estimators": [100, 1200], "min_samples_leaf": [1, 20],
+                            "n_members": [3, 25], "majority_ratio": [0.5, 10.0],
                             "max_features_float": [0.1, 1.0], "max_samples": [0.3, 1.0],
                             "iterations": [100, 2000], "depth": [3, 12],
                             "learning_rate": [0.005, 0.3], "l2_leaf_reg": [0.0, 30.0],

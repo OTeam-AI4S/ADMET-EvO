@@ -1,0 +1,222 @@
+{
+  "behavioral_memory_advantage_demonstrated": false,
+  "blockers": [
+    "no_selected_action_changes_on_the_22_historical_hardness_cards",
+    "global_prior_has_no_hardness_by_action_interaction",
+    "eligible_priors_do_not_change_the_top_selected_action",
+    "data_quality_filter_prior_is_neutral_after_all_inconclusive_outcomes",
+    "no_independent_post_memory_endpoint_cohort_has_been_executed"
+  ],
+  "next_gate": "Preregister predicted action choices on an independent endpoint cohort, then execute matched actions before comparing memory versus no-memory regret.",
+  "planner_action_coverage": {
+    "data-quality-filter": true,
+    "feature-domain-shift": true,
+    "model-estimator-family": true
+  },
+  "ranking_changed_tasks": 14,
+  "rows": [
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.029393812043958856,
+      "selection_changed": false,
+      "task": "AMES",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.02843455333964684,
+      "selection_changed": false,
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "model-imbalance-aware",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.0,
+      "selection_changed": false,
+      "task": "Bioavailability_Ma",
+      "test_loaded": false,
+      "with_memory_action": "model-imbalance-aware"
+    },
+    {
+      "no_memory_action": "model-imbalance-aware",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.0,
+      "selection_changed": false,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "with_memory_action": "model-imbalance-aware"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.02905572516778765,
+      "selection_changed": false,
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "model-imbalance-aware",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.0,
+      "selection_changed": false,
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "with_memory_action": "model-imbalance-aware"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.029748812449279405,
+      "selection_changed": false,
+      "task": "CYP2D6_Veith",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.018500176103764893,
+      "selection_changed": false,
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.03170564581123925,
+      "selection_changed": false,
+      "task": "CYP3A4_Veith",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.02015545576665756,
+      "selection_changed": false,
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.022913639670431585,
+      "selection_changed": false,
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.02141968732881172,
+      "selection_changed": false,
+      "task": "Clearance_Microsome_AZ",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.018665564562411086,
+      "selection_changed": false,
+      "task": "DILI",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "model-imbalance-aware",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.0,
+      "selection_changed": false,
+      "task": "HIA_Hou",
+      "test_loaded": false,
+      "with_memory_action": "model-imbalance-aware"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.018451564800595094,
+      "selection_changed": false,
+      "task": "Half_Life_Obach",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.03247309213876226,
+      "selection_changed": false,
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.02720901812441978,
+      "selection_changed": false,
+      "task": "Lipophilicity_AstraZeneca",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.029049857001130053,
+      "selection_changed": false,
+      "task": "PPBR_AZ",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.020950569010509623,
+      "selection_changed": false,
+      "task": "Pgp_Broccatelli",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.03135076701756623,
+      "selection_changed": false,
+      "task": "Solubility_AqSolDB",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "feature-domain-shift",
+      "ranking_changed": false,
+      "selected_utility_delta": 0.02325517319496606,
+      "selection_changed": false,
+      "task": "VDss_Lombardo",
+      "test_loaded": false,
+      "with_memory_action": "feature-domain-shift"
+    },
+    {
+      "no_memory_action": "data-leakage-safe",
+      "ranking_changed": true,
+      "selected_utility_delta": 0.0,
+      "selection_changed": false,
+      "task": "hERG",
+      "test_loaded": false,
+      "with_memory_action": "data-leakage-safe"
+    }
+  ],
+  "selection_changed_tasks": 0,
+  "task_count": 22,
+  "test_loaded": false,
+  "utility_changed_tasks": 17,
+  "version": "transport-memory-behavior-replay-v1"
+}

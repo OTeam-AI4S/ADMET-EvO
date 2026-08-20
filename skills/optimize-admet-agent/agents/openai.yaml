@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize ADMET Agent"
+  short_description: "Turn ADMET evidence into protocol-safe ablations"
+  default_prompt: "Use $optimize-admet-agent to identify, implement, and validate the next evidence-backed ADMET optimization."

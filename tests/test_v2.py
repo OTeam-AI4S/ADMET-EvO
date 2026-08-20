@@ -1,14 +1,18 @@
 import json
+import sys
+import types
 
 import numpy as np
+import pandas as pd
 import pytest
 
 from admet_agent.brain import HybridBrain, RuleBasedBrain
 from admet_agent.experiment_db import ExperimentDatabase
 from admet_agent.features import MolecularFeaturizer
 from admet_agent.guard import ProtocolViolation, validate_experiment
-from admet_agent.runner import ADMETAgent
+from admet_agent.runner import ADMETAgent, _percentile_ranks
 from admet_agent.schemas import ExperimentSpec, RunResult, TaskProfile
+from admet_agent.tasks import resolve_task
 
 
 def regression_profile(task="Caco2_Wang"):
@@ -30,6 +34,67 @@ def test_all_v2_representations_compute_finite_values():
         assert values.shape[0] == 2
         assert values.shape[1] > 0
         assert np.isfinite(values).all()
+
+
+@pytest.mark.parametrize("current_api", [False, True])
+def test_unimol2_representation_preserves_rows_and_supports_both_apis(
+    monkeypatch, current_api
+):
+    calls = {}
+
+    class FakeUniMolRepr:
+        def __init__(self, **kwargs):
+            calls["init"] = kwargs
+
+        def get_repr(self, smiles, return_atomic_reprs=False):
+            calls["smiles"] = smiles
+            calls["return_atomic_reprs"] = return_atomic_reprs
+            values = [[float(index), float(len(value))] for index, value in enumerate(smiles)]
+            return values if current_api else {"cls_repr": values}
+
+    module = types.ModuleType("unimol_tools")
+    module.UniMolRepr = FakeUniMolRepr
+    monkeypatch.setitem(sys.modules, "unimol_tools", module)
+
+    values = MolecularFeaturizer(("unimol2",), device="cpu").transform(
+        ["CCO", "not-a-smiles", "CC"]
+    )
+
+    assert values.shape == (3, 2)
+    assert np.array_equal(values[1], np.zeros(2, dtype=np.float32))
+    assert calls["smiles"] == ["CCO", "CC"]
+    assert calls["init"]["model_name"] == "unimolv2"
+    assert calls["init"]["model_size"] == "84m"
+    assert calls["init"]["use_cuda"] is False
+    assert calls["return_atomic_reprs"] is False
+
+
+def test_rule_brain_requires_transport_eligible_memory_for_unimol2(monkeypatch):
+    monkeypatch.setattr("admet_agent.brain.is_representation_available", lambda name: True)
+    brain = RuleBasedBrain(max_candidates=2)
+    brain.set_context(
+        cross_task_evidence=[],
+        hardness_card={
+            "dimensions": {
+                "domain_shift": {"severity": 0.8, "confidence": 0.8}
+            }
+        },
+        research_plan={
+            "selected_action_id": "feature-domain-shift",
+            "actions": [
+                {
+                    "action_id": "feature-domain-shift",
+                    "prior_evidence": {
+                        "routing_eligible": True,
+                        "mean_oriented_delta": 0.01,
+                        "posterior_support_probability": 0.6,
+                    },
+                }
+            ],
+        },
+    )
+    proposals = brain.propose(regression_profile(), [])
+    assert any("unimol2" in item.representations for item in proposals)
 
 
 def test_guard_rejects_duplicates_and_bad_types():
@@ -96,6 +161,21 @@ def test_ensemble_normalization_and_test_freeze(tmp_path):
         {"kind": "ensemble", "members": [member, member], "weights": [2, 1]},
     )
     assert normalized["weights"] == pytest.approx([2 / 3, 1 / 3])
+    assert normalized["aggregation"] == "probability"
+
+    ranked = ADMETAgent._normalize_frozen(
+        __import__("admet_agent.tasks", fromlist=["resolve_task"]).resolve_task("HIA_Hou"),
+        {
+            "kind": "ensemble",
+            "members": [
+                {**member, "task": "HIA_Hou"},
+                {**member, "task": "HIA_Hou"},
+            ],
+            "weights": [1, 1],
+            "aggregation": "rank",
+        },
+    )
+    assert ranked["aggregation"] == "rank"
 
     agent = object.__new__(ADMETAgent)
     agent.run_dir = tmp_path
@@ -104,6 +184,12 @@ def test_ensemble_normalization_and_test_freeze(tmp_path):
     changed["weights"] = [0.5, 0.5]
     with pytest.raises(RuntimeError, match="firewall"):
         agent._lock_finalists(["Caco2_Wang"], {"Caco2_Wang": changed})
+
+
+def test_percentile_ranks_average_ties():
+    assert _percentile_ranks(np.asarray([3.0, 1.0, 3.0, 2.0])).tolist() == pytest.approx(
+        [0.875, 0.25, 0.875, 0.5]
+    )
 
 
 
@@ -168,3 +254,55 @@ def test_single_finalist_internal_kind_is_not_an_experiment_field():
     normalized = ADMETAgent._normalize_frozen(task, "random_forest")
     member = {key: value for key, value in normalized.items() if key != "kind"}
     assert ExperimentSpec.from_dict(member).model == "random_forest"
+
+
+def test_recipe_finalist_normalization_freezes_protocol():
+    task = __import__("admet_agent.tasks", fromlist=["resolve_task"]).resolve_task("DILI")
+    normalized = ADMETAgent._normalize_frozen(
+        task,
+        {
+            "kind": "recipe",
+            "recipe": "raw(2d_lightgbm@0.50+finetuned_unimol2@0.50)",
+        },
+    )
+
+    assert normalized["kind"] == "recipe"
+    assert normalized["protocol"] == {
+        "model_size": "84m",
+        "learning_rate": 1e-4,
+        "epochs": 20,
+        "batch_size": 16,
+        "inner_folds": 5,
+    }
+
+
+def test_recipe_runner_passes_only_prediction_smiles_to_executor(monkeypatch, tmp_path):
+    calls = {}
+
+    class FakeExecutor:
+        def __init__(self, **kwargs):
+            calls["init"] = kwargs
+
+        def predict(self, **kwargs):
+            calls["predict"] = kwargs
+            return np.asarray([0.25, 0.75])
+
+    monkeypatch.setattr("admet_agent.runner.FrozenRecipeExecutor", FakeExecutor)
+    agent = object.__new__(ADMETAgent)
+    agent.cache = None
+    agent.run_dir = tmp_path
+    agent.device = "cpu"
+    agent.n_jobs = 1
+    train = pd.DataFrame({"Drug": ["CC", "CCC"], "Y": [0, 1]})
+    valid = pd.DataFrame({"Drug": ["CO"], "Y": [1]})
+    test = pd.DataFrame({"Drug": ["CN", "CF"], "Y": [99, 99]})
+    task = resolve_task("DILI")
+    frozen = ADMETAgent._normalize_frozen(
+        task, {"kind": "recipe", "recipe": "finetuned_unimol2"}
+    )
+
+    result = agent._predict_frozen(task, frozen, 1, train, valid, test, "Drug", "Y")
+
+    assert result.tolist() == [0.25, 0.75]
+    assert calls["predict"]["predict_smiles"] == ["CN", "CF"]
+    assert "test" not in calls["predict"]

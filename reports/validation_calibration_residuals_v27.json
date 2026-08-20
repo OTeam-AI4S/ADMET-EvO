@@ -1,0 +1,890 @@
+{
+  "aggregate": {
+    "classification_low_similarity_brier_better_tasks": 2,
+    "classification_low_similarity_brier_worse_tasks": 11,
+    "mean_classification_adaptive_ece": 0.09640901465006774,
+    "mean_classification_brier": 0.1173271601463444,
+    "regression_low_similarity_error_better_tasks": 2,
+    "regression_low_similarity_error_worse_tasks": 7
+  },
+  "analysis_role": "post_selection_descriptive_validation_audit",
+  "classification_task_count": 13,
+  "leaderboard_used_for_analysis": false,
+  "limitations": "Finalists were selected using development validation evidence, so this is a post-selection diagnostic, not an unbiased performance estimate. Spearman residuals are computed in percentile-rank space.",
+  "official_results_used": false,
+  "official_test_loaded": false,
+  "regression_task_count": 9,
+  "scorecard": {
+    "path": "reports/goal_scorecard_v27.json",
+    "sha256": "6b4eb4ecbc6c50e10f6140063fae82f95eeb78c168a92823f2968a2864e47b27"
+  },
+  "selection_or_freeze_changed": false,
+  "split_protocol": "one saved default scaffold validation split per task; seed 1 for v2.1/v2.4 lineages and preregistered fresh seed 6 for v2.7 MapLight+GNN",
+  "task_count": 22,
+  "tasks": [
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.09980923836607113,
+        "brier": 0.12328022061430469,
+        "brier_skill_vs_prevalence": 0.47772546409231287,
+        "calibration_in_the_large": 0.02011601682650177,
+        "mean_probability": 0.6382478849583699,
+        "n": 728,
+        "prevalence": 0.6181318681318682
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.09254867923772521,
+        "high_similarity_n": 183,
+        "low_minus_high_brier": 0.07421250361577582,
+        "low_similarity_brier": 0.16676118285350103,
+        "low_similarity_n": 182
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist ames-ensemble-de08d75a",
+      "metric": "auroc",
+      "n_train": 5093,
+      "n_valid": 728,
+      "nearest_train_tanimoto": {
+        "mean": 0.4874647126805627,
+        "median": 0.4722222222222222,
+        "q25": 0.36978856462179865,
+        "q75": 0.5909090909090909
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/AMES/artifacts/ames-ensemble-de08d75a/validation_predictions.npz",
+      "prediction_sha256": "2306d9aba1ec151f5484148b7d523b5ed7253414b5dd7d4211950dea75fc87ed",
+      "split_sha256": "50d13dccc4d62b67d891e606b6a9492dfc7fad1d298abb614e23eedb9de7dabe",
+      "task": "AMES",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.17994505494505494,
+      "valid_unique_scaffolds": 218
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.06440403734532107,
+        "brier": 0.08473119844448633,
+        "brier_skill_vs_prevalence": 0.5930433616901122,
+        "calibration_in_the_large": 0.020011181607809903,
+        "mean_probability": 0.7244446791447557,
+        "n": 203,
+        "prevalence": 0.7044334975369458
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.05528975138008185,
+        "high_similarity_n": 51,
+        "low_minus_high_brier": 0.09410627285834944,
+        "low_similarity_brier": 0.1493960242384313,
+        "low_similarity_n": 54
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist bbb_martins-ensemble-b3253011",
+      "metric": "auroc",
+      "n_train": 1421,
+      "n_valid": 203,
+      "nearest_train_tanimoto": {
+        "mean": 0.47766426472402257,
+        "median": 0.48,
+        "q25": 0.3333333333333333,
+        "q75": 0.6277185501066098
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/BBB_Martins/artifacts/bbb_martins-ensemble-b3253011/validation_predictions.npz",
+      "prediction_sha256": "b7a4565f752c60136f3fba4908d5cd22a48a0f0016c4e3c181a05a9c34e95bfe",
+      "split_sha256": "70a1a0e07708bd058d88b18d69d75315b54e178666cb40bf348a052fcfb97cfa",
+      "task": "BBB_Martins",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.458128078817734,
+      "valid_unique_scaffolds": 118
+    },
+    {
+      "analysis_seed": 6,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.11099910645649397,
+        "brier": 0.11346078667445975,
+        "brier_skill_vs_prevalence": 0.2990416557789033,
+        "calibration_in_the_large": 0.012411710840021573,
+        "mean_probability": 0.8092867108400216,
+        "n": 64,
+        "prevalence": 0.796875
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.13870162494795535,
+        "high_similarity_n": 16,
+        "low_minus_high_brier": -0.06299892659332729,
+        "low_similarity_brier": 0.07570269835462806,
+        "low_similarity_n": 16
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.7 fresh-confirmation MapLight+GNN",
+      "metric": "auroc",
+      "n_train": 448,
+      "n_valid": 64,
+      "nearest_train_tanimoto": {
+        "mean": 0.3879812867084669,
+        "median": 0.3647450110864745,
+        "q25": 0.30212450592885376,
+        "q75": 0.4740131578947368
+      },
+      "prediction_artifact": "runs/v27-maplight-gnn-confirmation/fresh_predictions.npz",
+      "prediction_sha256": "487ceb90a38d6d47e2980f12005f21c3711c5add208095eefdc4e408d5097535",
+      "split_sha256": "c9e9c8195491c1b056df3ae2fdafde66a87d58b31a47d9dfbcfe31011e47f8db",
+      "task": "Bioavailability_Ma",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.125,
+      "valid_unique_scaffolds": 11
+    },
+    {
+      "analysis_seed": 6,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.056661078584954505,
+        "brier": 0.12336937140039532,
+        "brier_skill_vs_prevalence": 0.10096573341497617,
+        "calibration_in_the_large": -0.013342709641862488,
+        "mean_probability": 0.15083639483574945,
+        "n": 67,
+        "prevalence": 0.16417910447761194
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.0903710075132155,
+        "high_similarity_n": 17,
+        "low_minus_high_brier": 0.01668210977039146,
+        "low_similarity_brier": 0.10705311728360696,
+        "low_similarity_n": 17
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.7 fresh-confirmation MapLight+GNN",
+      "metric": "auprc",
+      "n_train": 467,
+      "n_valid": 67,
+      "nearest_train_tanimoto": {
+        "mean": 0.3819765720490383,
+        "median": 0.34782608695652173,
+        "q25": 0.27828191167574107,
+        "q75": 0.46955128205128205
+      },
+      "prediction_artifact": "runs/v27-maplight-gnn-confirmation/fresh_predictions.npz",
+      "prediction_sha256": "487ceb90a38d6d47e2980f12005f21c3711c5add208095eefdc4e408d5097535",
+      "split_sha256": "b09027396d1535aa28f518f2bdcb482dc0d7dca17d1f8aad2e8ab6364683fa1d",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.14925373134328357,
+      "valid_unique_scaffolds": 12
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.05141431262022618,
+        "brier": 0.1240096293257827,
+        "brier_skill_vs_prevalence": 0.444458898614598,
+        "calibration_in_the_large": -0.012864350290177518,
+        "mean_probability": 0.32349928607345885,
+        "n": 1210,
+        "prevalence": 0.33636363636363636
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.08586391132236694,
+        "high_similarity_n": 304,
+        "low_minus_high_brier": 0.06790094120327185,
+        "low_similarity_brier": 0.1537648525256388,
+        "low_similarity_n": 303
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist cyp2c9_veith-ensemble-7cd54f43",
+      "metric": "auprc",
+      "n_train": 8463,
+      "n_valid": 1210,
+      "nearest_train_tanimoto": {
+        "mean": 0.5367993376000251,
+        "median": 0.5,
+        "q25": 0.38906926406926406,
+        "q75": 0.6964285714285714
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/CYP2C9_Veith/artifacts/cyp2c9_veith-ensemble-7cd54f43/validation_predictions.npz",
+      "prediction_sha256": "9f208a459e8de92db9cc6588246054e8e4512acb0f647af141b087528c3cd74c",
+      "split_sha256": "d33347e2870c373b6075bd70f97e7e2efd188bc1ce66f2b1841374cf9af2ee59",
+      "task": "CYP2C9_Veith",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.4636363636363636,
+      "valid_unique_scaffolds": 716
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.13310321609479597,
+        "brier": 0.15644939645542288,
+        "brier_skill_vs_prevalence": 0.1393365922936356,
+        "calibration_in_the_large": 0.046147580933043025,
+        "mean_probability": 0.28495355108229675,
+        "n": 67,
+        "prevalence": 0.23880597014925373
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.0462453702882034,
+        "high_similarity_n": 17,
+        "low_minus_high_brier": 0.06446199697074138,
+        "low_similarity_brier": 0.11070736725894478,
+        "low_similarity_n": 17
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist cyp2d6_substrate_carbonmangels-ensemble-0cb7f70d",
+      "metric": "auprc",
+      "n_train": 465,
+      "n_valid": 67,
+      "nearest_train_tanimoto": {
+        "mean": 0.36652860964610784,
+        "median": 0.325,
+        "q25": 0.255,
+        "q75": 0.4705128205128205
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/CYP2D6_Substrate_CarbonMangels/artifacts/cyp2d6_substrate_carbonmangels-ensemble-0cb7f70d/validation_predictions.npz",
+      "prediction_sha256": "395c00e9c0924fb88625a20bde991a9575d9ebb05ca8e19e44d28742aa61d9aa",
+      "split_sha256": "8d08470241eb97b67e9a317ed2e93b2349fe85034d5812ddd09a48dcf92cbbcc",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.6119402985074627,
+      "valid_unique_scaffolds": 50
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.04849099133078513,
+        "brier": 0.10773125499523367,
+        "brier_skill_vs_prevalence": 0.3235823611188394,
+        "calibration_in_the_large": 0.03879192973880541,
+        "mean_probability": 0.2375733463420042,
+        "n": 1313,
+        "prevalence": 0.19878141660319879
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.09348381376833634,
+        "high_similarity_n": 329,
+        "low_minus_high_brier": 0.03827608871056212,
+        "low_similarity_brier": 0.13175990247889846,
+        "low_similarity_n": 329
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist cyp2d6_veith-ensemble-85697a20",
+      "metric": "auprc",
+      "n_train": 9191,
+      "n_valid": 1313,
+      "nearest_train_tanimoto": {
+        "mean": 0.5254267632859274,
+        "median": 0.4838709677419355,
+        "q25": 0.3939393939393939,
+        "q75": 0.6666666666666666
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/CYP2D6_Veith/artifacts/cyp2d6_veith-ensemble-85697a20/validation_predictions.npz",
+      "prediction_sha256": "58395ce410315c8c2c081f8049f8219d360c7e0cff90c6dffcb78bdd827116e3",
+      "split_sha256": "2bda98afa35c87e82907e63f7e4c0fe4b8d0106ffd3e2cbc7378007c4f8b32ed",
+      "task": "CYP2D6_Veith",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.44706778370144706,
+      "valid_unique_scaffolds": 783
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.19091121585358478,
+        "brier": 0.22205926637729523,
+        "brier_skill_vs_prevalence": 0.07701477151140912,
+        "calibration_in_the_large": -0.06721787737944596,
+        "mean_probability": 0.5297970479936883,
+        "n": 67,
+        "prevalence": 0.5970149253731343
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.18406317837748679,
+        "high_similarity_n": 17,
+        "low_minus_high_brier": 0.07791320890843087,
+        "low_similarity_brier": 0.26197638728591766,
+        "low_similarity_n": 17
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist cyp3a4_substrate_carbonmangels-ensemble-db1b0360",
+      "metric": "auroc",
+      "n_train": 468,
+      "n_valid": 67,
+      "nearest_train_tanimoto": {
+        "mean": 0.38162372947138695,
+        "median": 0.3611111111111111,
+        "q25": 0.2536262350220727,
+        "q75": 0.4906649197510645
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/CYP3A4_Substrate_CarbonMangels/artifacts/cyp3a4_substrate_carbonmangels-ensemble-db1b0360/validation_predictions.npz",
+      "prediction_sha256": "aaa0a6ff86a94a82086407b4158161d046cb2722fc483986909108ea0c9e550a",
+      "split_sha256": "be8e8338c624722e459f4a94662508cf1c2072627f2b69980c7ca345cc17e920",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.6119402985074627,
+      "valid_unique_scaffolds": 47
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.021491176370090008,
+        "brier": 0.10097531465487451,
+        "brier_skill_vs_prevalence": 0.5362325605228104,
+        "calibration_in_the_large": 0.00047977652240882573,
+        "mean_probability": 0.3208366297259774,
+        "n": 1233,
+        "prevalence": 0.32035685320356855
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.12775183343802107,
+        "high_similarity_n": 309,
+        "low_minus_high_brier": -0.06933778578487665,
+        "low_similarity_brier": 0.058414047653144424,
+        "low_similarity_n": 310
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist cyp3a4_veith-ensemble-22dabded",
+      "metric": "auprc",
+      "n_train": 8628,
+      "n_valid": 1233,
+      "nearest_train_tanimoto": {
+        "mean": 0.46000968627447075,
+        "median": 0.4222222222222222,
+        "q25": 0.34615384615384615,
+        "q75": 0.5492957746478874
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/CYP3A4_Veith/artifacts/cyp3a4_veith-ensemble-22dabded/validation_predictions.npz",
+      "prediction_sha256": "96b9310aefc36a4297ea8cc9c797e5c38dd3e366113507d73e3418a1de7acae3",
+      "split_sha256": "7de73de63694f2b82c936f6a06d1c6c095edc660592a7167a0995ffb1edad6b4",
+      "task": "CYP3A4_Veith",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.4209245742092457,
+      "valid_unique_scaffolds": 646
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.34018958402934363,
+        "high_similarity_n": 23,
+        "low_minus_high_mean_absolute_error": -0.01268189563869182,
+        "low_similarity_mean_absolute_error": 0.3275076883906518,
+        "low_similarity_n": 23,
+        "repeated_scaffold_mean_absolute_error": 0.34468001153941197,
+        "repeated_scaffold_n": 55,
+        "singleton_scaffold_mean_absolute_error": 0.2882586043355325,
+        "singleton_scaffold_n": 36
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist caco2_wang-1-b482fbf6",
+      "metric": "mae",
+      "n_train": 637,
+      "n_valid": 91,
+      "nearest_train_tanimoto": {
+        "mean": 0.45007582408397906,
+        "median": 0.36363636363636365,
+        "q25": 0.2887256467582242,
+        "q75": 0.6256256256256256
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/Caco2_Wang/artifacts/caco2_wang-1-b482fbf6/validation_predictions.npy",
+      "prediction_sha256": "08d608f02ef7ad28de823d3f78d234ab1047fcf2769e61c8126d046245820b3b",
+      "residual": {
+        "mean_absolute_error": 0.32235945484337175,
+        "mean_bias": -0.013522211511362412,
+        "median_absolute_error": 0.2517991972737059,
+        "p90_absolute_error": 0.6474314661208354,
+        "root_mean_squared_error": 0.4043186365005101,
+        "unit": "native_target"
+      },
+      "split_sha256": "d3cabdec57c1b97f1d0a4d9efc300a714c151022cb59f23bc0ce93e0e4993545",
+      "task": "Caco2_Wang",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.3956043956043956,
+      "valid_unique_scaffolds": 57
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.15996827075621364,
+        "high_similarity_n": 31,
+        "low_minus_high_mean_absolute_error": 0.08029812268640932,
+        "low_similarity_mean_absolute_error": 0.24026639344262296,
+        "low_similarity_n": 32,
+        "repeated_scaffold_mean_absolute_error": 0.19526411657559203,
+        "repeated_scaffold_n": 45,
+        "singleton_scaffold_mean_absolute_error": 0.19129231424313392,
+        "singleton_scaffold_n": 77
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist clearance_hepatocyte_az-ensemble-aa735e5a",
+      "metric": "spearman",
+      "n_train": 848,
+      "n_valid": 122,
+      "nearest_train_tanimoto": {
+        "mean": 0.4730963282885625,
+        "median": 0.3923734853884533,
+        "q25": 0.3,
+        "q75": 0.664179104477612
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/Clearance_Hepatocyte_AZ/artifacts/clearance_hepatocyte_az-ensemble-aa735e5a/validation_predictions.npz",
+      "prediction_sha256": "741265a3fe40e04a762b03436415d602c3d6eac70d7718081ec40d839553627a",
+      "residual": {
+        "mean_absolute_error": 0.1927573233001881,
+        "mean_bias": -5.00510379953964e-18,
+        "median_absolute_error": 0.15163934426229508,
+        "p90_absolute_error": 0.4254098360655738,
+        "root_mean_squared_error": 0.24993555898889097,
+        "unit": "percentile_rank"
+      },
+      "split_sha256": "0a5fc8c8bff42ce21d23f5f432af23cd461662c7d1f4d7cfce82c67e12425b5d",
+      "task": "Clearance_Hepatocyte_AZ",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.6311475409836066,
+      "valid_unique_scaffolds": 96
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.14993564993564995,
+        "high_similarity_n": 28,
+        "low_minus_high_mean_absolute_error": 0.0962033462033462,
+        "low_similarity_mean_absolute_error": 0.24613899613899615,
+        "low_similarity_n": 28,
+        "repeated_scaffold_mean_absolute_error": 0.20628583128583122,
+        "repeated_scaffold_n": 44,
+        "singleton_scaffold_mean_absolute_error": 0.21023262068038187,
+        "singleton_scaffold_n": 67
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist clearance_microsome_az-ensemble-4e3fc1b7",
+      "metric": "spearman",
+      "n_train": 770,
+      "n_valid": 111,
+      "nearest_train_tanimoto": {
+        "mean": 0.4682212411229432,
+        "median": 0.4262295081967213,
+        "q25": 0.30395962732919257,
+        "q75": 0.6548540798094103
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/Clearance_Microsome_AZ/artifacts/clearance_microsome_az-ensemble-4e3fc1b7/validation_predictions.npz",
+      "prediction_sha256": "45a0cad5ca5fad402ead8b29d5af90410448721cd9d44c31443213edbe3ab98d",
+      "residual": {
+        "mean_absolute_error": 0.20866812758704656,
+        "mean_bias": -1.50030138462859e-18,
+        "median_absolute_error": 0.17567567567567566,
+        "p90_absolute_error": 0.45945945945945943,
+        "root_mean_squared_error": 0.26288853413968544,
+        "unit": "percentile_rank"
+      },
+      "split_sha256": "3e0302c3810bff794e1f260551a6305be3ba0216188cbb94eeef239331e2c850",
+      "task": "Clearance_Microsome_AZ",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.6036036036036037,
+      "valid_unique_scaffolds": 85
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.17504439674550176,
+        "brier": 0.14854511934072998,
+        "brier_skill_vs_prevalence": 0.08423347146391413,
+        "calibration_in_the_large": 0.1517948705297891,
+        "mean_probability": 0.3554985742334928,
+        "n": 54,
+        "prevalence": 0.2037037037037037
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.09052298031454295,
+        "high_similarity_n": 14,
+        "low_minus_high_brier": 0.036346243627644825,
+        "low_similarity_brier": 0.12686922394218778,
+        "low_similarity_n": 14
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.4 frozen recipe raw(2d_lightgbm@0.33+2d_extra_trees@0.33+finetuned_unimol2@0.33)",
+      "metric": "auroc",
+      "n_train": 325,
+      "n_valid": 54,
+      "nearest_train_tanimoto": {
+        "mean": 0.3279255189446482,
+        "median": 0.30763757115749524,
+        "q25": 0.2669642857142857,
+        "q75": 0.3743872549019608
+      },
+      "prediction_artifact": "runs/unimol2-pilot-v22/DILI/seed_1/validation_predictions.npz",
+      "prediction_sha256": "6db7a5aa1489f1633491d95b28b219f453b5d5c69a8f0b4d33f59e17a2337651",
+      "split_sha256": "9b04f25e75ed06df01d7be429d7287eba5b7feb62f7d2b318f07c9b51627022c",
+      "task": "DILI",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.0,
+      "valid_unique_scaffolds": 1
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.05980274053772647,
+        "brier": 0.03053719178333869,
+        "brier_skill_vs_prevalence": 0.7122489827474752,
+        "calibration_in_the_large": -0.02969950991656156,
+        "mean_probability": 0.8496108349110246,
+        "n": 58,
+        "prevalence": 0.8793103448275862
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.017085133749557578,
+        "high_similarity_n": 15,
+        "low_minus_high_brier": 0.04806909858231751,
+        "low_similarity_brier": 0.06515423233187509,
+        "low_similarity_n": 15
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist hia_hou-ensemble-7aea5f05",
+      "metric": "auroc",
+      "n_train": 403,
+      "n_valid": 58,
+      "nearest_train_tanimoto": {
+        "mean": 0.3460991519737521,
+        "median": 0.30463980463980467,
+        "q25": 0.23875661375661375,
+        "q75": 0.42305976806422835
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/HIA_Hou/artifacts/hia_hou-ensemble-7aea5f05/validation_predictions.npz",
+      "prediction_sha256": "eef0d1680816d4765a92247019c6634965cf8317c929f41c0e440ff0e5034d8e",
+      "split_sha256": "7df772a1d7e67526cb554e77d231a8bba80d5f5c3c38dad1fa0856c244baefbd",
+      "task": "HIA_Hou",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.7241379310344828,
+      "valid_unique_scaffolds": 46
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.20763827919227387,
+        "high_similarity_n": 17,
+        "low_minus_high_mean_absolute_error": 0.021510096575943854,
+        "low_similarity_mean_absolute_error": 0.22914837576821773,
+        "low_similarity_n": 17,
+        "repeated_scaffold_mean_absolute_error": 0.24706823027718547,
+        "repeated_scaffold_n": 28,
+        "singleton_scaffold_mean_absolute_error": 0.21641791044776118,
+        "singleton_scaffold_n": 39
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.4 frozen recipe rank(finetuned_unimol2@0.33+fixed_rank_top3@0.33+rank_target_xgboost@0.33)",
+      "metric": "spearman",
+      "n_train": 465,
+      "n_valid": 67,
+      "nearest_train_tanimoto": {
+        "mean": 0.38746635986192374,
+        "median": 0.345679012345679,
+        "q25": 0.25576923076923075,
+        "q75": 0.4935183773066951
+      },
+      "prediction_artifact": "runs/half-life-fusion-ablation/seed_1/validation_predictions.npz",
+      "prediction_sha256": "07ee7f2ccd843c6ae3526a0660863fed1aefc9d62df68f14bc3d243f62fa86a8",
+      "residual": {
+        "mean_absolute_error": 0.2292269993316997,
+        "mean_bias": 3.3140985809706165e-18,
+        "median_absolute_error": 0.16417910447761194,
+        "p90_absolute_error": 0.4970149253731343,
+        "root_mean_squared_error": 0.3078186910049274,
+        "unit": "percentile_rank"
+      },
+      "split_sha256": "4bb7e0e31a56b7e404cbb008860bccd17cf70d5207df291829eb073ba2259a34",
+      "task": "Half_Life_Obach",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.582089552238806,
+      "valid_unique_scaffolds": 52
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.4431773639085859,
+        "high_similarity_n": 185,
+        "low_minus_high_mean_absolute_error": 0.08367679461719618,
+        "low_similarity_mean_absolute_error": 0.5268541585257821,
+        "low_similarity_n": 186,
+        "repeated_scaffold_mean_absolute_error": 0.46202600700568736,
+        "repeated_scaffold_n": 437,
+        "singleton_scaffold_mean_absolute_error": 0.504545057671857,
+        "singleton_scaffold_n": 302
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist ld50_zhu-ensemble-17941f4b",
+      "metric": "mae",
+      "n_train": 5168,
+      "n_valid": 739,
+      "nearest_train_tanimoto": {
+        "mean": 0.42026167545112103,
+        "median": 0.3877551020408163,
+        "q25": 0.30434782608695654,
+        "q75": 0.5147186147186147
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/LD50_Zhu/artifacts/ld50_zhu-ensemble-17941f4b/validation_predictions.npz",
+      "prediction_sha256": "5e4fb140e9f9a3459a8e346b343b5f96222f1d9fabb61f31e02c73e89254da38",
+      "residual": {
+        "mean_absolute_error": 0.4794018572102655,
+        "mean_bias": 0.007697418430915211,
+        "median_absolute_error": 0.3572537113095251,
+        "p90_absolute_error": 1.0037145391598026,
+        "root_mean_squared_error": 0.6445985215905545,
+        "unit": "native_target"
+      },
+      "split_sha256": "b7d7c33180946a9146b27d23aef0c05cfa7aff4b4d2ea185499fa4aa50a4aa99",
+      "task": "LD50_Zhu",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.40866035182679294,
+      "valid_unique_scaffolds": 414
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.2936363060814993,
+        "high_similarity_n": 105,
+        "low_minus_high_mean_absolute_error": 0.2722688992364067,
+        "low_similarity_mean_absolute_error": 0.565905205317906,
+        "low_similarity_n": 105,
+        "repeated_scaffold_mean_absolute_error": 0.3716457089050349,
+        "repeated_scaffold_n": 273,
+        "singleton_scaffold_mean_absolute_error": 0.4388679269544122,
+        "singleton_scaffold_n": 147
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.4 frozen Uni-Mol2 84M validation",
+      "metric": "mae",
+      "n_train": 2940,
+      "n_valid": 420,
+      "nearest_train_tanimoto": {
+        "mean": 0.5537031560545821,
+        "median": 0.577297794117647,
+        "q25": 0.4026315789473684,
+        "q75": 0.685530679933665
+      },
+      "prediction_artifact": "runs/unimol2-scale-ablation-84m-b8/84m/Lipophilicity_AstraZeneca/lr_0.0001/seed_1/predictions.npz",
+      "prediction_sha256": "a30985c826e6ba23c2498b0d73761ff86f4e97239260dde0c3c79edb6bfb4076",
+      "residual": {
+        "mean_absolute_error": 0.39517348522231693,
+        "mean_bias": -0.0471703128247034,
+        "median_absolute_error": 0.2884414577484131,
+        "p90_absolute_error": 0.8759526844024663,
+        "root_mean_squared_error": 0.5685264646241117,
+        "unit": "native_target"
+      },
+      "split_sha256": "5ec41057e90a10bd1737069cdc247e1d4ca67c6e5fc0f2c911e7ef7088bdcfef",
+      "task": "Lipophilicity_AstraZeneca",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.35,
+      "valid_unique_scaffolds": 205
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 7.37798893185006,
+        "high_similarity_n": 70,
+        "low_minus_high_mean_absolute_error": 9.463112652785457,
+        "low_similarity_mean_absolute_error": 16.841101584635517,
+        "low_similarity_n": 72,
+        "repeated_scaffold_mean_absolute_error": 10.838559815193845,
+        "repeated_scaffold_n": 227,
+        "singleton_scaffold_mean_absolute_error": 11.209817842197747,
+        "singleton_scaffold_n": 52
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist ppbr_az-ensemble-272107c0",
+      "metric": "mae",
+      "n_train": 1952,
+      "n_valid": 279,
+      "nearest_train_tanimoto": {
+        "mean": 0.4881062704209627,
+        "median": 0.47297297297297297,
+        "q25": 0.29310344827586204,
+        "q75": 0.65671031096563
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/PPBR_AZ/artifacts/ppbr_az-ensemble-272107c0/validation_predictions.npz",
+      "prediction_sha256": "406410a086ae53c5b0718108b6a8bba48d678a83a37b3b283307a668028bddd1",
+      "residual": {
+        "mean_absolute_error": 10.907754859653355,
+        "mean_bias": 3.373328205007685,
+        "median_absolute_error": 6.575839272315207,
+        "p90_absolute_error": 27.641686879325196,
+        "root_mean_squared_error": 16.140228027192443,
+        "unit": "native_target"
+      },
+      "split_sha256": "99347aa8461040d527bec28af9d17089609a490781cc49a617acc272ee8a1dc4",
+      "task": "PPBR_AZ",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.1863799283154122,
+      "valid_unique_scaffolds": 115
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.09054583008066609,
+        "brier": 0.07208824650672256,
+        "brier_skill_vs_prevalence": 0.7113367067511276,
+        "calibration_in_the_large": 0.04069870543845955,
+        "mean_probability": 0.5570921480614104,
+        "n": 122,
+        "prevalence": 0.5163934426229508
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.0033091818690681903,
+        "high_similarity_n": 31,
+        "low_minus_high_brier": 0.09974372404783112,
+        "low_similarity_brier": 0.1030529059168993,
+        "low_similarity_n": 31
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist pgp_broccatelli-1-d5a2779c",
+      "metric": "auroc",
+      "n_train": 851,
+      "n_valid": 122,
+      "nearest_train_tanimoto": {
+        "mean": 0.5440457140016858,
+        "median": 0.5307926829268292,
+        "q25": 0.35498366013071897,
+        "q75": 0.7440476190476191
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/Pgp_Broccatelli/artifacts/pgp_broccatelli-1-d5a2779c/validation_predictions.npy",
+      "prediction_sha256": "2605fd4e47de5f08f939656d1308dcf148f84ddcd612e3727429bd2e23a4b688",
+      "split_sha256": "6471cc801ab37dfbc5b5bc93ea24ba3863673a989200587ca4e15c6dcb57dc0c",
+      "task": "Pgp_Broccatelli",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.4918032786885246,
+      "valid_unique_scaffolds": 74
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.7658848027934656,
+        "high_similarity_n": 251,
+        "low_minus_high_mean_absolute_error": -0.0016987907399109714,
+        "low_similarity_mean_absolute_error": 0.7641860120535546,
+        "low_similarity_n": 252,
+        "repeated_scaffold_mean_absolute_error": 0.7899975897919448,
+        "repeated_scaffold_n": 698,
+        "singleton_scaffold_mean_absolute_error": 0.8244473155554257,
+        "singleton_scaffold_n": 301
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist solubility_aqsoldb-ensemble-4525ea78",
+      "metric": "mae",
+      "n_train": 6986,
+      "n_valid": 999,
+      "nearest_train_tanimoto": {
+        "mean": 0.459377821580774,
+        "median": 0.4318181818181818,
+        "q25": 0.34615384615384615,
+        "q75": 0.5471698113207547
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/Solubility_AqSolDB/artifacts/solubility_aqsoldb-ensemble-4525ea78/validation_predictions.npz",
+      "prediction_sha256": "b856b3486df0911435b375f930d2499e0551bf27cc17f31b9c750bdf367fa85a",
+      "residual": {
+        "mean_absolute_error": 0.8003773369939545,
+        "mean_bias": 0.1168635312977173,
+        "median_absolute_error": 0.5542742751241678,
+        "p90_absolute_error": 1.8752136687172678,
+        "root_mean_squared_error": 1.1209759984610743,
+        "unit": "native_target"
+      },
+      "split_sha256": "59d9a37e088ef11950ba9230577550e368ad5f7befb0ca5584fe2e80b01a5c00",
+      "task": "Solubility_AqSolDB",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.3013013013013013,
+      "valid_unique_scaffolds": 443
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "regression_residual",
+      "chemical_space": {
+        "high_similarity_mean_absolute_error": 0.14037229173024107,
+        "high_similarity_n": 29,
+        "low_minus_high_mean_absolute_error": 0.007267826263859245,
+        "low_similarity_mean_absolute_error": 0.14764011799410032,
+        "low_similarity_n": 30,
+        "repeated_scaffold_mean_absolute_error": 0.11504424778761062,
+        "repeated_scaffold_n": 46,
+        "singleton_scaffold_mean_absolute_error": 0.1645753533218861,
+        "singleton_scaffold_n": 67
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.1 frozen finalist vdss_lombardo-1-2bea3825",
+      "metric": "spearman",
+      "n_train": 791,
+      "n_valid": 113,
+      "nearest_train_tanimoto": {
+        "mean": 0.3881366621508137,
+        "median": 0.328125,
+        "q25": 0.25,
+        "q75": 0.5
+      },
+      "prediction_artifact": "runs/leaderboard-v21/tasks/VDss_Lombardo/artifacts/vdss_lombardo-1-2bea3825/validation_predictions.npy",
+      "prediction_sha256": "464f585122375172ea12d06d33ee23c66dfe8c9e8195983744b83fda871fa5b2",
+      "residual": {
+        "mean_absolute_error": 0.14441224841412795,
+        "mean_bias": -9.824982518806695e-19,
+        "median_absolute_error": 0.09734513274336287,
+        "p90_absolute_error": 0.33982300884955746,
+        "root_mean_squared_error": 0.2020866655359938,
+        "unit": "percentile_rank"
+      },
+      "split_sha256": "c55022dfe2e816fa34e3a42f5d0c8caa620bddb5b03abdf18bbf356b08252920",
+      "task": "VDss_Lombardo",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.5929203539823009,
+      "valid_unique_scaffolds": 80
+    },
+    {
+      "analysis_seed": 1,
+      "analysis_type": "classification_calibration",
+      "calibration": {
+        "adaptive_ece_10": 0.15063985006466343,
+        "brier": 0.11801608532943085,
+        "brier_skill_vs_prevalence": 0.35740241538124906,
+        "calibration_in_the_large": -0.0880625894657816,
+        "mean_probability": 0.669513168109976,
+        "n": 66,
+        "prevalence": 0.7575757575757576
+      },
+      "chemical_space": {
+        "high_similarity_brier": 0.08269977671039266,
+        "high_similarity_n": 18,
+        "low_minus_high_brier": 0.12067945810992398,
+        "low_similarity_brier": 0.20337923482031664,
+        "low_similarity_n": 17
+      },
+      "identity_overlap_count": 0,
+      "lineage": "v2.4 frozen recipe raw(2d_lightgbm@0.50+finetuned_unimol2@0.50)",
+      "metric": "auroc",
+      "n_train": 457,
+      "n_valid": 66,
+      "nearest_train_tanimoto": {
+        "mean": 0.5067507370093143,
+        "median": 0.4729990356798457,
+        "q25": 0.3063063063063063,
+        "q75": 0.696969696969697
+      },
+      "prediction_artifact": "runs/unimol2-pilot-v22/hERG/seed_1/validation_predictions.npz",
+      "prediction_sha256": "a38d90a834a3be743af8cf03607aa64533a675ca105aa2d7c6190a383e90792a",
+      "split_sha256": "51a4560fcd42abf2380f0908707692b4c43d9b4e0b21845ef340093892d159ec",
+      "task": "hERG",
+      "train_valid_scaffold_overlap_count": 0,
+      "valid_singleton_scaffold_fraction": 0.48484848484848486,
+      "valid_unique_scaffolds": 41
+    }
+  ],
+  "version": "v27-validation-calibration-residuals-1"
+}

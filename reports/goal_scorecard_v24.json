@@ -1,0 +1,573 @@
+{
+  "freeze_sha256": "2265b92ce20168a779d36f673fcb6f583639891083c71370c9f353a9b18f81de",
+  "goal": {
+    "required_top10": 22,
+    "required_top5": 15,
+    "total_tasks": 22
+  },
+  "leaderboard_captured_at": "2026-08-13T07:09:00.663311+00:00",
+  "official_results_complete": true,
+  "promotion_candidates": [
+    "Pgp_Broccatelli",
+    "Clearance_Microsome_AZ",
+    "CYP3A4_Substrate_CarbonMangels"
+  ],
+  "provenance": {
+    "AMES": {
+      "freeze_sha256": "15882461be0977edbdc4a32c36b3bcbbee6e659e6b5ab25bd1f044ea13e4e5b0",
+      "source": "runs/leaderboard-v21/tasks/AMES/final/results.json",
+      "source_version": "v2.1"
+    },
+    "BBB_Martins": {
+      "freeze_sha256": "6c3b120f05a453a88054e2e856e38e4f77a16c1b01f675ab21ce4e6a966cfddc",
+      "source": "runs/leaderboard-v21/tasks/BBB_Martins/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Bioavailability_Ma": {
+      "freeze_sha256": "c38d72b50a3974658ca5ce50cfd654a58d7440d283e82d16ec5a08d157a447d0",
+      "source": "runs/leaderboard-v21/tasks/Bioavailability_Ma/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2C9_Substrate_CarbonMangels": {
+      "freeze_sha256": "1e77fb9fec0ffc6a964659490e2b61cbb57b9caad58c424804f996a6c6e368b9",
+      "source": "runs/leaderboard-v21/tasks/CYP2C9_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2C9_Veith": {
+      "freeze_sha256": "52240831a5650cdd9b51eab82c3c7cd991da20962fb005d11e7c200cca68d1c9",
+      "source": "runs/leaderboard-v21/tasks/CYP2C9_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2D6_Substrate_CarbonMangels": {
+      "freeze_sha256": "d2685ca3267d5c0113304e13dfe918167f1f309dcaaa6cb893a747c3bd239000",
+      "source": "runs/leaderboard-v21/tasks/CYP2D6_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP2D6_Veith": {
+      "freeze_sha256": "3973e82486ac2afaf68c65c7ab47161ec43df6b54e7c74a027ca12c5387a7bcb",
+      "source": "runs/leaderboard-v21/tasks/CYP2D6_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP3A4_Substrate_CarbonMangels": {
+      "freeze_sha256": "e9887b29a44a9478f5d1769e6ae5b3c4ec582da08385cf57bb283adf8675b316",
+      "source": "runs/leaderboard-v21/tasks/CYP3A4_Substrate_CarbonMangels/final/results.json",
+      "source_version": "v2.1"
+    },
+    "CYP3A4_Veith": {
+      "freeze_sha256": "86b17e9023c30431ea085d426579109c934255a08c5014cdca39d39ca03543d0",
+      "source": "runs/leaderboard-v21/tasks/CYP3A4_Veith/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Caco2_Wang": {
+      "freeze_sha256": "9a2e4fc51a28b51be088dc027f8ceeee6e29636dc6c80a10350a1875e328e589",
+      "source": "runs/leaderboard-v21/tasks/Caco2_Wang/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Clearance_Hepatocyte_AZ": {
+      "freeze_sha256": "5eb44e79614ed10b107dbd1c94e786d06101f27566ec2f9fe70ffa1e54acbd34",
+      "source": "runs/leaderboard-v21/tasks/Clearance_Hepatocyte_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Clearance_Microsome_AZ": {
+      "freeze_sha256": "7436e3b0566e49ec79ba7fdbfc97c2c310ba42c5afb7b5b09a533fccfae5c8cb",
+      "source": "runs/leaderboard-v21/tasks/Clearance_Microsome_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "DILI": {
+      "freeze": "runs/v24-official/DILI/final/freeze.json",
+      "freeze_sha256": "a4b1bb3c1665a754f2eef185c893aacbc7a01930e33bb089d79a18f3ef45bd1a",
+      "source": "runs/v24-official/DILI/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "HIA_Hou": {
+      "freeze_sha256": "8453dab57b7b8e2f3bc65a64e395fe14ec2d94b0405b30dde5f9f0c6e5e04861",
+      "source": "runs/leaderboard-v21/tasks/HIA_Hou/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Half_Life_Obach": {
+      "freeze": "runs/v24-official/Half_Life_Obach/final/freeze.json",
+      "freeze_sha256": "caff75e428d6b47316b682017147891e49178f0e0699be9abbb14a993fb58d79",
+      "source": "runs/v24-official/Half_Life_Obach/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "LD50_Zhu": {
+      "freeze_sha256": "72327fbe34dfa0efe520079090356b942993ab6d8d437d3e8069ffb952202bee",
+      "source": "runs/leaderboard-v21/tasks/LD50_Zhu/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Lipophilicity_AstraZeneca": {
+      "freeze": "runs/v24-official/Lipophilicity_AstraZeneca/final/freeze.json",
+      "freeze_sha256": "2039ba592fc4f84d74b180a13c8dbb3d64326e5a038eb702ca2fbc040c2d1796",
+      "source": "runs/v24-official/Lipophilicity_AstraZeneca/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    },
+    "PPBR_AZ": {
+      "freeze_sha256": "0f9e2cfac44f5321b80e5cd3c010d23dfcf74ba05cf24c1b9c5d8c9c454029e0",
+      "source": "runs/leaderboard-v21/tasks/PPBR_AZ/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Pgp_Broccatelli": {
+      "freeze_sha256": "49f845a42554a492a28bd1198af07763b761d0fde04428934da82e356be414f5",
+      "source": "runs/leaderboard-v21/tasks/Pgp_Broccatelli/final/results.json",
+      "source_version": "v2.1"
+    },
+    "Solubility_AqSolDB": {
+      "freeze_sha256": "a8c5944296c3616d0a1ed9d341ffab715ced71f4cc0c7574e65310d943113a86",
+      "source": "runs/leaderboard-v21/tasks/Solubility_AqSolDB/final/results.json",
+      "source_version": "v2.1"
+    },
+    "VDss_Lombardo": {
+      "freeze_sha256": "dbfa072f5410d5bbbd93b42bd2a08b42e267c3589bcdeda5cf136193d7d0571a",
+      "source": "runs/leaderboard-v21/tasks/VDss_Lombardo/final/results.json",
+      "source_version": "v2.1"
+    },
+    "hERG": {
+      "freeze": "runs/v24-official/hERG/final/freeze.json",
+      "freeze_sha256": "9af0fb2101a6476036794fd6841133086a3a6f839ecd3e8572d3010ab72eb7a4",
+      "source": "runs/v24-official/hERG/final/results.json",
+      "source_version": "v2.4",
+      "training_seeds": {
+        "1": {
+          "seed": 1,
+          "split_seed": 1
+        },
+        "2": {
+          "seed": 2,
+          "split_seed": 2
+        },
+        "3": {
+          "seed": 3,
+          "split_seed": 3
+        },
+        "4": {
+          "seed": 4,
+          "split_seed": 4
+        },
+        "5": {
+          "seed": 5,
+          "split_seed": 5
+        }
+      }
+    }
+  },
+  "rank_statistics": {
+    "mean_rank": 5.2272727272727275,
+    "median_rank": 4.0
+  },
+  "rescue_top10": [
+    "Bioavailability_Ma",
+    "CYP2C9_Substrate_CarbonMangels"
+  ],
+  "source": "https://tdcommons.ai/benchmark/admet_group/01caco2/",
+  "status": {
+    "goal_met": false,
+    "top10": 20,
+    "top10_deficit": 2,
+    "top5": 17,
+    "top5_deficit": 0
+  },
+  "tasks": [
+    {
+      "direction": "maximize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(extra_trees+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.874,
+      "std": 0.001,
+      "task": "AMES",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.842,
+      "top5_threshold": 0.852
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 2,
+      "finalist": "ensemble(random_forest+random_forest)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.921,
+      "std": 0.002,
+      "task": "BBB_Martins",
+      "tie_worst_rank": 2,
+      "top10_threshold": 0.905,
+      "top5_threshold": 0.913
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 21,
+      "finalist": "ensemble(svm_rbf+svm_rbf)",
+      "improvement_to_top10": 0.2250000000000001,
+      "improvement_to_top5": 0.2320000000000001,
+      "metric": "auroc",
+      "priority": "rescue_top10",
+      "score": 0.697,
+      "std": 0.001,
+      "task": "Bioavailability_Ma",
+      "tie_worst_rank": 21,
+      "top10_threshold": 0.922,
+      "top5_threshold": 0.929
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 20,
+      "finalist": "lightgbm",
+      "improvement_to_top10": 0.059,
+      "improvement_to_top5": 0.09999999999999998,
+      "metric": "auprc",
+      "priority": "rescue_top10",
+      "score": 0.333,
+      "std": 0.017,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "tie_worst_rank": 20,
+      "top10_threshold": 0.392,
+      "top5_threshold": 0.433
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 5,
+      "finalist": "ensemble(lightgbm+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.799,
+      "std": 0.001,
+      "task": "CYP2C9_Veith",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.758,
+      "top5_threshold": 0.789
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.721,
+      "std": 0.004,
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.677,
+      "top5_threshold": 0.704
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.721,
+      "std": 0.001,
+      "task": "CYP2D6_Veith",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.649,
+      "top5_threshold": 0.719
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 9,
+      "finalist": "ensemble(svm_rbf+svm_rbf)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.017000000000000015,
+      "metric": "auroc",
+      "priority": "promote_top5",
+      "score": 0.633,
+      "std": 0.0,
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "tie_worst_rank": 10,
+      "top10_threshold": 0.63,
+      "top5_threshold": 0.65
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(xgboost+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auprc",
+      "priority": "hold_top5",
+      "score": 0.885,
+      "std": 0.001,
+      "task": "CYP3A4_Veith",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.862,
+      "top5_threshold": 0.881
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 4,
+      "finalist": "lightgbm",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.283,
+      "std": 0.007,
+      "task": "Caco2_Wang",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.326,
+      "top5_threshold": 0.287
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 4,
+      "finalist": "ensemble(xgboost+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.456,
+      "std": 0.022,
+      "task": "Clearance_Hepatocyte_AZ",
+      "tie_worst_rank": 4,
+      "top10_threshold": 0.43,
+      "top5_threshold": 0.446
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 8,
+      "finalist": "ensemble(xgboost+xgboost)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.03400000000000003,
+      "metric": "spearman",
+      "priority": "promote_top5",
+      "score": 0.591,
+      "std": 0.007,
+      "task": "Clearance_Microsome_AZ",
+      "tie_worst_rank": 8,
+      "top10_threshold": 0.578,
+      "top5_threshold": 0.625
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "recipe(raw(2d_lightgbm@0.33+2d_extra_trees@0.33+finetuned_unimol2@0.33))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.92,
+      "std": 0.004,
+      "task": "DILI",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.887,
+      "top5_threshold": 0.917
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 2,
+      "finalist": "ensemble(extra_trees+extra_trees)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.99,
+      "std": 0.001,
+      "task": "HIA_Hou",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.975,
+      "top5_threshold": 0.986
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 1,
+      "finalist": "recipe(rank(finetuned_unimol2@0.33+fixed_rank_top3@0.33+rank_target_xgboost@0.33))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.59,
+      "std": 0.03,
+      "task": "Half_Life_Obach",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.372,
+      "top5_threshold": 0.544
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 5,
+      "finalist": "ensemble(random_forest+random_forest)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.591,
+      "std": 0.001,
+      "task": "LD50_Zhu",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.63,
+      "top5_threshold": 0.606
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "recipe(finetuned_unimol2)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.392,
+      "std": 0.006,
+      "task": "Lipophilicity_AstraZeneca",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.539,
+      "top5_threshold": 0.512
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 7.302,
+      "std": 0.042,
+      "task": "PPBR_AZ",
+      "tie_worst_rank": 1,
+      "top10_threshold": 8.68,
+      "top5_threshold": 7.788
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 8,
+      "finalist": "random_forest",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.017000000000000015,
+      "metric": "auroc",
+      "priority": "promote_top5",
+      "score": 0.912,
+      "std": 0.003,
+      "task": "Pgp_Broccatelli",
+      "tie_worst_rank": 8,
+      "top10_threshold": 0.895,
+      "top5_threshold": 0.929
+    },
+    {
+      "direction": "minimize",
+      "estimated_rank": 1,
+      "finalist": "ensemble(lightgbm+lightgbm)",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "mae",
+      "priority": "hold_top5",
+      "score": 0.739,
+      "std": 0.002,
+      "task": "Solubility_AqSolDB",
+      "tie_worst_rank": 1,
+      "top10_threshold": 0.829,
+      "top5_threshold": 0.789
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 3,
+      "finalist": "extra_trees",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "spearman",
+      "priority": "hold_top5",
+      "score": 0.673,
+      "std": 0.001,
+      "task": "VDss_Lombardo",
+      "tie_worst_rank": 3,
+      "top10_threshold": 0.497,
+      "top5_threshold": 0.609
+    },
+    {
+      "direction": "maximize",
+      "estimated_rank": 5,
+      "finalist": "recipe(raw(2d_lightgbm@0.50+finetuned_unimol2@0.50))",
+      "improvement_to_top10": 0.0,
+      "improvement_to_top5": 0.0,
+      "metric": "auroc",
+      "priority": "hold_top5",
+      "score": 0.86,
+      "std": 0.009,
+      "task": "hERG",
+      "tie_worst_rank": 5,
+      "top10_threshold": 0.825,
+      "top5_threshold": 0.856
+    }
+  ],
+  "upgrade_tasks": [
+    "DILI",
+    "Half_Life_Obach",
+    "Lipophilicity_AstraZeneca",
+    "hERG"
+  ]
+}

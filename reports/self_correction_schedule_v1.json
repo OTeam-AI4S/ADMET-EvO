@@ -1,0 +1,544 @@
+{
+  "counts_as_completed_self_correction": false,
+  "decision_counts": {
+    "repair_evidence": 1,
+    "stop": 20,
+    "switch_axis": 1
+  },
+  "decisions": [
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "9ba86c99b67cf18fc6716f74a1c1e0da0b2fdd8e65451f9c624b6541d90ccc34",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/AMES/search_seed_1.json",
+      "task": "AMES",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "a338a71633cd0cb537d39545ab596e9c3a2cdea7bb88d4da8e2162075755fc44",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/BBB_Martins/search_seed_1.json",
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "e902f793d7c16bafeb36b059c24d9efcdac7a013d1662543148afb2f0df408b8",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "hypothesis_refuted",
+        "no_unattempted_executable_cross_axis_action",
+        "stop_without_repeating_refuted_family"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Bioavailability_Ma/search_seed_1.json",
+      "task": "Bioavailability_Ma",
+      "test_loaded": false,
+      "trigger_action_id": "model-imbalance-aware",
+      "trigger_status": "refuted"
+    },
+    {
+      "decision_kind": "repair_evidence",
+      "decision_sha256": "661d7d319e1b44d3fc0c004173ce42e9fb1b51422e7638636a50cd7991dad37e",
+      "estimated_additional_fits": 6,
+      "execution_status": "scheduled",
+      "next_plan": {
+        "actions": [
+          {
+            "action_family": "model-imbalance-aware",
+            "action_id": "model-imbalance-aware--correct-12c453c400",
+            "attempt_id": "model-imbalance-aware--correct-12c453c400",
+            "axis": "model",
+            "calibrated_expected_effect": 0.6133832976445397,
+            "compute_cost": 0.25,
+            "correction_kind": "repair_evidence",
+            "corrects_action_id": "model-imbalance-aware",
+            "evidence_confidence": 0.85,
+            "expected_effect": 0.6133832976445397,
+            "falsification_test": "Compare PR-AUC/AUROC across identical seeds against the unweighted baseline.",
+            "hypothesis": "An imbalance-aware loss or balanced ensemble will improve minority ranking.",
+            "parent_action_id": "model-imbalance-aware",
+            "payload": {
+              "candidate_model": "balanced_extra_trees",
+              "imbalance": "class_weight"
+            },
+            "prior_evidence": null,
+            "rationale": [
+              "imbalance severity=0.636"
+            ],
+            "scientific_risk": 0.08,
+            "sequence_index": 2,
+            "source_action_id": "model-imbalance-aware",
+            "utility": 0.38240064239828697
+          }
+        ],
+        "effect_priority": 0.8,
+        "execution_status": "scheduled",
+        "hardness_evidence_sha256": "dbc69afa7007574a158c61b8f93aad5069ed58b79b5f6fea2ed80427dc39b40c",
+        "parent_plan_sha256": "ebbf23a0f4bdc7d57485d4f397f76a43a5c736eaa319e1de59a822957acd9e52",
+        "selected_action_id": "model-imbalance-aware--correct-12c453c400",
+        "task": "CYP2C9_Substrate_CarbonMangels",
+        "test_loaded": false
+      },
+      "reason_codes": [
+        "evidence_incomplete",
+        "repair_matched_pair_or_paired_seed_coverage",
+        "do_not_claim_support_from_inconclusive_evidence"
+      ],
+      "selected_action_id": "model-imbalance-aware--correct-12c453c400",
+      "selected_axis": "model",
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Substrate_CarbonMangels/search_seed_1.json",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "trigger_action_id": "model-imbalance-aware",
+      "trigger_status": "inconclusive"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "3537e1c0019cfea2be4e1bf5e92fa273c3bec1ecfff88c936d5618bc69d3c2d7",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Veith/search_seed_1.json",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "9043e004eee17eea62dbcb6b1c271f7a39674aa5f6a6cf5e67437e3ec942e528",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Substrate_CarbonMangels/search_seed_1.json",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "6a61d9e6a06874fc91fe2ffc5a83861a52f67219dfa4bc05d74bbb5ac01bcbe0",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Veith/search_seed_1.json",
+      "task": "CYP2D6_Veith",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "5276121e42c0eff313259c0e366a8d3db8ae4b8509be5ce2b299ac1951badb52",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Substrate_CarbonMangels/search_seed_1.json",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "ecc150c6f549684bde8874ebb7493b9bff5375468a122fecaf3bd7494002b1fc",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Veith/search_seed_1.json",
+      "task": "CYP3A4_Veith",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "44ec3a4fe87c3f80e1b3b07e30d14afa0f4b8e96b6ef3de7b35a1b91c058f8b5",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Caco2_Wang/search_seed_1.json",
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "5d28165d0bcc6f501fd037e60681be8575e88e08392cd06cc8256fc04467d3c6",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Clearance_Hepatocyte_AZ/search_seed_1.json",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "311aed80422abd351b956f2ac65f5efd86e39e223327abc00e314cc82f0ce8f6",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Clearance_Microsome_AZ/search_seed_1.json",
+      "task": "Clearance_Microsome_AZ",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "ebc3e4dbf9dd16032a85aae89719a9a47d7996d8a3579392d207dc64410b6327",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/DILI/search_seed_1.json",
+      "task": "DILI",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "5e6d5b8b03acc5f7e781cec5d0db728bf36567f042f5908e5328be967b252ff2",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "effect_below_resolution_gate",
+        "no_unattempted_executable_cross_axis_action",
+        "stop_to_avoid_validation_overfitting"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/HIA_Hou/search_seed_1.json",
+      "task": "HIA_Hou",
+      "test_loaded": false,
+      "trigger_action_id": "model-imbalance-aware",
+      "trigger_status": "inconclusive"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "b33a5d75da8cd2a055f9d348b1c8582af5538ee04a86fae30edbeed11a05c5fe",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Half_Life_Obach/search_seed_1.json",
+      "task": "Half_Life_Obach",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "5b6f2355ba1094aac268521a33a902c8cec8186846c331b9b43c60ad9c583b24",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/LD50_Zhu/search_seed_1.json",
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "ea3c071d94f420618c0da455954fce7da9a8b2f4d3900ac503a5e5f45449c830",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Lipophilicity_AstraZeneca/search_seed_1.json",
+      "task": "Lipophilicity_AstraZeneca",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "84f70a92335c275fbfce2528c1d7255fff135c024d88b4dcde478a5749a0826e",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/PPBR_AZ/search_seed_1.json",
+      "task": "PPBR_AZ",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "038f56f83cdf610f6c4a03f60e48feb342f19dd6a3a0849398c01a999516db87",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Pgp_Broccatelli/search_seed_1.json",
+      "task": "Pgp_Broccatelli",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "3ce3f8b025f6bfc1e5b992dffb58e4c28016fef9b3fed519448fbf5bfc39def4",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/Solubility_AqSolDB/search_seed_1.json",
+      "task": "Solubility_AqSolDB",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "stop",
+      "decision_sha256": "717d0b4bfcbea7c252888286eaf41a2f5206cb718f0beecfe839cd53ee821171",
+      "estimated_additional_fits": 0,
+      "execution_status": "stopped",
+      "next_plan": null,
+      "reason_codes": [
+        "preregistered_effect_supported",
+        "prediction_performance_already_qualified",
+        "avoid_redundant_search"
+      ],
+      "selected_action_id": null,
+      "selected_axis": null,
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/VDss_Lombardo/search_seed_1.json",
+      "task": "VDss_Lombardo",
+      "test_loaded": false,
+      "trigger_action_id": "feature-domain-shift",
+      "trigger_status": "supported"
+    },
+    {
+      "decision_kind": "switch_axis",
+      "decision_sha256": "40d18a947525b46679b75e1279741c9feada98f7f83865fb4640bf7b1ab999bb",
+      "estimated_additional_fits": 6,
+      "execution_status": "scheduled",
+      "next_plan": {
+        "actions": [
+          {
+            "action_family": "model-imbalance-aware",
+            "action_id": "model-imbalance-aware--correct-5c2a4c8745",
+            "attempt_id": "model-imbalance-aware--correct-5c2a4c8745",
+            "axis": "model",
+            "calibrated_expected_effect": 0.41477024070021873,
+            "compute_cost": 0.25,
+            "correction_kind": "switch_axis",
+            "corrects_action_id": "data-leakage-safe",
+            "evidence_confidence": 0.85,
+            "expected_effect": 0.41477024070021873,
+            "falsification_test": "Compare PR-AUC/AUROC across identical seeds against the unweighted baseline.",
+            "hypothesis": "An imbalance-aware loss or balanced ensemble will improve minority ranking.",
+            "parent_action_id": "data-leakage-safe",
+            "payload": {
+              "candidate_model": "balanced_extra_trees",
+              "imbalance": "class_weight"
+            },
+            "prior_evidence": null,
+            "rationale": [
+              "imbalance severity=0.330"
+            ],
+            "scientific_risk": 0.08,
+            "sequence_index": 2,
+            "source_action_id": "model-imbalance-aware",
+            "utility": 0.24734376367614874
+          }
+        ],
+        "effect_priority": 0.8,
+        "execution_status": "scheduled",
+        "hardness_evidence_sha256": "c8587095bcdf29903301ab17aef90e1408983f9c6e031b34ba3999389a47f92c",
+        "parent_plan_sha256": "16b40c3991155c82f6e137ec22e384b4024f7409a8a3b473c7e4699bdf510727",
+        "selected_action_id": "model-imbalance-aware--correct-5c2a4c8745",
+        "task": "hERG",
+        "test_loaded": false
+      },
+      "reason_codes": [
+        "hypothesis_refuted",
+        "do_not_repeat_refuted_action",
+        "switch_to_highest_ranked_executable_cross_axis_action"
+      ],
+      "selected_action_id": "model-imbalance-aware--correct-5c2a4c8745",
+      "selected_axis": "model",
+      "source_summary": "runs/v3-agent-tdc22-v5/tasks/hERG/search_seed_1.json",
+      "task": "hERG",
+      "test_loaded": false,
+      "trigger_action_id": "data-leakage-safe",
+      "trigger_status": "refuted"
+    }
+  ],
+  "estimated_additional_fits": 12,
+  "evidence_scope": "retrospective scheduling only; follow-up matched experiments are required",
+  "maximum_action_compute_cost": 0.6,
+  "protocol": "retrospective-validation-self-correction-schedule-v1",
+  "run_dir": "runs/v3-agent-tdc22-v5",
+  "scheduled_task_count": 2,
+  "scheduled_tasks": [
+    "CYP2C9_Substrate_CarbonMangels",
+    "hERG"
+  ],
+  "source_hashes": {
+    "runs/v3-agent-tdc22-v5/tasks/AMES/search_seed_1.json": "d2c463edbae81a5f917a8599935b6d3aa93b497b06157da198986844c0535831",
+    "runs/v3-agent-tdc22-v5/tasks/BBB_Martins/search_seed_1.json": "3c06d0f7cb91aef3daee1aca872991f047a9009632d39a97f28d271821b5511b",
+    "runs/v3-agent-tdc22-v5/tasks/Bioavailability_Ma/search_seed_1.json": "665af7d49a77a6399c3b27c5a865f0677e114e5fb325776f94917d0eb62e62e2",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Substrate_CarbonMangels/search_seed_1.json": "bca6ca604227683d54e4f2c983fd4ed55b0b703787b865a77631cf98cf0e3ee6",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Veith/search_seed_1.json": "51f1222d79b4d6a07175a10a65ce64aba76d70154f455d949f4687e3587c4df3",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Substrate_CarbonMangels/search_seed_1.json": "db88ecf5cd42870cc610d0eeb81fcbade007a9dd5752a5a6849e767f2188e300",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Veith/search_seed_1.json": "f634b638d695283261b9b827062f4b4d349338fbae080e3cdfc1b184e436126f",
+    "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Substrate_CarbonMangels/search_seed_1.json": "8c590131fd30864f750ca68b85d824f4bcc1ee3305f0953605e5329fa8236912",
+    "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Veith/search_seed_1.json": "d6156674c3f3afb804a850e40c35e7441001ab3514a9bf4a1d4b8cc5fb2ce8aa",
+    "runs/v3-agent-tdc22-v5/tasks/Caco2_Wang/search_seed_1.json": "050f473fd552f5623bf8e3ef39c90b88b87115af4cea0a42953f6213c72f7257",
+    "runs/v3-agent-tdc22-v5/tasks/Clearance_Hepatocyte_AZ/search_seed_1.json": "91929c88ca9adf3fa97d58a9b545750abfc87ced875dbdfc5e0e09348e2143ff",
+    "runs/v3-agent-tdc22-v5/tasks/Clearance_Microsome_AZ/search_seed_1.json": "cdb5f7df7f65fe7314b4011591bce09be49a9997d680695d6d1b708e1102c70c",
+    "runs/v3-agent-tdc22-v5/tasks/DILI/search_seed_1.json": "36a00bf1de7409379575ea6c4045285a41ef31cde5db2b6e35e43ec8179a9fa8",
+    "runs/v3-agent-tdc22-v5/tasks/HIA_Hou/search_seed_1.json": "cca24d802bb9afbcbfa6c7c45b152592a2568e511c785e538e425564a1f09393",
+    "runs/v3-agent-tdc22-v5/tasks/Half_Life_Obach/search_seed_1.json": "3ae7e89941845c207c4f24353bb1d15a541a969436c1fc784642958307de8549",
+    "runs/v3-agent-tdc22-v5/tasks/LD50_Zhu/search_seed_1.json": "53b2634c7a5c76a253978fe42476b11685f4c51ee5f51e81722c624484679af7",
+    "runs/v3-agent-tdc22-v5/tasks/Lipophilicity_AstraZeneca/search_seed_1.json": "c703c76140e62be40b601075cdd4dc4fb7399e44b5f4b4ca4ea546ee67458608",
+    "runs/v3-agent-tdc22-v5/tasks/PPBR_AZ/search_seed_1.json": "a506c05f12295f034157dd945b5696e1cf539606eceac8a12be294fad24d4293",
+    "runs/v3-agent-tdc22-v5/tasks/Pgp_Broccatelli/search_seed_1.json": "c263bec78d7f86ccb2d10e05360748c2f4c6be9d3eaf1618471a3deabbf50ace",
+    "runs/v3-agent-tdc22-v5/tasks/Solubility_AqSolDB/search_seed_1.json": "d02b352305ffd1b29897f2f5334b0f7a943a4ac1829b87e60cf77a6c455f8fd3",
+    "runs/v3-agent-tdc22-v5/tasks/VDss_Lombardo/search_seed_1.json": "099be09688800c5068c7bae93eaff7609e7249ada0e9dba6569220c8c8134035",
+    "runs/v3-agent-tdc22-v5/tasks/hERG/search_seed_1.json": "3c8b024c2b1b9afea3d8f494bc8040387adc50a4ffdc40c97cf681d9e6a44724"
+  },
+  "task_count": 22,
+  "test_loaded": false,
+  "training_started": false,
+  "trigger_status_counts": {
+    "inconclusive": 2,
+    "refuted": 2,
+    "supported": 18
+  }
+}

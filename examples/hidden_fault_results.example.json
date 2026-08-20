@@ -1,0 +1,22 @@
+{
+  "challenges": [
+    {
+      "challenge_id": "ames-invalid-structure-001",
+      "task": "AMES",
+      "expected_faults": ["invalid_molecular_structure"],
+      "detected_faults": ["invalid_molecular_structure"],
+      "detection_seconds": 0.2,
+      "remediations_proposed": 1,
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "caco2-unit-001",
+      "task": "Caco2_Wang",
+      "expected_faults": ["unit_or_transform_mismatch"],
+      "detected_faults": ["unit_or_transform_mismatch"],
+      "detection_seconds": 0.1,
+      "remediations_proposed": 1,
+      "valid_remediations": 1
+    }
+  ]
+}

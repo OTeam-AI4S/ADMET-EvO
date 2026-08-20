@@ -1,0 +1,115 @@
+{
+  "figure_count": 4,
+  "figure_data": {
+    "figure1_architecture": {
+      "claim": "Discovery is restricted to train/validation evidence and separated from one-shot official evaluation by a content-addressed freeze.",
+      "official_test_available_to_discovery": false
+    },
+    "figure2_leaderboard_ranks": {
+      "conservative_deficit_task": "Bioavailability_Ma",
+      "snapshot": "2026-08-17T13:50:54.441113+00:00",
+      "task_count": 22,
+      "top10": 21,
+      "top5": 18
+    },
+    "figure3_router_tradeoff": {
+      "aggregate_cost_ratio": 0.2780324339961261,
+      "claim_gate_passed": false,
+      "fresh_validation_seeds": [
+        4,
+        5
+      ],
+      "guard_fit_hours": 0.624695146447759,
+      "guard_minus_unguarded_mean": 0.0,
+      "material_regressions_vs_score": 2,
+      "score_fit_hours": 2.246842706331388,
+      "task_count": 22
+    },
+    "figure4_chemical_space_risk": {
+      "analysis_role": "post_selection_descriptive_validation_audit",
+      "classification_tasks": 13,
+      "classification_worse_low_similarity": 11,
+      "identity_overlap_total": 0,
+      "regression_tasks": 9,
+      "regression_worse_low_similarity": 7,
+      "scaffold_overlap_total": 0
+    }
+  },
+  "formats": [
+    "svg",
+    "png"
+  ],
+  "generated_on": "2026-08-17",
+  "leaderboard_used_for_selection": false,
+  "official_test_loaded": false,
+  "outputs": {
+    "paper/figures/captions.md": {
+      "bytes": 1550,
+      "sha256": "83bd14c70ea5f51734cb457265194c9a7754db2f47240e5c9f9fcb24ac5b882f"
+    },
+    "paper/figures/figure1_architecture.png": {
+      "bytes": 175379,
+      "sha256": "2025d94ac4f13fc4602e02d9558256073c1fd84467b5ca024aa83a9b89d2c5f1"
+    },
+    "paper/figures/figure1_architecture.svg": {
+      "bytes": 83659,
+      "sha256": "fb61bc9e91241f089af8689a9f0e164886bf10bdc41b2f7cda5e17824d0031ef"
+    },
+    "paper/figures/figure2_leaderboard_ranks.png": {
+      "bytes": 195667,
+      "sha256": "d0418ac4fe2d8fede89cfecb06d43c9506a43983276a11f908d9fc45cd00d5b1"
+    },
+    "paper/figures/figure2_leaderboard_ranks.svg": {
+      "bytes": 89028,
+      "sha256": "b0418ce5c4226157879d56e2ca3a91ec587ee5758e6437a461777c077d2b5dce"
+    },
+    "paper/figures/figure3_router_tradeoff.png": {
+      "bytes": 153706,
+      "sha256": "a4d5849c7120c88d924851b27bfc09f85c3515fa9b119425b1e751b7061dceb6"
+    },
+    "paper/figures/figure3_router_tradeoff.svg": {
+      "bytes": 97430,
+      "sha256": "f1b6323a9d7fd9d2cabb81f6c19dc303905081ab73a08bf28b478362f2a06172"
+    },
+    "paper/figures/figure4_chemical_space_risk.png": {
+      "bytes": 182253,
+      "sha256": "f7e91adbe654a6a5be19ddf4bd767cd85aecc61d28b036eb14e5ddd0d11c7158"
+    },
+    "paper/figures/figure4_chemical_space_risk.svg": {
+      "bytes": 101772,
+      "sha256": "bf4b4fc86c2b757bf5dbeed8ae1bc505c200c1d8f7c433a426cfd25943322099"
+    }
+  },
+  "selection_or_freeze_changed": false,
+  "sources": {
+    "chemical_space": {
+      "path": "reports/validation_calibration_residuals_v27.json",
+      "sha256": "d3cb70dbafae903231ec2079cee5160c59910c634b75b0cce3b6d85ea7b25065"
+    },
+    "executor_source": {
+      "path": "admet_agent/frozen_executor.py",
+      "sha256": "691160ab9eea1ab52d881a19f9c17ba617f907cf021bcf5424cc1da8bdcc302b"
+    },
+    "guard_source": {
+      "path": "admet_agent/guard.py",
+      "sha256": "6b8bddf2e7205fcfca40ce588378c268fe15325027d6069c91c473b49f6aa7f0"
+    },
+    "manuscript": {
+      "path": "MANUSCRIPT_V24.md",
+      "sha256": "c081425dc072c059cfa8a5ecee514fda798b31ac0f43e826bf0018e439f6430b"
+    },
+    "router_fresh": {
+      "path": "runs/v27-router-risk-guard/report.json",
+      "sha256": "c5698d4f43b95efb29f7623201c0e4d716504c0d7d7ba53609808a89fe36e581"
+    },
+    "router_source": {
+      "path": "admet_agent/evidence_router.py",
+      "sha256": "35ea0d2a9c4aeb5b0866ce2ef63217c83f0065ae6f5c9fb654b16554a08154dc"
+    },
+    "scorecard": {
+      "path": "reports/goal_scorecard_v27.json",
+      "sha256": "6b4eb4ecbc6c50e10f6140063fae82f95eeb78c168a92823f2968a2864e47b27"
+    }
+  },
+  "version": "v2.7"
+}

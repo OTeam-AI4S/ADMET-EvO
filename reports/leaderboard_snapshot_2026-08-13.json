@@ -1,0 +1,2816 @@
+{
+  "captured_at": "2026-08-13T07:09:00.663311+00:00",
+  "pages": {
+    "AMES": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.871,
+          "model": "ZairaChem",
+          "rank": 1,
+          "std": 0.002
+        },
+        {
+          "mean": 0.87,
+          "model": "ADMETrix",
+          "rank": 2,
+          "std": 0.006
+        },
+        {
+          "mean": 0.869,
+          "model": "MapLight + GNN",
+          "rank": 3,
+          "std": 0.002
+        },
+        {
+          "mean": 0.868,
+          "model": "MapLight",
+          "rank": 4,
+          "std": 0.002
+        },
+        {
+          "mean": 0.852,
+          "model": "CFA",
+          "rank": 5,
+          "std": 0.005
+        },
+        {
+          "mean": 0.85,
+          "model": "Chemprop-RDKit",
+          "rank": 6,
+          "std": 0.004
+        },
+        {
+          "mean": 0.849,
+          "model": "MiniMol",
+          "rank": 7,
+          "std": 0.004
+        },
+        {
+          "mean": 0.847,
+          "model": "DeepMol (AutoML)",
+          "rank": 8,
+          "std": 0.007
+        },
+        {
+          "mean": 0.843,
+          "model": "CMPNN",
+          "rank": 9,
+          "std": 0.009
+        },
+        {
+          "mean": 0.842,
+          "model": "Chemprop",
+          "rank": 10,
+          "std": 0.014
+        },
+        {
+          "mean": 0.842,
+          "model": "AttrMasking",
+          "rank": 11,
+          "std": 0.008
+        },
+        {
+          "mean": 0.837,
+          "model": "ContextPred",
+          "rank": 12,
+          "std": 0.009
+        },
+        {
+          "mean": 0.823,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 13,
+          "std": 0.011
+        },
+        {
+          "mean": 0.823,
+          "model": "NeuralFP",
+          "rank": 14,
+          "std": 0.006
+        },
+        {
+          "mean": 0.818,
+          "model": "GCN",
+          "rank": 15,
+          "std": 0.01
+        },
+        {
+          "mean": 0.814,
+          "model": "AttentiveFP",
+          "rank": 16,
+          "std": 0.008
+        },
+        {
+          "mean": 0.794,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 17,
+          "std": 0.008
+        },
+        {
+          "mean": 0.776,
+          "model": "CNN (DeepPurpose)",
+          "rank": 18,
+          "std": 0.015
+        },
+        {
+          "mean": 0.755,
+          "model": "Euclia ML model",
+          "rank": 19,
+          "std": 0.003
+        },
+        {
+          "mean": 0.716,
+          "model": "Basic ML",
+          "rank": 20,
+          "std": 0.0
+        }
+      ],
+      "metric": "auroc",
+      "size": 7255,
+      "url": "https://tdcommons.ai/benchmark/admet_group/21ames/"
+    },
+    "BBB_Martins": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.924,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.003
+        },
+        {
+          "mean": 0.92,
+          "model": "CFA",
+          "rank": 2,
+          "std": 0.006
+        },
+        {
+          "mean": 0.916,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.001
+        },
+        {
+          "mean": 0.915,
+          "model": "Lantern RADR Ensemble",
+          "rank": 4,
+          "std": 0.002
+        },
+        {
+          "mean": 0.913,
+          "model": "MapLight + GNN",
+          "rank": 5,
+          "std": 0.001
+        },
+        {
+          "mean": 0.912,
+          "model": "Lantern RADR Deep Neural Network",
+          "rank": 6,
+          "std": 0.003
+        },
+        {
+          "mean": 0.91,
+          "model": "ZairaChem",
+          "rank": 7,
+          "std": 0.024
+        },
+        {
+          "mean": 0.908,
+          "model": "Lantern RADR Random Forest",
+          "rank": 8,
+          "std": 0.002
+        },
+        {
+          "mean": 0.906,
+          "model": "ADMETrix",
+          "rank": 9,
+          "std": 0.035
+        },
+        {
+          "mean": 0.905,
+          "model": "Lantern RADR SVM",
+          "rank": 10,
+          "std": 0.007
+        },
+        {
+          "mean": 0.903,
+          "model": "Lantern RADR Logistic Regression",
+          "rank": 11,
+          "std": 0.002
+        },
+        {
+          "mean": 0.901,
+          "model": "SimGCN",
+          "rank": 12,
+          "std": 0.007
+        },
+        {
+          "mean": 0.897,
+          "model": "ContextPred",
+          "rank": 13,
+          "std": 0.004
+        },
+        {
+          "mean": 0.892,
+          "model": "AttrMasking",
+          "rank": 14,
+          "std": 0.012
+        },
+        {
+          "mean": 0.89,
+          "model": "CMPNN",
+          "rank": 15,
+          "std": 0.016
+        },
+        {
+          "mean": 0.889,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.016
+        },
+        {
+          "mean": 0.869,
+          "model": "Chemprop-RDKit",
+          "rank": 17,
+          "std": 0.027
+        },
+        {
+          "mean": 0.868,
+          "model": "DeepMol (AutoML)",
+          "rank": 18,
+          "std": 0.007
+        },
+        {
+          "mean": 0.855,
+          "model": "AttentiveFP",
+          "rank": 19,
+          "std": 0.011
+        },
+        {
+          "mean": 0.842,
+          "model": "GCN",
+          "rank": 20,
+          "std": 0.016
+        },
+        {
+          "mean": 0.836,
+          "model": "NeuralFP",
+          "rank": 21,
+          "std": 0.009
+        },
+        {
+          "mean": 0.823,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 22,
+          "std": 0.015
+        },
+        {
+          "mean": 0.821,
+          "model": "Chemprop",
+          "rank": 23,
+          "std": 0.112
+        },
+        {
+          "mean": 0.811,
+          "model": "Basic ML",
+          "rank": 24,
+          "std": 0.013
+        },
+        {
+          "mean": 0.781,
+          "model": "CNN (DeepPurpose)",
+          "rank": 25,
+          "std": 0.03
+        },
+        {
+          "mean": 0.725,
+          "model": "Euclia ML model",
+          "rank": 26,
+          "std": 0.019
+        }
+      ],
+      "metric": "auroc",
+      "size": 1975,
+      "url": "https://tdcommons.ai/benchmark/admet_group/07bbb/"
+    },
+    "Bioavailability_Ma": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.942,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.002
+        },
+        {
+          "mean": 0.938,
+          "model": "MapLight + GNN",
+          "rank": 2,
+          "std": 0.002
+        },
+        {
+          "mean": 0.935,
+          "model": "ZairaChem",
+          "rank": 3,
+          "std": 0.006
+        },
+        {
+          "mean": 0.93,
+          "model": "MapLight",
+          "rank": 4,
+          "std": 0.002
+        },
+        {
+          "mean": 0.929,
+          "model": "SimGCN",
+          "rank": 5,
+          "std": 0.01
+        },
+        {
+          "mean": 0.929,
+          "model": "AttrMasking",
+          "rank": 6,
+          "std": 0.006
+        },
+        {
+          "mean": 0.928,
+          "model": "CFA",
+          "rank": 7,
+          "std": 0.008
+        },
+        {
+          "mean": 0.926,
+          "model": "ADMETrix",
+          "rank": 8,
+          "std": 0.008
+        },
+        {
+          "mean": 0.923,
+          "model": "ContextPred",
+          "rank": 9,
+          "std": 0.005
+        },
+        {
+          "mean": 0.922,
+          "model": "DeepMol (AutoML)",
+          "rank": 10,
+          "std": 0.0
+        },
+        {
+          "mean": 0.918,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 11,
+          "std": 0.007
+        },
+        {
+          "mean": 0.908,
+          "model": "CNN (DeepPurpose)",
+          "rank": 12,
+          "std": 0.012
+        },
+        {
+          "mean": 0.902,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.02
+        },
+        {
+          "mean": 0.895,
+          "model": "GCN",
+          "rank": 14,
+          "std": 0.021
+        },
+        {
+          "mean": 0.892,
+          "model": "AttentiveFP",
+          "rank": 15,
+          "std": 0.012
+        },
+        {
+          "mean": 0.886,
+          "model": "Chemprop-RDKit",
+          "rank": 16,
+          "std": 0.016
+        },
+        {
+          "mean": 0.88,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 17,
+          "std": 0.006
+        },
+        {
+          "mean": 0.86,
+          "model": "Chemprop",
+          "rank": 18,
+          "std": 0.036
+        },
+        {
+          "mean": 0.845,
+          "model": "Euclia ML model",
+          "rank": 19,
+          "std": 0.003
+        },
+        {
+          "mean": 0.818,
+          "model": "Basic ML",
+          "rank": 20,
+          "std": 0.0
+        }
+      ],
+      "metric": "auroc",
+      "size": 640,
+      "url": "https://tdcommons.ai/benchmark/admet_group/04bioav/"
+    },
+    "CYP2C9_Substrate_CarbonMangels": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.474,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.025
+        },
+        {
+          "mean": 0.441,
+          "model": "ZairaChem",
+          "rank": 2,
+          "std": 0.033
+        },
+        {
+          "mean": 0.437,
+          "model": "MapLight + GNN",
+          "rank": 3,
+          "std": 0.008
+        },
+        {
+          "mean": 0.437,
+          "model": "Random Forest",
+          "rank": 4,
+          "std": 0.022
+        },
+        {
+          "mean": 0.433,
+          "model": "SimGCN",
+          "rank": 5,
+          "std": 0.017
+        },
+        {
+          "mean": 0.417,
+          "model": "CFA",
+          "rank": 6,
+          "std": 0.01
+        },
+        {
+          "mean": 0.417,
+          "model": "DeepMol (AutoML)",
+          "rank": 7,
+          "std": 0.005
+        },
+        {
+          "mean": 0.415,
+          "model": "MapLight",
+          "rank": 8,
+          "std": 0.008
+        },
+        {
+          "mean": 0.4,
+          "model": "Chemprop-RDKit",
+          "rank": 9,
+          "std": 0.008
+        },
+        {
+          "mean": 0.392,
+          "model": "ContextPred",
+          "rank": 10,
+          "std": 0.026
+        },
+        {
+          "mean": 0.382,
+          "model": "Chemprop",
+          "rank": 11,
+          "std": 0.019
+        },
+        {
+          "mean": 0.381,
+          "model": "AttrMasking",
+          "rank": 12,
+          "std": 0.045
+        },
+        {
+          "mean": 0.38,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 13,
+          "std": 0.015
+        },
+        {
+          "mean": 0.375,
+          "model": "AttentiveFP",
+          "rank": 14,
+          "std": 0.032
+        },
+        {
+          "mean": 0.367,
+          "model": "CNN (DeepPurpose)",
+          "rank": 15,
+          "std": 0.059
+        },
+        {
+          "mean": 0.36,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.04
+        },
+        {
+          "mean": 0.359,
+          "model": "NeuralFP",
+          "rank": 17,
+          "std": 0.059
+        },
+        {
+          "mean": 0.347,
+          "model": "Euclia ML model",
+          "rank": 18,
+          "std": 0.018
+        },
+        {
+          "mean": 0.344,
+          "model": "GCN",
+          "rank": 19,
+          "std": 0.051
+        },
+        {
+          "mean": 0.281,
+          "model": "Basic ML",
+          "rank": 20,
+          "std": 0.0
+        }
+      ],
+      "metric": "auprc",
+      "size": 666,
+      "url": "https://tdcommons.ai/benchmark/admet_group/13cyp2c9s/"
+    },
+    "CYP2C9_Veith": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.859,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.001
+        },
+        {
+          "mean": 0.839,
+          "model": "ContextPred",
+          "rank": 2,
+          "std": 0.003
+        },
+        {
+          "mean": 0.829,
+          "model": "AttrMasking",
+          "rank": 3,
+          "std": 0.003
+        },
+        {
+          "mean": 0.823,
+          "model": "MiniMol",
+          "rank": 4,
+          "std": 0.006
+        },
+        {
+          "mean": 0.789,
+          "model": "ADMETrix",
+          "rank": 5,
+          "std": 0.004
+        },
+        {
+          "mean": 0.786,
+          "model": "ZairaChem",
+          "rank": 6,
+          "std": 0.004
+        },
+        {
+          "mean": 0.783,
+          "model": "MapLight",
+          "rank": 7,
+          "std": 0.002
+        },
+        {
+          "mean": 0.777,
+          "model": "Chemprop-RDKit",
+          "rank": 8,
+          "std": 0.003
+        },
+        {
+          "mean": 0.767,
+          "model": "ColorRefinement + Weighted Ensemble LGBM",
+          "rank": 9,
+          "std": 0.003
+        },
+        {
+          "mean": 0.758,
+          "model": "DeepMol (AutoML)",
+          "rank": 10,
+          "std": 0.002
+        },
+        {
+          "mean": 0.754,
+          "model": "Chemprop",
+          "rank": 11,
+          "std": 0.002
+        },
+        {
+          "mean": 0.751,
+          "model": "CFA",
+          "rank": 12,
+          "std": 0.006
+        },
+        {
+          "mean": 0.749,
+          "model": "AttentiveFP",
+          "rank": 13,
+          "std": 0.004
+        },
+        {
+          "mean": 0.742,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 14,
+          "std": 0.006
+        },
+        {
+          "mean": 0.739,
+          "model": "NeuralFP",
+          "rank": 15,
+          "std": 0.01
+        },
+        {
+          "mean": 0.735,
+          "model": "GCN",
+          "rank": 16,
+          "std": 0.004
+        },
+        {
+          "mean": 0.715,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 17,
+          "std": 0.004
+        },
+        {
+          "mean": 0.713,
+          "model": "CNN (DeepPurpose)",
+          "rank": 18,
+          "std": 0.006
+        },
+        {
+          "mean": 0.556,
+          "model": "Basic ML",
+          "rank": 19,
+          "std": 0.0
+        },
+        {
+          "mean": 0.536,
+          "model": "Euclia ML model",
+          "rank": 20,
+          "std": 0.003
+        }
+      ],
+      "metric": "auprc",
+      "size": 12092,
+      "url": "https://tdcommons.ai/benchmark/admet_group/10cyp2c9i/"
+    },
+    "CYP2D6_Substrate_CarbonMangels": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.736,
+          "model": "ContextPred",
+          "rank": 1,
+          "std": 0.024
+        },
+        {
+          "mean": 0.731,
+          "model": "DeepMol (AutoML)",
+          "rank": 2,
+          "std": 0.037
+        },
+        {
+          "mean": 0.72,
+          "model": "MapLight + GNN",
+          "rank": 3,
+          "std": 0.002
+        },
+        {
+          "mean": 0.713,
+          "model": "MapLight",
+          "rank": 4,
+          "std": 0.009
+        },
+        {
+          "mean": 0.704,
+          "model": "CFA",
+          "rank": 5,
+          "std": 0.015
+        },
+        {
+          "mean": 0.704,
+          "model": "AttrMasking",
+          "rank": 6,
+          "std": 0.028
+        },
+        {
+          "mean": 0.695,
+          "model": "MiniMol",
+          "rank": 7,
+          "std": 0.032
+        },
+        {
+          "mean": 0.686,
+          "model": "Chemprop-RDKit",
+          "rank": 8,
+          "std": 0.031
+        },
+        {
+          "mean": 0.685,
+          "model": "ZairaChem",
+          "rank": 9,
+          "std": 0.029
+        },
+        {
+          "mean": 0.677,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 10,
+          "std": 0.047
+        },
+        {
+          "mean": 0.671,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 11,
+          "std": 0.066
+        },
+        {
+          "mean": 0.632,
+          "model": "Chemprop",
+          "rank": 12,
+          "std": 0.037
+        },
+        {
+          "mean": 0.617,
+          "model": "GCN",
+          "rank": 13,
+          "std": 0.039
+        },
+        {
+          "mean": 0.574,
+          "model": "AttentiveFP",
+          "rank": 14,
+          "std": 0.03
+        },
+        {
+          "mean": 0.572,
+          "model": "NeuralFP",
+          "rank": 15,
+          "std": 0.062
+        },
+        {
+          "mean": 0.498,
+          "model": "Euclia ML model",
+          "rank": 16,
+          "std": 0.015
+        },
+        {
+          "mean": 0.485,
+          "model": "CNN (DeepPurpose)",
+          "rank": 17,
+          "std": 0.037
+        },
+        {
+          "mean": 0.478,
+          "model": "Basic ML",
+          "rank": 18,
+          "std": 0.018
+        }
+      ],
+      "metric": "auprc",
+      "size": 664,
+      "url": "https://tdcommons.ai/benchmark/admet_group/14cyp2d6s/"
+    },
+    "CYP2D6_Veith": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.79,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.001
+        },
+        {
+          "mean": 0.739,
+          "model": "ContextPred",
+          "rank": 2,
+          "std": 0.005
+        },
+        {
+          "mean": 0.723,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.003
+        },
+        {
+          "mean": 0.721,
+          "model": "AttrMasking",
+          "rank": 4,
+          "std": 0.009
+        },
+        {
+          "mean": 0.719,
+          "model": "MiniMol",
+          "rank": 5,
+          "std": 0.004
+        },
+        {
+          "mean": 0.718,
+          "model": "ADMETrix",
+          "rank": 6,
+          "std": 0.006
+        },
+        {
+          "mean": 0.685,
+          "model": "DeepMol (AutoML)",
+          "rank": 7,
+          "std": 0.0
+        },
+        {
+          "mean": 0.673,
+          "model": "Chemprop-RDKit",
+          "rank": 8,
+          "std": 0.007
+        },
+        {
+          "mean": 0.664,
+          "model": "CFA",
+          "rank": 9,
+          "std": 0.012
+        },
+        {
+          "mean": 0.649,
+          "model": "Chemprop",
+          "rank": 10,
+          "std": 0.016
+        },
+        {
+          "mean": 0.646,
+          "model": "AttentiveFP",
+          "rank": 11,
+          "std": 0.014
+        },
+        {
+          "mean": 0.644,
+          "model": "ZairaChem",
+          "rank": 12,
+          "std": 0.085
+        },
+        {
+          "mean": 0.627,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.009
+        },
+        {
+          "mean": 0.616,
+          "model": "GCN",
+          "rank": 14,
+          "std": 0.02
+        },
+        {
+          "mean": 0.616,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 15,
+          "std": 0.007
+        },
+        {
+          "mean": 0.587,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.011
+        },
+        {
+          "mean": 0.544,
+          "model": "CNN (DeepPurpose)",
+          "rank": 17,
+          "std": 0.053
+        },
+        {
+          "mean": 0.358,
+          "model": "Basic ML",
+          "rank": 18,
+          "std": 0.0
+        },
+        {
+          "mean": 0.348,
+          "model": "Euclia ML model",
+          "rank": 19,
+          "std": 0.004
+        }
+      ],
+      "metric": "auprc",
+      "size": 13130,
+      "url": "https://tdcommons.ai/benchmark/admet_group/11cyp2d6i/"
+    },
+    "CYP3A4_Substrate_CarbonMangels": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.667,
+          "model": "CFA",
+          "rank": 1,
+          "std": 0.019
+        },
+        {
+          "mean": 0.663,
+          "model": "MiniMol",
+          "rank": 2,
+          "std": 0.008
+        },
+        {
+          "mean": 0.662,
+          "model": "CNN (DeepPurpose)",
+          "rank": 3,
+          "std": 0.031
+        },
+        {
+          "mean": 0.655,
+          "model": "DeepMol (AutoML)",
+          "rank": 4,
+          "std": 0.003
+        },
+        {
+          "mean": 0.65,
+          "model": "MapLight",
+          "rank": 5,
+          "std": 0.006
+        },
+        {
+          "mean": 0.647,
+          "model": "MapLight + GNN",
+          "rank": 6,
+          "std": 0.008
+        },
+        {
+          "mean": 0.64,
+          "model": "SimGCN",
+          "rank": 7,
+          "std": 0.016
+        },
+        {
+          "mean": 0.639,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 8,
+          "std": 0.012
+        },
+        {
+          "mean": 0.633,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 9,
+          "std": 0.013
+        },
+        {
+          "mean": 0.63,
+          "model": "ZairaChem",
+          "rank": 10,
+          "std": 0.008
+        },
+        {
+          "mean": 0.629,
+          "model": "Euclia ML model",
+          "rank": 11,
+          "std": 0.027
+        },
+        {
+          "mean": 0.619,
+          "model": "Chemprop-RDKit",
+          "rank": 12,
+          "std": 0.03
+        },
+        {
+          "mean": 0.609,
+          "model": "ContextPred",
+          "rank": 13,
+          "std": 0.025
+        },
+        {
+          "mean": 0.605,
+          "model": "Basic ML",
+          "rank": 14,
+          "std": 0.0
+        },
+        {
+          "mean": 0.596,
+          "model": "Chemprop",
+          "rank": 15,
+          "std": 0.018
+        },
+        {
+          "mean": 0.59,
+          "model": "GCN",
+          "rank": 16,
+          "std": 0.023
+        },
+        {
+          "mean": 0.582,
+          "model": "AttrMasking",
+          "rank": 17,
+          "std": 0.021
+        },
+        {
+          "mean": 0.578,
+          "model": "NeuralFP",
+          "rank": 18,
+          "std": 0.02
+        },
+        {
+          "mean": 0.576,
+          "model": "AttentiveFP",
+          "rank": 19,
+          "std": 0.025
+        }
+      ],
+      "metric": "auroc",
+      "size": 667,
+      "url": "https://tdcommons.ai/benchmark/admet_group/15cyp3a4s/"
+    },
+    "CYP3A4_Veith": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.916,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.0
+        },
+        {
+          "mean": 0.904,
+          "model": "ContextPred",
+          "rank": 2,
+          "std": 0.002
+        },
+        {
+          "mean": 0.902,
+          "model": "AttrMasking",
+          "rank": 3,
+          "std": 0.002
+        },
+        {
+          "mean": 0.884,
+          "model": "ADMETrix",
+          "rank": 4,
+          "std": 0.001
+        },
+        {
+          "mean": 0.881,
+          "model": "MapLight",
+          "rank": 5,
+          "std": 0.001
+        },
+        {
+          "mean": 0.877,
+          "model": "MiniMol",
+          "rank": 6,
+          "std": 0.001
+        },
+        {
+          "mean": 0.876,
+          "model": "Chemprop-RDKit",
+          "rank": 7,
+          "std": 0.003
+        },
+        {
+          "mean": 0.875,
+          "model": "ZairaChem",
+          "rank": 8,
+          "std": 0.002
+        },
+        {
+          "mean": 0.867,
+          "model": "DeepMol (AutoML)",
+          "rank": 9,
+          "std": 0.002
+        },
+        {
+          "mean": 0.862,
+          "model": "Chemprop",
+          "rank": 10,
+          "std": 0.003
+        },
+        {
+          "mean": 0.855,
+          "model": "CFA",
+          "rank": 11,
+          "std": 0.004
+        },
+        {
+          "mean": 0.851,
+          "model": "AttentiveFP",
+          "rank": 12,
+          "std": 0.006
+        },
+        {
+          "mean": 0.849,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.004
+        },
+        {
+          "mean": 0.84,
+          "model": "GCN",
+          "rank": 14,
+          "std": 0.01
+        },
+        {
+          "mean": 0.829,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 15,
+          "std": 0.007
+        },
+        {
+          "mean": 0.827,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.009
+        },
+        {
+          "mean": 0.821,
+          "model": "CNN (DeepPurpose)",
+          "rank": 17,
+          "std": 0.003
+        },
+        {
+          "mean": 0.696,
+          "model": "Euclia ML model",
+          "rank": 18,
+          "std": 0.004
+        },
+        {
+          "mean": 0.654,
+          "model": "Basic ML",
+          "rank": 19,
+          "std": 0.0
+        }
+      ],
+      "metric": "auprc",
+      "size": 12328,
+      "url": "https://tdcommons.ai/benchmark/admet_group/12cyp3a4i/"
+    },
+    "Caco2_Wang": {
+      "direction": "minimize",
+      "entries": [
+        {
+          "mean": 0.256,
+          "model": "CaliciBoost",
+          "rank": 1,
+          "std": 0.006
+        },
+        {
+          "mean": 0.274,
+          "model": "XG Boost",
+          "rank": 2,
+          "std": 0.004
+        },
+        {
+          "mean": 0.276,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.005
+        },
+        {
+          "mean": 0.285,
+          "model": "BaseBoosting",
+          "rank": 4,
+          "std": 0.005
+        },
+        {
+          "mean": 0.287,
+          "model": "MolMapNet-D",
+          "rank": 5,
+          "std": 0.005
+        },
+        {
+          "mean": 0.287,
+          "model": "MapLight + GNN",
+          "rank": 6,
+          "std": 0.005
+        },
+        {
+          "mean": 0.289,
+          "model": "XGBoost",
+          "rank": 7,
+          "std": 0.011
+        },
+        {
+          "mean": 0.297,
+          "model": "DeepMol (AutoML)",
+          "rank": 8,
+          "std": 0.008
+        },
+        {
+          "mean": 0.321,
+          "model": "Basic ML",
+          "rank": 9,
+          "std": 0.005
+        },
+        {
+          "mean": 0.326,
+          "model": "ADMETrix",
+          "rank": 10,
+          "std": 0.042
+        },
+        {
+          "mean": 0.33,
+          "model": "Chemprop-RDKit",
+          "rank": 11,
+          "std": 0.024
+        },
+        {
+          "mean": 0.335,
+          "model": "CFA",
+          "rank": 12,
+          "std": 0.033
+        },
+        {
+          "mean": 0.341,
+          "model": "Euclia ML model",
+          "rank": 13,
+          "std": 0.004
+        },
+        {
+          "mean": 0.344,
+          "model": "Chemprop",
+          "rank": 14,
+          "std": 0.015
+        },
+        {
+          "mean": 0.35,
+          "model": "MiniMol",
+          "rank": 15,
+          "std": 0.018
+        },
+        {
+          "mean": 0.393,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.024
+        },
+        {
+          "mean": 0.401,
+          "model": "AttentiveFP",
+          "rank": 17,
+          "std": 0.032
+        },
+        {
+          "mean": 0.446,
+          "model": "CNN (DeepPurpose)",
+          "rank": 18,
+          "std": 0.036
+        },
+        {
+          "mean": 0.502,
+          "model": "ContextPred",
+          "rank": 19,
+          "std": 0.036
+        },
+        {
+          "mean": 0.53,
+          "model": "NeuralFP",
+          "rank": 20,
+          "std": 0.102
+        },
+        {
+          "mean": 0.546,
+          "model": "AttrMasking",
+          "rank": 21,
+          "std": 0.052
+        },
+        {
+          "mean": 0.599,
+          "model": "GCN",
+          "rank": 22,
+          "std": 0.104
+        },
+        {
+          "mean": 0.908,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 23,
+          "std": 0.06
+        },
+        {
+          "mean": 6.328,
+          "model": "admet_ai_v2",
+          "rank": 24,
+          "std": 0.101
+        }
+      ],
+      "metric": "mae",
+      "size": 906,
+      "url": "https://tdcommons.ai/benchmark/admet_group/01caco2/"
+    },
+    "Clearance_Hepatocyte_AZ": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.536,
+          "model": "CFA",
+          "rank": 1,
+          "std": 0.02
+        },
+        {
+          "mean": 0.498,
+          "model": "MapLight + GNN",
+          "rank": 2,
+          "std": 0.009
+        },
+        {
+          "mean": 0.466,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.012
+        },
+        {
+          "mean": 0.447,
+          "model": "ADMETrix",
+          "rank": 4,
+          "std": 0.028
+        },
+        {
+          "mean": 0.446,
+          "model": "MiniMol",
+          "rank": 5,
+          "std": 0.029
+        },
+        {
+          "mean": 0.44,
+          "model": "Basic ML",
+          "rank": 6,
+          "std": 0.003
+        },
+        {
+          "mean": 0.44,
+          "model": "DeepMol (AutoML)",
+          "rank": 7,
+          "std": 0.011
+        },
+        {
+          "mean": 0.439,
+          "model": "ContextPred",
+          "rank": 8,
+          "std": 0.026
+        },
+        {
+          "mean": 0.431,
+          "model": "Chemprop",
+          "rank": 9,
+          "std": 0.006
+        },
+        {
+          "mean": 0.43,
+          "model": "Chemprop-RDKit",
+          "rank": 10,
+          "std": 0.021
+        },
+        {
+          "mean": 0.424,
+          "model": "Euclia ML model",
+          "rank": 11,
+          "std": 0.008
+        },
+        {
+          "mean": 0.413,
+          "model": "AttrMasking",
+          "rank": 12,
+          "std": 0.028
+        },
+        {
+          "mean": 0.401,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.037
+        },
+        {
+          "mean": 0.382,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 14,
+          "std": 0.007
+        },
+        {
+          "mean": 0.366,
+          "model": "GCN",
+          "rank": 15,
+          "std": 0.063
+        },
+        {
+          "mean": 0.289,
+          "model": "AttentiveFP",
+          "rank": 16,
+          "std": 0.022
+        },
+        {
+          "mean": 0.272,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 17,
+          "std": 0.068
+        },
+        {
+          "mean": 0.235,
+          "model": "CNN (DeepPurpose)",
+          "rank": 18,
+          "std": 0.021
+        }
+      ],
+      "metric": "spearman",
+      "size": 1020,
+      "url": "https://tdcommons.ai/benchmark/admet_group/17clhepa/"
+    },
+    "Clearance_Microsome_AZ": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.63,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.01
+        },
+        {
+          "mean": 0.628,
+          "model": "MiniMol",
+          "rank": 2,
+          "std": 0.005
+        },
+        {
+          "mean": 0.626,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.008
+        },
+        {
+          "mean": 0.625,
+          "model": "CFA",
+          "rank": 4,
+          "std": 0.012
+        },
+        {
+          "mean": 0.625,
+          "model": "RFStacker",
+          "rank": 5,
+          "std": 0.002
+        },
+        {
+          "mean": 0.599,
+          "model": "Chemprop-RDKit",
+          "rank": 6,
+          "std": 0.025
+        },
+        {
+          "mean": 0.597,
+          "model": "SimGCN",
+          "rank": 7,
+          "std": 0.025
+        },
+        {
+          "mean": 0.586,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 8,
+          "std": 0.014
+        },
+        {
+          "mean": 0.585,
+          "model": "AttrMasking",
+          "rank": 9,
+          "std": 0.034
+        },
+        {
+          "mean": 0.578,
+          "model": "ContextPred",
+          "rank": 10,
+          "std": 0.007
+        },
+        {
+          "mean": 0.572,
+          "model": "Euclia ML model",
+          "rank": 11,
+          "std": 0.01
+        },
+        {
+          "mean": 0.556,
+          "model": "ADMETrix",
+          "rank": 12,
+          "std": 0.015
+        },
+        {
+          "mean": 0.555,
+          "model": "Chemprop",
+          "rank": 13,
+          "std": 0.022
+        },
+        {
+          "mean": 0.553,
+          "model": "DeepMol (AutoML)",
+          "rank": 14,
+          "std": 0.013
+        },
+        {
+          "mean": 0.532,
+          "model": "GCN",
+          "rank": 15,
+          "std": 0.033
+        },
+        {
+          "mean": 0.529,
+          "model": "NeuralFP",
+          "rank": 16,
+          "std": 0.015
+        },
+        {
+          "mean": 0.518,
+          "model": "Basic ML",
+          "rank": 17,
+          "std": 0.005
+        },
+        {
+          "mean": 0.492,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 18,
+          "std": 0.02
+        },
+        {
+          "mean": 0.365,
+          "model": "AttentiveFP",
+          "rank": 19,
+          "std": 0.055
+        },
+        {
+          "mean": 0.252,
+          "model": "CNN (DeepPurpose)",
+          "rank": 20,
+          "std": 0.116
+        }
+      ],
+      "metric": "spearman",
+      "size": 1102,
+      "url": "https://tdcommons.ai/benchmark/admet_group/18clmicro/"
+    },
+    "DILI": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.956,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.006
+        },
+        {
+          "mean": 0.925,
+          "model": "ZairaChem",
+          "rank": 2,
+          "std": 0.005
+        },
+        {
+          "mean": 0.919,
+          "model": "AttrMasking",
+          "rank": 3,
+          "std": 0.008
+        },
+        {
+          "mean": 0.919,
+          "model": "CFA",
+          "rank": 4,
+          "std": 0.014
+        },
+        {
+          "mean": 0.917,
+          "model": "MapLight + GNN",
+          "rank": 5,
+          "std": 0.005
+        },
+        {
+          "mean": 0.909,
+          "model": "SimGCN",
+          "rank": 6,
+          "std": 0.011
+        },
+        {
+          "mean": 0.906,
+          "model": "ADMETrix",
+          "rank": 7,
+          "std": 0.016
+        },
+        {
+          "mean": 0.899,
+          "model": "Chemprop",
+          "rank": 8,
+          "std": 0.008
+        },
+        {
+          "mean": 0.887,
+          "model": "Chemprop-RDKit",
+          "rank": 9,
+          "std": 0.011
+        },
+        {
+          "mean": 0.887,
+          "model": "MapLight",
+          "rank": 10,
+          "std": 0.006
+        },
+        {
+          "mean": 0.886,
+          "model": "AttentiveFP",
+          "rank": 11,
+          "std": 0.015
+        },
+        {
+          "mean": 0.885,
+          "model": "DeepMol (AutoML)",
+          "rank": 12,
+          "std": 0.014
+        },
+        {
+          "mean": 0.875,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 13,
+          "std": 0.019
+        },
+        {
+          "mean": 0.873,
+          "model": "Euclia ML model",
+          "rank": 14,
+          "std": 0.024
+        },
+        {
+          "mean": 0.861,
+          "model": "ContextPred",
+          "rank": 15,
+          "std": 0.018
+        },
+        {
+          "mean": 0.859,
+          "model": "GCN",
+          "rank": 16,
+          "std": 0.033
+        },
+        {
+          "mean": 0.851,
+          "model": "NeuralFP",
+          "rank": 17,
+          "std": 0.026
+        },
+        {
+          "mean": 0.832,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 18,
+          "std": 0.021
+        },
+        {
+          "mean": 0.792,
+          "model": "CNN (DeepPurpose)",
+          "rank": 19,
+          "std": 0.016
+        },
+        {
+          "mean": 0.7,
+          "model": "Basic ML",
+          "rank": 20,
+          "std": 0.0
+        }
+      ],
+      "metric": "auroc",
+      "size": 475,
+      "url": "https://tdcommons.ai/benchmark/admet_group/22dili/"
+    },
+    "HIA_Hou": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.993,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.005
+        },
+        {
+          "mean": 0.99,
+          "model": "DeepMol (AutoML)",
+          "rank": 2,
+          "std": 0.002
+        },
+        {
+          "mean": 0.989,
+          "model": "MapLight + GNN",
+          "rank": 3,
+          "std": 0.001
+        },
+        {
+          "mean": 0.988,
+          "model": "RFStacker",
+          "rank": 4,
+          "std": 0.002
+        },
+        {
+          "mean": 0.986,
+          "model": "MapLight",
+          "rank": 5,
+          "std": 0.0
+        },
+        {
+          "mean": 0.985,
+          "model": "ADMETrix",
+          "rank": 6,
+          "std": 0.003
+        },
+        {
+          "mean": 0.981,
+          "model": "Chemprop-RDKit",
+          "rank": 7,
+          "std": 0.002
+        },
+        {
+          "mean": 0.981,
+          "model": "CFA",
+          "rank": 8,
+          "std": 0.009
+        },
+        {
+          "mean": 0.978,
+          "model": "AttrMasking",
+          "rank": 9,
+          "std": 0.006
+        },
+        {
+          "mean": 0.975,
+          "model": "ContextPred",
+          "rank": 10,
+          "std": 0.004
+        },
+        {
+          "mean": 0.974,
+          "model": "AttentiveFP",
+          "rank": 11,
+          "std": 0.007
+        },
+        {
+          "mean": 0.972,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 12,
+          "std": 0.008
+        },
+        {
+          "mean": 0.965,
+          "model": "Chemprop",
+          "rank": 13,
+          "std": 0.005
+        },
+        {
+          "mean": 0.948,
+          "model": "ZairaChem",
+          "rank": 14,
+          "std": 0.018
+        },
+        {
+          "mean": 0.943,
+          "model": "NeuralFP",
+          "rank": 15,
+          "std": 0.014
+        },
+        {
+          "mean": 0.936,
+          "model": "GCN",
+          "rank": 16,
+          "std": 0.024
+        },
+        {
+          "mean": 0.926,
+          "model": "Euclia ML model",
+          "rank": 17,
+          "std": 0.017
+        },
+        {
+          "mean": 0.869,
+          "model": "CNN (DeepPurpose)",
+          "rank": 18,
+          "std": 0.026
+        },
+        {
+          "mean": 0.818,
+          "model": "Basic ML",
+          "rank": 19,
+          "std": 0.01
+        },
+        {
+          "mean": 0.807,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 20,
+          "std": 0.072
+        }
+      ],
+      "metric": "auroc",
+      "size": 578,
+      "url": "https://tdcommons.ai/benchmark/admet_group/02hia/"
+    },
+    "Half_Life_Obach": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.576,
+          "model": "CFA",
+          "rank": 1,
+          "std": 0.025
+        },
+        {
+          "mean": 0.562,
+          "model": "MapLight",
+          "rank": 2,
+          "std": 0.008
+        },
+        {
+          "mean": 0.557,
+          "model": "MapLight + GNN",
+          "rank": 3,
+          "std": 0.034
+        },
+        {
+          "mean": 0.547,
+          "model": "Euclia ML model",
+          "rank": 4,
+          "std": 0.032
+        },
+        {
+          "mean": 0.544,
+          "model": "Voting Regressor (KNN, SVM)",
+          "rank": 5,
+          "std": 0.034
+        },
+        {
+          "mean": 0.495,
+          "model": "MiniMol",
+          "rank": 6,
+          "std": 0.042
+        },
+        {
+          "mean": 0.485,
+          "model": "DeepMol (AutoML)",
+          "rank": 7,
+          "std": 0.039
+        },
+        {
+          "mean": 0.438,
+          "model": "Basic ML",
+          "rank": 8,
+          "std": 0.011
+        },
+        {
+          "mean": 0.392,
+          "model": "SimGCN",
+          "rank": 9,
+          "std": 0.065
+        },
+        {
+          "mean": 0.372,
+          "model": "ADMETrix",
+          "rank": 10,
+          "std": 0.026
+        },
+        {
+          "mean": 0.329,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 11,
+          "std": 0.083
+        },
+        {
+          "mean": 0.265,
+          "model": "Chemprop",
+          "rank": 12,
+          "std": 0.032
+        },
+        {
+          "mean": 0.239,
+          "model": "Chemprop-RDKit",
+          "rank": 13,
+          "std": 0.019
+        },
+        {
+          "mean": 0.239,
+          "model": "GCN",
+          "rank": 14,
+          "std": 0.1
+        },
+        {
+          "mean": 0.184,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 15,
+          "std": 0.111
+        },
+        {
+          "mean": 0.177,
+          "model": "NeuralFP",
+          "rank": 16,
+          "std": 0.165
+        },
+        {
+          "mean": 0.151,
+          "model": "AttrMasking",
+          "rank": 17,
+          "std": 0.068
+        },
+        {
+          "mean": 0.129,
+          "model": "ContextPred",
+          "rank": 18,
+          "std": 0.114
+        },
+        {
+          "mean": 0.085,
+          "model": "AttentiveFP",
+          "rank": 19,
+          "std": 0.068
+        },
+        {
+          "mean": 0.038,
+          "model": "CNN (DeepPurpose)",
+          "rank": 20,
+          "std": 0.138
+        }
+      ],
+      "metric": "spearman",
+      "size": 667,
+      "url": "https://tdcommons.ai/benchmark/admet_group/16halflife/"
+    },
+    "LD50_Zhu": {
+      "direction": "minimize",
+      "entries": [
+        {
+          "mean": 0.552,
+          "model": "BaseBoosting KyQVZ6b2",
+          "rank": 1,
+          "std": 0.009
+        },
+        {
+          "mean": 0.573,
+          "model": "ADMETrix",
+          "rank": 2,
+          "std": 0.01
+        },
+        {
+          "mean": 0.585,
+          "model": "MiniMol",
+          "rank": 3,
+          "std": 0.008
+        },
+        {
+          "mean": 0.588,
+          "model": "MACCS keys + autoML",
+          "rank": 4,
+          "std": 0.005
+        },
+        {
+          "mean": 0.606,
+          "model": "Chemprop",
+          "rank": 5,
+          "std": 0.024
+        },
+        {
+          "mean": 0.614,
+          "model": "DeepMol (AutoML)",
+          "rank": 6,
+          "std": 0.004
+        },
+        {
+          "mean": 0.621,
+          "model": "MapLight",
+          "rank": 7,
+          "std": 0.003
+        },
+        {
+          "mean": 0.622,
+          "model": "QuGIN",
+          "rank": 8,
+          "std": 0.015
+        },
+        {
+          "mean": 0.625,
+          "model": "Chemprop-RDKit",
+          "rank": 9,
+          "std": 0.022
+        },
+        {
+          "mean": 0.63,
+          "model": "CFA",
+          "rank": 10,
+          "std": 0.012
+        },
+        {
+          "mean": 0.631,
+          "model": "CMPNN",
+          "rank": 11,
+          "std": 0.021
+        },
+        {
+          "mean": 0.633,
+          "model": "MapLight + GNN",
+          "rank": 12,
+          "std": 0.003
+        },
+        {
+          "mean": 0.636,
+          "model": "Basic ML",
+          "rank": 13,
+          "std": 0.001
+        },
+        {
+          "mean": 0.646,
+          "model": "Euclia ML model",
+          "rank": 14,
+          "std": 0.011
+        },
+        {
+          "mean": 0.649,
+          "model": "GCN",
+          "rank": 15,
+          "std": 0.026
+        },
+        {
+          "mean": 0.649,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.019
+        },
+        {
+          "mean": 0.667,
+          "model": "NeuralFP",
+          "rank": 17,
+          "std": 0.02
+        },
+        {
+          "mean": 0.669,
+          "model": "ContextPred",
+          "rank": 18,
+          "std": 0.03
+        },
+        {
+          "mean": 0.675,
+          "model": "CNN (DeepPurpose)",
+          "rank": 19,
+          "std": 0.011
+        },
+        {
+          "mean": 0.678,
+          "model": "AttentiveFP",
+          "rank": 20,
+          "std": 0.012
+        },
+        {
+          "mean": 0.678,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 21,
+          "std": 0.003
+        },
+        {
+          "mean": 0.685,
+          "model": "AttrMasking",
+          "rank": 22,
+          "std": 0.025
+        }
+      ],
+      "metric": "mae",
+      "size": 7385,
+      "url": "https://tdcommons.ai/benchmark/admet_group/19ld50/"
+    },
+    "Lipophilicity_AstraZeneca": {
+      "direction": "minimize",
+      "entries": [
+        {
+          "mean": 0.456,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.008
+        },
+        {
+          "mean": 0.467,
+          "model": "Chemprop-RDKit",
+          "rank": 2,
+          "std": 0.006
+        },
+        {
+          "mean": 0.47,
+          "model": "Chemprop",
+          "rank": 3,
+          "std": 0.009
+        },
+        {
+          "mean": 0.479,
+          "model": "BaseBoosting KyQVZ6b2",
+          "rank": 4,
+          "std": 0.007
+        },
+        {
+          "mean": 0.512,
+          "model": "ADMETrix",
+          "rank": 5,
+          "std": 0.01
+        },
+        {
+          "mean": 0.515,
+          "model": "CMPNN",
+          "rank": 6,
+          "std": 0.008
+        },
+        {
+          "mean": 0.525,
+          "model": "MapLight + GNN",
+          "rank": 7,
+          "std": 0.003
+        },
+        {
+          "mean": 0.535,
+          "model": "ContextPred",
+          "rank": 8,
+          "std": 0.012
+        },
+        {
+          "mean": 0.538,
+          "model": "StackingRegressor (DeepMol)",
+          "rank": 9,
+          "std": 0.001
+        },
+        {
+          "mean": 0.539,
+          "model": "MapLight",
+          "rank": 10,
+          "std": 0.002
+        },
+        {
+          "mean": 0.541,
+          "model": "GCN",
+          "rank": 11,
+          "std": 0.011
+        },
+        {
+          "mean": 0.547,
+          "model": "AttrMasking",
+          "rank": 12,
+          "std": 0.024
+        },
+        {
+          "mean": 0.563,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.023
+        },
+        {
+          "mean": 0.572,
+          "model": "AttentiveFP",
+          "rank": 14,
+          "std": 0.007
+        },
+        {
+          "mean": 0.574,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 15,
+          "std": 0.017
+        },
+        {
+          "mean": 0.617,
+          "model": "Basic ML",
+          "rank": 16,
+          "std": 0.003
+        },
+        {
+          "mean": 0.621,
+          "model": "Euclia ML model",
+          "rank": 17,
+          "std": 0.005
+        },
+        {
+          "mean": 0.626,
+          "model": "CFA",
+          "rank": 18,
+          "std": 0.013
+        },
+        {
+          "mean": 0.656,
+          "model": "DeepMol (AutoML)",
+          "rank": 19,
+          "std": 0.012
+        },
+        {
+          "mean": 0.701,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 20,
+          "std": 0.009
+        },
+        {
+          "mean": 0.743,
+          "model": "CNN (DeepPurpose)",
+          "rank": 21,
+          "std": 0.02
+        }
+      ],
+      "metric": "mae",
+      "size": 4200,
+      "url": "https://tdcommons.ai/benchmark/admet_group/05lipo/"
+    },
+    "PPBR_AZ": {
+      "direction": "minimize",
+      "entries": [
+        {
+          "mean": 7.44,
+          "model": "Gradient Boost",
+          "rank": 1,
+          "std": 0.024
+        },
+        {
+          "mean": 7.526,
+          "model": "MapLight + GNN",
+          "rank": 2,
+          "std": 0.106
+        },
+        {
+          "mean": 7.66,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.058
+        },
+        {
+          "mean": 7.696,
+          "model": "MiniMol",
+          "rank": 4,
+          "std": 0.125
+        },
+        {
+          "mean": 7.788,
+          "model": "Chemprop",
+          "rank": 5,
+          "std": 0.21
+        },
+        {
+          "mean": 7.914,
+          "model": "BaseBoosting KyQVZ6b2",
+          "rank": 6,
+          "std": 0.096
+        },
+        {
+          "mean": 7.99,
+          "model": "DeepMol (AutoML)",
+          "rank": 7,
+          "std": 0.104
+        },
+        {
+          "mean": 8.2,
+          "model": "ADMETrix",
+          "rank": 8,
+          "std": 0.114
+        },
+        {
+          "mean": 8.288,
+          "model": "Chemprop-RDKit",
+          "rank": 9,
+          "std": 0.173
+        },
+        {
+          "mean": 8.68,
+          "model": "CFA",
+          "rank": 10,
+          "std": 0.262
+        },
+        {
+          "mean": 9.185,
+          "model": "Basic ML",
+          "rank": 11,
+          "std": 0.0
+        },
+        {
+          "mean": 9.292,
+          "model": "NeuralFP",
+          "rank": 12,
+          "std": 0.384
+        },
+        {
+          "mean": 9.373,
+          "model": "AttentiveFP",
+          "rank": 13,
+          "std": 0.335
+        },
+        {
+          "mean": 9.445,
+          "model": "ContextPred",
+          "rank": 14,
+          "std": 0.224
+        },
+        {
+          "mean": 9.942,
+          "model": "Euclia ML model",
+          "rank": 15,
+          "std": 0.121
+        },
+        {
+          "mean": 9.994,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 16,
+          "std": 0.319
+        },
+        {
+          "mean": 10.075,
+          "model": "AttrMasking",
+          "rank": 17,
+          "std": 0.202
+        },
+        {
+          "mean": 10.194,
+          "model": "GCN",
+          "rank": 18,
+          "std": 0.373
+        },
+        {
+          "mean": 11.106,
+          "model": "CNN (DeepPurpose)",
+          "rank": 19,
+          "std": 0.358
+        },
+        {
+          "mean": 12.848,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 20,
+          "std": 0.362
+        }
+      ],
+      "metric": "mae",
+      "size": 1797,
+      "url": "https://tdcommons.ai/benchmark/admet_group/08ppbr/"
+    },
+    "Pgp_Broccatelli": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.938,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.002
+        },
+        {
+          "mean": 0.935,
+          "model": "ZairaChem",
+          "rank": 2,
+          "std": 0.006
+        },
+        {
+          "mean": 0.93,
+          "model": "MapLight",
+          "rank": 3,
+          "std": 0.002
+        },
+        {
+          "mean": 0.929,
+          "model": "SimGCN",
+          "rank": 4,
+          "std": 0.01
+        },
+        {
+          "mean": 0.929,
+          "model": "AttrMasking",
+          "rank": 5,
+          "std": 0.006
+        },
+        {
+          "mean": 0.923,
+          "model": "ContextPred",
+          "rank": 6,
+          "std": 0.005
+        },
+        {
+          "mean": 0.918,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 7,
+          "std": 0.007
+        },
+        {
+          "mean": 0.908,
+          "model": "CNN (DeepPurpose)",
+          "rank": 8,
+          "std": 0.012
+        },
+        {
+          "mean": 0.902,
+          "model": "NeuralFP",
+          "rank": 9,
+          "std": 0.02
+        },
+        {
+          "mean": 0.895,
+          "model": "GCN",
+          "rank": 10,
+          "std": 0.021
+        },
+        {
+          "mean": 0.892,
+          "model": "AttentiveFP",
+          "rank": 11,
+          "std": 0.012
+        },
+        {
+          "mean": 0.886,
+          "model": "Chemprop-RDKit",
+          "rank": 12,
+          "std": 0.016
+        },
+        {
+          "mean": 0.88,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 13,
+          "std": 0.006
+        },
+        {
+          "mean": 0.86,
+          "model": "Chemprop",
+          "rank": 14,
+          "std": 0.036
+        },
+        {
+          "mean": 0.845,
+          "model": "Euclia ML model",
+          "rank": 15,
+          "std": 0.003
+        },
+        {
+          "mean": 0.818,
+          "model": "Basic ML",
+          "rank": 16,
+          "std": 0.0
+        }
+      ],
+      "metric": "auroc",
+      "size": 1212,
+      "url": "https://tdcommons.ai/benchmark/admet_group/03pgp/"
+    },
+    "Solubility_AqSolDB": {
+      "direction": "minimize",
+      "entries": [
+        {
+          "mean": 0.741,
+          "model": "MiniMol",
+          "rank": 1,
+          "std": 0.013
+        },
+        {
+          "mean": 0.761,
+          "model": "Chemprop-RDKit",
+          "rank": 2,
+          "std": 0.025
+        },
+        {
+          "mean": 0.775,
+          "model": "DeepMol (AutoML)",
+          "rank": 3,
+          "std": 0.006
+        },
+        {
+          "mean": 0.776,
+          "model": "AttentiveFP",
+          "rank": 4,
+          "std": 0.008
+        },
+        {
+          "mean": 0.789,
+          "model": "MapLight + GNN",
+          "rank": 5,
+          "std": 0.003
+        },
+        {
+          "mean": 0.792,
+          "model": "MapLight",
+          "rank": 6,
+          "std": 0.002
+        },
+        {
+          "mean": 0.796,
+          "model": "CMPNN",
+          "rank": 7,
+          "std": 0.038
+        },
+        {
+          "mean": 0.827,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 8,
+          "std": 0.047
+        },
+        {
+          "mean": 0.828,
+          "model": "Basic ML",
+          "rank": 9,
+          "std": 0.002
+        },
+        {
+          "mean": 0.829,
+          "model": "Chemprop",
+          "rank": 10,
+          "std": 0.022
+        },
+        {
+          "mean": 0.907,
+          "model": "GCN",
+          "rank": 11,
+          "std": 0.02
+        },
+        {
+          "mean": 0.939,
+          "model": "CFA",
+          "rank": 12,
+          "std": 0.03
+        },
+        {
+          "mean": 0.947,
+          "model": "NeuralFP",
+          "rank": 13,
+          "std": 0.016
+        },
+        {
+          "mean": 1.023,
+          "model": "CNN (DeepPurpose)",
+          "rank": 14,
+          "std": 0.023
+        },
+        {
+          "mean": 1.026,
+          "model": "AttrMasking",
+          "rank": 15,
+          "std": 0.02
+        },
+        {
+          "mean": 1.04,
+          "model": "ContextPred",
+          "rank": 16,
+          "std": 0.045
+        },
+        {
+          "mean": 1.076,
+          "model": "Euclia ML model",
+          "rank": 17,
+          "std": 0.016
+        },
+        {
+          "mean": 1.203,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 18,
+          "std": 0.019
+        }
+      ],
+      "metric": "mae",
+      "size": 9982,
+      "url": "https://tdcommons.ai/benchmark/admet_group/06aqsol/"
+    },
+    "VDss_Lombardo": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.713,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.007
+        },
+        {
+          "mean": 0.707,
+          "model": "MapLight",
+          "rank": 2,
+          "std": 0.009
+        },
+        {
+          "mean": 0.628,
+          "model": "CFA",
+          "rank": 3,
+          "std": 0.023
+        },
+        {
+          "mean": 0.627,
+          "model": "Basic ML",
+          "rank": 4,
+          "std": 0.01
+        },
+        {
+          "mean": 0.609,
+          "model": "Euclia ML model",
+          "rank": 5,
+          "std": 0.014
+        },
+        {
+          "mean": 0.582,
+          "model": "SimGCN",
+          "rank": 6,
+          "std": 0.031
+        },
+        {
+          "mean": 0.561,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 7,
+          "std": 0.025
+        },
+        {
+          "mean": 0.559,
+          "model": "AttrMasking",
+          "rank": 8,
+          "std": 0.019
+        },
+        {
+          "mean": 0.535,
+          "model": "MiniMol",
+          "rank": 9,
+          "std": 0.027
+        },
+        {
+          "mean": 0.497,
+          "model": "DeepMol (AutoML)",
+          "rank": 10,
+          "std": 0.011
+        },
+        {
+          "mean": 0.493,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 11,
+          "std": 0.011
+        },
+        {
+          "mean": 0.491,
+          "model": "Chemprop",
+          "rank": 12,
+          "std": 0.046
+        },
+        {
+          "mean": 0.485,
+          "model": "ContextPred",
+          "rank": 13,
+          "std": 0.092
+        },
+        {
+          "mean": 0.475,
+          "model": "ADMETrix",
+          "rank": 14,
+          "std": 0.022
+        },
+        {
+          "mean": 0.457,
+          "model": "GCN",
+          "rank": 15,
+          "std": 0.05
+        },
+        {
+          "mean": 0.389,
+          "model": "Chemprop-RDKit",
+          "rank": 16,
+          "std": 0.075
+        },
+        {
+          "mean": 0.258,
+          "model": "NeuralFP",
+          "rank": 17,
+          "std": 0.162
+        },
+        {
+          "mean": 0.241,
+          "model": "AttentiveFP",
+          "rank": 18,
+          "std": 0.145
+        },
+        {
+          "mean": 0.226,
+          "model": "CNN (DeepPurpose)",
+          "rank": 19,
+          "std": 0.114
+        }
+      ],
+      "metric": "spearman",
+      "size": 1130,
+      "url": "https://tdcommons.ai/benchmark/admet_group/09vdss/"
+    },
+    "hERG": {
+      "direction": "maximize",
+      "entries": [
+        {
+          "mean": 0.88,
+          "model": "MapLight + GNN",
+          "rank": 1,
+          "std": 0.002
+        },
+        {
+          "mean": 0.875,
+          "model": "CFA",
+          "rank": 2,
+          "std": 0.014
+        },
+        {
+          "mean": 0.874,
+          "model": "SimGCN",
+          "rank": 3,
+          "std": 0.014
+        },
+        {
+          "mean": 0.871,
+          "model": "MapLight",
+          "rank": 4,
+          "std": 0.004
+        },
+        {
+          "mean": 0.856,
+          "model": "ZairaChem",
+          "rank": 5,
+          "std": 0.009
+        },
+        {
+          "mean": 0.846,
+          "model": "MiniMol",
+          "rank": 6,
+          "std": 0.016
+        },
+        {
+          "mean": 0.841,
+          "model": "RDKit2D + MLP (DeepPurpose)",
+          "rank": 7,
+          "std": 0.02
+        },
+        {
+          "mean": 0.84,
+          "model": "Chemprop-RDKit",
+          "rank": 8,
+          "std": 0.007
+        },
+        {
+          "mean": 0.836,
+          "model": "ADMETrix",
+          "rank": 9,
+          "std": 0.025
+        },
+        {
+          "mean": 0.825,
+          "model": "AttentiveFP",
+          "rank": 10,
+          "std": 0.007
+        },
+        {
+          "mean": 0.778,
+          "model": "AttrMasking",
+          "rank": 11,
+          "std": 0.046
+        },
+        {
+          "mean": 0.763,
+          "model": "DeepMol (AutoML)",
+          "rank": 12,
+          "std": 0.015
+        },
+        {
+          "mean": 0.756,
+          "model": "ContextPred",
+          "rank": 13,
+          "std": 0.023
+        },
+        {
+          "mean": 0.754,
+          "model": "CNN (DeepPurpose)",
+          "rank": 14,
+          "std": 0.037
+        },
+        {
+          "mean": 0.749,
+          "model": "Euclia ML model",
+          "rank": 15,
+          "std": 0.032
+        },
+        {
+          "mean": 0.738,
+          "model": "GCN",
+          "rank": 16,
+          "std": 0.038
+        },
+        {
+          "mean": 0.736,
+          "model": "Morgan + MLP (DeepPurpose)",
+          "rank": 17,
+          "std": 0.023
+        },
+        {
+          "mean": 0.722,
+          "model": "NeuralFP",
+          "rank": 18,
+          "std": 0.034
+        },
+        {
+          "mean": 0.721,
+          "model": "Chemprop",
+          "rank": 19,
+          "std": 0.045
+        },
+        {
+          "mean": 0.715,
+          "model": "Basic ML",
+          "rank": 20,
+          "std": 0.011
+        }
+      ],
+      "metric": "auroc",
+      "size": 648,
+      "url": "https://tdcommons.ai/benchmark/admet_group/20herg/"
+    }
+  },
+  "source": "https://tdcommons.ai/benchmark/admet_group/01caco2/"
+}

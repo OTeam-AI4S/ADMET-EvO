@@ -5,8 +5,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from .data_governance import ALLOWED_DATA_POLICIES
 from .registry import MODELS, REPRESENTATIONS
-
 
 ALLOWED_REPRESENTATIONS = frozenset(REPRESENTATIONS)
 ALLOWED_MODELS = frozenset(MODELS)
@@ -20,7 +20,7 @@ class Budget:
     max_minutes: int = 60
 
     @classmethod
-    def from_dict(cls, value: dict[str, Any] | None) -> "Budget":
+    def from_dict(cls, value: dict[str, Any] | None) -> Budget:
         return cls(**(value or {}))
 
 
@@ -31,14 +31,21 @@ class ExperimentSpec:
     representations: tuple[str, ...] = ("morgan", "rdkit2d")
     model: str = "extra_trees"
     imbalance: str = "none"
+    data_policy: str = "official"
     device: str = "cpu"
     n_jobs: int = 8
     hyperparameters: dict[str, Any] = field(default_factory=dict)
     budget: Budget = field(default_factory=Budget)
     hypothesis: str = "protocol baseline"
 
+    def __post_init__(self) -> None:
+        if self.data_policy not in ALLOWED_DATA_POLICIES:
+            raise ValueError(
+                f"data_policy must be one of {sorted(ALLOWED_DATA_POLICIES)}"
+            )
+
     @classmethod
-    def from_dict(cls, value: dict[str, Any]) -> "ExperimentSpec":
+    def from_dict(cls, value: dict[str, Any]) -> ExperimentSpec:
         payload = dict(value)
         payload["representations"] = tuple(payload.get("representations", ("morgan", "rdkit2d")))
         payload["budget"] = Budget.from_dict(payload.get("budget"))
@@ -81,6 +88,7 @@ class RunResult:
     hypothesis: str = ""
     status: str = "completed"
     error: str | None = None
+    data_policy: str = "official"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

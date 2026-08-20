@@ -7,27 +7,45 @@ import itertools
 import json
 import platform
 import shutil
+import signal
 import subprocess
 import sys
+import threading
 import time
 import uuid
+from copy import deepcopy
 from dataclasses import replace
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from typing import Any
 
 import joblib
 import numpy as np
 import pandas as pd
+from scipy.stats import rankdata
 from tdc.benchmark_group import admet_group
 
+from .action_evidence import evaluate_action_evidence, selected_action_pair
+from .action_memory import ResearchOutcomeMemory
 from .brain import AgentBrain, RuleBasedBrain
+from .data_governance import MolecularDataCurator, canonical_smiles
+from .endpoint_contracts import endpoint_contract
+from .evidence_router import EvidenceRouter
 from .experiment_db import ExperimentDatabase
+from .fault_detection import ScientificFaultDetector
 from .features import FeatureCache
+from .frozen_executor import FrozenRecipeExecutor
+from .frozen_recipe import build_execution_plan
 from .guard import validate_experiment
+from .hardness import profile_hardness
 from .memory import ExperimentMemory
 from .profiling import profile_task
+from .research_loop import EffectFirstResearchPlanner, EvidenceLedger
+from .robust_racing import RobustFutilityPolicy, evaluate_race
 from .schemas import ExperimentSpec, RunResult, TaskProfile
 from .selection import build_model, predict, score
+from .self_correction import ValidationSelfCorrectionPlanner
+from .source_snapshot import snapshot_source
 from .tasks import TASKS, TaskSpec, resolve_task
 
 
@@ -61,9 +79,311 @@ def _experiment_signature(experiment: ExperimentSpec) -> str:
             "representations": experiment.representations,
             "model": experiment.model,
             "imbalance": experiment.imbalance,
+            "data_policy": experiment.data_policy,
             "hyperparameters": experiment.hyperparameters,
         },
         sort_keys=True,
+    )
+
+
+def _percentile_ranks(values: np.ndarray) -> np.ndarray:
+    values = np.asarray(values)
+    if values.ndim != 1 or len(values) == 0:
+        raise ValueError("Rank ensembles require a non-empty prediction vector")
+    return np.asarray(rankdata(values, method="average") / len(values), dtype=float)
+
+
+def _ensemble_evidence(
+    ensemble_scores: list[float],
+    left_scores: list[float],
+    right_scores: list[float],
+    *,
+    maximize: bool,
+    minimum_effect: float = 0.005,
+    minimum_positive_rate: float = 0.8,
+) -> dict[str, Any]:
+    """Test a blend against its stronger member over matched validation seeds."""
+    if not (
+        len(ensemble_scores) == len(left_scores) == len(right_scores)
+        and ensemble_scores
+    ):
+        raise ValueError(
+            "Ensemble/member score vectors must have equal non-zero length"
+        )
+    direction = 1.0 if maximize else -1.0
+    left_mean = float(np.mean(left_scores))
+    right_mean = float(np.mean(right_scores))
+    baseline_name = (
+        "left" if direction * left_mean >= direction * right_mean else "right"
+    )
+    baseline_scores = left_scores if baseline_name == "left" else right_scores
+    deltas = [
+        direction * (float(value) - float(baseline))
+        for value, baseline in zip(ensemble_scores, baseline_scores, strict=True)
+    ]
+    mean_delta = float(np.mean(deltas))
+    positive_rate = float(np.mean([value > 0.0 for value in deltas]))
+    return {
+        "baseline_member": baseline_name,
+        "oriented_deltas": deltas,
+        "mean_oriented_delta": mean_delta,
+        "positive_delta_rate": positive_rate,
+        "minimum_effect": float(minimum_effect),
+        "minimum_positive_rate": float(minimum_positive_rate),
+        "supported": (
+            mean_delta >= minimum_effect and positive_rate >= minimum_positive_rate
+        ),
+    }
+
+
+def _select_distinct_ensemble_winners(
+    candidates: list[tuple[RunResult, dict[str, Any], dict[int, np.ndarray]]],
+    *,
+    maximize: bool,
+    limit: int = 3,
+) -> list[tuple[RunResult, dict[str, Any], dict[int, np.ndarray]]]:
+    """Keep only the best supported blend for each underlying member pair."""
+    if limit < 1:
+        raise ValueError("Ensemble persistence limit must be positive")
+    direction = 1.0 if maximize else -1.0
+    ordered = sorted(
+        candidates,
+        key=lambda item: (
+            -direction * item[0].validation_score,
+            item[0].run_id,
+        ),
+    )
+    winners = []
+    seen_pairs: set[tuple[str, ...]] = set()
+    for item in ordered:
+        pair = tuple(sorted(str(value) for value in item[1]["members"]))
+        if pair in seen_pairs:
+            continue
+        seen_pairs.add(pair)
+        winners.append(item)
+        if len(winners) == limit:
+            break
+    return winners
+
+
+class CandidateTimeoutError(TimeoutError):
+    """Raised when one experiment exceeds its preregistered wall-time budget."""
+
+
+def _arm_candidate_timeout(seconds: float | None):
+    """Arm a process-local hard timeout when POSIX main-thread signals exist."""
+    if (
+        seconds is None
+        or seconds <= 0
+        or threading.current_thread() is not threading.main_thread()
+        or not hasattr(signal, "SIGALRM")
+        or not hasattr(signal, "setitimer")
+    ):
+        return None
+    previous_timer = signal.getitimer(signal.ITIMER_REAL)
+    if previous_timer[0] > 0:
+        return None
+    previous_handler = signal.getsignal(signal.SIGALRM)
+
+    def handler(_signum, _frame):
+        raise CandidateTimeoutError(
+            f"candidate exceeded hard wall-time limit of {seconds:.3f} seconds"
+        )
+
+    signal.signal(signal.SIGALRM, handler)
+    signal.setitimer(signal.ITIMER_REAL, float(seconds))
+    return previous_handler
+
+
+def _disarm_candidate_timeout(previous_handler) -> None:
+    if previous_handler is None:
+        return
+    signal.setitimer(signal.ITIMER_REAL, 0.0)
+    signal.signal(signal.SIGALRM, previous_handler)
+
+
+def _select_robust_candidates(
+    task: TaskSpec,
+    completed: list[RunResult],
+    experiments: dict[str, ExperimentSpec],
+    limit: int,
+) -> list[RunResult]:
+    """Promote causal controls, strong candidates and model diversity.
+
+    A diversity-only fill can discard the best tuned recipe merely because a
+    weaker mandatory treatment/control uses the same model family. Reserve
+    score-first slots for candidates on the score/runtime Pareto frontier,
+    then spend the remaining capacity on model diversity.
+    """
+    direction = 1.0 if task.maximize else -1.0
+    ordered = sorted(
+        completed,
+        key=lambda item: direction * item.validation_score,
+        reverse=True,
+    )
+    if not ordered:
+        return []
+    limit = max(1, min(int(limit), len(ordered)))
+
+    mandatory_ids: set[str] = set()
+    model_controls = {
+        "balanced_extra_trees": "extra_trees",
+        "svm_rbf": "extra_trees",
+    }
+    for item in ordered:
+        spec = experiments[item.run_id]
+        if (
+            "feature intervention" in spec.hypothesis
+            or "matched feature control" in spec.hypothesis
+        ):
+            mandatory_ids.add(item.run_id)
+        if spec.data_policy != "official":
+            mandatory_ids.add(item.run_id)
+            for control in ordered:
+                control_spec = experiments[control.run_id]
+                if (
+                    control_spec.data_policy == "official"
+                    and control_spec.model == spec.model
+                    and control_spec.representations == spec.representations
+                    and control_spec.hyperparameters == spec.hyperparameters
+                    and control_spec.imbalance == spec.imbalance
+                ):
+                    mandatory_ids.add(control.run_id)
+                    break
+        control_model = model_controls.get(spec.model)
+        if control_model is not None:
+            mandatory_ids.add(item.run_id)
+            for control in ordered:
+                control_spec = experiments[control.run_id]
+                if (
+                    control_spec.model == control_model
+                    and control_spec.representations == spec.representations
+                    and control_spec.data_policy == spec.data_policy
+                ):
+                    mandatory_ids.add(control.run_id)
+                    break
+        if spec.imbalance != "none":
+            for control in ordered:
+                control_spec = experiments[control.run_id]
+                if (
+                    control_spec.model == spec.model
+                    and control_spec.representations == spec.representations
+                    and control_spec.data_policy == spec.data_policy
+                    and control_spec.imbalance == "none"
+                    and control_spec.hyperparameters == spec.hyperparameters
+                ):
+                    mandatory_ids.add(item.run_id)
+                    mandatory_ids.add(control.run_id)
+                    break
+
+    selected = [item for item in ordered if item.run_id in mandatory_ids][:limit]
+    selected_ids = {item.run_id for item in selected}
+    capacity = limit - len(selected)
+
+    def dominated(candidate: RunResult) -> bool:
+        candidate_score = direction * candidate.validation_score
+        for other in ordered:
+            if other.run_id == candidate.run_id:
+                continue
+            other_score = direction * other.validation_score
+            no_worse_score = other_score >= candidate_score
+            no_slower = other.elapsed_seconds <= candidate.elapsed_seconds
+            strictly_better = (
+                other_score > candidate_score
+                or other.elapsed_seconds < candidate.elapsed_seconds
+            )
+            if no_worse_score and no_slower and strictly_better:
+                return True
+        return False
+
+    performance_slots = min(capacity, max(1, limit // 3))
+    for item in ordered:
+        if performance_slots == 0:
+            break
+        if item.run_id in selected_ids or dominated(item):
+            continue
+        selected.append(item)
+        selected_ids.add(item.run_id)
+        performance_slots -= 1
+
+    seen_models = {item.model for item in selected}
+    for item in ordered:
+        if len(selected) == limit:
+            break
+        if item.run_id in selected_ids or item.model in seen_models:
+            continue
+        selected.append(item)
+        selected_ids.add(item.run_id)
+        seen_models.add(item.model)
+
+    for item in ordered:
+        if len(selected) == limit:
+            break
+        if item.run_id in selected_ids:
+            continue
+        selected.append(item)
+        selected_ids.add(item.run_id)
+    return selected
+
+
+def _scaleup_stop_reason(
+    candidate: ExperimentSpec,
+    history: list[RunResult],
+    experiments: dict[str, ExperimentSpec],
+    remaining_seconds: float,
+) -> str | None:
+    """Reject tree-count scale-ups that cannot plausibly finish in-budget.
+
+    The estimate is deliberately conservative: it requires an already
+    completed pilot on the same model, representations, data policy,
+    imbalance setting and training criterion.  A scale-up is stopped only
+    when linear runtime extrapolation exceeds the remaining round budget by
+    at least 15%.
+    """
+    candidate_trees = candidate.hyperparameters.get("n_estimators")
+    if (
+        isinstance(candidate_trees, bool)
+        or not isinstance(candidate_trees, (int, float))
+        or candidate_trees < 2
+        or remaining_seconds <= 0
+    ):
+        return None
+    candidate_criterion = candidate.hyperparameters.get("criterion")
+    estimates: list[tuple[float, RunResult, float]] = []
+    for prior in history:
+        if prior.status != "completed" or prior.elapsed_seconds <= 0:
+            continue
+        prior_spec = experiments.get(prior.run_id)
+        if prior_spec is None:
+            continue
+        prior_trees = prior_spec.hyperparameters.get("n_estimators")
+        if (
+            isinstance(prior_trees, bool)
+            or not isinstance(prior_trees, (int, float))
+            or prior_trees <= 0
+            or prior_trees >= candidate_trees
+        ):
+            continue
+        if (
+            prior_spec.model != candidate.model
+            or prior_spec.representations != candidate.representations
+            or prior_spec.data_policy != candidate.data_policy
+            or prior_spec.imbalance != candidate.imbalance
+            or prior_spec.hyperparameters.get("criterion") != candidate_criterion
+        ):
+            continue
+        predicted = prior.elapsed_seconds * float(candidate_trees) / float(prior_trees)
+        estimates.append((predicted, prior, float(prior_trees)))
+    if not estimates:
+        return None
+    predicted, pilot, pilot_trees = min(estimates, key=lambda item: item[0])
+    if predicted <= 1.15 * remaining_seconds:
+        return None
+    return (
+        f"soft-stopped scale-up from {pilot_trees:g} to {float(candidate_trees):g} "
+        f"trees: pilot {pilot.run_id} took {pilot.elapsed_seconds:.3f}s; "
+        f"linear estimate {predicted:.3f}s exceeds remaining budget "
+        f"{remaining_seconds:.3f}s by the preregistered 15% safety margin"
     )
 
 
@@ -75,18 +395,48 @@ class ADMETAgent:
         brain: AgentBrain | None = None,
         device: str = "auto",
         n_jobs: int = 8,
+        selection_policy: str = "score",
+        uncertainty_penalty: float = 0.5,
+        cost_penalty: float = 0.005,
+        effect_priority: float = 0.80,
+        benchmark_protocol: dict[str, Any] | None = None,
+        feature_cache_dir: Path | None = None,
+        persist_discovery_models: bool = False,
     ):
         self.group = admet_group(path=str(data_dir))
         self.device = self._resolve_device(device)
-        if isinstance(n_jobs, bool) or not isinstance(n_jobs, int) or not 1 <= n_jobs <= 256:
+        if (
+            isinstance(n_jobs, bool)
+            or not isinstance(n_jobs, int)
+            or not 1 <= n_jobs <= 256
+        ):
             raise ValueError("n_jobs must be an integer between 1 and 256")
         self.n_jobs = n_jobs
         self.run_dir = run_dir
         self.run_dir.mkdir(parents=True, exist_ok=True)
-        self.cache = FeatureCache(run_dir / "feature_cache")
+        self.source_manifest = snapshot_source(self.run_dir)
+        self.feature_cache_dir = feature_cache_dir or (run_dir / "feature_cache")
+        self.cache = FeatureCache(self.feature_cache_dir, device=self.device)
+        self.persist_discovery_models = bool(persist_discovery_models)
         self.memory = ExperimentMemory(run_dir / "memory.jsonl")
         self.database = ExperimentDatabase(run_dir / "experiments.sqlite")
+        self.evidence_ledger = EvidenceLedger(run_dir / "evidence_ledger.jsonl")
+        self.action_memory = ResearchOutcomeMemory(run_dir / "action_outcomes.jsonl")
+        self.research_planner = EffectFirstResearchPlanner()
+        self.self_correction_planner = ValidationSelfCorrectionPlanner()
+        self.fault_detector = ScientificFaultDetector()
         self.brain = brain or RuleBasedBrain()
+        if selection_policy not in {"score", "lcb", "cost-aware-lcb"}:
+            raise ValueError("selection_policy must be score, lcb, or cost-aware-lcb")
+        self.selection_policy = selection_policy
+        if not 0.5 <= effect_priority <= 1.0:
+            raise ValueError("effect_priority must be within [0.5, 1.0]")
+        self.effect_priority = float(effect_priority)
+        self.benchmark_protocol = benchmark_protocol
+        self.evidence_router = EvidenceRouter(
+            uncertainty_penalty=uncertainty_penalty,
+            cost_penalty=cost_penalty if selection_policy == "cost-aware-lcb" else 0.0,
+        )
 
     @staticmethod
     def _resolve_device(requested: str) -> str:
@@ -107,7 +457,11 @@ class ADMETAgent:
                 "CUDA was requested but this node exposes no NVIDIA GPU; "
                 "run on an allocated GPU compute node"
             )
-        return "cuda" if requested == "cuda" or (requested == "auto" and available) else "cpu"
+        return (
+            "cuda"
+            if requested == "cuda" or (requested == "auto" and available)
+            else "cpu"
+        )
 
     def _gpu_manifest(self) -> list[str]:
         executable = shutil.which("nvidia-smi")
@@ -119,9 +473,11 @@ class ADMETAgent:
             text=True,
             check=False,
         )
-        return [
-            line.strip() for line in probe.stdout.splitlines() if line.strip()
-        ] if probe.returncode == 0 else []
+        return (
+            [line.strip() for line in probe.stdout.splitlines() if line.strip()]
+            if probe.returncode == 0
+            else []
+        )
 
     def _execute(
         self,
@@ -131,6 +487,7 @@ class ADMETAgent:
         smiles_col: str,
         y_col: str,
         profile: TaskProfile,
+        timeout_seconds: float | None = None,
     ) -> RunResult:
         validate_experiment(experiment)
         started = time.monotonic()
@@ -138,23 +495,45 @@ class ADMETAgent:
         artifact_dir = self.run_dir / "artifacts" / run_id
         artifact_dir.mkdir(parents=True)
         _write_json(artifact_dir / "experiment.json", experiment.to_dict())
+        previous_alarm_handler = _arm_candidate_timeout(timeout_seconds)
         try:
+            fit_train = train
+            curator = MolecularDataCurator(smiles_col, y_col)
+            valid_keys = {
+                value
+                for value in (
+                    canonical_smiles(item) for item in valid[smiles_col].tolist()
+                )
+                if value is not None
+            }
+            fit_train, data_audit = curator.curate(
+                train,
+                task_type=profile.task_type,
+                policy=experiment.data_policy,
+                validation_smiles=valid_keys,
+            )
+            if len(fit_train) == 0:
+                raise ValueError(
+                    f"Data policy {experiment.data_policy} removed all training rows"
+                )
+            _write_json(artifact_dir / "data_audit.json", data_audit.to_dict())
             combined_smiles = (
-                train[smiles_col].tolist() + valid[smiles_col].tolist()
+                fit_train[smiles_col].tolist() + valid[smiles_col].tolist()
             )
             x_combined = self.cache.get_or_compute(
                 combined_smiles, experiment.representations
             )
-            x_train = x_combined[: len(train)]
-            x_valid = x_combined[len(train):]
-            y_train = train[y_col].to_numpy()
+            x_train = x_combined[: len(fit_train)]
+            x_valid = x_combined[len(fit_train) :]
+            y_train = fit_train[y_col].to_numpy()
             y_valid = valid[y_col].to_numpy()
             task = resolve_task(experiment.task)
             model = build_model(experiment, task, y_train)
             model.fit(x_train, y_train)
             predictions = predict(model, x_valid, task)
             validation_score = score(y_valid, predictions, task.metric)
-            joblib.dump(model, artifact_dir / "model.joblib")
+            if self.persist_discovery_models:
+                joblib.dump(model, artifact_dir / "model.joblib")
             np.save(
                 artifact_dir / "validation_predictions.npy",
                 predictions,
@@ -171,6 +550,7 @@ class ADMETAgent:
                 representations=experiment.representations,
                 hyperparameters=experiment.hyperparameters,
                 hypothesis=experiment.hypothesis,
+                data_policy=experiment.data_policy,
             )
         except Exception as exc:
             result = RunResult(
@@ -186,10 +566,19 @@ class ADMETAgent:
                 hypothesis=experiment.hypothesis,
                 status="failed",
                 error=f"{type(exc).__name__}: {exc}",
+                data_policy=experiment.data_policy,
             )
+        finally:
+            _disarm_candidate_timeout(previous_alarm_handler)
         _write_json(artifact_dir / "result.json", result.to_dict())
         self.memory.append({**experiment.to_dict(), **result.to_dict()})
         self.database.record(profile, experiment, result)
+        self.evidence_ledger.append(
+            "experiment_completed"
+            if result.status == "completed"
+            else "experiment_failed",
+            {"experiment": experiment.to_dict(), "result": result.to_dict()},
+        )
         return result
 
     def _robust_results(
@@ -202,42 +591,167 @@ class ADMETAgent:
         experiments: dict[str, ExperimentSpec],
         history: list[RunResult],
         robust_top_k: int,
-    ) -> tuple[list[RunResult], dict[str, dict[int, RunResult]]]:
-        direction = 1 if task.maximize else -1
-        eligible = sorted(
-            completed,
-            key=lambda item: direction * item.validation_score,
-            reverse=True,
-        )
+        research_plan: dict[str, Any],
+        task_deadline: float | None,
+    ) -> tuple[
+        list[RunResult],
+        dict[str, dict[int, RunResult]],
+        dict[str, Any],
+    ]:
+        eligible = completed
         if len(validation_seeds) > 1:
-            eligible = eligible[: max(1, robust_top_k)]
+            eligible = _select_robust_candidates(
+                task,
+                completed,
+                experiments,
+                robust_top_k,
+            )
         seed_runs: dict[str, dict[int, RunResult]] = {
             item.run_id: {primary_seed: item} for item in eligible
         }
-        for seed in validation_seeds:
-            if seed == primary_seed:
+        racing_policy = RobustFutilityPolicy()
+        racing_declared = bool(
+            self.benchmark_protocol
+            and self.benchmark_protocol.get("robust_futility_policy")
+            == "seed2_gap0.005_time3x_worse_both_protect_action_pair"
+            and self.benchmark_protocol.get("robust_futility_applies_to_all_arms")
+            is True
+        )
+        racing_eligible = (
+            racing_declared
+            and set(racing_policy.checkpoint_seeds).issubset(validation_seeds)
+            and primary_seed in racing_policy.checkpoint_seeds
+        )
+        ordered_seeds = list(validation_seeds)
+        if racing_eligible:
+            ordered_seeds = [
+                *(
+                    seed
+                    for seed in racing_policy.checkpoint_seeds
+                    if seed != primary_seed
+                ),
+                *(
+                    seed
+                    for seed in validation_seeds
+                    if seed not in racing_policy.checkpoint_seeds
+                    and seed != primary_seed
+                ),
+            ]
+        stopped_ids: set[str] = set()
+        decisions = ()
+        protected_ids: frozenset[str] = frozenset()
+        task_budget_exhausted = False
+        for repeat_seed in ordered_seeds:
+            if repeat_seed == primary_seed:
                 continue
             train, valid = self.group.get_train_valid_split(
                 benchmark=benchmark_name,
                 split_type="default",
-                seed=seed,
+                seed=repeat_seed,
             )
             smiles_col, y_col = _columns(train)
             profile = profile_task(train, valid, task, smiles_col, y_col)
             for original in eligible:
+                if original.run_id in stopped_ids:
+                    continue
+                if task_deadline is not None and time.monotonic() >= task_deadline:
+                    task_budget_exhausted = True
+                    break
                 experiment = ExperimentSpec.from_dict(
-                    {**experiments[original.run_id].to_dict(), "seed": seed, "device": self.device, "n_jobs": self.n_jobs}
+                    {
+                        **experiments[original.run_id].to_dict(),
+                        "seed": repeat_seed,
+                        "device": self.device,
+                        "n_jobs": self.n_jobs,
+                    }
                 )
                 repeated = self._execute(
-                    experiment, train, valid, smiles_col, y_col, profile
+                    experiment,
+                    train,
+                    valid,
+                    smiles_col,
+                    y_col,
+                    profile,
+                    timeout_seconds=min(
+                        experiment.budget.max_minutes * 60,
+                        max(
+                            1.0,
+                            task_deadline - time.monotonic(),
+                        )
+                        if task_deadline is not None
+                        else experiment.budget.max_minutes * 60,
+                    ),
                 )
                 history.append(repeated)
-                seed_runs[original.run_id][seed] = repeated
+                seed_runs[original.run_id][repeat_seed] = repeated
+            if task_budget_exhausted:
+                break
+            if racing_eligible and repeat_seed == racing_policy.checkpoint_seeds[-1]:
+                pair = selected_action_pair(
+                    research_plan,
+                    {
+                        run_id: experiments[run_id]
+                        for run_id in seed_runs
+                        if run_id in experiments
+                    },
+                )
+                protected = set(pair or ())
+                action = next(
+                    (
+                        item
+                        for item in research_plan.get("actions", [])
+                        if item.get("action_id")
+                        == research_plan.get("selected_action_id")
+                    ),
+                    None,
+                )
+                if action and action.get("axis") == "replicate":
+                    direction = 1.0 if task.maximize else -1.0
+                    scored = []
+                    for run_id, runs in seed_runs.items():
+                        checkpoint = [
+                            runs.get(seed) for seed in racing_policy.checkpoint_seeds
+                        ]
+                        if any(
+                            item is None or item.status != "completed"
+                            for item in checkpoint
+                        ):
+                            continue
+                        scored.append(
+                            (
+                                direction
+                                * float(
+                                    np.mean(
+                                        [
+                                            item.validation_score
+                                            for item in checkpoint
+                                            if item is not None
+                                        ]
+                                    )
+                                ),
+                                run_id,
+                            )
+                        )
+                    protected.update(
+                        run_id
+                        for _, run_id in sorted(
+                            scored, key=lambda item: (-item[0], item[1])
+                        )[:2]
+                    )
+                protected_ids = frozenset(protected)
+                decisions = evaluate_race(
+                    seed_runs,
+                    maximize=task.maximize,
+                    protected_ids=protected_ids,
+                    policy=racing_policy,
+                )
+                stopped_ids = {
+                    item.candidate_id for item in decisions if item.decision == "stop"
+                }
         aggregated = []
         for original in eligible:
             repeats = [
-                seed_runs[original.run_id].get(seed)
-                for seed in validation_seeds
+                seed_runs[original.run_id].get(seed) for seed in validation_seeds
             ]
             if any(item is None or item.status != "completed" for item in repeats):
                 continue
@@ -247,13 +761,36 @@ class ADMETAgent:
                     original,
                     validation_score=float(np.mean(values)),
                     validation_std=float(np.std(values)),
+                    elapsed_seconds=float(
+                        sum(
+                            item.elapsed_seconds for item in repeats if item is not None
+                        )
+                    ),
                     hypothesis=(
                         f"{original.hypothesis}; robust validation over "
                         f"{len(values)} seed(s)"
                     ),
                 )
             )
-        return aggregated, seed_runs
+        planned_fits_avoided = sum(
+            1
+            for run_id in stopped_ids
+            for repeat_seed in validation_seeds
+            if repeat_seed not in racing_policy.checkpoint_seeds
+            and repeat_seed not in seed_runs[run_id]
+        )
+        racing = {
+            "protocol": racing_policy.policy_version,
+            "enabled": racing_eligible,
+            "checkpoint_seeds": list(racing_policy.checkpoint_seeds),
+            "protected_ids": sorted(protected_ids),
+            "decisions": [item.to_dict() for item in decisions],
+            "stopped_candidate_ids": sorted(stopped_ids),
+            "planned_fits_avoided": planned_fits_avoided,
+            "task_budget_exhausted": task_budget_exhausted,
+            "test_loaded": False,
+        }
+        return aggregated, seed_runs, racing
 
     def _ensemble_candidates(
         self,
@@ -263,7 +800,7 @@ class ADMETAgent:
         base_results: list[RunResult],
         seed_runs: dict[str, dict[int, RunResult]],
         experiments: dict[str, ExperimentSpec],
-        max_base_models: int = 4,
+        max_base_models: int = 6,
     ) -> tuple[list[RunResult], dict[str, dict[str, Any]]]:
         direction = 1 if task.maximize else -1
         ordered = sorted(
@@ -282,10 +819,17 @@ class ADMETAgent:
             )
             _, y_col = _columns(train)
             targets[seed] = valid[y_col].to_numpy()
-        candidates: list[tuple[RunResult, dict[str, Any]]] = []
+        candidates: list[tuple[RunResult, dict[str, Any], dict[int, np.ndarray]]] = []
+        rejected_evidence: list[dict[str, Any]] = []
         for left, right in itertools.combinations(ordered, 2):
-            for left_weight in (0.25, 0.5, 0.75):
+            blend_recipes = [("probability", weight) for weight in (0.25, 0.5, 0.75)]
+            if task.metric in {"auroc", "auprc", "spearman"}:
+                blend_recipes.append(("rank", 0.5))
+            for aggregation, left_weight in blend_recipes:
+                blend_started = time.monotonic()
                 scores = []
+                left_scores = []
+                right_scores = []
                 predictions_by_seed = {}
                 valid = True
                 for seed in validation_seeds:
@@ -313,10 +857,31 @@ class ADMETAgent:
                         / "validation_predictions.npy",
                         allow_pickle=False,
                     )
+                    if aggregation == "rank":
+                        left_pred = _percentile_ranks(left_pred)
+                        right_pred = _percentile_ranks(right_pred)
                     blended = left_weight * left_pred + (1.0 - left_weight) * right_pred
                     predictions_by_seed[seed] = blended
+                    left_scores.append(score(targets[seed], left_pred, task.metric))
+                    right_scores.append(score(targets[seed], right_pred, task.metric))
                     scores.append(score(targets[seed], blended, task.metric))
                 if not valid:
+                    continue
+                evidence = _ensemble_evidence(
+                    scores,
+                    left_scores,
+                    right_scores,
+                    maximize=task.maximize,
+                )
+                if not evidence["supported"]:
+                    rejected_evidence.append(
+                        {
+                            "members": [left.run_id, right.run_id],
+                            "weights": [left_weight, 1.0 - left_weight],
+                            "aggregation": aggregation,
+                            **evidence,
+                        }
+                    )
                     continue
                 run_id = f"{task.name.lower()}-ensemble-{uuid.uuid4().hex[:8]}"
                 member_specs = [
@@ -328,7 +893,13 @@ class ADMETAgent:
                     "task": task.name,
                     "members": member_specs,
                     "weights": [left_weight, 1.0 - left_weight],
-                    "hypothesis": "validation-selected blend of complementary candidates",
+                    "aggregation": aggregation,
+                    "evidence": evidence,
+                    "hypothesis": (
+                        "equal-weight percentile-rank blend of complementary candidates"
+                        if aggregation == "rank"
+                        else "validation-selected probability blend of complementary candidates"
+                    ),
                 }
                 result = RunResult(
                     run_id=run_id,
@@ -338,7 +909,7 @@ class ADMETAgent:
                     metric=task.metric,
                     validation_score=float(np.mean(scores)),
                     validation_std=float(np.std(scores)),
-                    elapsed_seconds=0.0,
+                    elapsed_seconds=time.monotonic() - blend_started,
                     representations=tuple(
                         dict.fromkeys(
                             experiments[left.run_id].representations
@@ -348,25 +919,48 @@ class ADMETAgent:
                     hyperparameters={
                         "members": [left.run_id, right.run_id],
                         "weights": frozen["weights"],
+                        "aggregation": aggregation,
+                        "evidence": evidence,
                     },
                     hypothesis=frozen["hypothesis"],
                 )
-                artifact_dir = self.run_dir / "artifacts" / run_id
-                artifact_dir.mkdir(parents=True)
-                _write_json(artifact_dir / "ensemble.json", frozen)
-                _write_json(artifact_dir / "result.json", result.to_dict())
-                np.savez_compressed(
-                    artifact_dir / "validation_predictions.npz",
-                    **{f"seed_{seed}": value for seed, value in predictions_by_seed.items()},
-                )
-                candidates.append((result, frozen))
-        candidates.sort(
-            key=lambda item: direction * item[0].validation_score,
-            reverse=True,
+                candidates.append((result, frozen, predictions_by_seed))
+        winners = _select_distinct_ensemble_winners(
+            candidates,
+            maximize=task.maximize,
+            limit=3,
         )
-        winners = candidates[:3]
-        for result, frozen in winners:
+        for result, frozen, predictions_by_seed in winners:
+            artifact_dir = self.run_dir / "artifacts" / result.run_id
+            artifact_dir.mkdir(parents=True)
+            _write_json(artifact_dir / "ensemble.json", frozen)
+            _write_json(artifact_dir / "result.json", result.to_dict())
+            np.savez_compressed(
+                artifact_dir / "validation_predictions.npz",
+                **{
+                    f"seed_{seed}": value for seed, value in predictions_by_seed.items()
+                },
+            )
             self.memory.append({**frozen, **result.to_dict()})
+        self.evidence_ledger.append(
+            "ensemble_screened",
+            {
+                "task": task.name,
+                "accepted": len(candidates),
+                "distinct_member_pairs": len(
+                    {
+                        tuple(sorted(str(value) for value in item[1]["members"]))
+                        for item in candidates
+                    }
+                ),
+                "persisted": len(winners),
+                "rejected": len(rejected_evidence),
+                "rejected_evidence": rejected_evidence,
+                "minimum_effect": 0.005,
+                "minimum_positive_rate": 0.8,
+                "test_loaded": False,
+            },
+        )
         return [item[0] for item in winners], {
             item[0].run_id: item[1] for item in winners
         }
@@ -377,7 +971,7 @@ class ADMETAgent:
         seed: int = 1,
         rounds: int = 1,
         validation_seeds: list[int] | None = None,
-        robust_top_k: int = 3,
+        robust_top_k: int = 6,
         ensembles: bool = True,
     ) -> dict:
         if rounds < 1:
@@ -388,17 +982,62 @@ class ADMETAgent:
         if any(value < 0 for value in validation_seeds):
             raise ValueError("validation seeds must be non-negative")
         task = resolve_task(task_name)
-        benchmark = self.group.get(task.name)
-        name = benchmark["name"]
+        # Discovery deliberately uses only the split API.  group.get(), which
+        # materialises the test frame in PyTDC, is certification-only below.
+        name = task.name
         train, valid = self.group.get_train_valid_split(
             benchmark=name, split_type="default", seed=seed
         )
         smiles_col, y_col = _columns(train)
         profile = profile_task(train, valid, task, smiles_col, y_col)
+        hardness = profile_hardness(train, valid, task, smiles_col, y_col, seed=seed)
+        contract = endpoint_contract(task.name)
+        benchmark_arm = getattr(self.brain, "benchmark_arm", "agent")
+        task_compute_minutes = None
+        if self.benchmark_protocol:
+            arm = next(
+                (
+                    item
+                    for item in self.benchmark_protocol.get("arms", [])
+                    if item.get("name") == benchmark_arm
+                ),
+                None,
+            )
+            if arm is not None:
+                task_compute_minutes = int(arm["max_compute_minutes_per_task"])
+        task_deadline = (
+            time.monotonic() + task_compute_minutes * 60
+            if task_compute_minutes is not None
+            else None
+        )
+        action_priors = (
+            {}
+            if benchmark_arm == "agent_no_memory"
+            else self.action_memory.priors(contract.category)
+        )
+        research_plan = self.research_planner.plan(
+            hardness,
+            effect_priority=self.effect_priority,
+            action_priors=action_priors,
+        )
+        fault_report = self.fault_detector.detect(hardness, contract)
         task_dir = self.run_dir / "tasks" / task.name
         task_dir.mkdir(parents=True, exist_ok=True)
         _write_json(task_dir / f"profile_seed_{seed}.json", profile.to_dict())
-
+        _write_json(task_dir / "endpoint_contract.json", contract.to_dict())
+        _write_json(task_dir / f"hardness_seed_{seed}.json", hardness.to_dict())
+        _write_json(task_dir / f"research_plan_seed_{seed}.json", research_plan)
+        _write_json(task_dir / f"fault_report_seed_{seed}.json", fault_report.to_dict())
+        self.evidence_ledger.append(
+            "research_plan_created",
+            {
+                "task": task.name,
+                "endpoint_contract": contract.to_dict(),
+                "hardness": hardness.to_dict(),
+                "research_plan": research_plan,
+                "fault_report": fault_report.to_dict(),
+            },
+        )
         cross_task_evidence = self.database.cross_task_insights(
             profile.task_type,
             profile.metric,
@@ -406,12 +1045,37 @@ class ADMETAgent:
         )
         set_context = getattr(self.brain, "set_context", None)
         if callable(set_context):
-            set_context(cross_task_evidence=cross_task_evidence)
+            try:
+                set_context(
+                    cross_task_evidence=cross_task_evidence,
+                    hardness_card=hardness.to_dict(),
+                    research_plan=research_plan,
+                )
+            except TypeError:
+                set_context(cross_task_evidence=cross_task_evidence)
+        effective_plan = getattr(self.brain, "effective_research_plan", None)
+        if isinstance(effective_plan, dict) and effective_plan != research_plan:
+            research_plan = deepcopy(effective_plan)
+            _write_json(
+                task_dir / f"effective_research_plan_seed_{seed}.json",
+                research_plan,
+            )
+            self.evidence_ledger.append(
+                "ablation_research_plan_created",
+                {
+                    "task": task.name,
+                    "benchmark_arm": benchmark_arm,
+                    "research_plan": research_plan,
+                    "test_loaded": False,
+                },
+            )
 
         history: list[RunResult] = []
         experiments: dict[str, ExperimentSpec] = {}
         signatures: set[str] = set()
         planner_errors: list[str] = []
+        stopping_decisions: list[dict[str, Any]] = []
+        planning_decisions: list[dict[str, Any]] = []
         for round_index in range(rounds):
             try:
                 proposals = self.brain.propose(profile, history)
@@ -425,6 +1089,17 @@ class ADMETAgent:
             drain_errors = getattr(self.brain, "drain_errors", None)
             if callable(drain_errors):
                 planner_errors.extend(drain_errors())
+            arbitration = getattr(self.brain, "last_decision", None)
+            if arbitration is not None and callable(
+                getattr(arbitration, "to_dict", None)
+            ):
+                decision = {
+                    "round": round_index + 1,
+                    **arbitration.to_dict(),
+                    "test_loaded": False,
+                }
+                planning_decisions.append(decision)
+                self.evidence_ledger.append("committee_arbitrated", decision)
             if not proposals:
                 planner_errors.append(
                     f"round {round_index + 1}: planner returned no new experiments"
@@ -441,12 +1116,20 @@ class ADMETAgent:
                 time.monotonic()
                 + min(item.budget.max_minutes for item in proposals) * 60
             )
+            if task_deadline is not None:
+                deadline = min(deadline, task_deadline)
             executed = 0
             for proposed in proposals:
                 if time.monotonic() >= deadline:
                     break
                 experiment = ExperimentSpec.from_dict(
-                    {**proposed.to_dict(), "task": task.name, "seed": seed, "device": self.device, "n_jobs": self.n_jobs}
+                    {
+                        **proposed.to_dict(),
+                        "task": task.name,
+                        "seed": seed,
+                        "device": self.device,
+                        "n_jobs": self.n_jobs,
+                    }
                 )
                 signature = _experiment_signature(experiment)
                 if signature in signatures:
@@ -460,8 +1143,31 @@ class ADMETAgent:
                         f"{type(exc).__name__}: {exc}"
                     )
                     continue
+                remaining_seconds = max(0.0, deadline - time.monotonic())
+                stop_reason = _scaleup_stop_reason(
+                    experiment,
+                    history,
+                    experiments,
+                    remaining_seconds,
+                )
+                if stop_reason is not None:
+                    decision = {
+                        "round": round_index + 1,
+                        "experiment": experiment.to_dict(),
+                        "reason": stop_reason,
+                        "test_loaded": False,
+                    }
+                    stopping_decisions.append(decision)
+                    self.evidence_ledger.append("candidate_soft_stopped", decision)
+                    continue
                 result = self._execute(
-                    experiment, train, valid, smiles_col, y_col, profile
+                    experiment,
+                    train,
+                    valid,
+                    smiles_col,
+                    y_col,
+                    profile,
+                    timeout_seconds=max(1.0, deadline - time.monotonic()),
                 )
                 history.append(result)
                 experiments[result.run_id] = experiment
@@ -470,7 +1176,7 @@ class ADMETAgent:
                 break
 
         completed = [item for item in history if item.status == "completed"]
-        robust_results, seed_runs = self._robust_results(
+        robust_results, seed_runs, robust_racing = self._robust_results(
             task,
             name,
             seed,
@@ -479,10 +1185,68 @@ class ADMETAgent:
             experiments,
             history,
             robust_top_k,
+            research_plan,
+            task_deadline,
+        )
+        self.evidence_ledger.append("robust_racing_decided", robust_racing)
+        action_evidence = evaluate_action_evidence(
+            research_plan,
+            task,
+            experiments,
+            seed_runs,
+        )
+        self.evidence_ledger.append(
+            "research_action_evaluated",
+            {
+                "task": task.name,
+                "seed": seed,
+                "evidence": action_evidence.to_dict(),
+                "test_loaded": False,
+            },
+        )
+        self.action_memory.append(
+            task=task.name,
+            category=contract.category,
+            evidence=action_evidence.to_dict(),
+        )
+        max_actions = 2
+        if self.benchmark_protocol:
+            arm = next(
+                (
+                    item
+                    for item in self.benchmark_protocol.get("arms", [])
+                    if item.get("name") == benchmark_arm
+                ),
+                None,
+            )
+            if arm is not None:
+                max_actions = int(arm.get("max_actions_per_task", max_actions))
+        corrective_decision = self.self_correction_planner.decide(
+            research_plan,
+            action_evidence,
+            attempted_action_ids=(action_evidence.action_id,),
+            remaining_action_budget=max(0, max_actions - 1),
+            sequence_index=2,
+        )
+        _write_json(
+            task_dir / f"corrective_decision_seed_{seed}.json",
+            corrective_decision.to_dict(),
+        )
+        self.evidence_ledger.append(
+            (
+                "corrective_action_scheduled"
+                if corrective_decision.requires_execution
+                else "research_episode_stopped"
+            ),
+            {
+                "task": task.name,
+                "seed": seed,
+                "decision": corrective_decision.to_dict(),
+                "test_loaded": False,
+            },
         )
         finalist_specs: dict[str, dict[str, Any]] = {
-            item.run_id: experiments[item.run_id].to_dict()
-            for item in robust_results
+            item.run_id: experiments[item.run_id].to_dict() for item in robust_results
         }
         ensemble_results: list[RunResult] = []
         if ensembles:
@@ -496,22 +1260,49 @@ class ADMETAgent:
             )
             finalist_specs.update(ensemble_specs)
         selectable = robust_results + ensemble_results
-        finalist_run_id = (
-            self.brain.select_finalist(profile, selectable) if selectable else None
-        )
+        finalist_run_id, routing_decision = self._select_finalist(profile, selectable)
         finalist_spec = (
             finalist_specs[finalist_run_id] if finalist_run_id is not None else None
         )
         summary = {
-            "version": "2.1",
+            "version": ("2.4-routing" if self.selection_policy != "score" else "2.1"),
             "profile": profile.to_dict(),
+            "endpoint_contract": contract.to_dict(),
+            "hardness": hardness.to_dict(),
+            "research_plan": research_plan,
+            "action_evidence": action_evidence.to_dict(),
+            "corrective_decision": corrective_decision.to_dict(),
+            "fault_report": fault_report.to_dict(),
             "rounds_requested": rounds,
+            "task_compute_budget_minutes": task_compute_minutes,
             "validation_seeds": validation_seeds,
             "cross_task_evidence": cross_task_evidence,
             "results": [item.to_dict() for item in history],
             "robust_results": [item.to_dict() for item in robust_results],
+            "robust_racing": robust_racing,
             "ensemble_results": [item.to_dict() for item in ensemble_results],
+            "selection_policy": self.selection_policy,
+            "benchmark_arm": benchmark_arm,
+            "benchmark_protocol_sha256": (
+                self.benchmark_protocol.get("sha256")
+                if self.benchmark_protocol
+                else None
+            ),
+            "benchmark_protocol_version": (
+                self.benchmark_protocol.get("protocol_version")
+                if self.benchmark_protocol
+                else None
+            ),
+            "source_sha256": self.source_manifest["source_sha256"],
+            "artifact_policy": {
+                "discovery_models_persisted": self.persist_discovery_models,
+                "feature_cache_dir": str(self.feature_cache_dir),
+                "validation_predictions_persisted": True,
+            },
+            "routing_decision": routing_decision,
             "planner_errors": planner_errors,
+            "planning_decisions": planning_decisions,
+            "stopping_decisions": stopping_decisions,
             "finalist_run_id": finalist_run_id,
             "finalist_spec": finalist_spec,
             "database": self.database.summary(),
@@ -525,6 +1316,49 @@ class ADMETAgent:
             )
         return summary
 
+    def diagnose(self, task_name: str, seed: int = 1) -> dict[str, Any]:
+        """Build a discovery-only endpoint diagnosis without training models."""
+        if seed < 0:
+            raise ValueError("seed must be non-negative")
+        task = resolve_task(task_name)
+        train, valid = self.group.get_train_valid_split(
+            benchmark=task.name, split_type="default", seed=seed
+        )
+        smiles_col, y_col = _columns(train)
+        profile = profile_task(train, valid, task, smiles_col, y_col)
+        hardness = profile_hardness(train, valid, task, smiles_col, y_col, seed=seed)
+        contract = endpoint_contract(task.name)
+        plan = self.research_planner.plan(
+            hardness, effect_priority=self.effect_priority
+        )
+        fault_report = self.fault_detector.detect(hardness, contract)
+        packet = {
+            "protocol": "discovery_only_no_test_access",
+            "task": task.name,
+            "seed": seed,
+            "endpoint_contract": contract.to_dict(),
+            "profile": profile.to_dict(),
+            "hardness": hardness.to_dict(),
+            "research_plan": plan,
+            "fault_report": fault_report.to_dict(),
+        }
+        path = self.run_dir / "tasks" / task.name / f"diagnosis_seed_{seed}.json"
+        _write_json(path, packet)
+        self.evidence_ledger.append("endpoint_diagnosed", packet)
+        return packet
+
+    def _select_finalist(
+        self,
+        profile: TaskProfile,
+        selectable: list[RunResult],
+    ) -> tuple[str | None, dict[str, Any] | None]:
+        if not selectable:
+            return None, None
+        if self.selection_policy == "score":
+            return self.brain.select_finalist(profile, selectable), None
+        decision = self.evidence_router.select(profile, selectable)
+        return decision["selected_run_id"], decision
+
     @staticmethod
     def _normalize_frozen(task: TaskSpec, frozen: object) -> dict[str, Any]:
         if isinstance(frozen, str):
@@ -536,9 +1370,47 @@ class ADMETAgent:
             raise ValueError(
                 f"Finalist for {task.name} must be a model name or experiment object"
             )
+        if frozen.get("kind") == "recipe":
+            recipe = frozen.get("recipe")
+            if not isinstance(recipe, str):
+                raise ValueError(
+                    f"Recipe finalist for {task.name} requires a recipe string"
+                )
+            build_execution_plan(task, recipe)
+            protocol = {
+                "model_size": "84m",
+                "learning_rate": 1e-4,
+                "epochs": 20,
+                "batch_size": 16,
+                "inner_folds": 5,
+                **frozen.get("protocol", {}),
+            }
+            if protocol["model_size"] != "84m":
+                raise ValueError("Frozen v2.4 recipes require Uni-Mol2 84m")
+            for key in ("epochs", "batch_size", "inner_folds"):
+                if isinstance(protocol[key], bool) or not isinstance(
+                    protocol[key], int
+                ):
+                    raise ValueError(f"Frozen recipe protocol {key} must be an integer")
+                if protocol[key] <= 0:
+                    raise ValueError(f"Frozen recipe protocol {key} must be positive")
+            if not isinstance(protocol["learning_rate"], (int, float)):
+                raise ValueError("Frozen recipe learning_rate must be numeric")
+            if not 0 < float(protocol["learning_rate"]) <= 1:
+                raise ValueError("Frozen recipe learning_rate must be in (0, 1]")
+            return {
+                "kind": "recipe",
+                "task": task.name,
+                "recipe": recipe,
+                "protocol": protocol,
+                "hypothesis": frozen.get(
+                    "hypothesis", "preregistered heterogeneous frozen recipe"
+                ),
+            }
         if frozen.get("kind") == "ensemble":
             members = frozen.get("members")
             weights = frozen.get("weights")
+            aggregation = frozen.get("aggregation", "probability")
             if (
                 not isinstance(members, list)
                 or len(members) < 2
@@ -546,11 +1418,17 @@ class ADMETAgent:
                 or len(weights) != len(members)
             ):
                 raise ValueError(f"Invalid ensemble finalist for {task.name}")
-            if any(not isinstance(value, (int, float)) or value < 0 for value in weights):
+            if any(
+                not isinstance(value, (int, float)) or value < 0 for value in weights
+            ):
                 raise ValueError("Ensemble weights must be non-negative numbers")
             total = float(sum(weights))
             if total <= 0:
                 raise ValueError("Ensemble weights must have a positive sum")
+            if aggregation not in {"probability", "rank"}:
+                raise ValueError("Ensemble aggregation must be probability or rank")
+            if aggregation == "rank" and task.metric == "mae":
+                raise ValueError("Rank aggregation is not valid for MAE tasks")
             normalized_members = []
             for member in members:
                 experiment = ExperimentSpec.from_dict(
@@ -563,6 +1441,7 @@ class ADMETAgent:
                 "task": task.name,
                 "members": normalized_members,
                 "weights": [float(value) / total for value in weights],
+                "aggregation": aggregation,
                 "hypothesis": frozen.get("hypothesis", "frozen ensemble"),
             }
         experiment = ExperimentSpec.from_dict(
@@ -588,14 +1467,32 @@ class ADMETAgent:
         y_col: str,
     ) -> np.ndarray:
         joined = pd.concat([train, valid], ignore_index=True)
+        if frozen["kind"] == "recipe":
+            executor = FrozenRecipeExecutor(
+                cache=self.cache,
+                artifact_dir=(
+                    self.run_dir / "final" / "artifacts" / task.name / f"seed_{seed}"
+                ),
+                device=self.device,
+                n_jobs=self.n_jobs,
+            )
+            return executor.predict(
+                task=task,
+                recipe_value=frozen["recipe"],
+                seed=seed,
+                fit_frame=joined,
+                predict_smiles=test[smiles_col].astype(str).tolist(),
+                smiles_col=smiles_col,
+                y_col=y_col,
+                protocol=frozen["protocol"],
+            )
         if frozen["kind"] == "single":
-            members = [
-                {key: value for key, value in frozen.items() if key != "kind"}
-            ]
+            members = [{key: value for key, value in frozen.items() if key != "kind"}]
             weights = [1.0]
         else:
             members = frozen["members"]
             weights = frozen["weights"]
+        aggregation = frozen.get("aggregation", "probability")
         combined = None
         for member, weight in zip(members, weights):
             experiment = ExperimentSpec.from_dict(
@@ -609,15 +1506,33 @@ class ADMETAgent:
                 }
             )
             validate_experiment(experiment)
+            fit_frame = joined
+            if experiment.data_policy != "official":
+                fit_frame, audit = MolecularDataCurator(smiles_col, y_col).curate(
+                    joined,
+                    task_type=task.task_type,
+                    policy=experiment.data_policy,
+                )
+                audit_path = (
+                    self.run_dir
+                    / "final"
+                    / "artifacts"
+                    / task.name
+                    / f"seed_{seed}"
+                    / f"{experiment.model}_data_audit.json"
+                )
+                _write_json(audit_path, audit.to_dict())
             x_fit = self.cache.get_or_compute(
-                joined[smiles_col].tolist(), experiment.representations
+                fit_frame[smiles_col].tolist(), experiment.representations
             )
             x_test = self.cache.get_or_compute(
                 test[smiles_col].tolist(), experiment.representations
             )
-            model = build_model(experiment, task, joined[y_col].to_numpy())
-            model.fit(x_fit, joined[y_col].to_numpy())
+            model = build_model(experiment, task, fit_frame[y_col].to_numpy())
+            model.fit(x_fit, fit_frame[y_col].to_numpy())
             member_predictions = predict(model, x_test, task)
+            if aggregation == "rank":
+                member_predictions = _percentile_ranks(member_predictions)
             weighted = float(weight) * member_predictions
             combined = weighted if combined is None else combined + weighted
         if combined is None:
@@ -657,7 +1572,9 @@ class ADMETAgent:
         finalists: dict[str, object],
     ) -> dict:
         if len(set(seeds)) < 5:
-            raise ValueError("Official TDC finalization requires at least five unique seeds")
+            raise ValueError(
+                "Official TDC finalization requires at least five unique seeds"
+            )
         if any(seed < 0 for seed in seeds):
             raise ValueError("Finalization seeds must be non-negative")
         normalized = {
@@ -667,6 +1584,15 @@ class ADMETAgent:
             for name in task_names
         }
         freeze = self._lock_finalists(task_names, normalized)
+        self.evidence_ledger.append(
+            "frozen_test_certification_started",
+            {
+                "tasks": sorted(resolve_task(name).name for name in task_names),
+                "seeds": sorted(set(seeds)),
+                "freeze_sha256": freeze["sha256"],
+                "feedback_policy": "no_test_feedback_to_discovery",
+            },
+        )
         all_predictions = []
         audits = []
         for seed in seeds:
@@ -715,18 +1641,48 @@ class ADMETAgent:
             np.savez_compressed(
                 final_dir / f"predictions_seed_{seed}.npz", **predictions
             )
+        self.evidence_ledger.append(
+            "frozen_test_certification_completed",
+            {
+                "freeze_sha256": freeze["sha256"],
+                "results_path": str(final_dir / "results.json"),
+            },
+        )
         return payload
 
     def environment_manifest(self) -> None:
+        try:
+            unimol_tools_version = version("unimol-tools")
+        except PackageNotFoundError:
+            unimol_tools_version = None
         _write_json(
             self.run_dir / "environment.json",
             {
-                "agent_version": "2.1",
+                "agent_version": "3.0-research-loop",
                 "python": sys.version,
                 "platform": platform.platform(),
                 "device": self.device,
                 "n_jobs": self.n_jobs,
                 "gpus": self._gpu_manifest(),
+                "unimol_tools": unimol_tools_version,
+                "selection": {
+                    "policy": self.selection_policy,
+                    "uncertainty_penalty": self.evidence_router.uncertainty_penalty,
+                    "cost_penalty": self.evidence_router.cost_penalty,
+                    "effect_priority": self.effect_priority,
+                },
+                "benchmark_protocol_sha256": (
+                    self.benchmark_protocol.get("sha256")
+                    if self.benchmark_protocol
+                    else None
+                ),
+                "benchmark_protocol_version": (
+                    self.benchmark_protocol.get("protocol_version")
+                    if self.benchmark_protocol
+                    else None
+                ),
+                "source_sha256": self.source_manifest["source_sha256"],
+                "source_snapshot": "source_snapshot/manifest.json",
             },
         )
 

@@ -1,10 +1,12 @@
 """Protocol firewall: validate experiments before compute."""
+from .registry import MODELS
 from .schemas import ALLOWED_DEVICES, ALLOWED_IMBALANCE, ALLOWED_MODELS, ALLOWED_REPRESENTATIONS, ExperimentSpec
 from .tasks import resolve_task
 
 MODEL_PARAMETERS = {
     "extra_trees": {"n_estimators", "min_samples_leaf", "max_features", "criterion", "bootstrap", "max_samples"},
     "random_forest": {"n_estimators", "min_samples_leaf", "max_features", "criterion", "bootstrap", "max_samples"},
+    "balanced_extra_trees": {"n_estimators", "n_members", "majority_ratio", "min_samples_leaf", "max_features", "criterion"},
     "catboost": {"iterations", "depth", "learning_rate", "l2_leaf_reg", "random_strength"},
     "xgboost": {"n_estimators", "max_depth", "learning_rate", "subsample", "colsample_bytree",
                 "min_child_weight", "reg_alpha", "reg_lambda"},
@@ -30,6 +32,10 @@ def validate_experiment(spec: ExperimentSpec) -> None:
         errors.append("representations must not contain duplicates")
     if spec.model not in ALLOWED_MODELS:
         errors.append(f"model must be one of {sorted(ALLOWED_MODELS)}")
+    elif task.task_type == "classification" and not MODELS[spec.model].supports_classification:
+        errors.append(f"{spec.model} does not support classification")
+    elif task.task_type == "regression" and not MODELS[spec.model].supports_regression:
+        errors.append(f"{spec.model} does not support regression")
     if spec.imbalance not in ALLOWED_IMBALANCE:
         errors.append(f"imbalance must be one of {sorted(ALLOWED_IMBALANCE)}")
     if spec.device not in ALLOWED_DEVICES:
@@ -52,7 +58,8 @@ def validate_experiment(spec: ExperimentSpec) -> None:
         invalid = set(spec.hyperparameters) - MODEL_PARAMETERS[spec.model]
         if invalid:
             errors.append(f"invalid {spec.model} parameters: {sorted(invalid)}")
-    ranges = {"n_estimators": (100, 1200), "min_samples_leaf": (1, 20), "max_samples": (0.3, 1.0),
+    ranges = {"n_estimators": (100, 1200), "n_members": (3, 25), "majority_ratio": (0.5, 10.0),
+              "min_samples_leaf": (1, 20), "max_samples": (0.3, 1.0),
               "iterations": (100, 2000), "depth": (3, 12), "learning_rate": (0.005, 0.3),
               "l2_leaf_reg": (0.0, 30.0), "random_strength": (0.0, 10.0),
               "max_depth": (2, 16), "subsample": (0.3, 1.0), "colsample_bytree": (0.1, 1.0),
@@ -60,7 +67,7 @@ def validate_experiment(spec: ExperimentSpec) -> None:
               "reg_lambda": (0.0, 50.0), "num_leaves": (7, 255),
               "min_child_samples": (2, 100), "C": (0.01, 1000.0),
               "epsilon": (0.001, 2.0)}
-    integer_parameters = {"n_estimators", "min_samples_leaf", "iterations", "depth",
+    integer_parameters = {"n_estimators", "n_members", "min_samples_leaf", "iterations", "depth",
                           "max_depth", "num_leaves", "min_child_samples"}
     for key, (low, high) in ranges.items():
         if key not in spec.hyperparameters:

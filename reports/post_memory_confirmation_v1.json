@@ -1,0 +1,124 @@
+{
+  "claim_boundary": {
+    "not_supported": "Negative action memory does not currently provide safe compute savings or behavioral advantage across all ADMET endpoints.",
+    "supported": "The Agent independently falsified an overgeneralized cross-task memory policy before production deployment."
+  },
+  "completed_fits": 50,
+  "control_fit_seconds": 276.04561353533063,
+  "counterfactual_treatment_fits_avoided_if_deployed": 25,
+  "counterfactual_treatment_seconds_avoided_if_deployed": 74.99568283406552,
+  "endpoint_count": 5,
+  "episodes": [
+    {
+      "category": "absorption",
+      "delta_std": 0.03204167408637043,
+      "mean_oriented_delta": 0.06687959999088264,
+      "oriented_seed_deltas": [
+        0.06886813966905203,
+        0.07403343212181024,
+        0.01635903579350506,
+        0.058673990981520374,
+        0.11646340138852551
+      ],
+      "positive_delta_rate": 1.0,
+      "positive_pruning_regret": 0.06687959999088264,
+      "status": "supported",
+      "task": "Solubility_AqSolDB",
+      "task_type": "regression",
+      "test_loaded": false
+    },
+    {
+      "category": "distribution",
+      "delta_std": 0.09382608202491524,
+      "mean_oriented_delta": 0.2586197881421004,
+      "oriented_seed_deltas": [
+        0.2270056008235226,
+        0.4316138193014041,
+        0.2733152239881793,
+        0.19921779136255502,
+        0.161946505234841
+      ],
+      "positive_delta_rate": 1.0,
+      "positive_pruning_regret": 0.2586197881421004,
+      "status": "supported",
+      "task": "PPBR_AZ",
+      "task_type": "regression",
+      "test_loaded": false
+    },
+    {
+      "category": "metabolism",
+      "delta_std": 0.005853430752400301,
+      "mean_oriented_delta": -0.01340727736908598,
+      "oriented_seed_deltas": [
+        -0.02257134431288066,
+        -0.015162355381210357,
+        -0.013627433763697794,
+        -0.004508786808839815,
+        -0.01116646657880127
+      ],
+      "positive_delta_rate": 0.0,
+      "positive_pruning_regret": 0.0,
+      "status": "refuted",
+      "task": "CYP3A4_Veith",
+      "task_type": "classification",
+      "test_loaded": false
+    },
+    {
+      "category": "excretion",
+      "delta_std": 0.037495881871030874,
+      "mean_oriented_delta": -0.017309857000202922,
+      "oriented_seed_deltas": [
+        -0.06406796587071173,
+        0.04994384296173604,
+        -0.033863343568786675,
+        -0.023670491878677646,
+        -0.014891326644574598
+      ],
+      "positive_delta_rate": 0.2,
+      "positive_pruning_regret": 0.0,
+      "status": "refuted",
+      "task": "Clearance_Microsome_AZ",
+      "task_type": "regression",
+      "test_loaded": false
+    },
+    {
+      "category": "toxicity",
+      "delta_std": 0.02930866360952362,
+      "mean_oriented_delta": 0.0013959662215475622,
+      "oriented_seed_deltas": [
+        -0.00634249471458781,
+        -1.1102230246251565e-16,
+        0.047202797202797186,
+        -0.04398148148148151,
+        0.010101010101010055
+      ],
+      "positive_delta_rate": 0.4,
+      "positive_pruning_regret": 0.0013959662215475622,
+      "status": "inconclusive",
+      "task": "DILI",
+      "task_type": "classification",
+      "test_loaded": false
+    }
+  ],
+  "execution_source_sha256": "913290d88beb075cf07a369c78b4e4a9d34dfc587700db1d57ff071b62640613",
+  "failed_fits": 0,
+  "maximum_positive_pruning_regret": 0.2586197881421004,
+  "mean_positive_pruning_regret": 0.06537907087090614,
+  "negative_memory_gate_deployment_approved": false,
+  "outcome_counts": {
+    "inconclusive": 1,
+    "refuted": 2,
+    "supported": 2
+  },
+  "protocol_sha256": "c16bcad26b5e0920aed85bf0ac725486957d1c5726d540e4f771c233dd984aa6",
+  "pruning_success_gate_passed": false,
+  "required_corrective_action": "Disable the global negative-memory pruning gate. Require independent confirmation within a task-type/hardness stratum before destructive pruning.",
+  "runner_sha256": "c122d63966c6d4f5f2c85417a4dee71498b3172b94fe1e2be1aab991ffb83f46",
+  "supported_endpoints": [
+    "Solubility_AqSolDB",
+    "PPBR_AZ"
+  ],
+  "test_loaded": false,
+  "treatment_fit_seconds": 74.99568283406552,
+  "version": "post-memory-negative-gate-confirmation-report-v1"
+}

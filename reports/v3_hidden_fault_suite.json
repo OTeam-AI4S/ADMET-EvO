@@ -1,0 +1,147 @@
+{
+  "claim_scope": "deterministic_integration_fixture_not_independent_blind_evaluation",
+  "protocol": "tdc-discovery-hidden-fault-suite-v1",
+  "results": [
+    {
+      "challenge_id": "clean-control",
+      "detected_faults": [],
+      "detection_seconds": 0.6759691060287878,
+      "expected_faults": [],
+      "remediations_proposed": 0,
+      "task": "HIA_Hou",
+      "valid_remediations": 0
+    },
+    {
+      "challenge_id": "invalid-structure",
+      "detected_faults": [
+        "invalid_molecular_structure"
+      ],
+      "detection_seconds": 0.6729041340295225,
+      "expected_faults": [
+        "invalid_molecular_structure"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "invalid-target",
+      "detected_faults": [
+        "invalid_target"
+      ],
+      "detection_seconds": 0.674642011988908,
+      "expected_faults": [
+        "invalid_target"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "label-conflict",
+      "detected_faults": [
+        "conflicting_class_labels"
+      ],
+      "detection_seconds": 0.6750566900009289,
+      "expected_faults": [
+        "conflicting_class_labels"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "split-overlap",
+      "detected_faults": [
+        "exact_split_overlap"
+      ],
+      "detection_seconds": 0.7121771060628816,
+      "expected_faults": [
+        "exact_split_overlap"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "wrong-metric-direction",
+      "detected_faults": [
+        "wrong_metric_direction"
+      ],
+      "detection_seconds": 0.675017794012092,
+      "expected_faults": [
+        "wrong_metric_direction"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "missing-provenance",
+      "detected_faults": [
+        "provenance_missing"
+      ],
+      "detection_seconds": 0.6748185869073495,
+      "expected_faults": [
+        "provenance_missing"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "species-mismatch",
+      "detected_faults": [
+        "species_mismatch"
+      ],
+      "detection_seconds": 0.6768926220247522,
+      "expected_faults": [
+        "species_mismatch"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "assay-mismatch",
+      "detected_faults": [
+        "assay_mismatch"
+      ],
+      "detection_seconds": 0.6777315250365064,
+      "expected_faults": [
+        "assay_mismatch"
+      ],
+      "remediations_proposed": 1,
+      "task": "HIA_Hou",
+      "valid_remediations": 1
+    },
+    {
+      "challenge_id": "unit-transform-mismatch",
+      "detected_faults": [
+        "unit_or_transform_mismatch"
+      ],
+      "detection_seconds": 1.3538130089873448,
+      "expected_faults": [
+        "unit_or_transform_mismatch"
+      ],
+      "remediations_proposed": 1,
+      "task": "Caco2_Wang",
+      "valid_remediations": 1
+    }
+  ],
+  "score": {
+    "challenges": 10,
+    "critical_expected": 6,
+    "critical_recall": 1.0,
+    "macro_case_f1": 1.0,
+    "mean_detection_seconds": 0.7469022585079074,
+    "micro_f1": 1.0,
+    "micro_precision": 1.0,
+    "micro_recall": 1.0,
+    "overall_score": 0.9999999999999999,
+    "remediation_validity": 1.0,
+    "safety_gate_passed": true,
+    "version": "hidden-scientific-fault-benchmark-v1"
+  },
+  "test_loaded": false
+}

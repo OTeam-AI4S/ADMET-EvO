@@ -1,0 +1,191 @@
+{
+  "all_post_followup_stopped": true,
+  "claim_boundary": "demonstrates completed linked corrective behavior and bounded stopping; does not demonstrate a supported new predictive hypothesis or an Agent-over-rules/AutoML advantage",
+  "completed_actions": 2,
+  "completed_evidence_repairs": 1,
+  "completion_rate": 1.0,
+  "evidence_hashes": {
+    "corrective_smoke_report": "d946f7dc2a9e8f207c5f4c6d064f6ea62142252c6a79bb1de412c57884db9f30",
+    "evidence_ledger": "99872a485dbc2d567f0a5da2920be689ebaafeae976fdffe57509f5764263c29"
+  },
+  "historical_run_dir": "runs/v3-agent-tdc22-v5",
+  "process_metrics": {
+    "falsification_resolution": {
+      "coverage": 1.0,
+      "definition": "(supported + refuted) / valid single-axis outcomes",
+      "denominator": 4,
+      "evaluable": 4,
+      "missing": 0,
+      "missing_ids": [],
+      "numerator": 1,
+      "observed_rate": 0.25,
+      "rate": 0.25
+    },
+    "input_coverage": {
+      "duplicate_task_summaries_ignored": 0,
+      "explicit_action_outcomes": 4,
+      "ledger_records": 0,
+      "raw_action_outcome_records": 6,
+      "search_summaries": 2,
+      "unique_action_outcomes": 4
+    },
+    "negative_result_retention": {
+      "coverage": 0.0,
+      "definition": "refuted task-actions retained in the supplied evidence ledger",
+      "denominator": 1,
+      "evaluable": 0,
+      "missing": 1,
+      "missing_ids": [
+        "hERG/data-leakage-safe"
+      ],
+      "numerator": 0,
+      "observed_rate": null,
+      "rate": 0.0
+    },
+    "outcome_counts": {
+      "inconclusive": 3,
+      "missing_or_unknown": 0,
+      "refuted": 1,
+      "supported": 0,
+      "unique_outcomes": 4,
+      "valid_single_axis": 4
+    },
+    "preregistered_action_discipline": {
+      "coverage": 0.5,
+      "definition": "attempted actions selected in a prior plan with a falsification test",
+      "denominator": 4,
+      "evaluable": 2,
+      "missing": 2,
+      "missing_ids": [
+        "CYP2C9_Substrate_CarbonMangels/model-imbalance-aware",
+        "hERG/data-leakage-safe"
+      ],
+      "numerator": 2,
+      "observed_rate": 1.0,
+      "rate": 0.5
+    },
+    "repeat_waste": {
+      "attempts_with_explicit_identity": 2,
+      "duplicate_task_action_attempts": 0,
+      "logical_attempts": 4,
+      "missing_order_ids": [
+        "CYP2C9_Substrate_CarbonMangels/model-imbalance-aware",
+        "hERG/data-leakage-safe"
+      ],
+      "ordering_coverage": 0.5,
+      "overlapping_waste_attempts": 0,
+      "refuted_family_repeat_attempts": 0,
+      "total_repeat_waste": 0,
+      "waste_rate": 0.0
+    },
+    "resources": {
+      "completed_fit_seconds": 67.62725754606072,
+      "completed_fits": 12,
+      "failed_fit_seconds": 0.0,
+      "failed_fits": 0,
+      "fit_seconds": 67.62725754606072,
+      "fits_missing_elapsed": 0,
+      "planned_fits_avoided": 0,
+      "primary_fits": 4,
+      "racing_missing_avoided_count_tasks": [],
+      "racing_summaries": 0,
+      "replicate_fits": 8,
+      "total_fits": 12,
+      "unclassified_fits": 0,
+      "unique_actions": 4
+    },
+    "self_correction_rate": {
+      "coverage": 1.0,
+      "definition": "refuted task-actions with explicit or linked corrective follow-up",
+      "denominator": 1,
+      "evaluable": 1,
+      "missing": 0,
+      "missing_ids": [],
+      "numerator": 1,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "single_axis_contrast_validity": {
+      "coverage": 1.0,
+      "definition": "single_axis_verified true / unique task-action outcomes",
+      "denominator": 4,
+      "evaluable": 4,
+      "missing": 0,
+      "missing_ids": [],
+      "numerator": 4,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "tasks": [
+      "CYP2C9_Substrate_CarbonMangels",
+      "hERG"
+    ],
+    "treatment_control_completeness": {
+      "coverage": 1.0,
+      "definition": "distinct treatment and control IDs / pair-requiring outcomes",
+      "denominator": 4,
+      "evaluable": 4,
+      "missing": 0,
+      "missing_ids": [],
+      "numerator": 4,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "unique_task_actions": 4,
+    "version": "research-process-metrics-v1"
+  },
+  "protocol": "validation-only-self-correction-smoke-evidence-v1",
+  "resolved_child_hypotheses": 0,
+  "run_dir": "runs/v5-self-correction-smoke",
+  "scheduled_actions": 2,
+  "selection_feedback_to_discovery": false,
+  "source_sha256": "a8b1a69597d52a76c21ebc166e60fdb0482f162673e5d56bf8bcd1d459c567a4",
+  "supported_child_hypotheses": 0,
+  "task_rows": [
+    {
+      "child_action_id": "model-imbalance-aware--correct-12c453c400",
+      "child_status": "inconclusive",
+      "correction_kind": "repair_evidence",
+      "fit_seconds": 30.51752352807671,
+      "fits": 6,
+      "mean_oriented_delta": -0.01653355900953331,
+      "paired_seeds": 3,
+      "parent_action_id": "model-imbalance-aware",
+      "parent_status": "inconclusive",
+      "positive_delta_rate": 0.3333333333333333,
+      "post_followup_kind": "stop",
+      "post_followup_reasons": [
+        "effect_below_resolution_gate",
+        "no_unattempted_executable_cross_axis_action",
+        "stop_to_avoid_validation_overfitting"
+      ],
+      "single_axis_verified": true,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "child_action_id": "model-imbalance-aware--correct-5c2a4c8745",
+      "child_status": "inconclusive",
+      "correction_kind": "switch_axis",
+      "fit_seconds": 37.10973401798401,
+      "fits": 6,
+      "mean_oriented_delta": -0.003124352479740781,
+      "paired_seeds": 3,
+      "parent_action_id": "data-leakage-safe",
+      "parent_status": "refuted",
+      "positive_delta_rate": 0.3333333333333333,
+      "post_followup_kind": "stop",
+      "post_followup_reasons": [
+        "effect_below_resolution_gate",
+        "no_unattempted_executable_cross_axis_action",
+        "stop_to_avoid_validation_overfitting"
+      ],
+      "single_axis_verified": true,
+      "task": "hERG",
+      "test_loaded": false
+    }
+  ],
+  "test_loaded": false,
+  "total_fit_seconds": 67.62725754606072,
+  "total_fits": 12
+}

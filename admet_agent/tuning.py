@@ -89,6 +89,17 @@ class OptunaRefiner:
                 "max_features": trial.suggest_float("max_features", 0.2, 1.0),
                 "criterion": trial.suggest_categorical("criterion", criteria),
             }
+        if model == "balanced_extra_trees":
+            return {
+                "n_estimators": trial.suggest_int("n_estimators", 200, 600, step=100),
+                "n_members": trial.suggest_int("n_members", 3, 11, step=2),
+                "majority_ratio": trial.suggest_float("majority_ratio", 0.75, 4.0),
+                "min_samples_leaf": trial.suggest_int("min_samples_leaf", 1, 8),
+                "max_features": trial.suggest_float("max_features", 0.2, 1.0),
+                "criterion": trial.suggest_categorical(
+                    "criterion", ["gini", "entropy", "log_loss"]
+                ),
+            }
         if model == "catboost":
             return {
                 "iterations": trial.suggest_int("iterations", 300, 1600, step=100),

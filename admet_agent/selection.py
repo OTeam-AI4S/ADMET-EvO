@@ -4,17 +4,84 @@ from __future__ import annotations
 
 import numpy as np
 from scipy.stats import spearmanr
+from sklearn.base import BaseEstimator, ClassifierMixin
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import (
     ExtraTreesClassifier,
     ExtraTreesRegressor,
     RandomForestClassifier,
     RandomForestRegressor,
 )
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import average_precision_score, mean_absolute_error, roc_auc_score
 
 from .schemas import ExperimentSpec
 from .tasks import TaskSpec
+
+
+class BalancedExtraTreesClassifier(ClassifierMixin, BaseEstimator):
+    """Average Extra Trees models trained on balanced majority subsamples."""
+
+    def __init__(
+        self,
+        n_estimators: int = 300,
+        n_members: int = 7,
+        majority_ratio: float = 1.0,
+        min_samples_leaf: int = 2,
+        max_features: float | str = 0.5,
+        criterion: str = "gini",
+        n_jobs: int = 8,
+        random_state: int = 1,
+    ):
+        self.n_estimators = n_estimators
+        self.n_members = n_members
+        self.majority_ratio = majority_ratio
+        self.min_samples_leaf = min_samples_leaf
+        self.max_features = max_features
+        self.criterion = criterion
+        self.n_jobs = n_jobs
+        self.random_state = random_state
+
+    def fit(self, x: np.ndarray, y: np.ndarray):
+        x_values = np.asarray(x)
+        y_values = np.asarray(y)
+        self.classes_, counts = np.unique(y_values, return_counts=True)
+        if len(self.classes_) != 2:
+            raise ValueError("balanced_extra_trees requires exactly two classes")
+        minority_class = self.classes_[int(np.argmin(counts))]
+        majority_class = self.classes_[int(np.argmax(counts))]
+        minority = np.flatnonzero(y_values == minority_class)
+        majority = np.flatnonzero(y_values == majority_class)
+        majority_size = min(
+            len(majority),
+            max(1, int(np.ceil(self.majority_ratio * len(minority)))),
+        )
+        generator = np.random.default_rng(self.random_state)
+        self.estimators_ = []
+        for member_index in range(self.n_members):
+            sampled_majority = generator.choice(
+                majority,
+                size=majority_size,
+                replace=False,
+            )
+            indices = np.concatenate([minority, sampled_majority])
+            generator.shuffle(indices)
+            estimator = ExtraTreesClassifier(
+                n_estimators=self.n_estimators,
+                min_samples_leaf=self.min_samples_leaf,
+                max_features=self.max_features,
+                criterion=self.criterion,
+                n_jobs=self.n_jobs,
+                random_state=self.random_state + member_index,
+            )
+            estimator.fit(x_values[indices], y_values[indices])
+            self.estimators_.append(estimator)
+        return self
+
+    def predict_proba(self, x: np.ndarray) -> np.ndarray:
+        if not hasattr(self, "estimators_"):
+            raise RuntimeError("balanced_extra_trees must be fitted before prediction")
+        probabilities = [estimator.predict_proba(x) for estimator in self.estimators_]
+        return np.mean(probabilities, axis=0)
 
 
 def build_model(experiment: ExperimentSpec, task: TaskSpec, y_train: np.ndarray):
@@ -35,6 +102,20 @@ def build_model(experiment: ExperimentSpec, task: TaskSpec, y_train: np.ndarray)
             params.setdefault("class_weight", weights)
             return RandomForestClassifier(**params)
         return RandomForestRegressor(**params)
+    if experiment.model == "balanced_extra_trees":
+        if task.task_type != "classification":
+            raise ValueError("balanced_extra_trees is classification-only")
+        params = dict(
+            n_estimators=300,
+            n_members=7,
+            majority_ratio=1.0,
+            min_samples_leaf=2,
+            max_features=0.5,
+            n_jobs=experiment.n_jobs,
+            random_state=experiment.seed,
+        )
+        params.update(overrides)
+        return BalancedExtraTreesClassifier(**params)
     if experiment.model == "xgboost":
         try:
             from xgboost import XGBClassifier, XGBRegressor

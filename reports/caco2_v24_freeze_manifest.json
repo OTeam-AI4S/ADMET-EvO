@@ -1,0 +1,352 @@
+{
+  "code_revision": {
+    "dirty": true,
+    "revision": "6e9acd051f7b5e1635f3252710958a07bcb19289",
+    "status": [
+      " M README.md",
+      " M admet_agent/brain.py",
+      " M admet_agent/cli.py",
+      " M admet_agent/features.py",
+      " M admet_agent/guard.py",
+      " M admet_agent/openai_brain.py",
+      " M admet_agent/registry.py",
+      " M admet_agent/runner.py",
+      " M admet_agent/selection.py",
+      " M admet_agent/tuning.py",
+      " M docs/v2_architecture.md",
+      " M pyproject.toml",
+      " M tests/test_agent_safety.py",
+      " M tests/test_contracts.py",
+      " M tests/test_v2.py",
+      " M tests/test_v21.py",
+      "?? admet_agent/evidence_router.py",
+      "?? admet_agent/feature_selection.py",
+      "?? admet_agent/frozen_executor.py",
+      "?? admet_agent/frozen_recipe.py",
+      "?? docs/v24_research_plan.md",
+      "?? logs/",
+      "?? reports/",
+      "?? scripts/ablate_evidence_router.py",
+      "?? scripts/ablate_half_life_fusion.py",
+      "?? scripts/analyze_chemical_evidence.py",
+      "?? scripts/audit_data_isolation.py",
+      "?? scripts/benchmark_balanced_ensemble.py",
+      "?? scripts/benchmark_rank_ensemble.py",
+      "?? scripts/build_goal_scorecard.py",
+      "?? scripts/build_v24_freeze_manifest.py",
+      "?? scripts/evaluate_router_loso.py",
+      "?? scripts/merge_unimol2_pilot_shards.py",
+      "?? scripts/replay_cost_aware_router.py",
+      "?? scripts/run_caco2_feature_ablation.py",
+      "?? scripts/run_caco2_nested_selection.py",
+      "?? scripts/run_half_life_transform_ablation.py",
+      "?? scripts/run_hard_task_ablation.py",
+      "?? scripts/run_unimol2_pilot.py",
+      "?? scripts/run_unimol2_scale_ablation.py",
+      "?? scripts/smoke_v24_recipe.py",
+      "?? scripts/summarize_unimol2_pilot.py",
+      "?? scripts/summarize_unimol2_scale.py",
+      "?? skills/",
+      "?? tests/test_ablation_comparison.py",
+      "?? tests/test_evidence_router.py",
+      "?? tests/test_feature_selection.py",
+      "?? tests/test_frozen_recipe.py",
+      "?? tests/test_goal_scorecard.py",
+      "?? tests/test_router_loso.py",
+      "?? tests/test_router_replay.py",
+      "?? tests/test_unimol2_scale_summary.py",
+      "?? tests/test_v24_freeze_manifest.py",
+      "?? tests/test_v24_recipe_smoke.py"
+    ]
+  },
+  "data_sha256": "e0965b4a0617a3aa2978ef28794e3467d55655090f282a120355ea575ebed6b2",
+  "decisions": {
+    "catboost_plus_avalon": {
+      "bootstrap_95_ci": [
+        -0.007175779949953576,
+        0.013996543743493661
+      ],
+      "cost_delta": {
+        "wall_seconds": 93.35603506001644
+      },
+      "mean_improvement": 0.0025837179817441935,
+      "mean_mae": 0.3708810749968413,
+      "reason": "Avalon addition misses the practical threshold in discovery",
+      "status": "reject",
+      "wins_ties_losses": [
+        2,
+        0,
+        3
+      ]
+    },
+    "catboost_rdkit_erg_morgan_count": {
+      "bootstrap_95_ci": [
+        -0.028595595720493472,
+        -0.010861946857411342
+      ],
+      "cost_delta": {
+        "wall_seconds": 81.09681745799026
+      },
+      "mean_improvement": -0.019728771288952406,
+      "mean_mae": 0.38761866356866326,
+      "reason": "Fresh-seed comparison loses to the current baseline on all five seeds",
+      "status": "reject",
+      "wins_ties_losses": [
+        0,
+        0,
+        5
+      ]
+    },
+    "current_binary_rich_lightgbm": {
+      "claim": "retain_and_freeze_current_validation_baseline; no new improvement claimed",
+      "confirmation_mean_mae": 0.3678898922797108,
+      "confirmation_sample_std": 0.03620567034561768,
+      "discovery_mean_mae": 0.35893170784189193,
+      "discovery_sample_std": 0.05275282539140805,
+      "reason": "No challenger cleared the preregistered 0.01-MAE confirmation gate; the current recipe remains the cost-effective validation control",
+      "status": "promote"
+    },
+    "full_count_extra_trees": {
+      "bootstrap_95_ci": [
+        -0.010198141228561487,
+        0.006232190512738555
+      ],
+      "cost_delta": {
+        "wall_seconds": 40.4358192729851
+      },
+      "mean_improvement": -0.0017909160373680622,
+      "mean_mae": 0.3696808083170789,
+      "reason": "Confirmation mean regresses and costs substantially more",
+      "status": "reject",
+      "wins_ties_losses": [
+        3,
+        0,
+        2
+      ]
+    },
+    "full_count_lightgbm": {
+      "bootstrap_95_ci": [
+        -0.007922309307623842,
+        0.009551137206093619
+      ],
+      "cost_delta": {
+        "wall_seconds": 0.3094108629884431
+      },
+      "mean_improvement": 0.0014543497920067705,
+      "mean_mae": 0.36643554248770405,
+      "reason": "Confirmation gain is below 0.01 MAE and its interval crosses zero",
+      "status": "reject",
+      "wins_ties_losses": [
+        3,
+        0,
+        2
+      ]
+    },
+    "nested_rdkit2d_selection": {
+      "bootstrap_95_ci": [
+        -0.008355752403010851,
+        0.0
+      ],
+      "cost_delta": {
+        "wall_seconds": 114.06889222000609
+      },
+      "mean_improvement": -0.0040181463724052735,
+      "mean_mae": 0.36435478719344133,
+      "reason": "Nested selection regresses, never wins, and adds substantial runtime",
+      "status": "reject",
+      "wins_ties_losses": [
+        0,
+        3,
+        2
+      ]
+    }
+  },
+  "environment": {
+    "PyTDC": "1.1.15",
+    "catboost": "1.2.10",
+    "lightgbm": "4.7.0",
+    "numpy": "2.4.6",
+    "rdkit": "2026.3.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.17.1"
+  },
+  "evidence_class": "repository_internal_validation",
+  "freeze": {
+    "confirmation_seeds": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "discovery_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "execution_plan": {
+      "aggregation": "raw",
+      "experts": {
+        "2d_lightgbm": {
+          "backend": "tabular",
+          "model": "lightgbm",
+          "representations": [
+            "morgan",
+            "avalon",
+            "erg",
+            "rdkit2d"
+          ],
+          "requires_inner_oof": false,
+          "target_transform": "identity"
+        }
+      },
+      "members": [
+        {
+          "name": "2d_lightgbm",
+          "weight": 1.0
+        }
+      ],
+      "metric": "mae",
+      "recipe": "2d_lightgbm",
+      "task": "Caco2_Wang"
+    },
+    "leaderboard_feedback_used_for_selection": false,
+    "minimum_useful_mae_reduction": 0.01,
+    "model": "lightgbm",
+    "official_test_authorized": false,
+    "official_test_loaded": false,
+    "recipe": "2d_lightgbm",
+    "representations": [
+      "morgan",
+      "avalon",
+      "erg",
+      "rdkit2d"
+    ],
+    "status": "validation_candidate_frozen",
+    "test_labels_used": false
+  },
+  "lower_is_better": true,
+  "manifest_sha256": "fcbd6b3ad8b9219a9eabb9b69cae8e80aa57ae883c4c803ff05d9d72821568ec",
+  "metric": "mae",
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "bytes": 12178,
+      "path": "runs/caco2-feature-ablation-v24/results.json",
+      "sha256": "5c15a4be6fd4bbe33dcc23005e61a9f4bc9b2d4ebdccefaaa4c2a014a3d99f81"
+    },
+    {
+      "bytes": 9206,
+      "path": "runs/caco2-feature-confirmation-v24/results.json",
+      "sha256": "8376598e4830ef9dbef7f8adc19771c4005d9d8c3b3df8e056233b443dcdd552"
+    },
+    {
+      "bytes": 6101,
+      "path": "runs/caco2-feature-ablation-v24/comparisons/current_baseline.summary.json",
+      "sha256": "c06747b0b634f526ad8604f5ef27ee2b6cc9740621146fd82fc346cb734c7538"
+    },
+    {
+      "bytes": 4179,
+      "path": "runs/caco2-feature-ablation-v24/comparisons/feature_ladder.summary.json",
+      "sha256": "cb19afaadb30fcc546be32ed68d2f723d2d81fa73cc0956f482ea5d9df63c771"
+    },
+    {
+      "bytes": 4189,
+      "path": "runs/caco2-feature-confirmation-v24/comparisons/current_baseline_confirmation.summary.json",
+      "sha256": "cd6362580ab69f9d029ccc105e2fc085cdca86167f48ab90b79db1522294e42f"
+    },
+    {
+      "bytes": 2265,
+      "path": "runs/caco2-feature-confirmation-v24/comparisons/feature_ladder_confirmation.summary.json",
+      "sha256": "5fd633f11d88b892e015fc8022a723a9c9200dd019f46d164c79be4f38539150"
+    },
+    {
+      "bytes": 2214,
+      "path": "runs/caco2-nested-selection-v24/comparisons/nested_selection.summary.json",
+      "sha256": "5d45eff6a9628a1e2cccf14234239326133181faa334110fb628a85adc73cbe6"
+    },
+    {
+      "bytes": 16818,
+      "path": "scripts/run_caco2_feature_ablation.py",
+      "sha256": "9019ec2c994ef8edf489fe0e63762fe08e818e225397646c3b180fb63b3b9132"
+    },
+    {
+      "bytes": 12144,
+      "path": "scripts/run_caco2_nested_selection.py",
+      "sha256": "67e421568d0efec864454d2c41ed8baf7b20c3949e3b2a8ed77eb33b066ccd41"
+    },
+    {
+      "bytes": 10725,
+      "path": "scripts/build_caco2_v24_freeze_manifest.py",
+      "sha256": "38ef769cbe86c2ff9ac3538efd628eb2c7ad72d094ca74ece810ddf0e6836aca"
+    },
+    {
+      "bytes": 9132,
+      "path": "admet_agent/features.py",
+      "sha256": "76a746e2965a331c939bbff46a3b4af4666decc37d7b16673df60e9d0f9f3cf2"
+    },
+    {
+      "bytes": 10746,
+      "path": "admet_agent/feature_selection.py",
+      "sha256": "b30513553b3642b6f45a4f921c28873c5682a75fc94ebda7bc708f49fc466903"
+    },
+    {
+      "bytes": 4954,
+      "path": "admet_agent/frozen_recipe.py",
+      "sha256": "c72df255801380f316906010cc53f8b1d442a0f9df105997446b97d1b342c9cc"
+    },
+    {
+      "bytes": 6239,
+      "path": "runs/caco2-feature-ablation-v24/artifacts/seed_1/lightgbm_current_binary_rich.npz",
+      "sha256": "a2de3641efa00abf9904e87386ae388f6d677d37b5ba20a4277d3500eeb3e974"
+    },
+    {
+      "bytes": 5985,
+      "path": "runs/caco2-feature-ablation-v24/artifacts/seed_2/lightgbm_current_binary_rich.npz",
+      "sha256": "e69f36c9539fdb839cef9c9f709a69a06bb8baaedb8eb817fe40759b129bb166"
+    },
+    {
+      "bytes": 6381,
+      "path": "runs/caco2-feature-ablation-v24/artifacts/seed_3/lightgbm_current_binary_rich.npz",
+      "sha256": "3fa3a2b281a6b17887c6e246a1bead87eb7798702243ad071a7d8f6d8087e929"
+    },
+    {
+      "bytes": 5839,
+      "path": "runs/caco2-feature-ablation-v24/artifacts/seed_4/lightgbm_current_binary_rich.npz",
+      "sha256": "e646346cedcaf7d63fdd536ae1cbf4659b87313c2045b705e5381f1ec9e1308d"
+    },
+    {
+      "bytes": 5585,
+      "path": "runs/caco2-feature-ablation-v24/artifacts/seed_5/lightgbm_current_binary_rich.npz",
+      "sha256": "0e9534efbb60deab5205c8bd4cb8cf9bafbb119cbc29507d7a32649cf3bd82bb"
+    },
+    {
+      "bytes": 5586,
+      "path": "runs/caco2-feature-confirmation-v24/artifacts/seed_6/lightgbm_current_binary_rich.npz",
+      "sha256": "1a107a5f1116342c48fee56b9be3181807e51223ada6debdcf573d6832418054"
+    },
+    {
+      "bytes": 5930,
+      "path": "runs/caco2-feature-confirmation-v24/artifacts/seed_7/lightgbm_current_binary_rich.npz",
+      "sha256": "69ac278e34023665502219e2cf350c81271f7cabec029f283c5675abc6fd1474"
+    },
+    {
+      "bytes": 5482,
+      "path": "runs/caco2-feature-confirmation-v24/artifacts/seed_8/lightgbm_current_binary_rich.npz",
+      "sha256": "3534fbcad86f3b5507c19b9205b46b6d611aefa99060f839b65b16ef985338af"
+    },
+    {
+      "bytes": 5340,
+      "path": "runs/caco2-feature-confirmation-v24/artifacts/seed_9/lightgbm_current_binary_rich.npz",
+      "sha256": "ef24bf262331c9b565e75e1a8f5c7640c67b82cfb967b4dee8cc1c2e6f2c2c41"
+    },
+    {
+      "bytes": 5857,
+      "path": "runs/caco2-feature-confirmation-v24/artifacts/seed_10/lightgbm_current_binary_rich.npz",
+      "sha256": "ab0da58493915887cdb3b29cc09d4b82e1f78f23c7890394585d2b198f7254af"
+    }
+  ],
+  "task": "Caco2_Wang"
+}

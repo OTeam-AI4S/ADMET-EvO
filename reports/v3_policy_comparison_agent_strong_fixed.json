@@ -1,0 +1,30 @@
+{
+  "agent_arm": "agent",
+  "comparisons": {
+    "strong_fixed": {
+      "action_budget_parity": false,
+      "bootstrap_95_ci": [
+        0.01093194824829642,
+        0.07694803360056648
+      ],
+      "complete": true,
+      "losses": 0,
+      "mean_action_ratio": 11.909090909090908,
+      "mean_compute_ratio": 28.244683560177556,
+      "mean_oriented_delta": 0.0413374682286868,
+      "mean_uncertainty_standardized_delta": 0.37604439949544305,
+      "median_oriented_delta": 0.009406593715284406,
+      "one_sided_paired_sign_p": 1.9073486328125e-06,
+      "standardized_bootstrap_95_ci": [
+        0.14694215910620242,
+        0.6862950737202728
+      ],
+      "superiority_supported": false,
+      "tasks": 22,
+      "ties": 3,
+      "wins": 19
+    }
+  },
+  "protocol_sha256": "99c391550bccfeff6e3c5fc90240e1a5f87b99b1770a9ff7e818695e64408d2e",
+  "test_loaded": false
+}

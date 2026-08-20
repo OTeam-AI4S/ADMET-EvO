@@ -1,0 +1,292 @@
+{
+  "action_readiness": {
+    "data-leakage-safe": {
+      "blockers": [
+        "insufficient_transport_eligible_endpoints",
+        "transport_outcome_variation_missing"
+      ],
+      "historical_selected_endpoints": 1,
+      "routing_eligible": false,
+      "transport_eligible_endpoints": 0,
+      "transport_status_counts": {}
+    },
+    "feature-domain-shift": {
+      "blockers": [
+        "insufficient_transport_eligible_endpoints",
+        "transport_outcome_variation_missing"
+      ],
+      "historical_selected_endpoints": 18,
+      "routing_eligible": false,
+      "transport_eligible_endpoints": 0,
+      "transport_status_counts": {}
+    },
+    "model-imbalance-aware": {
+      "blockers": [
+        "insufficient_transport_eligible_endpoints",
+        "transport_outcome_variation_missing"
+      ],
+      "historical_selected_endpoints": 3,
+      "routing_eligible": false,
+      "transport_eligible_endpoints": 0,
+      "transport_status_counts": {}
+    }
+  },
+  "enforcement": {
+    "allowed_designs": [
+      "complete_action_grid",
+      "randomized_action_assignment"
+    ],
+    "minimum_unique_endpoints_per_action": 5,
+    "observational_effect_multiplier": 1.0,
+    "observational_memory_can_change_ranking": false,
+    "observational_memory_can_enable_unimol2": false,
+    "requires_outcome_variation": true,
+    "requires_prospective": true,
+    "requires_same_budget": true,
+    "requires_shared_protocol_sha256": true
+  },
+  "global_blockers": [
+    "no_prospective_randomized_or_complete_grid_evidence",
+    "selected_action_positivity_violation",
+    "historical_selected_action_outcomes_are_observational_only"
+  ],
+  "historical_action_counts": {
+    "data-leakage-safe": 1,
+    "feature-domain-shift": 18,
+    "model-imbalance-aware": 3
+  },
+  "historical_axis_counts": {
+    "data": 1,
+    "feature": 18,
+    "model": 3
+  },
+  "historical_design": "policy_selected_actions_only",
+  "historical_status_counts": {
+    "inconclusive": 2,
+    "refuted": 2,
+    "supported": 18
+  },
+  "interpretation": "The 22 historical outcomes demonstrate matched single-axis execution and negative-result retention, but not causal cross-task learning. The policy selected which action was observed, so missing counterfactual actions and action imbalance prevent routing claims.",
+  "largest_action_share": 0.8181818181818182,
+  "memory_record_count": 22,
+  "recommended_next_evidence": {
+    "actions": [
+      "data-quality-filter",
+      "feature-domain-shift",
+      "model-estimator-family"
+    ],
+    "design": "prospective_complete_action_grid",
+    "minimum_matched_action_episodes": 15,
+    "minimum_sentinel_endpoints": 5,
+    "purpose": "Estimate action-by-hardness transport effects; do not optimize the already-qualified frozen application models.",
+    "selection_data": "train_and_validation_only",
+    "test_feedback": false
+  },
+  "routing_ready": false,
+  "selected_action_normalized_entropy": 0.5246455665662211,
+  "single_axis_verified_tasks": 22,
+  "task_count": 22,
+  "task_rows": [
+    {
+      "axis": "feature",
+      "category": "toxicity",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "AMES",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "distribution",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "BBB_Martins",
+      "test_loaded": false
+    },
+    {
+      "axis": "model",
+      "category": "absorption",
+      "selected_action_id": "model-imbalance-aware",
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "Bioavailability_Ma",
+      "test_loaded": false
+    },
+    {
+      "axis": "model",
+      "category": "metabolism",
+      "selected_action_id": "model-imbalance-aware",
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "metabolism",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "metabolism",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "metabolism",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "CYP2D6_Veith",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "metabolism",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "metabolism",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "CYP3A4_Veith",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "absorption",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Caco2_Wang",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "excretion",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "excretion",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Clearance_Microsome_AZ",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "toxicity",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "DILI",
+      "test_loaded": false
+    },
+    {
+      "axis": "model",
+      "category": "absorption",
+      "selected_action_id": "model-imbalance-aware",
+      "single_axis_verified": true,
+      "status": "inconclusive",
+      "task": "HIA_Hou",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "excretion",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Half_Life_Obach",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "toxicity",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "LD50_Zhu",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "absorption",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Lipophilicity_AstraZeneca",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "distribution",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "PPBR_AZ",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "absorption",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Pgp_Broccatelli",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "absorption",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "Solubility_AqSolDB",
+      "test_loaded": false
+    },
+    {
+      "axis": "feature",
+      "category": "distribution",
+      "selected_action_id": "feature-domain-shift",
+      "single_axis_verified": true,
+      "status": "supported",
+      "task": "VDss_Lombardo",
+      "test_loaded": false
+    },
+    {
+      "axis": "data",
+      "category": "toxicity",
+      "selected_action_id": "data-leakage-safe",
+      "single_axis_verified": true,
+      "status": "refuted",
+      "task": "hERG",
+      "test_loaded": false
+    }
+  ],
+  "test_loaded": false,
+  "transport_eligible_record_count": 0,
+  "version": "cross-task-memory-readiness-v1"
+}

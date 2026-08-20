@@ -1,0 +1,3845 @@
+{
+  "action_width_replay": {
+    "1": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.10738148677358549,
+      "practically_equivalent_tasks": 4,
+      "tasks_evaluated": 22
+    },
+    "10": {
+      "max_oriented_regret": 0.06862813718256633,
+      "mean_oriented_regret": 0.005831497573694595,
+      "practically_equivalent_tasks": 18,
+      "tasks_evaluated": 21
+    },
+    "11": {
+      "max_oriented_regret": 0.06862813718256633,
+      "mean_oriented_regret": 0.0032680065325031587,
+      "practically_equivalent_tasks": 20,
+      "tasks_evaluated": 21
+    },
+    "12": {
+      "max_oriented_regret": 0.0,
+      "mean_oriented_regret": 0.0,
+      "practically_equivalent_tasks": 21,
+      "tasks_evaluated": 21
+    },
+    "2": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.09943804591479723,
+      "practically_equivalent_tasks": 5,
+      "tasks_evaluated": 22
+    },
+    "3": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.08872820766517996,
+      "practically_equivalent_tasks": 8,
+      "tasks_evaluated": 22
+    },
+    "4": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.08450968081360798,
+      "practically_equivalent_tasks": 13,
+      "tasks_evaluated": 22
+    },
+    "5": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.08197414932714225,
+      "practically_equivalent_tasks": 15,
+      "tasks_evaluated": 22
+    },
+    "6": {
+      "max_oriented_regret": 1.5599224122571549,
+      "mean_oriented_regret": 0.08116264476217594,
+      "practically_equivalent_tasks": 16,
+      "tasks_evaluated": 22
+    },
+    "7": {
+      "max_oriented_regret": 0.12711233574596825,
+      "mean_oriented_regret": 0.012049837269338332,
+      "practically_equivalent_tasks": 17,
+      "tasks_evaluated": 22
+    },
+    "8": {
+      "max_oriented_regret": 0.06862813718256633,
+      "mean_oriented_regret": 0.005973657358767804,
+      "practically_equivalent_tasks": 18,
+      "tasks_evaluated": 22
+    },
+    "9": {
+      "max_oriented_regret": 0.06862813718256633,
+      "mean_oriented_regret": 0.0055664295021630224,
+      "practically_equivalent_tasks": 19,
+      "tasks_evaluated": 22
+    }
+  },
+  "ensemble_finalists": 17,
+  "limitations": [
+    "Replay uses only candidates already promoted in the frozen run.",
+    "Search summaries retain only the top three ensemble candidates.",
+    "Validation replay cannot establish validation-to-test transfer."
+  ],
+  "material_ensemble_gains": 7,
+  "practical_effect": 0.005,
+  "promotion_width_replay": {
+    "1": {
+      "max_oriented_regret": 0.16484179274821642,
+      "mean_oriented_regret": 0.019461921264973845,
+      "practically_equivalent_tasks": 9,
+      "tasks_evaluated": 22
+    },
+    "2": {
+      "max_oriented_regret": 0.12711233574596825,
+      "mean_oriented_regret": 0.012426201793847107,
+      "practically_equivalent_tasks": 14,
+      "tasks_evaluated": 22
+    },
+    "3": {
+      "max_oriented_regret": 0.023633158842283786,
+      "mean_oriented_regret": 0.002778620489716017,
+      "practically_equivalent_tasks": 18,
+      "tasks_evaluated": 22
+    },
+    "4": {
+      "max_oriented_regret": 0.0212064079115013,
+      "mean_oriented_regret": 0.0015718327113094838,
+      "practically_equivalent_tasks": 20,
+      "tasks_evaluated": 22
+    },
+    "5": {
+      "max_oriented_regret": 0.008369589150102219,
+      "mean_oriented_regret": 0.0005147383317822778,
+      "practically_equivalent_tasks": 21,
+      "tasks_evaluated": 22
+    },
+    "6": {
+      "max_oriented_regret": 0.0,
+      "mean_oriented_regret": 0.0,
+      "practically_equivalent_tasks": 22,
+      "tasks_evaluated": 22
+    }
+  },
+  "protocol": "discovery-only-search-redundancy-replay-v1",
+  "run_dir": "runs/v3-agent-tdc22-v5",
+  "tasks": [
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 4,
+      "best_single_run_id": "ames-1-c6325f9d",
+      "best_single_score": 0.871897054415623,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.008369589150102219,
+      "finalist_members": [
+        "ames-1-a1aaeb5d",
+        "ames-1-6f609fcd"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "ames-ensemble-c2bfd891",
+      "finalist_score": 0.8802666435657253,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 3,
+      "minimum_execution_prefix_for_finalist": 4,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.010519386550052912,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-a1aaeb5d",
+          "validation_score": 0.8697472570156723,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.008369589150102219,
+          "practically_equivalent": false,
+          "selected_run_id": "ames-1-c6325f9d",
+          "validation_score": 0.871897054415623,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ames-ensemble-c2bfd891",
+          "validation_score": 0.8802666435657253,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "AMES",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 11
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.0008339634396280493,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-1-81f893e0",
+          "validation_score": 0.9440320176889824,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 6,
+      "best_single_run_id": "bbb_martins-1-81f893e0",
+      "best_single_score": 0.9440320176889824,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0008339634396280493,
+      "finalist_members": [
+        "bbb_martins-1-81f893e0",
+        "bbb_martins-1-90c78a38"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "bbb_martins-ensemble-e5c61f37",
+      "finalist_score": 0.9448659811286104,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 4,
+      "minimum_execution_prefix_for_finalist": 2,
+      "oriented_gain_actions_5_to_8": 0.00967365967365974,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.011676007870069505,
+          "practically_equivalent": false,
+          "selected_run_id": "bbb_martins-1-1e269624",
+          "validation_score": 0.9331899732585409,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.011676007870069505,
+          "practically_equivalent": false,
+          "selected_run_id": "bbb_martins-1-1e269624",
+          "validation_score": 0.9331899732585409,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.011676007870069505,
+          "practically_equivalent": false,
+          "selected_run_id": "bbb_martins-1-1e269624",
+          "validation_score": 0.9331899732585409,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0003768780451440801,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-471ca29c",
+          "validation_score": 0.9444891030834663,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bbb_martins-ensemble-e5c61f37",
+          "validation_score": 0.9448659811286104,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "BBB_Martins",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 11
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.03777669399399042,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-8c0c48dc",
+          "validation_score": 0.6851990085979912,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.033158670302565585,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-435d139b",
+          "validation_score": 0.689817032289416,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.02284100177922843,
+          "practically_equivalent": false,
+          "selected_run_id": "bioavailability_ma-1-a7371bc6",
+          "validation_score": 0.7001347008127532,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 3,
+      "best_single_run_id": "bioavailability_ma-1-4df92185",
+      "best_single_score": 0.7181297914779019,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.004845911114079726,
+      "finalist_members": [
+        "bioavailability_ma-1-4df92185",
+        "bioavailability_ma-1-6c235ec2"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "bioavailability_ma-ensemble-3b0abe09",
+      "finalist_score": 0.7229757025919816,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 3,
+      "minimum_execution_prefix_for_finalist": 11,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.004845911114079726,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-1-4df92185",
+          "validation_score": 0.7181297914779019,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0038358105073221793,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-d35c07c3",
+          "validation_score": 0.7191398920846594,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "bioavailability_ma-ensemble-3b0abe09",
+          "validation_score": 0.7229757025919816,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Bioavailability_Ma",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 5
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.08866780887995429,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-e66c1607",
+          "validation_score": 0.3914488237962943,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 2,
+      "best_single_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+      "best_single_score": 0.4801166326762486,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0,
+      "finalist_members": [
+        "cyp2c9_substrate_carbonmangels-1-17012d8b"
+      ],
+      "finalist_model": "lightgbm",
+      "finalist_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+      "finalist_score": 0.4801166326762486,
+      "maximize": true,
+      "metric": "auprc",
+      "minimum_current_promotion_width_for_finalist": 2,
+      "minimum_execution_prefix_for_finalist": 2,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.028367102683858225,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-8dbfd5a0",
+          "validation_score": 0.4517495299923904,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_substrate_carbonmangels-1-17012d8b",
+          "validation_score": 0.4801166326762486,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 2
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.0424426769833256,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-540309da",
+          "validation_score": 0.7754960122237801,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.04204188566782596,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-4f543c83",
+          "validation_score": 0.7758968035392797,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.04204188566782596,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-4f543c83",
+          "validation_score": 0.7758968035392797,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.04204188566782596,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-4f543c83",
+          "validation_score": 0.7758968035392797,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.04204188566782596,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-4f543c83",
+          "validation_score": 0.7758968035392797,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.04204188566782596,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-4f543c83",
+          "validation_score": 0.7758968035392797,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.008037191900157836,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-2b8911ae",
+          "validation_score": 0.8099014973069478,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.008037191900157836,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2c9_veith-1-2b8911ae",
+          "validation_score": 0.8099014973069478,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "cyp2c9_veith-1-ac85796d",
+      "best_single_score": 0.8179386892071057,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0,
+      "finalist_members": [
+        "cyp2c9_veith-1-ac85796d"
+      ],
+      "finalist_model": "lightgbm",
+      "finalist_run_id": "cyp2c9_veith-1-ac85796d",
+      "finalist_score": 0.8179386892071057,
+      "maximize": true,
+      "metric": "auprc",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 9,
+      "oriented_gain_actions_5_to_8": 0.004039585877763985,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2c9_veith-1-ac85796d",
+          "validation_score": 0.8179386892071057,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 1
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.02304912456997299,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-0ed4d0ee",
+          "validation_score": 0.6348569315915927,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.02304912456997299,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-0ed4d0ee",
+          "validation_score": 0.6348569315915927,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.020463935418484902,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-e56ad18c",
+          "validation_score": 0.6374421207430808,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.004221229940581717,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-0755bb53",
+          "validation_score": 0.653684826220984,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 2,
+      "best_single_run_id": "cyp2d6_substrate_carbonmangels-1-e56ad18c",
+      "best_single_score": 0.6374421207430808,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.020463935418484902,
+      "finalist_members": [
+        "cyp2d6_substrate_carbonmangels-1-e56ad18c",
+        "cyp2d6_substrate_carbonmangels-1-768d3925"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+      "finalist_score": 0.6579060561615657,
+      "maximize": true,
+      "metric": "auprc",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 5,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.08185666233328237,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-da06dec7",
+          "validation_score": 0.5760493938282834,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.08027299442127045,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-daa4cfb0",
+          "validation_score": 0.5776330617402953,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.023633158842283786,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-768d3925",
+          "validation_score": 0.6342728973192819,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0212064079115013,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-1-41b7ad26",
+          "validation_score": 0.6366996482500644,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_substrate_carbonmangels-ensemble-bb306af6",
+          "validation_score": 0.6579060561615657,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 7
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.04655579327096393,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_veith-1-34703a0d",
+          "validation_score": 0.6775996531337078,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.038920320302476274,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_veith-1-dc64c16d",
+          "validation_score": 0.6852351261021955,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.038920320302476274,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_veith-1-dc64c16d",
+          "validation_score": 0.6852351261021955,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.038920320302476274,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp2d6_veith-1-dc64c16d",
+          "validation_score": 0.6852351261021955,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "cyp2d6_veith-1-ea474e04",
+      "best_single_score": 0.7204347265764043,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0037207198282674936,
+      "finalist_members": [
+        "cyp2d6_veith-1-ea474e04",
+        "cyp2d6_veith-1-1992f0a6"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+      "finalist_score": 0.7241554464046718,
+      "maximize": true,
+      "metric": "auprc",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 5,
+      "oriented_gain_actions_5_to_8": 0.03259451927006285,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0037207198282674936,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-1-ea474e04",
+          "validation_score": 0.7204347265764043,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0037207198282674936,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-1-ea474e04",
+          "validation_score": 0.7204347265764043,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0037207198282674936,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-1-ea474e04",
+          "validation_score": 0.7204347265764043,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0011273972893037776,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-3e33ed79",
+          "validation_score": 0.723028049115368,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0011273972893037776,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-3e33ed79",
+          "validation_score": 0.723028049115368,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp2d6_veith-ensemble-4bd4b718",
+          "validation_score": 0.7241554464046718,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP2D6_Veith",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 12
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.01275886847574681,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-1-8908474f",
+          "validation_score": 0.6979491783655337,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.01275886847574681,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-1-8908474f",
+          "validation_score": 0.6979491783655337,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.01275886847574681,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-1-8908474f",
+          "validation_score": 0.6979491783655337,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.01275886847574681,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-1-8908474f",
+          "validation_score": 0.6979491783655337,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.00011872601655871229,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-09c41d42",
+          "validation_score": 0.7105893208247218,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 2,
+      "best_single_run_id": "cyp3a4_substrate_carbonmangels-1-a9a73bac",
+      "best_single_score": 0.7074871017029659,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0032209451383146126,
+      "finalist_members": [
+        "cyp3a4_substrate_carbonmangels-1-a9a73bac",
+        "cyp3a4_substrate_carbonmangels-1-f7166f1c"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+      "finalist_score": 0.7107080468412805,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 5,
+      "minimum_execution_prefix_for_finalist": 6,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.026263889821592334,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-1-b9dd9f1e",
+          "validation_score": 0.6844441570196882,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.00011872601655871229,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-09c41d42",
+          "validation_score": 0.7105893208247218,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.00011872601655871229,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-09c41d42",
+          "validation_score": 0.7105893208247218,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_substrate_carbonmangels-ensemble-bc1983c4",
+          "validation_score": 0.7107080468412805,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 6
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.02961706474247816,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_veith-1-e6e8b2b7",
+          "validation_score": 0.842753445448545,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.02961706474247816,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_veith-1-e6e8b2b7",
+          "validation_score": 0.842753445448545,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.02961706474247816,
+          "practically_equivalent": false,
+          "selected_run_id": "cyp3a4_veith-1-e6e8b2b7",
+          "validation_score": 0.842753445448545,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0019375613744239129,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-1-896c553c",
+          "validation_score": 0.8704329488165993,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0019375613744239129,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-1-896c553c",
+          "validation_score": 0.8704329488165993,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0019375613744239129,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-1-896c553c",
+          "validation_score": 0.8704329488165993,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 4,
+      "best_single_run_id": "cyp3a4_veith-1-a01947ec",
+      "best_single_score": 0.8710244316921951,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0013460784988280627,
+      "finalist_members": [
+        "cyp3a4_veith-1-a01947ec",
+        "cyp3a4_veith-1-896c553c"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+      "finalist_score": 0.8723705101910232,
+      "maximize": true,
+      "metric": "auprc",
+      "minimum_current_promotion_width_for_finalist": 4,
+      "minimum_execution_prefix_for_finalist": 7,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0019375613744239129,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-1-896c553c",
+          "validation_score": 0.8704329488165993,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "cyp3a4_veith-ensemble-eba3f6a9",
+          "validation_score": 0.8723705101910232,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "CYP3A4_Veith",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 3
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.012574697575332583,
+          "practically_equivalent": false,
+          "selected_run_id": "caco2_wang-1-e63bbf62",
+          "validation_score": 0.3675830236697802,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.012574697575332583,
+          "practically_equivalent": false,
+          "selected_run_id": "caco2_wang-1-e63bbf62",
+          "validation_score": 0.3675830236697802,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.003923381747444332,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-1-834d8a7c",
+          "validation_score": 0.35893170784189193,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "caco2_wang-1-27f4b645",
+      "best_single_score": 0.3586436646517508,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0036353385573031916,
+      "finalist_members": [
+        "caco2_wang-1-27f4b645",
+        "caco2_wang-1-834d8a7c"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "caco2_wang-ensemble-e70326e9",
+      "finalist_score": 0.3550083260944476,
+      "maximize": false,
+      "metric": "mae",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 4,
+      "oriented_gain_actions_5_to_8": 0.003934779671654398,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.016853800351226078,
+          "practically_equivalent": false,
+          "selected_run_id": "caco2_wang-1-a38c3063",
+          "validation_score": 0.3718621264456737,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.016853800351226078,
+          "practically_equivalent": false,
+          "selected_run_id": "caco2_wang-1-a38c3063",
+          "validation_score": 0.3718621264456737,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.003923381747444332,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-1-834d8a7c",
+          "validation_score": 0.35893170784189193,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "caco2_wang-ensemble-e70326e9",
+          "validation_score": 0.3550083260944476,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Caco2_Wang",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 5
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.11046970983538679,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-2f2960cb",
+          "validation_score": 0.3328551729069158,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.06862813718256633,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_hepatocyte_az-1-90f19bc5",
+          "validation_score": 0.37469674555973626,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "clearance_hepatocyte_az-1-e20b8c23",
+      "best_single_score": 0.44126979009508316,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0020550926472194253,
+      "finalist_members": [
+        "clearance_hepatocyte_az-1-e20b8c23",
+        "clearance_hepatocyte_az-1-90f19bc5"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+      "finalist_score": 0.4433248827423026,
+      "maximize": true,
+      "metric": "spearman",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 12,
+      "oriented_gain_actions_5_to_8": 0.003469551315477881,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0020550926472194253,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-1-e20b8c23",
+          "validation_score": 0.44126979009508316,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_hepatocyte_az-ensemble-d9e7259e",
+          "validation_score": 0.4433248827423026,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 4
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.1256136041073137,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-48807c0b",
+          "validation_score": 0.42783627203995733,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.1256136041073137,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-48807c0b",
+          "validation_score": 0.42783627203995733,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.017131081114788005,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-3d76d194",
+          "validation_score": 0.536318795032483,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.01653312468203849,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-ea2adceb",
+          "validation_score": 0.5369167514652325,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.01653312468203849,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-ea2adceb",
+          "validation_score": 0.5369167514652325,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 6,
+      "best_single_run_id": "clearance_microsome_az-1-ea2adceb",
+      "best_single_score": 0.5369167514652325,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.01653312468203849,
+      "finalist_members": [
+        "clearance_microsome_az-1-ea2adceb",
+        "clearance_microsome_az-1-b83c7074"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+      "finalist_score": 0.553449876147271,
+      "maximize": true,
+      "metric": "spearman",
+      "minimum_current_promotion_width_for_finalist": 4,
+      "minimum_execution_prefix_for_finalist": 6,
+      "oriented_gain_actions_5_to_8": 0.0456251789222516,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.022076678721970944,
+          "practically_equivalent": false,
+          "selected_run_id": "clearance_microsome_az-1-b83c7074",
+          "validation_score": 0.5313731974253001,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "clearance_microsome_az-ensemble-5b38eee6",
+          "validation_score": 0.553449876147271,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Clearance_Microsome_AZ",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 2
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.028676365265512538,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-918be31b",
+          "validation_score": 0.8466432985619032,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.028676365265512538,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-918be31b",
+          "validation_score": 0.8466432985619032,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.028676365265512538,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-918be31b",
+          "validation_score": 0.8466432985619032,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 8,
+      "best_single_run_id": "dili-1-f8294045",
+      "best_single_score": 0.8686649332579565,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.006654730569459311,
+      "finalist_members": [
+        "dili-1-f8294045",
+        "dili-1-0d8cc2b6"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "dili-ensemble-f3d88a93",
+      "finalist_score": 0.8753196638274158,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 5,
+      "minimum_execution_prefix_for_finalist": 4,
+      "oriented_gain_actions_5_to_8": 0.010570824524312905,
+      "oriented_gain_actions_7_to_8": 0.010570824524312905,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.02331136420283708,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-504d324f",
+          "validation_score": 0.8520082996245787,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.007647721213612568,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-e256b611",
+          "validation_score": 0.8676719426138032,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.006654730569459311,
+          "practically_equivalent": false,
+          "selected_run_id": "dili-1-f8294045",
+          "validation_score": 0.8686649332579565,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0016679602338518507,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-b9292b3d",
+          "validation_score": 0.8736517035935639,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "dili-ensemble-f3d88a93",
+          "validation_score": 0.8753196638274158,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "DILI",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 7
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.0033873963440527177,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-a6597b79",
+          "validation_score": 0.9873400464506839,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.0033873963440527177,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-a6597b79",
+          "validation_score": 0.9873400464506839,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0033873963440527177,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-a6597b79",
+          "validation_score": 0.9873400464506839,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0012012497306616021,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-040f36c7",
+          "validation_score": 0.989526193064075,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0012012497306616021,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-040f36c7",
+          "validation_score": 0.989526193064075,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 2,
+      "best_single_run_id": "hia_hou-1-040f36c7",
+      "best_single_score": 0.989526193064075,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0012012497306616021,
+      "finalist_members": [
+        "hia_hou-1-040f36c7",
+        "hia_hou-1-55dfa08b"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "hia_hou-ensemble-a35c09a4",
+      "finalist_score": 0.9907274427947366,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 4,
+      "minimum_execution_prefix_for_finalist": 6,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.006834609908095701,
+          "practically_equivalent": false,
+          "selected_run_id": "hia_hou-1-676ed612",
+          "validation_score": 0.9838928328866409,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.006834609908095701,
+          "practically_equivalent": false,
+          "selected_run_id": "hia_hou-1-676ed612",
+          "validation_score": 0.9838928328866409,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0012012497306616021,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-1-040f36c7",
+          "validation_score": 0.989526193064075,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "hia_hou-ensemble-a35c09a4",
+          "validation_score": 0.9907274427947366,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "HIA_Hou",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 4
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 1,
+      "best_single_run_id": "half_life_obach-1-1a266710",
+      "best_single_score": 0.3381110001740362,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0,
+      "finalist_members": [
+        "half_life_obach-1-1a266710"
+      ],
+      "finalist_model": "extra_trees",
+      "finalist_run_id": "half_life_obach-1-1a266710",
+      "finalist_score": 0.3381110001740362,
+      "maximize": true,
+      "metric": "spearman",
+      "minimum_current_promotion_width_for_finalist": 1,
+      "minimum_execution_prefix_for_finalist": 1,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "half_life_obach-1-1a266710",
+          "validation_score": 0.3381110001740362,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Half_Life_Obach",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 1
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.024313235827451596,
+          "practically_equivalent": false,
+          "selected_run_id": "ld50_zhu-1-8bc968c5",
+          "validation_score": 0.5118886741474241,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.024313235827451596,
+          "practically_equivalent": false,
+          "selected_run_id": "ld50_zhu-1-8bc968c5",
+          "validation_score": 0.5118886741474241,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.005131942679426238,
+          "practically_equivalent": false,
+          "selected_run_id": "ld50_zhu-1-14d08137",
+          "validation_score": 0.49270738099939876,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 9
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "ld50_zhu-1-267fd669",
+      "best_single_score": 0.4910761352029137,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.00350069688294119,
+      "finalist_members": [
+        "ld50_zhu-1-267fd669",
+        "ld50_zhu-1-8bc968c5"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "ld50_zhu-ensemble-a6738e30",
+      "finalist_score": 0.4875754383199725,
+      "maximize": false,
+      "metric": "mae",
+      "minimum_current_promotion_width_for_finalist": 5,
+      "minimum_execution_prefix_for_finalist": 4,
+      "oriented_gain_actions_5_to_8": 0.0033160892260925,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 9,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.004624557506605509,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-1-c6d21a05",
+          "validation_score": 0.49219999582657803,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 4.830159101298914e-06,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-b42eedda",
+          "validation_score": 0.4875802684790738,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 4.830159101298914e-06,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-b42eedda",
+          "validation_score": 0.4875802684790738,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 4.830159101298914e-06,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-b42eedda",
+          "validation_score": 0.4875802684790738,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ld50_zhu-ensemble-a6738e30",
+          "validation_score": 0.4875754383199725,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "LD50_Zhu",
+      "test_loaded": false,
+      "total_recorded_fits": 33,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 8
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.054517478131781316,
+          "practically_equivalent": false,
+          "selected_run_id": "lipophilicity_astrazeneca-1-7fe1437a",
+          "validation_score": 0.5737109484126984,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.054517478131781316,
+          "practically_equivalent": false,
+          "selected_run_id": "lipophilicity_astrazeneca-1-7fe1437a",
+          "validation_score": 0.5737109484126984,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 3,
+      "best_single_run_id": "lipophilicity_astrazeneca-1-5565562d",
+      "best_single_score": 0.5191934702809171,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0,
+      "finalist_members": [
+        "lipophilicity_astrazeneca-1-5565562d"
+      ],
+      "finalist_model": "lightgbm",
+      "finalist_run_id": "lipophilicity_astrazeneca-1-5565562d",
+      "finalist_score": 0.5191934702809171,
+      "maximize": false,
+      "metric": "mae",
+      "minimum_current_promotion_width_for_finalist": 3,
+      "minimum_execution_prefix_for_finalist": 3,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "lipophilicity_astrazeneca-1-5565562d",
+          "validation_score": 0.5191934702809171,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Lipophilicity_AstraZeneca",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 1
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 1
+        },
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 2
+        },
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 3
+        },
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 4
+        },
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 5
+        },
+        {
+          "oriented_regret": 1.5599224122571549,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-b4478074",
+          "validation_score": 10.596118278823178,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.12711233574596825,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-1829aaff",
+          "validation_score": 9.163308202311992,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 7,
+      "best_single_run_id": "ppbr_az-1-9a80a7e8",
+      "best_single_score": 9.06269607416939,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.02650020760336602,
+      "finalist_members": [
+        "ppbr_az-1-9a80a7e8",
+        "ppbr_az-1-1829aaff"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "ppbr_az-ensemble-33a18440",
+      "finalist_score": 9.036195866566024,
+      "maximize": false,
+      "metric": "mae",
+      "minimum_current_promotion_width_for_finalist": 2,
+      "minimum_execution_prefix_for_finalist": 8,
+      "oriented_gain_actions_5_to_8": 0.23040264487904416,
+      "oriented_gain_actions_7_to_8": 0.23040264487904416,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.16484179274821642,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-c6e69c0f",
+          "validation_score": 9.20103765931424,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.12711233574596825,
+          "practically_equivalent": false,
+          "selected_run_id": "ppbr_az-1-1829aaff",
+          "validation_score": 9.163308202311992,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "ppbr_az-ensemble-33a18440",
+          "validation_score": 9.036195866566024,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "PPBR_AZ",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 3
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.0018272568598041161,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-1-bcbb9ec1",
+          "validation_score": 0.9629714624148926,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 5,
+      "best_single_run_id": "pgp_broccatelli-1-bcbb9ec1",
+      "best_single_score": 0.9629714624148926,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0018272568598041161,
+      "finalist_members": [
+        "pgp_broccatelli-1-bcbb9ec1",
+        "pgp_broccatelli-1-d00665bd"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "pgp_broccatelli-ensemble-e13d729e",
+      "finalist_score": 0.9647987192746967,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 2,
+      "minimum_execution_prefix_for_finalist": 2,
+      "oriented_gain_actions_5_to_8": 0.002690341673392549,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.007806672662088565,
+          "practically_equivalent": false,
+          "selected_run_id": "pgp_broccatelli-1-b51394d4",
+          "validation_score": 0.9569920466126082,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0018272568598041161,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-1-bcbb9ec1",
+          "validation_score": 0.9629714624148926,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0018272568598041161,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-1-bcbb9ec1",
+          "validation_score": 0.9629714624148926,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0018272568598041161,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-1-bcbb9ec1",
+          "validation_score": 0.9629714624148926,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.0018272568598041161,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-1-bcbb9ec1",
+          "validation_score": 0.9629714624148926,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "pgp_broccatelli-ensemble-e13d729e",
+          "validation_score": 0.9647987192746967,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Pgp_Broccatelli",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 12
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.050820200313180464,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-f45868cf",
+          "validation_score": 0.8630515297829742,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.03993440406333626,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-0759bcb5",
+          "validation_score": 0.85216573353313,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.03993440406333626,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-0759bcb5",
+          "validation_score": 0.85216573353313,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.03993440406333626,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-0759bcb5",
+          "validation_score": 0.85216573353313,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.03993440406333626,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-0759bcb5",
+          "validation_score": 0.85216573353313,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.03993440406333626,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-0759bcb5",
+          "validation_score": 0.85216573353313,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.03755593237237509,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-5aaa68a9",
+          "validation_score": 0.8497872618421688,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.03099231008579173,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-a582f18d",
+          "validation_score": 0.8432236395555854,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.03099231008579173,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-a582f18d",
+          "validation_score": 0.8432236395555854,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.03099231008579173,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-a582f18d",
+          "validation_score": 0.8432236395555854,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 4,
+      "best_single_run_id": "solubility_aqsoldb-1-b18e8e37",
+      "best_single_score": 0.8173333669030315,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.005102037433237783,
+      "finalist_members": [
+        "solubility_aqsoldb-1-b18e8e37",
+        "solubility_aqsoldb-1-0759bcb5"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+      "finalist_score": 0.8122313294697937,
+      "maximize": false,
+      "metric": "mae",
+      "minimum_current_promotion_width_for_finalist": 6,
+      "minimum_execution_prefix_for_finalist": 11,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.005102037433237783,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-b18e8e37",
+          "validation_score": 0.8173333669030315,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.005102037433237783,
+          "practically_equivalent": false,
+          "selected_run_id": "solubility_aqsoldb-1-b18e8e37",
+          "validation_score": 0.8173333669030315,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "solubility_aqsoldb-ensemble-b65a9118",
+          "validation_score": 0.8122313294697937,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "Solubility_AqSolDB",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 8
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.050272782443334885,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-9f9e2859",
+          "validation_score": 0.6245935385517751,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0009218209451473669,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-9acc0381",
+          "validation_score": 0.6739445000499626,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0009218209451473669,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-9acc0381",
+          "validation_score": 0.6739445000499626,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 7,
+      "best_single_run_id": "vdss_lombardo-1-54a93be3",
+      "best_single_score": 0.6693979009228094,
+      "ensemble_material": true,
+      "ensemble_oriented_gain_over_best_single": 0.005468420072300639,
+      "finalist_members": [
+        "vdss_lombardo-1-54a93be3",
+        "vdss_lombardo-1-a27ee973"
+      ],
+      "finalist_model": "ensemble",
+      "finalist_run_id": "vdss_lombardo-ensemble-fdae878b",
+      "finalist_score": 0.67486632099511,
+      "maximize": true,
+      "metric": "spearman",
+      "minimum_current_promotion_width_for_finalist": 4,
+      "minimum_execution_prefix_for_finalist": 9,
+      "oriented_gain_actions_5_to_8": 0.049180055301752956,
+      "oriented_gain_actions_7_to_8": 0.049180055301752956,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": false,
+          "oriented_regret": 0.005468420072300639,
+          "practically_equivalent": false,
+          "selected_run_id": "vdss_lombardo-1-54a93be3",
+          "validation_score": 0.6693979009228094,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "vdss_lombardo-ensemble-fdae878b",
+          "validation_score": 0.67486632099511,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "VDss_Lombardo",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 2
+    },
+    {
+      "action_prefix_replay": [
+        {
+          "oriented_regret": 0.04992598655241243,
+          "practically_equivalent": false,
+          "selected_run_id": "herg-1-9d0053d3",
+          "validation_score": 0.8406654765514785,
+          "width": 1
+        },
+        {
+          "oriented_regret": 0.03188097371653442,
+          "practically_equivalent": false,
+          "selected_run_id": "herg-1-ba3a5079",
+          "validation_score": 0.8587104893873565,
+          "width": 2
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 3
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 4
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 5
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 6
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 7
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 8
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 9
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 10
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 11
+        },
+        {
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 12
+        }
+      ],
+      "best_action_position_in_first_8": 3,
+      "best_single_run_id": "herg-1-550f70d8",
+      "best_single_score": 0.8905914631038909,
+      "ensemble_material": false,
+      "ensemble_oriented_gain_over_best_single": 0.0,
+      "finalist_members": [
+        "herg-1-550f70d8"
+      ],
+      "finalist_model": "lightgbm",
+      "finalist_run_id": "herg-1-550f70d8",
+      "finalist_score": 0.8905914631038909,
+      "maximize": true,
+      "metric": "auroc",
+      "minimum_current_promotion_width_for_finalist": 5,
+      "minimum_execution_prefix_for_finalist": 3,
+      "oriented_gain_actions_5_to_8": 0.0,
+      "oriented_gain_actions_7_to_8": 0.0,
+      "primary_actions": 12,
+      "promoted_configurations": 6,
+      "promotion_replay": [
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 1
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 2
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 3
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 4
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 5
+        },
+        {
+          "captures_actual_finalist_members": true,
+          "oriented_regret": 0.0,
+          "practically_equivalent": true,
+          "selected_run_id": "herg-1-550f70d8",
+          "validation_score": 0.8905914631038909,
+          "width": 6
+        }
+      ],
+      "replay_scope": "current_promoted_pool_and_summary_top3_ensembles",
+      "task": "hERG",
+      "test_loaded": false,
+      "total_recorded_fits": 36,
+      "validation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "worst_primary_score_rank_for_finalist": 1
+    }
+  ],
+  "tasks_captured_within_4_promotions": 12,
+  "tasks_captured_within_8_actions": 17,
+  "tasks_complete": 22,
+  "tasks_practically_equivalent_with_8_actions": 18,
+  "test_loaded": false
+}

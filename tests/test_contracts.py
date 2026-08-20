@@ -3,6 +3,7 @@ import pytest
 from admet_agent.brain import RuleBasedBrain
 from admet_agent.guard import ProtocolViolation, validate_experiment
 from admet_agent.memory import ExperimentMemory
+from admet_agent.registry import planner_catalog
 from admet_agent.schemas import ExperimentSpec, TaskProfile
 
 
@@ -51,3 +52,11 @@ def test_memory_is_append_only_jsonl(tmp_path):
     memory.append({"task": "Caco2_Wang", "score": 0.2})
     assert list(memory.records("hia_hou")) == [{"score": 0.7, "task": "HIA_Hou"}]
     assert len((tmp_path / "memory.jsonl").read_text().splitlines()) == 2
+
+
+def test_unimol2_is_exposed_with_dependency_availability():
+    representations = {
+        item["name"]: item for item in planner_catalog()["representations"]
+    }
+    assert representations["unimol2"]["family"] == "pretrained_3d"
+    assert isinstance(representations["unimol2"]["available"], bool)

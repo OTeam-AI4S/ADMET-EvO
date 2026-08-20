@@ -1,0 +1,113 @@
+{
+  "action_status_counts": {
+    "inconclusive": 1,
+    "not_evaluated": 1,
+    "refuted": 1,
+    "supported": 1
+  },
+  "complete_tdc22": false,
+  "mean_finalist_validation_std": 0.07466246369655781,
+  "missing_tasks": [
+    "AMES",
+    "BBB_Martins",
+    "CYP2C9_Veith",
+    "CYP2D6_Veith",
+    "CYP3A4_Substrate_CarbonMangels",
+    "CYP3A4_Veith",
+    "Caco2_Wang",
+    "Clearance_Hepatocyte_AZ",
+    "Clearance_Microsome_AZ",
+    "DILI",
+    "Half_Life_Obach",
+    "LD50_Zhu",
+    "Lipophilicity_AstraZeneca",
+    "PPBR_AZ",
+    "Pgp_Broccatelli",
+    "Solubility_AqSolDB",
+    "VDss_Lombardo",
+    "hERG"
+  ],
+  "protocol": "discovery_only_multi_seed_search_report",
+  "run_dir": "runs/v3-priority-pilot",
+  "stability_risk_tasks": [
+    "Bioavailability_Ma",
+    "CYP2C9_Substrate_CarbonMangels",
+    "CYP2D6_Substrate_CarbonMangels"
+  ],
+  "task_count": 4,
+  "tasks": [
+    {
+      "action_oriented_delta": 0.009613242055102611,
+      "action_status": "supported",
+      "finalist_model": "ensemble",
+      "hardness": 0.37746059065375864,
+      "metric": "auroc",
+      "selected_action": "model-imbalance-aware",
+      "source": "runs/v3-priority-pilot/tasks/Bioavailability_Ma/search_seed_1.json",
+      "stability_risk": true,
+      "task": "Bioavailability_Ma",
+      "validation_score": 0.7965864626329742,
+      "validation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "validation_std": 0.07073871202503695
+    },
+    {
+      "action_oriented_delta": -0.016533559009533405,
+      "action_status": "refuted",
+      "finalist_model": "lightgbm",
+      "hardness": 0.35986445791431154,
+      "metric": "auprc",
+      "selected_action": "model-imbalance-aware",
+      "source": "runs/v3-priority-pilot/tasks/CYP2C9_Substrate_CarbonMangels/search_seed_1.json",
+      "stability_risk": true,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "validation_score": 0.4988205348550956,
+      "validation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "validation_std": 0.14759548734250508
+    },
+    {
+      "action_oriented_delta": null,
+      "action_status": "not_evaluated",
+      "finalist_model": "ensemble",
+      "hardness": 0.38250657750439665,
+      "metric": "auprc",
+      "selected_action": "model-imbalance-aware",
+      "source": "runs/v3-priority-pilot/tasks/CYP2D6_Substrate_CarbonMangels/search_seed_1.json",
+      "stability_risk": true,
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "validation_score": 0.6088492203710865,
+      "validation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "validation_std": 0.07921268425828427
+    },
+    {
+      "action_oriented_delta": -0.0029357897004955724,
+      "action_status": "inconclusive",
+      "finalist_model": "ensemble",
+      "hardness": 0.37317876730620114,
+      "metric": "auroc",
+      "selected_action": "model-imbalance-aware",
+      "source": "runs/v3-priority-pilot/tasks/HIA_Hou/search_seed_1.json",
+      "stability_risk": false,
+      "task": "HIA_Hou",
+      "validation_score": 0.9947379725959081,
+      "validation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "validation_std": 0.001102971160404903
+    }
+  ],
+  "test_loaded": false
+}

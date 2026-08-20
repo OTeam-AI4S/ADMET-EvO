@@ -1,0 +1,587 @@
+{
+  "complete": true,
+  "dimensions": {
+    "data_quality": {
+      "mean_confidence": 1.0,
+      "mean_severity": 0.005662021268382899,
+      "median_severity": 4.116851206563902e-05,
+      "top_tasks": [
+        {
+          "confidence": 1.0,
+          "severity": 0.03982195454904577,
+          "task": "Clearance_Hepatocyte_AZ"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.03288875162754348,
+          "task": "PPBR_AZ"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.02327495369858081,
+          "task": "Solubility_AqSolDB"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.022519352568613652,
+          "task": "BBB_Martins"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.0023632281696797826,
+          "task": "CYP2C9_Veith"
+        }
+      ]
+    },
+    "domain_shift": {
+      "mean_confidence": 0.6520454545454546,
+      "mean_severity": 0.7483270564496362,
+      "median_severity": 0.7420019538959671,
+      "top_tasks": [
+        {
+          "confidence": 0.27,
+          "severity": 0.8566371184332926,
+          "task": "DILI"
+        },
+        {
+          "confidence": 0.32,
+          "severity": 0.852437545886263,
+          "task": "Bioavailability_Ma"
+        },
+        {
+          "confidence": 0.29,
+          "severity": 0.8221594799500772,
+          "task": "HIA_Hou"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.8157697379587411,
+          "task": "LD50_Zhu"
+        },
+        {
+          "confidence": 0.335,
+          "severity": 0.8013211437424202,
+          "task": "CYP2D6_Substrate_CarbonMangels"
+        }
+      ]
+    },
+    "imbalance": {
+      "mean_confidence": 0.5909090909090909,
+      "mean_severity": 0.20790036115773383,
+      "median_severity": 0.05956894077844399,
+      "top_tasks": [
+        {
+          "confidence": 1.0,
+          "severity": 0.781637717121588,
+          "task": "HIA_Hou"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.6359743040685225,
+          "task": "CYP2C9_Substrate_CarbonMangels"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.6061364378196061,
+          "task": "CYP2D6_Veith"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.5714285714285714,
+          "task": "Bioavailability_Ma"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.5200562983814216,
+          "task": "BBB_Martins"
+        }
+      ]
+    },
+    "local_roughness": {
+      "mean_confidence": 0.6520454545454546,
+      "mean_severity": 0.216296101152912,
+      "median_severity": 0.2217609411124711,
+      "top_tasks": [
+        {
+          "confidence": 0.335,
+          "severity": 0.3443371378402107,
+          "task": "CYP2D6_Substrate_CarbonMangels"
+        },
+        {
+          "confidence": 0.335,
+          "severity": 0.3366311300639659,
+          "task": "CYP3A4_Substrate_CarbonMangels"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.3129611532069157,
+          "task": "Solubility_AqSolDB"
+        },
+        {
+          "confidence": 0.61,
+          "severity": 0.30815236540331153,
+          "task": "Clearance_Hepatocyte_AZ"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.2713497928264704,
+          "task": "LD50_Zhu"
+        }
+      ]
+    },
+    "scarcity": {
+      "mean_confidence": 1.0,
+      "mean_severity": 0.19628999529593655,
+      "median_severity": 0.2214763137080487,
+      "top_tasks": [
+        {
+          "confidence": 1.0,
+          "severity": 0.32080898064025243,
+          "task": "DILI"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.294909725413534,
+          "task": "HIA_Hou"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.2888791215366626,
+          "task": "Half_Life_Obach"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.284336970546772,
+          "task": "hERG"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.28393212290893166,
+          "task": "CYP2D6_Substrate_CarbonMangels"
+        }
+      ]
+    },
+    "split_leakage_risk": {
+      "mean_confidence": 1.0,
+      "mean_severity": 0.0016514359093131078,
+      "median_severity": 0.0,
+      "top_tasks": [
+        {
+          "confidence": 1.0,
+          "severity": 0.015151515151515152,
+          "task": "hERG"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.013013013013013013,
+          "task": "Solubility_AqSolDB"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.0049261083743842365,
+          "task": "BBB_Martins"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.0024793388429752068,
+          "task": "CYP2C9_Veith"
+        },
+        {
+          "confidence": 1.0,
+          "severity": 0.0007616146230007616,
+          "task": "CYP2D6_Veith"
+        }
+      ]
+    }
+  },
+  "expected_tasks": 22,
+  "extra_tasks": [],
+  "mean_hardness": 0.3132488412352802,
+  "median_hardness": 0.31216497682909106,
+  "missing_tasks": [],
+  "observed_tasks": 22,
+  "protocol": "tdc22_discovery_only_hardness_summary_v1",
+  "seed": 1,
+  "selected_action_counts": {
+    "data-leakage-safe": 1,
+    "feature-domain-shift": 17,
+    "model-imbalance-aware": 4
+  },
+  "tasks": [
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.8013211437424202,
+      "domain_shift_confidence": 0.335,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.38250657750439665,
+      "metric": "auprc",
+      "n_train": 465,
+      "selected_action": "model-imbalance-aware",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.852437545886263,
+      "domain_shift_confidence": 0.32,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.37746059065375864,
+      "metric": "auroc",
+      "n_train": 448,
+      "selected_action": "model-imbalance-aware",
+      "task": "Bioavailability_Ma",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.8221594799500772,
+      "domain_shift_confidence": 0.29,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.37317876730620114,
+      "metric": "auroc",
+      "n_train": 403,
+      "selected_action": "model-imbalance-aware",
+      "task": "HIA_Hou",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.7433175165665107,
+      "domain_shift_confidence": 0.335,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.35986445791431154,
+      "metric": "auprc",
+      "n_train": 467,
+      "selected_action": "model-imbalance-aware",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 39,
+      "domain_shift": 0.7361184392603204,
+      "domain_shift_confidence": 0.61,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.34022112329462634,
+      "metric": "spearman",
+      "n_train": 848,
+      "selected_action": "feature-domain-shift",
+      "task": "Clearance_Hepatocyte_AZ",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 73,
+      "domain_shift": 0.7783589005855434,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 13,
+      "hardness": 0.3378064014530741,
+      "metric": "mae",
+      "n_train": 6986,
+      "selected_action": "feature-domain-shift",
+      "task": "Solubility_AqSolDB",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 3,
+      "domain_shift": 0.8157697379587411,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.33669565091586773,
+      "metric": "mae",
+      "n_train": 5168,
+      "selected_action": "feature-domain-shift",
+      "task": "LD50_Zhu",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.8566371184332926,
+      "domain_shift_confidence": 0.27,
+      "dominant_factors": [
+        "domain_shift",
+        "scarcity",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.33453332617305126,
+      "metric": "auroc",
+      "n_train": 325,
+      "selected_action": "feature-domain-shift",
+      "task": "DILI",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.7721827167922898,
+      "domain_shift_confidence": 0.335,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.32217191875203555,
+      "metric": "auroc",
+      "n_train": 468,
+      "selected_action": "feature-domain-shift",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 1,
+      "domain_shift": 0.7406863912254236,
+      "domain_shift_confidence": 0.455,
+      "dominant_factors": [
+        "domain_shift",
+        "scarcity",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.31785706948613435,
+      "metric": "mae",
+      "n_train": 637,
+      "selected_action": "feature-domain-shift",
+      "task": "Caco2_Wang",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.714013409433069,
+      "domain_shift_confidence": 0.555,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.31645880528893555,
+      "metric": "spearman",
+      "n_train": 770,
+      "selected_action": "feature-domain-shift",
+      "task": "Clearance_Microsome_AZ",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 3,
+      "domain_shift": 0.724960414975981,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 1,
+      "hardness": 0.3078711483692465,
+      "metric": "auprc",
+      "n_train": 9191,
+      "selected_action": "feature-domain-shift",
+      "task": "CYP2D6_Veith",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 8,
+      "domain_shift": 0.681151777988229,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 1,
+      "hardness": 0.3018811938980678,
+      "metric": "auroc",
+      "n_train": 1421,
+      "selected_action": "feature-domain-shift",
+      "task": "BBB_Martins",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 47,
+      "domain_shift": 0.7016619000376711,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.301810682612194,
+      "metric": "mae",
+      "n_train": 1952,
+      "selected_action": "feature-domain-shift",
+      "task": "PPBR_AZ",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.6680982773210384,
+      "domain_shift_confidence": 0.33,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 1,
+      "hardness": 0.30045221235743097,
+      "metric": "auroc",
+      "n_train": 457,
+      "selected_action": "data-leakage-safe",
+      "task": "hERG",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.7694530226507904,
+      "domain_shift_confidence": 0.335,
+      "dominant_factors": [
+        "domain_shift",
+        "scarcity",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.30021678501773774,
+      "metric": "spearman",
+      "n_train": 465,
+      "selected_action": "feature-domain-shift",
+      "task": "Half_Life_Obach",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.7891868268618726,
+      "domain_shift_confidence": 0.565,
+      "dominant_factors": [
+        "domain_shift",
+        "scarcity",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.28712305269684624,
+      "metric": "spearman",
+      "n_train": 791,
+      "selected_action": "feature-domain-shift",
+      "task": "VDss_Lombardo",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 1,
+      "domain_shift": 0.7901881937079739,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "imbalance"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.2742501020508538,
+      "metric": "auprc",
+      "n_train": 8628,
+      "selected_action": "feature-domain-shift",
+      "task": "CYP3A4_Veith",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.6403006041473202,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.2657370533352877,
+      "metric": "mae",
+      "n_train": 2940,
+      "selected_action": "feature-domain-shift",
+      "task": "Lipophilicity_AstraZeneca",
+      "task_type": "regression"
+    },
+    {
+      "conflicting_structures": 5,
+      "domain_shift": 0.7018575055929215,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "imbalance",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 3,
+      "hardness": 0.2632754090682133,
+      "metric": "auprc",
+      "n_train": 8463,
+      "selected_action": "feature-domain-shift",
+      "task": "CYP2C9_Veith",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.713127068131961,
+      "domain_shift_confidence": 1.0,
+      "dominant_factors": [
+        "domain_shift",
+        "local_roughness",
+        "scarcity"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.2533108278765849,
+      "metric": "auroc",
+      "n_train": 5093,
+      "selected_action": "feature-domain-shift",
+      "task": "AMES",
+      "task_type": "classification"
+    },
+    {
+      "conflicting_structures": 0,
+      "domain_shift": 0.6502072506422858,
+      "domain_shift_confidence": 0.61,
+      "dominant_factors": [
+        "domain_shift",
+        "scarcity",
+        "local_roughness"
+      ],
+      "exact_train_valid_overlap_rows": 0,
+      "hardness": 0.23679135115130795,
+      "metric": "auroc",
+      "n_train": 851,
+      "selected_action": "feature-domain-shift",
+      "task": "Pgp_Broccatelli",
+      "task_type": "classification"
+    }
+  ],
+  "test_loaded": false
+}

@@ -36,14 +36,31 @@ REPRESENTATIONS = {
         RepresentationTool("atom_pair", "topological", 2048, "Hashed atom-pair fingerprint"),
         RepresentationTool("torsion", "topological", 2048, "Hashed topological-torsion fingerprint"),
         RepresentationTool("rdkit2d", "descriptor", -1, "All finite RDKit 2D descriptors"),
+        RepresentationTool(
+            "unimol2",
+            "pretrained_3d",
+            -1,
+            "Frozen Uni-Mol2 84M molecular CLS representation",
+        ),
     )
 }
+
+
+def is_representation_available(name: str) -> bool:
+    if name == "unimol2":
+        return find_spec("unimol_tools") is not None
+    return True
 
 MODELS = {
     item.name: item
     for item in (
         ModelTool("extra_trees", "bagged_trees"),
         ModelTool("random_forest", "bagged_trees"),
+        ModelTool(
+            "balanced_extra_trees",
+            "undersampling_ensemble",
+            supports_regression=False,
+        ),
         ModelTool("catboost", "gradient_boosting"),
         ModelTool("xgboost", "gradient_boosting"),
         ModelTool("lightgbm", "gradient_boosting"),
@@ -60,7 +77,10 @@ def is_model_available(name: str) -> bool:
 
 def planner_catalog() -> dict:
     return {
-        "representations": [asdict(value) for value in REPRESENTATIONS.values()],
+        "representations": [
+            {**asdict(value), "available": is_representation_available(value.name)}
+            for value in REPRESENTATIONS.values()
+        ],
         "models": [
             {**asdict(value), "available": is_model_available(value.name)}
             for value in MODELS.values()

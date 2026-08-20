@@ -1,0 +1,170 @@
+{
+  "article_type": "Research Article",
+  "full_freeze_sha256": "693db6936485d59791eacfd9005d18efca00056274c11c1cc80efd962058c84b",
+  "graphical_abstract": {
+    "height_px": 300,
+    "max_bytes": 150000,
+    "width_px": 920
+  },
+  "manifest_sha256": "5bf0626b373e07aae7b1a0199c7a137a3f3151c76d40b046c4dbcb63e1b013b3",
+  "manuscript": {
+    "abstract_word_count": 255,
+    "author_placeholders": [
+      "ORCID_REQUIRED",
+      "CORRESPONDING_EMAIL_REQUIRED",
+      "AUTHOR_CONFIRMATION_REQUIRED",
+      "FUNDING_INFORMATION_REQUIRED",
+      "ARCHIVE_DOI_REQUIRED"
+    ],
+    "citation_count": 15,
+    "contribution_heading_present": true,
+    "reference_count": 15
+  },
+  "official_guidelines": [
+    "https://jcheminform.github.io/jcheminform-author-guidelines/guidelines/researchArticle.html",
+    "https://jcheminform.github.io/jcheminform-author-guidelines/guidelines/methodology.html"
+  ],
+  "official_test_loaded_during_generation": false,
+  "outputs": {
+    "paper/submission/jcheminformatics/data_and_code_availability.md": {
+      "bytes": 1252,
+      "sha256": "52b1564e563dc9de7dcdf5c8e383645328c99f04779604be831436311dbde0f8"
+    },
+    "paper/submission/jcheminformatics/graphical_abstract.png": {
+      "bytes": 35154,
+      "sha256": "d1787067745eebec9a576b07e87ea0e2b019414262831337cb5110d937ede803"
+    },
+    "paper/submission/jcheminformatics/manuscript.md": {
+      "bytes": 33894,
+      "sha256": "0cdb0a93d2dd20cd7395b89c221a5ea1e824be8f70a171e72e85dfb8ae159904"
+    },
+    "paper/submission/jcheminformatics/submission_checklist.md": {
+      "bytes": 2015,
+      "sha256": "8dffbb8c4e32ebe84fad9ecbc2ea0f1967614441268559907e5a170a4af483f7"
+    },
+    "paper/submission/jcheminformatics/supplementary_information.md": {
+      "bytes": 7264,
+      "sha256": "187aa9980cf26d5418986b23810ab37b820016588c496e6b936d9638a2130600"
+    }
+  },
+  "requirements_last_checked": "2026-08-17",
+  "scorecard_status": {
+    "goal_met": false,
+    "top10": 21,
+    "top10_deficit": 1,
+    "top5": 18,
+    "top5_deficit": 0
+  },
+  "selection_or_freeze_changed": false,
+  "sources": {
+    "bibliography": {
+      "bytes": 7090,
+      "path": "paper/references.bib",
+      "sha256": "7eabb3781e1823440cc88c7d37bb604821f7c172b9013a811abf1f3bc17f4964"
+    },
+    "chemical_space": {
+      "bytes": 37256,
+      "path": "reports/validation_calibration_residuals_v27.json",
+      "sha256": "d3cb70dbafae903231ec2079cee5160c59910c634b75b0cce3b6d85ea7b25065"
+    },
+    "citation_metadata": {
+      "bytes": 485,
+      "path": "CITATION.cff",
+      "sha256": "fc256d5d4cbcee95bc167d4c1af0d74057d2b72699bde2a37504bf6bc854e397"
+    },
+    "compute": {
+      "bytes": 14910,
+      "path": "reports/compute_memory_appendix_v27.json",
+      "sha256": "f556f7c617db37a0da57bfe0a011b67aefe78b057725b791a535daf069e4eb53"
+    },
+    "cpu_environment": {
+      "bytes": 124,
+      "path": "environment-cpu.yml",
+      "sha256": "bc464d716b0731b249d64047f3931879df100fd08c0b4cbbb56eec1ff9474c78"
+    },
+    "figure_manifest": {
+      "bytes": 4054,
+      "path": "paper/figures/manifest.json",
+      "sha256": "d955a6e1f5487e8867e7618a79de4c08a5aaebf5a35e023cdde76060b9faa088"
+    },
+    "gpu_environment": {
+      "bytes": 326,
+      "path": "environment-gpu.yml",
+      "sha256": "025c9b7971e72013dfecd52c02be20c66e4118da47516bbdbcb992d98abdb778"
+    },
+    "license": {
+      "bytes": 1067,
+      "path": "LICENSE",
+      "sha256": "df63457f0b3e7ba67997bd8b406056c0a3a760e52a61522d3bafc54313551480"
+    },
+    "primary_effects": {
+      "bytes": 3757,
+      "path": "reports/primary_model_effects_v27.json",
+      "sha256": "2aaa60a42764aed85318cc1e55706c692bd67354dfed2d317cabbae518fde413"
+    },
+    "requirements": {
+      "bytes": 269,
+      "path": "requirements-repro.txt",
+      "sha256": "19fbd14b1c11bcd226fe4ba4c7072f181731693e31f133654a737ba631b07497"
+    },
+    "rescue_ledger": {
+      "bytes": 3647,
+      "path": "runs/v24-rescue-ledger/report.json",
+      "sha256": "a1d0a3754bf062df6bcd05811554ad7816e525128668a055be100abc43c44201"
+    },
+    "router_controls": {
+      "bytes": 46513,
+      "path": "runs/v27-router-controls/report.json",
+      "sha256": "75ac4f2f538de5154e77b90f9f22146e9f2b5c364c5455ca087f522c40aafa3a"
+    },
+    "router_risk_guard": {
+      "bytes": 125126,
+      "path": "runs/v27-router-risk-guard/report.json",
+      "sha256": "c5698d4f43b95efb29f7623201c0e4d716504c0d7d7ba53609808a89fe36e581"
+    },
+    "scorecard": {
+      "bytes": 26547,
+      "path": "reports/goal_scorecard_v27.json",
+      "sha256": "6b4eb4ecbc6c50e10f6140063fae82f95eeb78c168a92823f2968a2864e47b27"
+    },
+    "third_party_release_audit": {
+      "bytes": 6018,
+      "path": "reports/third_party_release_audit_v27.json",
+      "sha256": "45921cde55de1c57e492a618e46f49fdc960dc6f02478f80cd4b79bd05fca523"
+    },
+    "working_manuscript": {
+      "bytes": 31339,
+      "path": "MANUSCRIPT_V24.md",
+      "sha256": "c081425dc072c059cfa8a5ecee514fda798b31ac0f43e826bf0018e439f6430b"
+    }
+  },
+  "supplement": {
+    "chemical_space_task_count": 22,
+    "fresh_guard_task_count": 22,
+    "identity_overlap_total": 0,
+    "rescue_experiment_count": 8,
+    "router_control_task_count": 22,
+    "scaffold_overlap_total": 0,
+    "task_count": 22,
+    "top10": 21,
+    "top5": 18
+  },
+  "target_journal": "Journal of Cheminformatics",
+  "third_party_release_audit": {
+    "checkpoint_specific_licenses_verified": false,
+    "essential_dependency_count": 2,
+    "gin_official_parameter_equivalence_verified": true,
+    "ready_for_external_deposit": true,
+    "registration_free_checkpoint_access_verified": true,
+    "third_party_checkpoints_in_bundle": false
+  },
+  "unresolved_submission_blockers": [
+    "ORCID_REQUIRED",
+    "CORRESPONDING_EMAIL_REQUIRED",
+    "AUTHOR_CONFIRMATION_REQUIRED",
+    "FUNDING_INFORMATION_REQUIRED",
+    "ARCHIVE_DOI_REQUIRED",
+    "AUTHORSHIP_AND_FUNDING_CONFIRMATION"
+  ],
+  "version": "v2.7"
+}

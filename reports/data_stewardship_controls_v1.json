@@ -1,0 +1,476 @@
+{
+  "arms": {
+    "agent_contract_steward": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 1.0,
+      "issue_f1": 1.0,
+      "issue_precision": 1.0,
+      "issue_recall": 1.0,
+      "manifest_assessment_accuracy": 1.0,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": true,
+      "submission_sha256": "f83ac0c60c2ca330416f4f06e76fdcb0885843f6600715824d1c5a4ecde49ada",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 0,
+      "unsafe_merge_rate": 0.0
+    },
+    "complete_rules_steward": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 1.0,
+      "issue_f1": 1.0,
+      "issue_precision": 1.0,
+      "issue_recall": 1.0,
+      "manifest_assessment_accuracy": 1.0,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": true,
+      "submission_sha256": "41c0b92f8febbe7baa5c26dd214e54414664d8370c54f37ac1beacaaefe7dfe9",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 0,
+      "unsafe_merge_rate": 0.0
+    },
+    "conventional_automl_direct_fit": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 0.09090909090909091,
+      "issue_f1": 0.0,
+      "issue_precision": 0.0,
+      "issue_recall": 0.0,
+      "manifest_assessment_accuracy": 0.8181818181818182,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": false,
+      "submission_sha256": "64c003a344b0f89a04756ac940c8fd44516ff92cfa22f6459e60623556f5436a",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 10,
+      "unsafe_merge_rate": 0.9090909090909091
+    },
+    "expanded_automl_schema_steward": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": true
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 0.2727272727272727,
+      "issue_f1": 0.4615384615384615,
+      "issue_precision": 1.0,
+      "issue_recall": 0.3,
+      "manifest_assessment_accuracy": 0.8181818181818182,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": false,
+      "submission_sha256": "16781eb27f244c316f0f8edde12b56d556b8cf7efb9c603af83f9479933389a8",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 7,
+      "unsafe_merge_rate": 0.6363636363636364
+    },
+    "seeded_random_admission": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": true,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": true,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": false,
+          "manifest_assessment_correct": false,
+          "unsafe_merge": true
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 0.36363636363636365,
+      "issue_f1": 0.0,
+      "issue_precision": 0.0,
+      "issue_recall": 0.0,
+      "manifest_assessment_accuracy": 0.36363636363636365,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": false,
+      "submission_sha256": "3575a44a356745675c2f62f5cf5715ae004a4a7eb0d2bc9da067216f6da1902e",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 4,
+      "unsafe_merge_rate": 0.36363636363636365
+    }
+  },
+  "claim_scope": "sealed_local_fixture_not_independent_external_validation",
+  "interpretation": {
+    "rule_boundary": "The current Agent policy is equivalent to the complete deterministic contract-rules policy on this fixture.",
+    "upgrade_requirement": "An independently authored challenge must include composite ambiguity and evidence-dependent remediation choices not reducible to these flags."
+  },
+  "policy_seed": 20260820,
+  "protocol": "external-data-dossier-controls-v1",
+  "public_manifest": {
+    "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+    "answers_revealed": false,
+    "challenge_count": 11,
+    "challenge_ids": [
+      "clean",
+      "fault-assay",
+      "fault-checksum",
+      "fault-conflict",
+      "fault-endpoint",
+      "fault-license",
+      "fault-overlap",
+      "fault-provenance",
+      "fault-species",
+      "fault-transform",
+      "fault-unit"
+    ],
+    "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+    "dossier_protocol": "external-data-dossier-controls-v1",
+    "dossiers_sha256": "0f70ff0a1cf48a20b1e52ea25bdd2907bfac85e09cfc0cc8d936b9a0c84d7a28",
+    "protocol": "sealed-external-data-stewardship-v1",
+    "suite_id": "tdc22-external-data-dossiers-v1",
+    "test_loaded": false
+  },
+  "test_loaded": false
+}
