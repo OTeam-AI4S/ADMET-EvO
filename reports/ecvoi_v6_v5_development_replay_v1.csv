@@ -1,0 +1,17 @@
+endpoint_id,source_id,task_type,policy,selected_action,actual_effect,oracle_effect,oracle_regret,harmful_intervention,realized_fit_cost,predicted_mean,predicted_harm_probability,diagnostics_identifiable,diagnostic_shrinkage_weight,training_sources
+b3db::bbb_classification,B3DB,classification,v6_identifiability_shrinkage,nested_imbalance,0.033188161899133775,0.08566085970678836,0.05247269780765458,False,6.0,0.09831000088813702,0.05859375,False,0.0,3
+b3db::logBB_regression,B3DB,regression,v6_identifiability_shrinkage,feature_rich,0.019650345322657314,0.019650345322657314,0.0,False,1.0,0.04953587838099252,0.16796875,False,0.0,3
+clintox::CT_TOX,MoleculeNet_ClinTox,classification,v6_identifiability_shrinkage,nested_imbalance,0.09079625887013273,0.09079625887013273,0.0,False,6.0,0.07867820472172188,0.12109375,False,0.0,3
+ncats_pampa::pH7.4_permeability,NCATS_PAMPA,classification,v6_identifiability_shrinkage,nested_imbalance,0.06251362656270265,0.08943229035796567,0.026918663795263018,False,6.0,0.08289033518082245,0.125,False,0.0,3
+tox21::NR-AR,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.07426325035939543,0.07426325035939543,0.0,False,6.0,0.06367350642668124,0.0078125,False,0.0,3
+tox21::NR-AR-LBD,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.06698316158337354,0.06698316158337354,0.0,False,6.0,0.061678819720231814,0.015625,False,0.0,3
+tox21::NR-AhR,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.2841592169834576,0.2841592169834576,0.0,False,6.0,0.062425118915626826,0.0078125,False,0.0,3
+tox21::NR-Aromatase,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,-0.0037025957614940765,0.0,0.0037025957614940765,False,6.0,0.06337939651871508,0.00390625,False,0.0,3
+tox21::NR-ER,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.1765165126962529,0.1765165126962529,0.0,False,6.0,0.06149879819349402,0.00390625,False,0.0,3
+tox21::NR-ER-LBD,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.2854659025286535,0.2854659025286535,0.0,False,6.0,0.06083470562411765,0.01953125,False,0.0,3
+tox21::NR-PPAR-gamma,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.09854963839845826,0.09854963839845826,0.0,False,6.0,0.06135388029292025,0.015625,False,0.0,3
+tox21::SR-ARE,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.17525661334357176,0.17525661334357176,0.0,False,6.0,0.06156063265790204,0.0078125,False,0.0,3
+tox21::SR-ATAD5,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.1871758928916243,0.1871758928916243,0.0,False,6.0,0.06374865996370194,0.0234375,False,0.0,3
+tox21::SR-HSE,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.11161473399939723,0.11161473399939723,0.0,False,6.0,0.06248656323079698,0.01171875,False,0.0,3
+tox21::SR-MMP,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.12998214126719548,0.13080416083547136,0.000822019568275878,False,6.0,0.062464855512796916,0.01953125,False,0.0,3
+tox21::SR-p53,Tox21_US_Federal_Challenge,classification,v6_identifiability_shrinkage,nested_imbalance,0.08924619946914877,0.08924619946914877,0.0,False,6.0,0.06251607353616476,0.0078125,False,0.0,3

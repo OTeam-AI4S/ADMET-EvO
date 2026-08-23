@@ -32,9 +32,11 @@ def main() -> None:
         0.1,
         {"candidate_model": "random_forest"},
     )
-    current = EffectFirstResearchPlanner().route(
-        [action], action_priors={action.action_id: prior}
-    ).ranked_actions[0]
+    current = (
+        EffectFirstResearchPlanner()
+        .route([action], action_priors={action.action_id: prior})
+        .ranked_actions[0]
+    )
     rollback_active = bool(
         prior["negative_gate_confirmed"] is False
         and current["routing_admitted"] is True
@@ -51,25 +53,17 @@ def main() -> None:
         ),
         "falsification_protocol_sha256": confirmation["protocol_sha256"],
         "falsification_outcomes": confirmation["outcome_counts"],
-        "mean_positive_pruning_regret": confirmation[
-            "mean_positive_pruning_regret"
-        ],
+        "mean_positive_pruning_regret": confirmation["mean_positive_pruning_regret"],
         "maximum_positive_pruning_regret": confirmation[
             "maximum_positive_pruning_regret"
         ],
         "negative_result_retained": True,
-        "deployment_blocked": confirmation[
-            "negative_memory_gate_deployment_approved"
-        ]
+        "deployment_blocked": confirmation["negative_memory_gate_deployment_approved"]
         is False,
         "rollback_active": rollback_active,
-        "current_prior_negative_gate_confirmed": prior[
-            "negative_gate_confirmed"
-        ],
+        "current_prior_negative_gate_confirmed": prior["negative_gate_confirmed"],
         "current_action_admitted": current["routing_admitted"],
-        "regression_test": (
-            "test_unconfirmed_global_negative_memory_cannot_prune"
-        ),
+        "regression_test": ("test_unconfirmed_global_negative_memory_cannot_prune"),
         "claim_boundary": {
             "supported": (
                 "The Agent detected an overgeneralized memory policy with an independent "

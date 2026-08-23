@@ -1,0 +1,13 @@
+{
+  "analysis_or_promotion_performed": false,
+  "blind_or_leaderboard_feedback_used": false,
+  "cohort_sha256": "df83fbd5b8ebfc6c2199d2a752081abd8b15b5e3f38e1507dffd44dbf09dd3df",
+  "expected_result_rows": 415,
+  "failures": [],
+  "integrity_passed": true,
+  "output_sha256": "9101d34c242ae2b20d6cfcd9e352b5e9b1f1d2e94b461d642d56a4d380b80208",
+  "protocol_sha256": "e6911d3879ded1429baed7ee32a96ac378d566af1da01d265aa733f49dae41ef",
+  "result_rows": 415,
+  "test_labels_loaded": false,
+  "version": "ecvoi-v5-public-action-screen-v2"
+}

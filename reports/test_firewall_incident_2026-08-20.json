@@ -1,0 +1,29 @@
+{
+  "incident_id": "tdc-test-access-2026-08-20-001",
+  "detected_at": "2026-08-20",
+  "status": "contained_not_reversible",
+  "scope": "TDC ADMET hERG official test.csv",
+  "trigger": "A local dataset-structure audit included test.csv in a shell preview and pandas summary.",
+  "exposure": {
+    "terminal_output_exposure": true,
+    "project_artifact_with_label_values_created": false,
+    "model_training_used_test": false,
+    "candidate_selection_used_test": false,
+    "threshold_or_policy_used_test": false
+  },
+  "impact": {
+    "existing_frozen_recipe_mutated": false,
+    "existing_application_qualification_predates_incident": true,
+    "current_external_data_ticket_can_attest_no_test_access": false,
+    "current_external_data_ticket_may_attest_no_test_feedback": true
+  },
+  "containment": [
+    "Quarantine the terminal-derived test information from all subsequent reasoning and artifacts.",
+    "Use only data/admet_group/herg/train_val.csv in the external-data ticket.",
+    "Forbid the external-data ticket from mutating any existing frozen recipe or official claim.",
+    "Add a path-level discovery guard that rejects canonical ADMET test.csv files.",
+    "Retain this incident as negative self-correction evidence rather than overwrite test_loaded declarations."
+  ],
+  "test_accessed": true,
+  "test_feedback_used": false
+}

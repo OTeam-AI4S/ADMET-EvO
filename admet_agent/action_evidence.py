@@ -62,13 +62,14 @@ def _same_data_conditions(left: ExperimentSpec, right: ExperimentSpec) -> bool:
     )
 
 
-def _find_pair(
+def _candidate_pairs(
     action: dict[str, Any],
     experiments: dict[str, ExperimentSpec],
-) -> tuple[str, str] | None:
+) -> list[tuple[str, str]]:
     axis = action["axis"]
     payload = action.get("payload", {})
     rows = list(experiments.items())
+    pairs: list[tuple[str, str]] = []
     if axis == "feature":
         treatments = [
             (run_id, spec)
@@ -86,7 +87,7 @@ def _find_pair(
                     _same_model_conditions(treatment, control)
                     and treatment.representations != control.representations
                 ):
-                    return treatment_id, control_id
+                    pairs.append((treatment_id, control_id))
     elif axis == "data":
         target_policy = payload.get("data_policy")
         for treatment_id, treatment in rows:
@@ -96,7 +97,7 @@ def _find_pair(
                 if control.data_policy == "official" and _same_data_conditions(
                     treatment, control
                 ):
-                    return treatment_id, control_id
+                    pairs.append((treatment_id, control_id))
     elif axis == "model":
         target_models = set(payload.get("candidate_models", []))
         if payload.get("candidate_model"):
@@ -116,8 +117,16 @@ def _find_pair(
                     and control.representations == treatment.representations
                     and control.data_policy == treatment.data_policy
                 ):
-                    return treatment_id, control_id
-    return None
+                    pairs.append((treatment_id, control_id))
+    return pairs
+
+
+def _find_pair(
+    action: dict[str, Any],
+    experiments: dict[str, ExperimentSpec],
+) -> tuple[str, str] | None:
+    pairs = _candidate_pairs(action, experiments)
+    return pairs[0] if pairs else None
 
 
 def selected_action_pair(
@@ -139,6 +148,7 @@ def evaluate_action_evidence(
     seed_runs: dict[str, dict[int, RunResult]],
     *,
     minimum_effect: float = 0.005,
+    preferred_pair: tuple[str, str] | None = None,
 ) -> MatchedActionEvidence:
     """Evaluate the selected action without using test data.
 
@@ -267,7 +277,40 @@ def evaluate_action_evidence(
             False,
             "Stopping is evaluated at the episode level, not as a score intervention.",
         )
-    pair = _find_pair(action, experiments)
+    # Only promoted candidates in ``seed_runs`` can support a multi-seed
+    # causal claim. Search may have generated more than one valid matched pair
+    # across rounds; resolving against every primary-seed experiment can pick
+    # a different pair from the one protected by robust racing.
+    replicated_experiments = {
+        run_id: experiment
+        for run_id, experiment in experiments.items()
+        if run_id in seed_runs
+    }
+    pairs = _candidate_pairs(action, replicated_experiments)
+    if preferred_pair in pairs:
+        pair = preferred_pair
+    else:
+        def completed_shared(candidate: tuple[str, str]) -> int:
+            treatment_runs = seed_runs.get(candidate[0], {})
+            control_runs = seed_runs.get(candidate[1], {})
+            return sum(
+                treatment_runs[seed].status == "completed"
+                and control_runs[seed].status == "completed"
+                for seed in set(treatment_runs) & set(control_runs)
+            )
+
+        pair = (
+            min(
+                pairs,
+                key=lambda candidate: (
+                    -completed_shared(candidate),
+                    candidate[0],
+                    candidate[1],
+                ),
+            )
+            if pairs
+            else None
+        )
     if pair is None:
         return MatchedActionEvidence(
             action_id,

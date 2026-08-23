@@ -1,0 +1,503 @@
+{
+  "actual_unique_fit_seconds": 1755.1758736775955,
+  "agent_vs_expanded_automl_noninferiority_margin": -0.01,
+  "agent_vs_expanded_automl_noninferiority_passed": false,
+  "claim_boundary": "Fresh validation seeds 11->12 under a frozen protocol. This is predictive-control evidence, not frozen TDC test superiority or an application leaderboard update.",
+  "comparisons": {
+    "agent_vs_expanded_automl": {
+      "left": "streamlined_agent",
+      "losses": 10,
+      "mean_normalized_utility_delta": -0.009833589028425243,
+      "median_normalized_utility_delta": 0.0,
+      "right": "expanded_automl",
+      "task_bootstrap_95_ci": [
+        -0.02770193890264464,
+        0.006483771867322602
+      ],
+      "tasks": 22,
+      "ties": 7,
+      "wins": 5
+    },
+    "agent_vs_strong_fixed": {
+      "left": "streamlined_agent",
+      "losses": 11,
+      "mean_normalized_utility_delta": 0.01959689280582127,
+      "median_normalized_utility_delta": -0.0021467093820619065,
+      "right": "strong_fixed",
+      "task_bootstrap_95_ci": [
+        -0.01833708507817095,
+        0.06699235967222966
+      ],
+      "tasks": 22,
+      "ties": 2,
+      "wins": 9
+    },
+    "expanded_automl_vs_strong_fixed": {
+      "left": "expanded_automl",
+      "losses": 3,
+      "mean_normalized_utility_delta": 0.02943048183424651,
+      "median_normalized_utility_delta": 0.0,
+      "right": "strong_fixed",
+      "task_bootstrap_95_ci": [
+        -0.00038259979655959065,
+        0.07298591738593771
+      ],
+      "tasks": 22,
+      "ties": 14,
+      "wins": 5
+    }
+  },
+  "logical_charged_fits": 154,
+  "maximum_logical_fits": 154,
+  "physical_fit_reuse_fraction": 0.26623376623376627,
+  "physical_unique_fits": 113,
+  "protocol": "tdc22-minimal-three-arm-predictive-control-report-v1",
+  "source_hashes": {
+    "runs/minimal-predictive-control-v1/protocol.json": "9dc4e074510c66e51b14f950e573e99b4a677371c4e233b19e7a914e9a46f2f1",
+    "runs/minimal-predictive-control-v1/registry.json": "ccce7697370ab71f2a6088d4453a03ded79797c572fd33c2826a8d3d0b67c36b"
+  },
+  "status": "complete",
+  "tasks": [
+    {
+      "category": "absorption",
+      "metric": "mae",
+      "scores": {
+        "expanded_automl": 0.34525486176741754,
+        "streamlined_agent": 0.3487094837264197,
+        "strong_fixed": 0.34525486176741754
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.804631960867472,
+      "task": "Caco2_Wang",
+      "utilities": {
+        "expanded_automl": -0.42908420067629305,
+        "streamlined_agent": -0.43337761944041686,
+        "strong_fixed": -0.42908420067629305
+      }
+    },
+    {
+      "category": "absorption",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.9824561403508772,
+        "streamlined_agent": 0.9874686716791979,
+        "strong_fixed": 0.9598997493734335
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.31186634924793993,
+      "task": "HIA_Hou",
+      "utilities": {
+        "expanded_automl": 0.9824561403508772,
+        "streamlined_agent": 0.9874686716791979,
+        "strong_fixed": 0.9598997493734335
+      }
+    },
+    {
+      "category": "absorption",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.9273758865248227,
+        "streamlined_agent": 0.9273758865248227,
+        "strong_fixed": 0.9225531914893618
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.4926885437928854,
+      "task": "Pgp_Broccatelli",
+      "utilities": {
+        "expanded_automl": 0.9273758865248227,
+        "streamlined_agent": 0.9273758865248227,
+        "strong_fixed": 0.9225531914893618
+      }
+    },
+    {
+      "category": "absorption",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.7006535947712418,
+        "streamlined_agent": 0.7320261437908497,
+        "strong_fixed": 0.7045751633986929
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "control"
+      },
+      "target_std": 0.417875982099733,
+      "task": "Bioavailability_Ma",
+      "utilities": {
+        "expanded_automl": 0.7006535947712418,
+        "streamlined_agent": 0.7320261437908497,
+        "strong_fixed": 0.7045751633986929
+      }
+    },
+    {
+      "category": "absorption",
+      "metric": "mae",
+      "scores": {
+        "expanded_automl": 0.5149866166620395,
+        "streamlined_agent": 0.5595640277777778,
+        "strong_fixed": 0.5149866166620395
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 1.2168030097676343,
+      "task": "Lipophilicity_AstraZeneca",
+      "utilities": {
+        "expanded_automl": -0.4232292429654521,
+        "streamlined_agent": -0.45986410559966845,
+        "strong_fixed": -0.4232292429654521
+      }
+    },
+    {
+      "category": "absorption",
+      "metric": "mae",
+      "scores": {
+        "expanded_automl": 0.7797290778655485,
+        "streamlined_agent": 0.7797290778655485,
+        "strong_fixed": 0.7797290778655485
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 2.2090004658056652,
+      "task": "Solubility_AqSolDB",
+      "utilities": {
+        "expanded_automl": -0.35297823152842395,
+        "streamlined_agent": -0.35297823152842395,
+        "strong_fixed": -0.35297823152842395
+      }
+    },
+    {
+      "category": "distribution",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.9075984990619137,
+        "streamlined_agent": 0.8990775484677923,
+        "strong_fixed": 0.9115071919949969
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.4329110795842545,
+      "task": "BBB_Martins",
+      "utilities": {
+        "expanded_automl": 0.9075984990619137,
+        "streamlined_agent": 0.8990775484677923,
+        "strong_fixed": 0.9115071919949969
+      }
+    },
+    {
+      "category": "distribution",
+      "metric": "mae",
+      "scores": {
+        "expanded_automl": 11.940908608674496,
+        "streamlined_agent": 12.559650910138247,
+        "strong_fixed": 11.940908608674496
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 18.18558112195153,
+      "task": "PPBR_AZ",
+      "utilities": {
+        "expanded_automl": -0.656614079506143,
+        "streamlined_agent": -0.6906378644660242,
+        "strong_fixed": -0.656614079506143
+      }
+    },
+    {
+      "category": "distribution",
+      "metric": "spearman",
+      "scores": {
+        "expanded_automl": 0.6317949172434056,
+        "streamlined_agent": 0.6317949172434056,
+        "strong_fixed": 0.2862149039826368
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 26.485387829188443,
+      "task": "VDss_Lombardo",
+      "utilities": {
+        "expanded_automl": 0.6317949172434056,
+        "streamlined_agent": 0.6317949172434056,
+        "strong_fixed": 0.2862149039826368
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auprc",
+      "scores": {
+        "expanded_automl": 0.8479185102111769,
+        "streamlined_agent": 0.7946211445822247,
+        "strong_fixed": 0.8479185102111769
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.4722333957886362,
+      "task": "CYP2C9_Veith",
+      "utilities": {
+        "expanded_automl": 0.8479185102111769,
+        "streamlined_agent": 0.7946211445822247,
+        "strong_fixed": 0.8479185102111769
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auprc",
+      "scores": {
+        "expanded_automl": 0.720095776896099,
+        "streamlined_agent": 0.6935837895507866,
+        "strong_fixed": 0.720095776896099
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 0.39584472853820163,
+      "task": "CYP2D6_Veith",
+      "utilities": {
+        "expanded_automl": 0.720095776896099,
+        "streamlined_agent": 0.6935837895507866,
+        "strong_fixed": 0.720095776896099
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auprc",
+      "scores": {
+        "expanded_automl": 0.8826588079665598,
+        "streamlined_agent": 0.8594667150693935,
+        "strong_fixed": 0.8826588079665598
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.49160948691985823,
+      "task": "CYP3A4_Veith",
+      "utilities": {
+        "expanded_automl": 0.8826588079665598,
+        "streamlined_agent": 0.8594667150693935,
+        "strong_fixed": 0.8826588079665598
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auprc",
+      "scores": {
+        "expanded_automl": 0.31435296215094105,
+        "streamlined_agent": 0.36450493712401283,
+        "strong_fixed": 0.31435296215094105
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.3858551167745992,
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "utilities": {
+        "expanded_automl": 0.31435296215094105,
+        "streamlined_agent": 0.36450493712401283,
+        "strong_fixed": 0.31435296215094105
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auprc",
+      "scores": {
+        "expanded_automl": 0.746367916238992,
+        "streamlined_agent": 0.8241615091268235,
+        "strong_fixed": 0.746367916238992
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 0.4410752163906377,
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "utilities": {
+        "expanded_automl": 0.746367916238992,
+        "streamlined_agent": 0.8241615091268235,
+        "strong_fixed": 0.746367916238992
+      }
+    },
+    {
+      "category": "metabolism",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.7047619047619047,
+        "streamlined_agent": 0.721904761904762,
+        "strong_fixed": 0.7047619047619047
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.4999817368276808,
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "utilities": {
+        "expanded_automl": 0.7047619047619047,
+        "streamlined_agent": 0.721904761904762,
+        "strong_fixed": 0.7047619047619047
+      }
+    },
+    {
+      "category": "excretion",
+      "metric": "spearman",
+      "scores": {
+        "expanded_automl": 0.27364378664997013,
+        "streamlined_agent": 0.27364378664997013,
+        "strong_fixed": -0.005879124214365581
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 96.61343503685943,
+      "task": "Half_Life_Obach",
+      "utilities": {
+        "expanded_automl": 0.27364378664997013,
+        "streamlined_agent": 0.27364378664997013,
+        "strong_fixed": -0.005879124214365581
+      }
+    },
+    {
+      "category": "excretion",
+      "metric": "spearman",
+      "scores": {
+        "expanded_automl": 0.4643530996421516,
+        "streamlined_agent": 0.4383295187475035,
+        "strong_fixed": 0.4643530996421516
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 50.52081069304403,
+      "task": "Clearance_Hepatocyte_AZ",
+      "utilities": {
+        "expanded_automl": 0.4643530996421516,
+        "streamlined_agent": 0.4383295187475035,
+        "strong_fixed": 0.4643530996421516
+      }
+    },
+    {
+      "category": "excretion",
+      "metric": "spearman",
+      "scores": {
+        "expanded_automl": 0.5333642380754261,
+        "streamlined_agent": 0.39456144572378,
+        "strong_fixed": 0.5333642380754261
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 44.7825948640763,
+      "task": "Clearance_Microsome_AZ",
+      "utilities": {
+        "expanded_automl": 0.5333642380754261,
+        "streamlined_agent": 0.39456144572378,
+        "strong_fixed": 0.5333642380754261
+      }
+    },
+    {
+      "category": "toxicity",
+      "metric": "mae",
+      "scores": {
+        "expanded_automl": 0.4680241139919084,
+        "streamlined_agent": 0.4680241139919084,
+        "strong_fixed": 0.4680241139919084
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 0.8717900478689085,
+      "task": "LD50_Zhu",
+      "utilities": {
+        "expanded_automl": -0.5368541601684875,
+        "streamlined_agent": -0.5368541601684875,
+        "strong_fixed": -0.5368541601684875
+      }
+    },
+    {
+      "category": "toxicity",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.8807390817469206,
+        "streamlined_agent": 0.8807390817469206,
+        "strong_fixed": 0.8600223964165734
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.4711460056835632,
+      "task": "hERG",
+      "utilities": {
+        "expanded_automl": 0.8807390817469206,
+        "streamlined_agent": 0.8807390817469206,
+        "strong_fixed": 0.8600223964165734
+      }
+    },
+    {
+      "category": "toxicity",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.8659065401489644,
+        "streamlined_agent": 0.8659065401489644,
+        "strong_fixed": 0.8838043737033634
+      },
+      "selected_roles": {
+        "expanded_automl": "extra_trees",
+        "streamlined_agent": "treatment"
+      },
+      "target_std": 0.49643140749345505,
+      "task": "AMES",
+      "utilities": {
+        "expanded_automl": 0.8659065401489644,
+        "streamlined_agent": 0.8659065401489644,
+        "strong_fixed": 0.8838043737033634
+      }
+    },
+    {
+      "category": "toxicity",
+      "metric": "auroc",
+      "scores": {
+        "expanded_automl": 0.8393234672304439,
+        "streamlined_agent": 0.7928118393234672,
+        "strong_fixed": 0.8393234672304439
+      },
+      "selected_roles": {
+        "expanded_automl": "lightgbm",
+        "streamlined_agent": "control"
+      },
+      "target_std": 0.4993401145644466,
+      "task": "DILI",
+      "utilities": {
+        "expanded_automl": 0.8393234672304439,
+        "streamlined_agent": 0.7928118393234672,
+        "strong_fixed": 0.8393234672304439
+      }
+    }
+  ],
+  "test_loaded": false
+}

@@ -1,0 +1,1891 @@
+{
+  "blind_test_opened": false,
+  "checks": [
+    {
+      "name": "combined_beats_both_single_signals",
+      "observed": 0,
+      "passed": false,
+      "requirement": ">= 4 of 6 endpoints"
+    },
+    {
+      "name": "combined_detects_high_error",
+      "observed": 5,
+      "passed": true,
+      "requirement": ">= 4 of 6 endpoints with AUROC > 0.5"
+    },
+    {
+      "name": "low_similarity_has_higher_loss",
+      "observed": 5,
+      "passed": true,
+      "requirement": ">= 4 of 6 endpoints"
+    },
+    {
+      "name": "forbidden_blind_access",
+      "observed": 0,
+      "passed": true,
+      "requirement": "= 0"
+    }
+  ],
+  "compatibility_adapter_scope": "add_source_table_and_source_row_to_seed_collapse_key_only",
+  "endpoints": {
+    "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+      "cross_conformal_90": {
+        "combined_adaptive": {
+          "folds": [
+            {
+              "coverage": 0.9446640316205533,
+              "mean_width": 3.5458382386733285,
+              "outer_fold": 0,
+              "rows": 253
+            },
+            {
+              "coverage": 0.9148936170212766,
+              "mean_width": 3.3644767727053746,
+              "outer_fold": 1,
+              "rows": 235
+            },
+            {
+              "coverage": 0.8830645161290323,
+              "mean_width": 3.128755325453102,
+              "outer_fold": 2,
+              "rows": 248
+            },
+            {
+              "coverage": 0.8847736625514403,
+              "mean_width": 3.1675524797641805,
+              "outer_fold": 3,
+              "rows": 243
+            },
+            {
+              "coverage": 0.8645418326693227,
+              "mean_width": 3.0417647075254277,
+              "outer_fold": 4,
+              "rows": 251
+            }
+          ],
+          "pooled_coverage": 0.8983739837398373,
+          "pooled_mean_width": 3.2494948218325717,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.9517684887459807,
+              "mean_width": 4.082522633193671,
+              "rows": 311
+            },
+            "1": {
+              "coverage": 0.9509803921568627,
+              "mean_width": 3.4478609945905885,
+              "rows": 306
+            },
+            "2": {
+              "coverage": 0.8754098360655738,
+              "mean_width": 2.991013929842035,
+              "rows": 305
+            },
+            "3": {
+              "coverage": 0.814935064935065,
+              "mean_width": 2.4672382434554865,
+              "rows": 308
+            }
+          },
+          "target_coverage": 0.9
+        },
+        "constant": {
+          "folds": [
+            {
+              "coverage": 0.9209486166007905,
+              "mean_width": 3.0920553705489024,
+              "outer_fold": 0,
+              "rows": 253
+            },
+            {
+              "coverage": 0.9106382978723404,
+              "mean_width": 3.074582423834685,
+              "outer_fold": 1,
+              "rows": 235
+            },
+            {
+              "coverage": 0.8870967741935484,
+              "mean_width": 3.006467459189486,
+              "outer_fold": 2,
+              "rows": 248
+            },
+            {
+              "coverage": 0.9053497942386831,
+              "mean_width": 3.0651687998894817,
+              "outer_fold": 3,
+              "rows": 243
+            },
+            {
+              "coverage": 0.8804780876494024,
+              "mean_width": 2.9710200921903183,
+              "outer_fold": 4,
+              "rows": 251
+            }
+          ],
+          "pooled_coverage": 0.9008130081300812,
+          "pooled_mean_width": 3.041449487595065,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.8971061093247589,
+              "mean_width": 3.043252602994816,
+              "rows": 311
+            },
+            "1": {
+              "coverage": 0.9313725490196079,
+              "mean_width": 3.0396408439106275,
+              "rows": 306
+            },
+            "2": {
+              "coverage": 0.8918032786885246,
+              "mean_width": 3.0429276529267635,
+              "rows": 305
+            },
+            "3": {
+              "coverage": 0.8831168831168831,
+              "mean_width": 3.0399619410104775,
+              "rows": 308
+            }
+          },
+          "target_coverage": 0.9
+        }
+      },
+      "identity_overlap": 0,
+      "rows": 1230,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5403255908950052,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 308,
+            "spearman_loss_uncertainty": 0.03947140587621659
+          },
+          "risk_coverage": {
+            "aurc": 0.38839677488827273,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.4205901938936544,
+                "rows": 123
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.3998532894036155,
+                "rows": 246
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.3907115902714384,
+                "rows": 370
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.38397743028046816,
+                "rows": 492
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.37749930844922763,
+                "rows": 615
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.37815617875920426,
+                "rows": 738
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.37504098499740934,
+                "rows": 862
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.38114725961483215,
+                "rows": 984
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.3849469788709482,
+                "rows": 1107
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.39204453434192954,
+                "rows": 1230
+              }
+            ],
+            "full_risk": 0.39204453434192954,
+            "relative_aurc_improvement_vs_random": 0.009304451750053788
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.49892244415020987,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 308,
+            "spearman_loss_uncertainty": -0.011180871228999188
+          },
+          "risk_coverage": {
+            "aurc": 0.39243370868441385,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.35297404251509934,
+                "rows": 123
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.39314368725004323,
+                "rows": 246
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.4153972066437866,
+                "rows": 370
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.41203398210006154,
+                "rows": 492
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.39919457336023556,
+                "rows": 615
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.3920841204894626,
+                "rows": 738
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.38832342109192486,
+                "rows": 862
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.38797598945370265,
+                "rows": 984
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.3911655295978921,
+                "rows": 1107
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.39204453434192954,
+                "rows": 1230
+              }
+            ],
+            "full_risk": 0.39204453434192954,
+            "relative_aurc_improvement_vs_random": -0.0009926789137300052
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5612305265233681,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 308,
+            "spearman_loss_uncertainty": 0.06592820852640052
+          },
+          "risk_coverage": {
+            "aurc": 0.3727377001695426,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.3483486645552402,
+                "rows": 123
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.36242547498231337,
+                "rows": 246
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.379892893916508,
+                "rows": 370
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.36184792013711486,
+                "rows": 492
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.3654904908694973,
+                "rows": 615
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.3812689614733624,
+                "rows": 738
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.3732218245006513,
+                "rows": 862
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.3813392023594101,
+                "rows": 984
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.3814970345593992,
+                "rows": 1107
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.39204453434192954,
+                "rows": 1230
+              }
+            ],
+            "full_risk": 0.39204453434192954,
+            "relative_aurc_improvement_vs_random": 0.04924653318989547
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.4070155246716973,
+          "rows": 311,
+          "similarity_mean": 0.2669756834634077
+        },
+        "1": {
+          "loss_mean": 0.3634751595049331,
+          "rows": 306,
+          "similarity_mean": 0.3252534354571211
+        },
+        "2": {
+          "loss_mean": 0.40015603536133953,
+          "rows": 305,
+          "similarity_mean": 0.38827974448611485
+        },
+        "3": {
+          "loss_mean": 0.3972790892011603,
+          "rows": 308,
+          "similarity_mean": 0.4908765891064699
+        }
+      },
+      "task_type": "regression"
+    },
+    "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+      "cross_conformal_90": {
+        "combined_adaptive": {
+          "folds": [
+            {
+              "coverage": 0.8803418803418803,
+              "mean_width": 2.1499802910128305,
+              "outer_fold": 0,
+              "rows": 234
+            },
+            {
+              "coverage": 0.8923766816143498,
+              "mean_width": 2.1582658539819484,
+              "outer_fold": 1,
+              "rows": 223
+            },
+            {
+              "coverage": 0.8898305084745762,
+              "mean_width": 2.177258447843477,
+              "outer_fold": 2,
+              "rows": 236
+            },
+            {
+              "coverage": 0.9272727272727272,
+              "mean_width": 2.3206680018952754,
+              "outer_fold": 3,
+              "rows": 220
+            },
+            {
+              "coverage": 0.9095238095238095,
+              "mean_width": 2.1596395185902164,
+              "outer_fold": 4,
+              "rows": 210
+            }
+          ],
+          "pooled_coverage": 0.8993766696349065,
+          "pooled_mean_width": 2.192602784102354,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.9466192170818505,
+              "mean_width": 2.740580698755805,
+              "rows": 281
+            },
+            "1": {
+              "coverage": 0.9293286219081273,
+              "mean_width": 2.3568114099253057,
+              "rows": 283
+            },
+            "2": {
+              "coverage": 0.9163636363636364,
+              "mean_width": 2.0459589670151037,
+              "rows": 275
+            },
+            "3": {
+              "coverage": 0.8063380281690141,
+              "mean_width": 1.6287795959807998,
+              "rows": 284
+            }
+          },
+          "target_coverage": 0.9
+        },
+        "constant": {
+          "folds": [
+            {
+              "coverage": 0.8974358974358975,
+              "mean_width": 2.043312769100816,
+              "outer_fold": 0,
+              "rows": 234
+            },
+            {
+              "coverage": 0.9013452914798207,
+              "mean_width": 2.0487514735194137,
+              "outer_fold": 1,
+              "rows": 223
+            },
+            {
+              "coverage": 0.8940677966101694,
+              "mean_width": 2.043312769100816,
+              "outer_fold": 2,
+              "rows": 236
+            },
+            {
+              "coverage": 0.9136363636363637,
+              "mean_width": 2.0665069774001448,
+              "outer_fold": 3,
+              "rows": 220
+            },
+            {
+              "coverage": 0.9047619047619048,
+              "mean_width": 2.051701959105137,
+              "outer_fold": 4,
+              "rows": 210
+            }
+          ],
+          "pooled_coverage": 0.9020480854853072,
+          "pooled_mean_width": 2.050505366440181,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.8861209964412812,
+              "mean_width": 2.050485078146908,
+              "rows": 281
+            },
+            "1": {
+              "coverage": 0.8939929328621908,
+              "mean_width": 2.050375491341869,
+              "rows": 283
+            },
+            "2": {
+              "coverage": 0.9272727272727272,
+              "mean_width": 2.050306657786325,
+              "rows": 275
+            },
+            "3": {
+              "coverage": 0.9014084507042254,
+              "mean_width": 2.050847269760754,
+              "rows": 284
+            }
+          },
+          "target_coverage": 0.9
+        }
+      },
+      "identity_overlap": 0,
+      "rows": 1123,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.49238172120269486,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 281,
+            "spearman_loss_uncertainty": -0.03196493917137136
+          },
+          "risk_coverage": {
+            "aurc": 0.21730795869941577,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.2456951834820665,
+                "rows": 113
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.226780857183536,
+                "rows": 225
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.223636923905612,
+                "rows": 337
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.22468910214560076,
+                "rows": 450
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.21067178292849092,
+                "rows": 562
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.20651757704027837,
+                "rows": 674
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.2091801129278747,
+                "rows": 787
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.20990469638070666,
+                "rows": 899
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.20747512701955814,
+                "rows": 1011
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.20852822398043355,
+                "rows": 1123
+              }
+            ],
+            "full_risk": 0.20852822398043355,
+            "relative_aurc_improvement_vs_random": -0.04210334002463867
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5221849350385881,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 281,
+            "spearman_loss_uncertainty": 0.020177359692843466
+          },
+          "risk_coverage": {
+            "aurc": 0.20576871832200525,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.2175133884737951,
+                "rows": 113
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.20086015743202065,
+                "rows": 225
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.21060023552588064,
+                "rows": 337
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.20429281335825952,
+                "rows": 450
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.20377973466386995,
+                "rows": 562
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.20327051498074267,
+                "rows": 674
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.20048877522331188,
+                "rows": 787
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.20143985158817754,
+                "rows": 899
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.20691348799356102,
+                "rows": 1011
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.20852822398043355,
+                "rows": 1123
+              }
+            ],
+            "full_risk": 0.20852822398043355,
+            "relative_aurc_improvement_vs_random": 0.013233247786578972
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.4691042341146736,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 281,
+            "spearman_loss_uncertainty": -0.058650534601984286
+          },
+          "risk_coverage": {
+            "aurc": 0.2198591641714805,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.22482559393333026,
+                "rows": 113
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.23145873340366638,
+                "rows": 225
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.2231541235898311,
+                "rows": 337
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.23005596324094654,
+                "rows": 450
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.22744582325219312,
+                "rows": 562
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.21757793690717228,
+                "rows": 674
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.21130550668972106,
+                "rows": 787
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.21186080447574146,
+                "rows": 899
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.21237893224176885,
+                "rows": 1011
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.2085282239804336,
+                "rows": 1123
+              }
+            ],
+            "full_risk": 0.20852822398043355,
+            "relative_aurc_improvement_vs_random": -0.05433768136878259
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.24240886828682684,
+          "rows": 281,
+          "similarity_mean": 0.2948059465509895
+        },
+        "1": {
+          "loss_mean": 0.18581503200136176,
+          "rows": 283,
+          "similarity_mean": 0.37893432992275994
+        },
+        "2": {
+          "loss_mean": 0.20009520739571443,
+          "rows": 275,
+          "similarity_mean": 0.4337743737450271
+        },
+        "3": {
+          "loss_mean": 0.20580446285641454,
+          "rows": 284,
+          "similarity_mean": 0.5136403957565158
+        }
+      },
+      "task_type": "regression"
+    },
+    "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+      "cross_conformal_90": null,
+      "identity_overlap": 0,
+      "rows": 1321,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.6366311959147479,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": 0.5836680394666014
+          },
+          "risk_coverage": {
+            "aurc": 0.16564144053891006,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.12601248485961233,
+                "rows": 133
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.15447665002306302,
+                "rows": 265
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.16265459115042682,
+                "rows": 397
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.1601260083369608,
+                "rows": 529
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.16795655395810014,
+                "rows": 661
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.1709897191551582,
+                "rows": 793
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.17480766732843106,
+                "rows": 925
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.17707519336469815,
+                "rows": 1057
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.17938273791458417,
+                "rows": 1189
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.18293279929806555,
+                "rows": 1321
+              }
+            ],
+            "full_risk": 0.18293279929806552,
+            "relative_aurc_improvement_vs_random": 0.09452300968172156
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.523577347643947,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": 0.130863038682083
+          },
+          "risk_coverage": {
+            "aurc": 0.17344321720011777,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.14370859307011233,
+                "rows": 133
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.1524020220621324,
+                "rows": 265
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.17900923064110522,
+                "rows": 397
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.1737019136611939,
+                "rows": 529
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.18176801255568914,
+                "rows": 661
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.17946585370660592,
+                "rows": 793
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.18290244369640896,
+                "rows": 925
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.17918437033981482,
+                "rows": 1057
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.17935693297004954,
+                "rows": 1189
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.18293279929806552,
+                "rows": 1321
+              }
+            ],
+            "full_risk": 0.18293279929806552,
+            "relative_aurc_improvement_vs_random": 0.051874689144649766
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.6558450295079963,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": 0.6344516498348683
+          },
+          "risk_coverage": {
+            "aurc": 0.1653646490726266,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.14126674054087482,
+                "rows": 133
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.12978889632724416,
+                "rows": 265
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.15870174717711524,
+                "rows": 397
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.1716451869292004,
+                "rows": 529
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.17200179352565487,
+                "rows": 661
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.1753531335840144,
+                "rows": 793
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.17010765987961937,
+                "rows": 925
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.17381545221203118,
+                "rows": 1057
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.1780330812524459,
+                "rows": 1189
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.18293279929806552,
+                "rows": 1321
+              }
+            ],
+            "full_risk": 0.18293279929806552,
+            "relative_aurc_improvement_vs_random": 0.09603608698303401
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.18292670662299723,
+          "rows": 330,
+          "similarity_mean": 0.2599218923209457
+        },
+        "1": {
+          "loss_mean": 0.18362991255374328,
+          "rows": 321,
+          "similarity_mean": 0.3098003291718353
+        },
+        "2": {
+          "loss_mean": 0.20191421291206318,
+          "rows": 340,
+          "similarity_mean": 0.3596952172284595
+        },
+        "3": {
+          "loss_mean": 0.16270418293121947,
+          "rows": 330,
+          "similarity_mean": 0.47614243160188013
+        }
+      },
+      "task_type": "classification"
+    },
+    "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+      "cross_conformal_90": {
+        "combined_adaptive": {
+          "folds": [
+            {
+              "coverage": 0.9015748031496063,
+              "mean_width": 3.2898331396562437,
+              "outer_fold": 0,
+              "rows": 254
+            },
+            {
+              "coverage": 0.9073359073359073,
+              "mean_width": 3.283518377590106,
+              "outer_fold": 1,
+              "rows": 259
+            },
+            {
+              "coverage": 0.8923076923076924,
+              "mean_width": 3.0328206600626326,
+              "outer_fold": 2,
+              "rows": 260
+            },
+            {
+              "coverage": 0.9260700389105059,
+              "mean_width": 3.2411234925471333,
+              "outer_fold": 3,
+              "rows": 257
+            },
+            {
+              "coverage": 0.8685121107266436,
+              "mean_width": 2.8295276292114826,
+              "outer_fold": 4,
+              "rows": 289
+            }
+          ],
+          "pooled_coverage": 0.8984078847611827,
+          "pooled_mean_width": 3.127584891062577,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.9335347432024169,
+              "mean_width": 3.909419080274627,
+              "rows": 331
+            },
+            "1": {
+              "coverage": 0.89937106918239,
+              "mean_width": 3.402285173109775,
+              "rows": 318
+            },
+            "2": {
+              "coverage": 0.888235294117647,
+              "mean_width": 2.869015715082843,
+              "rows": 340
+            },
+            "3": {
+              "coverage": 0.8727272727272727,
+              "mean_width": 2.3450749320107973,
+              "rows": 330
+            }
+          },
+          "target_coverage": 0.9
+        },
+        "constant": {
+          "folds": [
+            {
+              "coverage": 0.8858267716535433,
+              "mean_width": 2.78809081717433,
+              "outer_fold": 0,
+              "rows": 254
+            },
+            {
+              "coverage": 0.915057915057915,
+              "mean_width": 2.9292956451150243,
+              "outer_fold": 1,
+              "rows": 259
+            },
+            {
+              "coverage": 0.8923076923076924,
+              "mean_width": 2.8266970278557735,
+              "outer_fold": 2,
+              "rows": 260
+            },
+            {
+              "coverage": 0.9377431906614786,
+              "mean_width": 3.026830629336407,
+              "outer_fold": 3,
+              "rows": 257
+            },
+            {
+              "coverage": 0.8754325259515571,
+              "mean_width": 2.728684878566714,
+              "outer_fold": 4,
+              "rows": 289
+            }
+          ],
+          "pooled_coverage": 0.9006823351023503,
+          "pooled_mean_width": 2.8569289374790063,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.9003021148036254,
+              "mean_width": 2.8526114638289646,
+              "rows": 331
+            },
+            "1": {
+              "coverage": 0.889937106918239,
+              "mean_width": 2.8604198329165067,
+              "rows": 318
+            },
+            "2": {
+              "coverage": 0.9,
+              "mean_width": 2.856055555698796,
+              "rows": 340
+            },
+            "3": {
+              "coverage": 0.9121212121212121,
+              "mean_width": 2.8587953884920667,
+              "rows": 330
+            }
+          },
+          "target_coverage": 0.9
+        }
+      },
+      "identity_overlap": 0,
+      "rows": 1319,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5241413120078439,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": 0.03809605363201713
+          },
+          "risk_coverage": {
+            "aurc": 0.348651400050055,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.3032632626517101,
+                "rows": 132
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.33198694576235166,
+                "rows": 264
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.3438557642225601,
+                "rows": 396
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.353269185121575,
+                "rows": 528
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.35087165044861157,
+                "rows": 660
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.35621184315328014,
+                "rows": 792
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.35841405275809646,
+                "rows": 924
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.361687783864319,
+                "rows": 1056
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.36336319440897025,
+                "rows": 1188
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.36359031810907605,
+                "rows": 1319
+              }
+            ],
+            "full_risk": 0.36359031810907605,
+            "relative_aurc_improvement_vs_random": 0.041087227340689036
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.4774703557312253,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": -0.04354099496642952
+          },
+          "risk_coverage": {
+            "aurc": 0.37129249027282346,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.3507520751659195,
+                "rows": 132
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.3735565856674669,
+                "rows": 264
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.3702084486075593,
+                "rows": 396
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.38529162307301007,
+                "rows": 528
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.37834438781097673,
+                "rows": 660
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.37386885529264485,
+                "rows": 792
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.3761207401460832,
+                "rows": 924
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.37010841371885594,
+                "rows": 1056
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.3710834551366419,
+                "rows": 1188
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.36359031810907605,
+                "rows": 1319
+              }
+            ],
+            "full_risk": 0.36359031810907605,
+            "relative_aurc_improvement_vs_random": -0.021183655834963178
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5553926525109538,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 330,
+            "spearman_loss_uncertainty": 0.09573224528320755
+          },
+          "risk_coverage": {
+            "aurc": 0.33620472149686736,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.2989184837205614,
+                "rows": 132
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.3232561089653188,
+                "rows": 264
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.32230167178686897,
+                "rows": 396
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.32606221753818426,
+                "rows": 528
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.3368563515636343,
+                "rows": 660
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.3431778797235508,
+                "rows": 792
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.3441422387313856,
+                "rows": 924
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.34804449673897986,
+                "rows": 1056
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.3556974480911138,
+                "rows": 1188
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.36359031810907605,
+                "rows": 1319
+              }
+            ],
+            "full_risk": 0.36359031810907605,
+            "relative_aurc_improvement_vs_random": 0.07531992808453469
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.32741702772439224,
+          "rows": 331,
+          "similarity_mean": 0.2600595764104769
+        },
+        "1": {
+          "loss_mean": 0.3729170587250724,
+          "rows": 318,
+          "similarity_mean": 0.3099840815164267
+        },
+        "2": {
+          "loss_mean": 0.3776757304108088,
+          "rows": 340,
+          "similarity_mean": 0.3596952172284595
+        },
+        "3": {
+          "loss_mean": 0.3763733951359074,
+          "rows": 330,
+          "similarity_mean": 0.47614243160188013
+        }
+      },
+      "task_type": "regression"
+    },
+    "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+      "cross_conformal_90": null,
+      "identity_overlap": 0,
+      "rows": 3140,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.8077076825293792,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 785,
+            "spearman_loss_uncertainty": 0.7794036637427312
+          },
+          "risk_coverage": {
+            "aurc": 0.0756922769158751,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.006328612800765643,
+                "rows": 314
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.009487653307955896,
+                "rows": 628
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.029610613289270577,
+                "rows": 943
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.044094793478559706,
+                "rows": 1256
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.07189501712842333,
+                "rows": 1570
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.09148569247670729,
+                "rows": 1884
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.1075516124726018,
+                "rows": 2198
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.12229952206738558,
+                "rows": 2512
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.1312953383039435,
+                "rows": 2826
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.14287391383313758,
+                "rows": 3140
+              }
+            ],
+            "full_risk": 0.14287391383313755,
+            "relative_aurc_improvement_vs_random": 0.47021625652198407
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5509489228771958,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 785,
+            "spearman_loss_uncertainty": 0.18301812182056662
+          },
+          "risk_coverage": {
+            "aurc": 0.12097274803729245,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.059883379291149307,
+                "rows": 314
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.09891800429298434,
+                "rows": 628
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.1047062861128746,
+                "rows": 943
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.12318349899584385,
+                "rows": 1256
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.12825604467294355,
+                "rows": 1570
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.13336031434234788,
+                "rows": 1884
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.13785241403556087,
+                "rows": 2198
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.14033168116465572,
+                "rows": 2512
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.1403619436314267,
+                "rows": 2826
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.14287391383313758,
+                "rows": 3140
+              }
+            ],
+            "full_risk": 0.14287391383313755,
+            "relative_aurc_improvement_vs_random": 0.15329016479119817
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.8436885877723235,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 785,
+            "spearman_loss_uncertainty": 0.8466342672859912
+          },
+          "risk_coverage": {
+            "aurc": 0.07273032234123364,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.015883293659954324,
+                "rows": 314
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.014256781367346653,
+                "rows": 628
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.024096880481152518,
+                "rows": 943
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.0379088150731635,
+                "rows": 1256
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.05845375875002158,
+                "rows": 1570
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.08545640081064207,
+                "rows": 1884
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.10153638713739359,
+                "rows": 2198
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.1148411127650306,
+                "rows": 2512
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.13199587953449396,
+                "rows": 2826
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.14287391383313755,
+                "rows": 3140
+              }
+            ],
+            "full_risk": 0.14287391383313755,
+            "relative_aurc_improvement_vs_random": 0.4909475047616083
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.14789502783926,
+          "rows": 787,
+          "similarity_mean": 0.31942134264589855
+        },
+        "1": {
+          "loss_mean": 0.16660676655272197,
+          "rows": 780,
+          "similarity_mean": 0.4087635504920833
+        },
+        "2": {
+          "loss_mean": 0.15451112571189746,
+          "rows": 787,
+          "similarity_mean": 0.4866173129026219
+        },
+        "3": {
+          "loss_mean": 0.1026427082444884,
+          "rows": 786,
+          "similarity_mean": 0.6530627324549712
+        }
+      },
+      "task_type": "classification"
+    },
+    "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+      "cross_conformal_90": {
+        "combined_adaptive": {
+          "folds": [
+            {
+              "coverage": 0.8899521531100478,
+              "mean_width": 2.508865465941579,
+              "outer_fold": 0,
+              "rows": 418
+            },
+            {
+              "coverage": 0.905940594059406,
+              "mean_width": 2.471508397599012,
+              "outer_fold": 1,
+              "rows": 404
+            },
+            {
+              "coverage": 0.9128329297820823,
+              "mean_width": 2.50584011953707,
+              "outer_fold": 2,
+              "rows": 413
+            },
+            {
+              "coverage": 0.8741258741258742,
+              "mean_width": 2.4282689219404037,
+              "outer_fold": 3,
+              "rows": 429
+            },
+            {
+              "coverage": 0.919431279620853,
+              "mean_width": 2.5154559950306803,
+              "outer_fold": 4,
+              "rows": 422
+            }
+          ],
+          "pooled_coverage": 0.900287631831256,
+          "pooled_mean_width": 2.4857895130286534,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.9383429672447013,
+              "mean_width": 3.120673446987589,
+              "rows": 519
+            },
+            "1": {
+              "coverage": 0.9277566539923955,
+              "mean_width": 2.714247155891796,
+              "rows": 526
+            },
+            "2": {
+              "coverage": 0.8795411089866156,
+              "mean_width": 2.3032020392247707,
+              "rows": 523
+            },
+            "3": {
+              "coverage": 0.8552123552123552,
+              "mean_width": 1.8020438893389439,
+              "rows": 518
+            }
+          },
+          "target_coverage": 0.9
+        },
+        "constant": {
+          "folds": [
+            {
+              "coverage": 0.8779904306220095,
+              "mean_width": 2.338406735515279,
+              "outer_fold": 0,
+              "rows": 418
+            },
+            {
+              "coverage": 0.9158415841584159,
+              "mean_width": 2.409377219608924,
+              "outer_fold": 1,
+              "rows": 404
+            },
+            {
+              "coverage": 0.9200968523002422,
+              "mean_width": 2.413457345061996,
+              "outer_fold": 2,
+              "rows": 413
+            },
+            {
+              "coverage": 0.8811188811188811,
+              "mean_width": 2.3606551483566287,
+              "outer_fold": 3,
+              "rows": 429
+            },
+            {
+              "coverage": 0.9123222748815166,
+              "mean_width": 2.4084017708473624,
+              "outer_fold": 4,
+              "rows": 422
+            }
+          ],
+          "pooled_coverage": 0.9012464046021093,
+          "pooled_mean_width": 2.3857463574403535,
+          "similarity_quartiles": {
+            "0": {
+              "coverage": 0.8747591522157996,
+              "mean_width": 2.385718484063371,
+              "rows": 519
+            },
+            "1": {
+              "coverage": 0.8821292775665399,
+              "mean_width": 2.385807902438199,
+              "rows": 526
+            },
+            "2": {
+              "coverage": 0.9024856596558317,
+              "mean_width": 2.3871381607058386,
+              "rows": 523
+            },
+            "3": {
+              "coverage": 0.9459459459459459,
+              "mean_width": 2.384306551467263,
+              "rows": 518
+            }
+          },
+          "target_coverage": 0.9
+        }
+      },
+      "identity_overlap": 0,
+      "rows": 2086,
+      "signals": {
+        "combined_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5180969564237489,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 522,
+            "spearman_loss_uncertainty": -0.007975117862377687
+          },
+          "risk_coverage": {
+            "aurc": 0.26497639412257784,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.25740983988069777,
+                "rows": 209
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.26425092347993534,
+                "rows": 418
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.25886194404377527,
+                "rows": 626
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.26130788097236485,
+                "rows": 835
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.25807168502979183,
+                "rows": 1043
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.2646848645260229,
+                "rows": 1252
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.26567420312023593,
+                "rows": 1461
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.27381749661018345,
+                "rows": 1669
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.2730873660175274,
+                "rows": 1878
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.27259773754524325,
+                "rows": 2086
+              }
+            ],
+            "full_risk": 0.2725977375452432,
+            "relative_aurc_improvement_vs_random": 0.02795820497739987
+          }
+        },
+        "distance_uncertainty": {
+          "error_detection": {
+            "auroc": 0.5296647019627441,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 522,
+            "spearman_loss_uncertainty": 0.029673821170427182
+          },
+          "risk_coverage": {
+            "aurc": 0.2581137298358257,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.2479178285084886,
+                "rows": 209
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.23920761943167893,
+                "rows": 418
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.2508263356173297,
+                "rows": 626
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.25338292502764304,
+                "rows": 835
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.258615711139006,
+                "rows": 1043
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.26072409276842395,
+                "rows": 1252
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.26330457614401365,
+                "rows": 1461
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.2678958068436671,
+                "rows": 1669
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.2666646653327632,
+                "rows": 1878
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.27259773754524325,
+                "rows": 2086
+              }
+            ],
+            "full_risk": 0.2725977375452432,
+            "relative_aurc_improvement_vs_random": 0.05313326456722178
+          }
+        },
+        "model_uncertainty": {
+          "error_detection": {
+            "auroc": 0.4942883950181772,
+            "high_error_definition": "strictly_above_endpoint_loss_q75",
+            "high_error_rows": 522,
+            "spearman_loss_uncertainty": -0.04623983718053207
+          },
+          "risk_coverage": {
+            "aurc": 0.27754415833967905,
+            "curve": [
+              {
+                "coverage": 0.1,
+                "risk": 0.26885010652234226,
+                "rows": 209
+              },
+              {
+                "coverage": 0.2,
+                "risk": 0.29337150214189217,
+                "rows": 418
+              },
+              {
+                "coverage": 0.30000000000000004,
+                "risk": 0.28373533500496095,
+                "rows": 626
+              },
+              {
+                "coverage": 0.4,
+                "risk": 0.2846746174662176,
+                "rows": 835
+              },
+              {
+                "coverage": 0.5,
+                "risk": 0.2759374285152338,
+                "rows": 1043
+              },
+              {
+                "coverage": 0.6,
+                "risk": 0.2728171097421465,
+                "rows": 1252
+              },
+              {
+                "coverage": 0.7000000000000001,
+                "risk": 0.274585073716078,
+                "rows": 1461
+              },
+              {
+                "coverage": 0.8,
+                "risk": 0.2753342235654181,
+                "rows": 1669
+              },
+              {
+                "coverage": 0.9,
+                "risk": 0.2735384491772575,
+                "rows": 1878
+              },
+              {
+                "coverage": 1.0,
+                "risk": 0.2725977375452432,
+                "rows": 2086
+              }
+            ],
+            "full_risk": 0.2725977375452432,
+            "relative_aurc_improvement_vs_random": -0.01814549467276816
+          }
+        }
+      },
+      "similarity_quartiles": {
+        "0": {
+          "loss_mean": 0.29545082161377983,
+          "rows": 519,
+          "similarity_mean": 0.31365763036659317
+        },
+        "1": {
+          "loss_mean": 0.2767503877654311,
+          "rows": 526,
+          "similarity_mean": 0.40315437242356383
+        },
+        "2": {
+          "loss_mean": 0.2725403658293317,
+          "rows": 523,
+          "similarity_mean": 0.46529649940504314
+        },
+        "3": {
+          "loss_mean": 0.24554167723642534,
+          "rows": 518,
+          "similarity_mean": 0.5868307053093847
+        }
+      },
+      "task_type": "regression"
+    }
+  },
+  "input_prediction_sha256": "077d44e606581653f617e683318a957200fc66444e499ba624a50e8c84a57da8",
+  "input_result_sha256": "d15dbcbacb1203b1dd109a2ce4259a68285c3aa841c3667bb710477264b152b8",
+  "leaderboard_feedback_used": false,
+  "promotion_passed": false,
+  "protocol_path": "/home/wyilin/admet/reports/openadmet_cyp_applicability_protocol_v3.json",
+  "protocol_sha256": "9f5be7a4df914ca70beeff3fbec377bb7155d1f2eccc0f5fd33bfd2c91a904cb",
+  "rdkit_compatibility_adapter_scope": "GetFingerprintFromSmiles_to_MolFromSmiles_plus_GetFingerprint_only",
+  "scope": "training_only_oof_post_selection_diagnostic",
+  "test_labels_loaded": false,
+  "uncertainty_contract": {
+    "combined": "equal_mean_of_available_endpoint_local_percentile_ranks",
+    "conformal": "cross_outer_fold_absolute_residual_with_constant_or_0.25_plus_combined_rank_scale",
+    "distance": "1_minus_nearest_outer_train_morgan2_2048_tanimoto",
+    "high_error": "strictly_above_endpoint_loss_q75",
+    "labels_used_to_construct_uncertainty": false,
+    "model_classification": "mean_seed_disagreement_and_one_minus_margin_percentile_ranks",
+    "model_regression": "seed_prediction_disagreement_percentile_rank",
+    "primary_loss_classification": "brier_row_loss",
+    "primary_loss_regression": "official_interval_aware_ST_RAE_numerator_row_loss",
+    "risk_coverage_grid": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ]
+  },
+  "version": "openadmet-cyp-applicability-v3"
+}

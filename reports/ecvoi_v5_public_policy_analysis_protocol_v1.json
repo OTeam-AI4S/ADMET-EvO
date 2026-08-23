@@ -1,0 +1,120 @@
+{
+  "action_screen_protocol_file_sha256": "a5969215ae46815a242a177c428aea2b159e525478c0d311ed503b49e3a0b418",
+  "action_screen_protocol_self_sha256": "e6911d3879ded1429baed7ee32a96ac378d566af1da01d265aa733f49dae41ef",
+  "blind_or_leaderboard_feedback_used": false,
+  "candidate_research_actions": [
+    "feature_rich",
+    "nested_imbalance",
+    "stop"
+  ],
+  "cluster_bootstraps": 2000,
+  "cluster_direction_probability_threshold": 0.9,
+  "controls": [
+    "no_diagnosis",
+    "shuffled_diagnosis",
+    "rules",
+    "boosting_anchor",
+    "automl_expanded",
+    "full_no_harm"
+  ],
+  "costs": {
+    "automl_expanded": 21,
+    "boosting_anchor": 1,
+    "feature_rich": 1,
+    "nested_imbalance": 6,
+    "stop": 0
+  },
+  "cross_fit": {
+    "heldout_endpoint_outcomes_used_to_fit_policy": false,
+    "heldout_rule": "remove held endpoint and every endpoint from its source",
+    "heldout_source_outcomes_used_to_fit_policy": false,
+    "outer_fold_action_effects": "mean only after complete pairing",
+    "unit": "endpoint"
+  },
+  "effect_model": {
+    "alpha": 4.0,
+    "family": "standardized ridge",
+    "full": "state-conditioned",
+    "no_diagnosis": "intercept-only",
+    "predictive_residual_floor": 0.01,
+    "shuffled_diagnosis": "training state rows permuted independently of effects",
+    "source_cluster_bootstrap_draws": 256
+  },
+  "eligibility": {
+    "cost_penalty": 0.00025,
+    "harm_margin": 0.005,
+    "harm_probability_limit": 0.2,
+    "information_gain_weight": 0.0,
+    "practical_gain": 0.005
+  },
+  "frozen_at": "2026-08-23",
+  "implementation_sha256": {
+    "admet_agent/ecvoi_v5_policy.py": "0318a7028404f1de96a7fd0c12d5841114e2a4f7b3a4ad1a8893dec9fde7b857",
+    "admet_agent/public_policy_analysis.py": "cf69a8180a3c44d7385b6cd0b215050018fe58f40a15a3701866b0c1a9fc9ce9",
+    "scripts/analyze_ecvoi_v5_public_policy.py": "9f5e77d058c0ecdaa49efd825aa43f51dbdf50d58bbfdcdf1875462133a97515",
+    "tests/test_public_policy_analysis.py": "ac685afa44132afe1d522b4975dc0d41edbbed88f98cdf13640e4ae13d4c1879"
+  },
+  "matched_max_fits_per_endpoint": 21,
+  "outcomes_available_at_freeze": false,
+  "posterior_bootstraps": 256,
+  "primary_endpoint_scope": [
+    "b3db::bbb_classification",
+    "b3db::logBB_regression",
+    "clintox::CT_TOX",
+    "ncats_pampa::pH7.4_permeability",
+    "tox21::NR-AR",
+    "tox21::NR-AR-LBD",
+    "tox21::NR-AhR",
+    "tox21::NR-Aromatase",
+    "tox21::NR-ER",
+    "tox21::NR-ER-LBD",
+    "tox21::NR-PPAR-gamma",
+    "tox21::SR-ARE",
+    "tox21::SR-ATAD5",
+    "tox21::SR-HSE",
+    "tox21::SR-MMP",
+    "tox21::SR-p53"
+  ],
+  "primary_estimands": [
+    "total_oriented_gain",
+    "mean_oracle_regret",
+    "harmful_interventions",
+    "gain_per_fit"
+  ],
+  "promotion_gate": {
+    "at_least_one_strict_anchor_win": true,
+    "endpoint_source_cluster_bootstrap_direction_consistent": true,
+    "full_regret_reduction_vs_no_diagnosis": ">=0.20",
+    "full_regret_reduction_vs_shuffled": ">=0.20",
+    "full_total_gain_strictly_above_both": true,
+    "harmful_interventions": 0,
+    "matched_budget_and_permissions": true,
+    "test_blind_leaderboard_access": 0
+  },
+  "rules_control": {
+    "feature_if_structural_support_lte": 0.35,
+    "nested_if_minority_fraction_lte": 0.1,
+    "otherwise": "stop"
+  },
+  "seed": 20260823,
+  "sha256": "356109f38a479dd3d623607ceb8743b15bad30570441c782f4d57116e5e38e4b",
+  "small_sample_stress_excluded_from_primary_gate": [
+    "freesolv::experimental_hydration_free_energy"
+  ],
+  "state_encoder": {
+    "features": [
+      "task_type",
+      "log_train_rows",
+      "train_minority_fraction",
+      "train_group_density",
+      "median_sampled_validation_to_train_tanimoto",
+      "source_id_for_heldout_partition_only"
+    ],
+    "outer_validation_baseline_score_used_as_state": false,
+    "similarity_sample_size": 256,
+    "validation_labels_used": false
+  },
+  "tdc_19_locked_until_all_checks_pass": true,
+  "test_labels_loaded": false,
+  "version": "ecvoi-v5-public-policy-analysis-protocol-v1"
+}

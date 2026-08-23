@@ -1,0 +1,554 @@
+{
+  "data_regime_counts": {
+    "higher_data": 9,
+    "low_data": 13
+  },
+  "default_research_fit_ceiling": 0,
+  "default_route_counts": {
+    "none": 22
+  },
+  "exception_fit_ceiling": {
+    "higher_data": 6,
+    "low_data": 10
+  },
+  "family_by_data_regime": {
+    "binary_auroc": {
+      "higher_data": 2,
+      "low_data": 6
+    },
+    "continuous_mae": {
+      "higher_data": 4,
+      "low_data": 1
+    },
+    "imbalanced_binary_auprc": {
+      "higher_data": 3,
+      "low_data": 2
+    },
+    "rank_pk_spearman": {
+      "higher_data": 0,
+      "low_data": 4
+    }
+  },
+  "frozen_artifact_coverage": 22,
+  "frozen_mapping_sha256": "17523aa1d5583437833f7f22aecceff5d0932f466104936b0be4ce5ee363e98d",
+  "protocol": "tdc22-two-lane-category-size-policy-v2",
+  "qualification_seal": "4b62bb35565fdbcd3de1e7860ee02e202bd705fca71bf1873bab390dd2a8689b",
+  "removed_from_default_scheduler": [
+    "per_task_matched_pair",
+    "per_task_strong_anchor",
+    "screen_then_five_seed_confirmation",
+    "automatic_cross_axis_correction",
+    "medium_data_branch",
+    "scalar_hardness_routing",
+    "committee",
+    "hpo",
+    "ensemble_search",
+    "unimol2",
+    "external_data_search"
+  ],
+  "replay_assumption": "No new validation-side alert was supplied; each task follows the healthy default route.",
+  "status": "default_scheduler_candidate",
+  "task_count": 22,
+  "task_family_counts": {
+    "binary_auroc": 8,
+    "continuous_mae": 5,
+    "imbalanced_binary_auprc": 5,
+    "rank_pk_spearman": 4
+  },
+  "tasks": [
+    {
+      "admet_category": "toxicity",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 5093,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "AMES",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "distribution",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 1421,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "BBB_Martins",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 448,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "Bioavailability_Ma",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 467,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "minority_recall_without_precision_collapse",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "task_family": "imbalanced_binary_auprc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 8463,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "minority_recall_without_precision_collapse",
+      "task": "CYP2C9_Veith",
+      "task_family": "imbalanced_binary_auprc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 465,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "minority_recall_without_precision_collapse",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "task_family": "imbalanced_binary_auprc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 9191,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "minority_recall_without_precision_collapse",
+      "task": "CYP2D6_Veith",
+      "task_family": "imbalanced_binary_auprc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 468,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "metabolism",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 8628,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "minority_recall_without_precision_collapse",
+      "task": "CYP3A4_Veith",
+      "task_family": "imbalanced_binary_auprc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 637,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "robust_continuous_error_under_scaffold_shift",
+      "task": "Caco2_Wang",
+      "task_family": "continuous_mae",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "excretion",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 848,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "ordering_consistency_under_scaffold_shift",
+      "task": "Clearance_Hepatocyte_AZ",
+      "task_family": "rank_pk_spearman",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "excretion",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 770,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "ordering_consistency_under_scaffold_shift",
+      "task": "Clearance_Microsome_AZ",
+      "task_family": "rank_pk_spearman",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "toxicity",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 325,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "DILI",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 403,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "HIA_Hou",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "excretion",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 465,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "ordering_consistency_under_scaffold_shift",
+      "task": "Half_Life_Obach",
+      "task_family": "rank_pk_spearman",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "toxicity",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 5168,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "robust_continuous_error_under_scaffold_shift",
+      "task": "LD50_Zhu",
+      "task_family": "continuous_mae",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 2940,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "robust_continuous_error_under_scaffold_shift",
+      "task": "Lipophilicity_AstraZeneca",
+      "task_family": "continuous_mae",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "distribution",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 1952,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "robust_continuous_error_under_scaffold_shift",
+      "task": "PPBR_AZ",
+      "task_family": "continuous_mae",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 851,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "Pgp_Broccatelli",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "absorption",
+      "confirmation_seeds": [
+        1,
+        2,
+        3
+      ],
+      "data_regime": "higher_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 6986,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "robust_continuous_error_under_scaffold_shift",
+      "task": "Solubility_AqSolDB",
+      "task_family": "continuous_mae",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "distribution",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 791,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "ordering_consistency_under_scaffold_shift",
+      "task": "VDss_Lombardo",
+      "task_family": "rank_pk_spearman",
+      "test_loaded": false
+    },
+    {
+      "admet_category": "toxicity",
+      "confirmation_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "data_regime": "low_data",
+      "maximum_research_configurations": 2,
+      "maximum_research_fits": 0,
+      "maximum_research_hypotheses": 1,
+      "n_train": 457,
+      "production_action": "reuse_qualified_frozen_recipe_and_stop",
+      "reason": "prediction_is_qualified_and_no_actionable_problem_is_present",
+      "research_action": "none",
+      "reviewer_mode": "single_agent",
+      "scientific_question": "representation_or_scaffold_generalization",
+      "task": "hERG",
+      "task_family": "binary_auroc",
+      "test_loaded": false
+    }
+  ],
+  "test_loaded": false,
+  "training_started": false,
+  "two_lanes": {
+    "production": "contract check -> reuse qualified frozen recipe -> stop",
+    "research_exception": "specific validation-side trigger -> one hypothesis -> one matched pair -> retain result -> stop"
+  }
+}

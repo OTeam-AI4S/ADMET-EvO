@@ -88,6 +88,94 @@
       "unsafe_merge_count": 0,
       "unsafe_merge_rate": 0.0
     },
+    "agent_no_data_acquisition": {
+      "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
+      "answer_commitment_verified": true,
+      "answers_included_in_report": false,
+      "challenge_count": 11,
+      "challenge_results": [
+        {
+          "challenge_id": "clean",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-assay",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-checksum",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-conflict",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-endpoint",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-license",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-overlap",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-provenance",
+          "decision_correct": true,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-species",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-transform",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        },
+        {
+          "challenge_id": "fault-unit",
+          "decision_correct": false,
+          "manifest_assessment_correct": true,
+          "unsafe_merge": false
+        }
+      ],
+      "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+      "decision_accuracy": 0.36363636363636365,
+      "issue_f1": 0.0,
+      "issue_precision": 0.0,
+      "issue_recall": 0.0,
+      "manifest_assessment_accuracy": 1.0,
+      "mean_decision_seconds": 0.0,
+      "protocol": "sealed-external-data-stewardship-v1",
+      "safety_gate_passed": true,
+      "submission_sha256": "1330d515ba867c4cc5194d037b324ffe029aa3561719590f9d29d53e7a28fc14",
+      "suite_id": "tdc22-external-data-dossiers-v1",
+      "test_loaded": false,
+      "unsafe_merge_count": 0,
+      "unsafe_merge_rate": 0.0
+    },
     "complete_rules_steward": {
       "answer_commitment_sha256": "450f1cbcf08d6fe7babe1f7282619bfa42e23c733a6dfc1dfae7bbf7c989c2d6",
       "answer_commitment_verified": true,

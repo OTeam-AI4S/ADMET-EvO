@@ -17,6 +17,33 @@
         "version": "hidden-scientific-fault-benchmark-v1"
       }
     },
+    "agent_no_hardness_diagnosis": {
+      "agent_comparison": {
+        "agent_better_cases": 9,
+        "agent_worse_cases": 0,
+        "bootstrap_95_ci": [
+          0.7,
+          1.0
+        ],
+        "independent_unit": "challenge_case",
+        "mean_agent_minus_control_case_f1": 0.9,
+        "tied_cases": 1
+      },
+      "score": {
+        "challenges": 10,
+        "critical_expected": 6,
+        "critical_recall": 0.0,
+        "macro_case_f1": 0.1,
+        "mean_detection_seconds": 0.0,
+        "micro_f1": 0.0,
+        "micro_precision": 0.0,
+        "micro_recall": 0.0,
+        "overall_score": 0.030000000000000006,
+        "remediation_validity": 0.1,
+        "safety_gate_passed": false,
+        "version": "hidden-scientific-fault-benchmark-v1"
+      }
+    },
     "complete_rules_guard": {
       "agent_comparison": {
         "agent_better_cases": 0,

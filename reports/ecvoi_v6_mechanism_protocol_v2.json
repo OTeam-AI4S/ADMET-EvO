@@ -1,0 +1,81 @@
+{
+  "action_costs": {
+    "feature_rich": 1,
+    "nested_imbalance": 6,
+    "stop": 0
+  },
+  "actions": [
+    "feature_rich",
+    "nested_imbalance",
+    "stop"
+  ],
+  "development_evidence": {
+    "cohort": "ecvoi-v5-public-cohort-v4",
+    "eligible_for_v6_promotion": false,
+    "observed_failure": "state-conditioned v5 did not beat source-balanced intercept controls",
+    "use": "mechanism development and negative-control replay only",
+    "v5_outcomes_available": true
+  },
+  "eligibility": {
+    "cost_penalty": 0.00025,
+    "harm_margin": 0.005,
+    "harm_probability_limit": 0.2,
+    "information_gain_weight": 0.0,
+    "practical_gain": 0.005
+  },
+  "fresh_confirmation_requirements": {
+    "controls": [
+      "source-balanced no-diagnosis",
+      "unshrunk state model",
+      "shuffled diagnostics",
+      "fixed rules",
+      "boosting anchor",
+      "expanded AutoML"
+    ],
+    "endpoint_contract_and_license_audited": true,
+    "frozen_before_action_outcomes": true,
+    "identity_and_near-structure_firewall": true,
+    "matched_max_fits_per_endpoint": 21,
+    "minimum_eligible_endpoints": 18,
+    "minimum_scientific_sources": 9,
+    "primary_gate": {
+      "at_least_one_strict_boosting_anchor_win": true,
+      "harmful_interventions": 0,
+      "mean_oracle_regret_reduction_vs_no_diagnosis": ">=0.15",
+      "source_cluster_positive_direction_probability": ">=0.90",
+      "total_gain_above_no_diagnosis": ">0",
+      "total_gain_above_unshrunk_state": ">0"
+    },
+    "source_identity_audited": true
+  },
+  "fresh_outcomes_available_at_freeze": false,
+  "frozen_at": "2026-08-23",
+  "implementation_sha256": {
+    "admet_agent/ecvoi_v5_policy.py": "0318a7028404f1de96a7fd0c12d5841114e2a4f7b3a4ad1a8893dec9fde7b857",
+    "admet_agent/public_policy_analysis.py": "cf69a8180a3c44d7385b6cd0b215050018fe58f40a15a3701866b0c1a9fc9ce9",
+    "admet_agent/public_policy_v6.py": "2899ae3040c6bcee8328f8ec072cc3fe33902f368bbaa2846f8cdfff716500d0",
+    "tests/test_public_policy_v6.py": "fd200626622067af9cf2de9dd329ca8fd5d9e131ba6f47feb8258a3860e44c44"
+  },
+  "mechanism": {
+    "diagnostic_model": "standardized ridge alpha=4 with inverse source-size weights",
+    "fallback": "diagnostic shrinkage weight exactly zero",
+    "full_weight_sources": 9,
+    "heldout_rule": "remove every endpoint from held endpoint source",
+    "identifiability_test": "inner leave-one-source-out squared-loss comparison against prior",
+    "minimum_median_loss_gain": 0.0,
+    "minimum_source_win_fraction": 0.6,
+    "minimum_training_sources": 5,
+    "prior": "equal-source-weight action-effect mean",
+    "shrinkage": "positive normalized median loss gain times source-count reliability",
+    "uncertainty": "Dirichlet source-weight bootstrap plus source-balanced residual noise"
+  },
+  "sha256": "d16ac02de28b2da7ecdff434541118b677e7c2f756af184e964a53c07cd09a4f",
+  "supersedes": {
+    "fresh_outcomes_seen_before_supersession": false,
+    "protocol": "ecvoi-v6-identifiability-shrinkage-mechanism-v1",
+    "reason": "pre-outcome unit test exposed a read-only sample-weight array defect"
+  },
+  "tdc_19_locked": true,
+  "test_or_leaderboard_feedback_used": false,
+  "version": "ecvoi-v6-identifiability-shrinkage-mechanism-v2"
+}

@@ -1,0 +1,1879 @@
+{
+  "blind_test_opened": false,
+  "bootstrap_samples": 1000,
+  "bootstrap_unit": "chemistry_group",
+  "leaderboard_feedback_used": false,
+  "models": [
+    {
+      "cluster_bootstrap": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5948158474293757,
+              0.6897439682933868
+            ],
+            "mean": 0.6400861990675601
+          },
+          "spearman": {
+            "ci95": [
+              0.4234880948579897,
+              0.5371900140606187
+            ],
+            "mean": 0.48223665461623294
+          },
+          "st_rae": {
+            "ci95": [
+              0.7879821126140308,
+              0.8948406972747937
+            ],
+            "mean": 0.8393548242029527
+          }
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.4506436622395075,
+              0.5140667362702946
+            ],
+            "mean": 0.4804388922130595
+          },
+          "spearman": {
+            "ci95": [
+              0.5447475564509998,
+              0.6485435340416771
+            ],
+            "mean": 0.5993993909861803
+          },
+          "st_rae": {
+            "ci95": [
+              0.6164220246073886,
+              0.7309399435614194
+            ],
+            "mean": 0.670275748812237
+          }
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.1561717115649839,
+              0.20196953672659984
+            ],
+            "mean": 0.17992071823049846
+          },
+          "ece_10": {
+            "ci95": [
+              0.10624208155732444,
+              0.16144286740415312
+            ],
+            "mean": 0.13236831679501598
+          },
+          "mcc": {
+            "ci95": [
+              0.07390743983646303,
+              0.25289715715891714
+            ],
+            "mean": 0.16265078939344982
+          }
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5392300869307114,
+              0.627172392697424
+            ],
+            "mean": 0.5818254500220497
+          },
+          "spearman": {
+            "ci95": [
+              0.3371181566935077,
+              0.45870027299880944
+            ],
+            "mean": 0.4007645249763917
+          },
+          "st_rae": {
+            "ci95": [
+              0.85268052964804,
+              0.9296949899847011
+            ],
+            "mean": 0.8894026956225004
+          }
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.13030073587232333,
+              0.15713384436592004
+            ],
+            "mean": 0.1438296010591251
+          },
+          "ece_10": {
+            "ci95": [
+              0.0684519693210327,
+              0.1025316709395704
+            ],
+            "mean": 0.0855772006228307
+          },
+          "mcc": {
+            "ci95": [
+              0.30741650587800673,
+              0.41111707258067914
+            ],
+            "mean": 0.36174466807036854
+          }
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5137602947971933,
+              0.5749632819152399
+            ],
+            "mean": 0.5427705644093466
+          },
+          "spearman": {
+            "ci95": [
+              0.7181422370196661,
+              0.7815243732105287
+            ],
+            "mean": 0.7506466922506424
+          },
+          "st_rae": {
+            "ci95": [
+              0.4803649353781591,
+              0.5659642961849043
+            ],
+            "mean": 0.5230528084457817
+          }
+        }
+      },
+      "collapsed_rows": 6083,
+      "cross_conformal_90": {},
+      "endpoints": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.6402265593533013,
+          "rows": 736,
+          "spearman": 0.48413750197146876,
+          "st_rae": 0.8375178326813312
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.4799619767690231,
+          "rows": 693,
+          "spearman": 0.5992605840517753,
+          "st_rae": 0.669627833451236
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.18102782109789206,
+          "ece_10": 0.12967919787481602,
+          "mcc": 0.161976185140437,
+          "rows": 775
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.582619176886829,
+          "rows": 773,
+          "spearman": 0.40236501946057895,
+          "st_rae": 0.8881418531500513
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.14354243620683108,
+          "ece_10": 0.08192287555217434,
+          "mcc": 0.3625967856469344,
+          "rows": 1871
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.542650207950302,
+          "rows": 1235,
+          "spearman": 0.7518516640369872,
+          "st_rae": 0.5217506139087258
+        }
+      },
+      "label": "B1",
+      "prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b1_outer_predictions.csv",
+      "prediction_sha256": "c9b2e41b9f208b899c296368a1a5a416ae6897b661699b48e69bb7b20025f709",
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b1_cv_result.json",
+      "result_sha256": "5c47cb0c3c9b933f258d1a72c2f02099c95084c20cb2678a60db79bc17321917",
+      "selective_risk": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.10834504579329537,
+            "rows": 388
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.09886984527862233,
+            "rows": 465
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.15882933409674208,
+            "rows": 543
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.14341121760201778,
+            "rows": 620
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.1149994298646318,
+            "rows": 698
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.161976185140437,
+            "rows": 775
+          }
+        ],
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": [],
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.3936028102399699,
+            "rows": 936
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.3935679062188035,
+            "rows": 1123
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.4209274508182922,
+            "rows": 1310
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.428065070156139,
+            "rows": 1497
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.38069439083419193,
+            "rows": 1684
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.3625967856469344,
+            "rows": 1871
+          }
+        ],
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": []
+      }
+    },
+    {
+      "cluster_bootstrap": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5825384530262998,
+              0.6748654361570956
+            ],
+            "mean": 0.625962029123601
+          },
+          "spearman": {
+            "ci95": [
+              0.43163028811983273,
+              0.5460362093954951
+            ],
+            "mean": 0.4886769929515591
+          },
+          "st_rae": {
+            "ci95": [
+              0.764628202950173,
+              0.8626072626743873
+            ],
+            "mean": 0.8121326586612024
+          }
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.44334130604663896,
+              0.5104863048391989
+            ],
+            "mean": 0.4761646197595462
+          },
+          "spearman": {
+            "ci95": [
+              0.5603479400750161,
+              0.6617247316121919
+            ],
+            "mean": 0.6141391639250035
+          },
+          "st_rae": {
+            "ci95": [
+              0.6121524416796005,
+              0.709547589932146
+            ],
+            "mean": 0.6590078762038833
+          }
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.15977128225567813,
+              0.20754041645499635
+            ],
+            "mean": 0.18377647642784312
+          },
+          "ece_10": {
+            "ci95": [
+              0.1093157570564689,
+              0.16550731484694456
+            ],
+            "mean": 0.13764807771853618
+          },
+          "mcc": {
+            "ci95": [
+              -0.04596125422233309,
+              0.10890230468330192
+            ],
+            "mean": 0.02411672390107774
+          }
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.537932672533428,
+              0.6234446937811073
+            ],
+            "mean": 0.5781715514795017
+          },
+          "spearman": {
+            "ci95": [
+              0.3690930266303373,
+              0.485730535050057
+            ],
+            "mean": 0.4301849160032343
+          },
+          "st_rae": {
+            "ci95": [
+              0.8404560619078557,
+              0.9151039097881635
+            ],
+            "mean": 0.8760255736318793
+          }
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.13970149459376427,
+              0.16917608900746156
+            ],
+            "mean": 0.15421424326474653
+          },
+          "ece_10": {
+            "ci95": [
+              0.08280369430199325,
+              0.12117584398039238
+            ],
+            "mean": 0.10195024861906583
+          },
+          "mcc": {
+            "ci95": [
+              0.20899121563795917,
+              0.3282009074402237
+            ],
+            "mean": 0.2671896768431836
+          }
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5395070563054748,
+              0.6011142681777069
+            ],
+            "mean": 0.5689899368800626
+          },
+          "spearman": {
+            "ci95": [
+              0.7130760999108047,
+              0.7762921193404408
+            ],
+            "mean": 0.7463547223179935
+          },
+          "st_rae": {
+            "ci95": [
+              0.49416216446305516,
+              0.579327624341857
+            ],
+            "mean": 0.5361475344277952
+          }
+        }
+      },
+      "collapsed_rows": 6083,
+      "cross_conformal_90": {},
+      "endpoints": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.6265522929278112,
+          "rows": 736,
+          "spearman": 0.4893371530666422,
+          "st_rae": 0.8112729947687201
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.47580457441148466,
+          "rows": 693,
+          "spearman": 0.6137603075351905,
+          "st_rae": 0.6590338458731594
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.18477410572067887,
+          "ece_10": 0.1352314747190086,
+          "mcc": 0.025651234992907675,
+          "rows": 775
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5790013805199704,
+          "rows": 773,
+          "spearman": 0.43132578709828856,
+          "st_rae": 0.8751455013345438
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.15402630641205078,
+          "ece_10": 0.09959683000541426,
+          "mcc": 0.2673874925210693,
+          "rows": 1871
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5689801016765266,
+          "rows": 1235,
+          "spearman": 0.7475417906890681,
+          "st_rae": 0.5350116140931992
+        }
+      },
+      "label": "B2",
+      "prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b2_outer_predictions.csv",
+      "prediction_sha256": "5d176e367ecbb93e19fa9c420a2752b6350f8fbab86eebf82a4386a029b55d78",
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b2_cv_result.json",
+      "result_sha256": "2eb8694d008c41a7f2d23bdf099f7997bea9170ab0dbe1dea85a587e00532bf0",
+      "selective_risk": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.0,
+            "rows": 388
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.0,
+            "rows": 465
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.0,
+            "rows": 543
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.0,
+            "rows": 620
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.0,
+            "rows": 698
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.025651234992907675,
+            "rows": 775
+          }
+        ],
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": [],
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.11967997861587643,
+            "rows": 936
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.1991983395494716,
+            "rows": 1123
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.1927565375268448,
+            "rows": 1310
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.2178763659531506,
+            "rows": 1497
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.252904202258938,
+            "rows": 1684
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.2673874925210693,
+            "rows": 1871
+          }
+        ],
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": []
+      }
+    },
+    {
+      "cluster_bootstrap": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.6469794446094542,
+              0.7438048935352215
+            ],
+            "mean": 0.694086612364575
+          },
+          "spearman": {
+            "ci95": [
+              0.3001099032073055,
+              0.4273106340954666
+            ],
+            "mean": 0.3642010953512941
+          },
+          "st_rae": {
+            "ci95": [
+              0.8949874054510161,
+              1.036453392373808
+            ],
+            "mean": 0.9655944706839998
+          }
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.47208030579469457,
+              0.5384483166121903
+            ],
+            "mean": 0.5044467160084921
+          },
+          "spearman": {
+            "ci95": [
+              0.4854258953329139,
+              0.5954953629249516
+            ],
+            "mean": 0.5415651798724207
+          },
+          "st_rae": {
+            "ci95": [
+              0.6781478336140409,
+              0.8057025226690805
+            ],
+            "mean": 0.7406923160627548
+          }
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.1764624537292202,
+              0.20172606028465068
+            ],
+            "mean": 0.18957015960352924
+          },
+          "ece_10": {
+            "ci95": [
+              0.11378092883091191,
+              0.16824435839528837
+            ],
+            "mean": 0.14122182209146616
+          },
+          "mcc": {
+            "ci95": [
+              0.03742681478369262,
+              0.22297386211368972
+            ],
+            "mean": 0.1292357438507479
+          }
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5568613943672708,
+              0.6484917012494785
+            ],
+            "mean": 0.6011427439376297
+          },
+          "spearman": {
+            "ci95": [
+              0.24960786997234033,
+              0.38262252719814194
+            ],
+            "mean": 0.316685805230514
+          },
+          "st_rae": {
+            "ci95": [
+              0.8978667331768245,
+              0.9746797738883692
+            ],
+            "mean": 0.9355292029277532
+          }
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.17869878073673587,
+              0.2022010590874252
+            ],
+            "mean": 0.19061221858693422
+          },
+          "ece_10": {
+            "ci95": [
+              0.12155941318598577,
+              0.16567911690687714
+            ],
+            "mean": 0.14232195939455694
+          },
+          "mcc": {
+            "ci95": [
+              0.06474127946813592,
+              0.17169889632376611
+            ],
+            "mean": 0.11811178650278262
+          }
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.664965369233177,
+              0.7384672855318841
+            ],
+            "mean": 0.7022102807060548
+          },
+          "spearman": {
+            "ci95": [
+              0.5735199560742232,
+              0.6504217030649677
+            ],
+            "mean": 0.6131154329589
+          },
+          "st_rae": {
+            "ci95": [
+              0.7209756463146194,
+              0.8316939622991617
+            ],
+            "mean": 0.7749061655880677
+          }
+        }
+      },
+      "collapsed_rows": 6083,
+      "cross_conformal_90": {},
+      "endpoints": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.694443052803233,
+          "rows": 736,
+          "spearman": 0.3650256923015799,
+          "st_rae": 0.9639629284599166
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5042924865711589,
+          "rows": 693,
+          "spearman": 0.5415510427837392,
+          "st_rae": 0.7404702096732574
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.1895498106358615,
+          "ece_10": 0.1345643306637724,
+          "mcc": 0.12979465409151972,
+          "rows": 775
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.602208058111911,
+          "rows": 773,
+          "spearman": 0.3167333283338653,
+          "st_rae": 0.9348938805683641
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.19042956454209647,
+          "ece_10": 0.13856374809081917,
+          "mcc": 0.11848125071270375,
+          "rows": 1871
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.7032622082605832,
+          "rows": 1235,
+          "spearman": 0.6134630244050858,
+          "st_rae": 0.7756159749362497
+        }
+      },
+      "label": "M0",
+      "prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m0_outer_predictions.csv",
+      "prediction_sha256": "6fcf910c8d0f58dc9575b0cf3f2bf9006a1c5a7a7742caf42f64beba5448077e",
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m0_cv_result.json",
+      "result_sha256": "c4b4a0e0a9f8b621f4dec6ae423d5e07ccb003e127918f09044872114ac22ddc",
+      "selective_risk": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": [],
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.2347469104782281,
+            "rows": 388
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.17278987973450288,
+            "rows": 465
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.17951328109106743,
+            "rows": 543
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.1663903488978365,
+            "rows": 620
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.14616245747017195,
+            "rows": 698
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.12979465409151972,
+            "rows": 775
+          }
+        ],
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": [],
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.25780197641034414,
+            "rows": 936
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.20602939917227184,
+            "rows": 1123
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.21472747591123423,
+            "rows": 1310
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.1979275526307833,
+            "rows": 1497
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.1619104378784764,
+            "rows": 1684
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.11848125071270375,
+            "rows": 1871
+          }
+        ],
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": []
+      }
+    },
+    {
+      "cluster_bootstrap": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.6114256627269231,
+              0.7072662761997848
+            ],
+            "mean": 0.659153023444899
+          },
+          "spearman": {
+            "ci95": [
+              0.4316598331476509,
+              0.545587328971669
+            ],
+            "mean": 0.49147262253938323
+          },
+          "st_rae": {
+            "ci95": [
+              0.8185189973576308,
+              0.9129063171082871
+            ],
+            "mean": 0.8639900658157589
+          }
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.49096114241561806,
+              0.5583967631922944
+            ],
+            "mean": 0.5240635334052417
+          },
+          "spearman": {
+            "ci95": [
+              0.5408631178953356,
+              0.6560263060571639
+            ],
+            "mean": 0.6004014500705721
+          },
+          "st_rae": {
+            "ci95": [
+              0.6697583510770018,
+              0.7873861194863265
+            ],
+            "mean": 0.7275145185890178
+          }
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.22749149738131688,
+              0.24444172963193986
+            ],
+            "mean": 0.23551677179099215
+          },
+          "ece_10": {
+            "ci95": [
+              0.22846420013435542,
+              0.2851165363815466
+            ],
+            "mean": 0.2559980022946203
+          },
+          "mcc": {
+            "ci95": [
+              0.034776171098710534,
+              0.17449036478842408
+            ],
+            "mean": 0.1065946056375669
+          }
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5435929601800924,
+              0.6305352286875414
+            ],
+            "mean": 0.5850368258807405
+          },
+          "spearman": {
+            "ci95": [
+              0.3712008568025119,
+              0.4847279828352807
+            ],
+            "mean": 0.43238764306761424
+          },
+          "st_rae": {
+            "ci95": [
+              0.8519562253221928,
+              0.9346123389470099
+            ],
+            "mean": 0.892281756018934
+          }
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.1838047578610859,
+              0.20031078684078987
+            ],
+            "mean": 0.19196208385434832
+          },
+          "ece_10": {
+            "ci95": [
+              0.18445465878141987,
+              0.22341393255906264
+            ],
+            "mean": 0.20482706826881758
+          },
+          "mcc": {
+            "ci95": [
+              0.24809991583602586,
+              0.345554737043398
+            ],
+            "mean": 0.2963702311985025
+          }
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.6463221793627483,
+              0.7143534413234345
+            ],
+            "mean": 0.6803843136128189
+          },
+          "spearman": {
+            "ci95": [
+              0.6557160009245753,
+              0.7253046290352304
+            ],
+            "mean": 0.6914912654035624
+          },
+          "st_rae": {
+            "ci95": [
+              0.5679816088973916,
+              0.6483140885067085
+            ],
+            "mean": 0.6074090755088299
+          }
+        }
+      },
+      "collapsed_rows": 6083,
+      "cross_conformal_90": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 483,
+              "coverage": 0.9486166007905138,
+              "evaluation_rows": 253,
+              "mean_width": 4.345284151180383,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 501,
+              "coverage": 0.9063829787234042,
+              "evaluation_rows": 235,
+              "mean_width": 3.156291161992807,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 488,
+              "coverage": 0.8306451612903226,
+              "evaluation_rows": 248,
+              "mean_width": 2.5145870392105505,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.8953804347826086,
+          "pooled_mean_width": 3.3487811128276674,
+          "target_coverage": 0.9
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 459,
+              "coverage": 0.9188034188034188,
+              "evaluation_rows": 234,
+              "mean_width": 2.814846138410159,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 470,
+              "coverage": 0.8609865470852018,
+              "evaluation_rows": 223,
+              "mean_width": 2.2569585702990236,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 457,
+              "coverage": 0.9152542372881356,
+              "evaluation_rows": 236,
+              "mean_width": 2.2153399215405534,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.898989898989899,
+          "pooled_mean_width": 2.4311630289296247,
+          "target_coverage": 0.9
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 519,
+              "coverage": 0.9133858267716536,
+              "evaluation_rows": 254,
+              "mean_width": 3.1223238984989172,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 514,
+              "coverage": 0.9227799227799228,
+              "evaluation_rows": 259,
+              "mean_width": 2.8554702344264444,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 513,
+              "coverage": 0.8769230769230769,
+              "evaluation_rows": 260,
+              "mean_width": 2.31926833979921,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.9042690815006468,
+          "pooled_mean_width": 2.762803142668782,
+          "target_coverage": 0.9
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 817,
+              "coverage": 0.9425837320574163,
+              "evaluation_rows": 418,
+              "mean_width": 3.7716180696600254,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 831,
+              "coverage": 0.8564356435643564,
+              "evaluation_rows": 404,
+              "mean_width": 3.346411138748208,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 822,
+              "coverage": 0.9079903147699758,
+              "evaluation_rows": 413,
+              "mean_width": 3.274904070981094,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.902834008097166,
+          "pooled_mean_width": 3.466414440880453,
+          "target_coverage": 0.9
+        }
+      },
+      "endpoints": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.6596091999386817,
+          "rows": 736,
+          "spearman": 0.49300835902764145,
+          "st_rae": 0.8626231308190275
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5234061305175455,
+          "rows": 693,
+          "spearman": 0.6009523506649991,
+          "st_rae": 0.7262527038885765
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.23570108472214513,
+          "ece_10": 0.25272566298323296,
+          "mcc": 0.10593361549810135,
+          "rows": 775
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5862341963876162,
+          "rows": 773,
+          "spearman": 0.4331164765342458,
+          "st_rae": 0.8920891112411291
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.1920211452904752,
+          "ece_10": 0.20519153994992415,
+          "mcc": 0.29570072118969976,
+          "rows": 1871
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.679880023678804,
+          "rows": 1235,
+          "spearman": 0.6925642493003642,
+          "st_rae": 0.6055329565937722
+        }
+      },
+      "label": "M1",
+      "prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m1_outer_predictions.csv",
+      "prediction_sha256": "01ecd33d7e21f09042fcea42f0a32292fe671fa671c9570a30a76054968879fc",
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m1_cv_result.json",
+      "result_sha256": "7adc295e4456d9188b61c68f8f20f86c392ca1878f3802290bd8beb7bcbd69d5",
+      "selective_risk": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.838422078690949,
+            "rows": 368
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8284535135055454,
+            "rows": 442
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8216051244014345,
+            "rows": 516
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8394926459432341,
+            "rows": 589
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8668274563941434,
+            "rows": 663
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8626231308190275,
+            "rows": 736
+          }
+        ],
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.758757332186917,
+            "rows": 347
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7520174510296912,
+            "rows": 416
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7390278736559152,
+            "rows": 486
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7401623862963943,
+            "rows": 555
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7260192248530801,
+            "rows": 624
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7262527038885767,
+            "rows": 693
+          }
+        ],
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.21050909223375605,
+            "rows": 388
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.20020103575013798,
+            "rows": 465
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.15987600994685217,
+            "rows": 543
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.10357987909294343,
+            "rows": 620
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.11914333999403459,
+            "rows": 698
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.10593361549810135,
+            "rows": 775
+          }
+        ],
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 1.0031896540627165,
+            "rows": 387
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 1.030624066559278,
+            "rows": 464
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 1.0158862753179547,
+            "rows": 542
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.975556723779601,
+            "rows": 619
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9433791889363526,
+            "rows": 696
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8920891112411291,
+            "rows": 773
+          }
+        ],
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.4819344365832772,
+            "rows": 936
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.41143090653005526,
+            "rows": 1123
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.39049898098469193,
+            "rows": 1310
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.3664324130859342,
+            "rows": 1497
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.3274973330473893,
+            "rows": 1684
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.29570072118969976,
+            "rows": 1871
+          }
+        ],
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6110694718714766,
+            "rows": 618
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.630849664040401,
+            "rows": 741
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6471819176302626,
+            "rows": 865
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6417175100230257,
+            "rows": 988
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.636769006865308,
+            "rows": 1112
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6055329565937722,
+            "rows": 1235
+          }
+        ]
+      }
+    },
+    {
+      "cluster_bootstrap": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.5968710313250922,
+              0.6922967532671375
+            ],
+            "mean": 0.6435778682273974
+          },
+          "spearman": {
+            "ci95": [
+              0.3709039645722985,
+              0.5024656260305302
+            ],
+            "mean": 0.4410011652193767
+          },
+          "st_rae": {
+            "ci95": [
+              0.7916059585740176,
+              0.891689139308702
+            ],
+            "mean": 0.8394587543465712
+          }
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.4830346482388685,
+              0.5506873777077032
+            ],
+            "mean": 0.5152061971545263
+          },
+          "spearman": {
+            "ci95": [
+              0.4965996655714797,
+              0.6163224263842186
+            ],
+            "mean": 0.5595264986244258
+          },
+          "st_rae": {
+            "ci95": [
+              0.6663986136399169,
+              0.773186152679727
+            ],
+            "mean": 0.7200097446753974
+          }
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.24692266752567466,
+              0.2573695591552091
+            ],
+            "mean": 0.25172041759959124
+          },
+          "ece_10": {
+            "ci95": [
+              0.26265438830886045,
+              0.31927243852522347
+            ],
+            "mean": 0.29016405319475347
+          },
+          "mcc": {
+            "ci95": [
+              -0.06761778443253876,
+              0.07725595614365248
+            ],
+            "mean": 0.008611315578118266
+          }
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.548409694737804,
+              0.6387895412004376
+            ],
+            "mean": 0.592769376500493
+          },
+          "spearman": {
+            "ci95": [
+              0.2939843971376787,
+              0.42251806410021603
+            ],
+            "mean": 0.3630896007833607
+          },
+          "st_rae": {
+            "ci95": [
+              0.8858876173697391,
+              0.9533716664177903
+            ],
+            "mean": 0.9163371323824305
+          }
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": {
+            "ci95": [
+              0.22533089313839702,
+              0.23862185948749548
+            ],
+            "mean": 0.23201065878154806
+          },
+          "ece_10": {
+            "ci95": [
+              0.23530452765713966,
+              0.2771856922893401
+            ],
+            "mean": 0.2569962027792549
+          },
+          "mcc": {
+            "ci95": [
+              0.08356251118608028,
+              0.18548468760911918
+            ],
+            "mean": 0.13312562351344057
+          }
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": {
+            "ci95": [
+              0.6544115227283099,
+              0.7235502945613466
+            ],
+            "mean": 0.6889810576907959
+          },
+          "spearman": {
+            "ci95": [
+              0.6319711848700285,
+              0.7069688640460356
+            ],
+            "mean": 0.670844704232857
+          },
+          "st_rae": {
+            "ci95": [
+              0.5919307697148828,
+              0.6630790759843185
+            ],
+            "mean": 0.6276659269452839
+          }
+        }
+      },
+      "collapsed_rows": 6083,
+      "cross_conformal_90": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 483,
+              "coverage": 0.932806324110672,
+              "evaluation_rows": 253,
+              "mean_width": 3.1270745859362616,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 501,
+              "coverage": 0.9148936170212766,
+              "evaluation_rows": 235,
+              "mean_width": 3.486321246435799,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 488,
+              "coverage": 0.8709677419354839,
+              "evaluation_rows": 248,
+              "mean_width": 2.9747180044681025,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.90625,
+          "pooled_mean_width": 3.1904421579651854,
+          "target_coverage": 0.9
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 459,
+              "coverage": 0.8589743589743589,
+              "evaluation_rows": 234,
+              "mean_width": 1.83088851633654,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 470,
+              "coverage": 0.905829596412556,
+              "evaluation_rows": 223,
+              "mean_width": 3.077571770073447,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 457,
+              "coverage": 0.9364406779661016,
+              "evaluation_rows": 236,
+              "mean_width": 2.827539287246877,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.9004329004329005,
+          "pooled_mean_width": 2.571465641182384,
+          "target_coverage": 0.9
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 519,
+              "coverage": 0.84251968503937,
+              "evaluation_rows": 254,
+              "mean_width": 2.301028953130017,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 514,
+              "coverage": 0.9575289575289575,
+              "evaluation_rows": 259,
+              "mean_width": 3.6458815199505183,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 513,
+              "coverage": 0.8961538461538462,
+              "evaluation_rows": 260,
+              "mean_width": 2.7820699161052413,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.8990944372574385,
+          "pooled_mean_width": 2.9134318835052673,
+          "target_coverage": 0.9
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "folds": [
+            {
+              "calibration_rows": 817,
+              "coverage": 0.916267942583732,
+              "evaluation_rows": 418,
+              "mean_width": 3.1494846303843045,
+              "outer_fold": 0
+            },
+            {
+              "calibration_rows": 831,
+              "coverage": 0.905940594059406,
+              "evaluation_rows": 404,
+              "mean_width": 4.388324651898624,
+              "outer_fold": 1
+            },
+            {
+              "calibration_rows": 822,
+              "coverage": 0.8813559322033898,
+              "evaluation_rows": 413,
+              "mean_width": 3.906608011910415,
+              "outer_fold": 2
+            }
+          ],
+          "pooled_coverage": 0.9012145748987854,
+          "pooled_mean_width": 3.8079326670337528,
+          "target_coverage": 0.9
+        }
+      },
+      "endpoints": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.6443042796135932,
+          "rows": 736,
+          "spearman": 0.44156695950753605,
+          "st_rae": 0.838602532212894
+        },
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5145266063792772,
+          "rows": 693,
+          "spearman": 0.5601157295281998,
+          "st_rae": 0.718719911040376
+        },
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.25174570296344045,
+          "ece_10": 0.28878035872213303,
+          "mcc": 0.008051577541657237,
+          "rows": 775
+        },
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.5941097569760531,
+          "rows": 773,
+          "spearman": 0.36286076075683776,
+          "st_rae": 0.9162663938299425
+        },
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": {
+          "brier": 0.2320968621214533,
+          "ece_10": 0.2574184559114409,
+          "mcc": 0.13342016080540384,
+          "rows": 1871
+        },
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": {
+          "mae": 0.6883918959014359,
+          "rows": 1235,
+          "spearman": 0.6718030856278712,
+          "st_rae": 0.6257647555697491
+        }
+      },
+      "label": "M2",
+      "prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m2_outer_predictions.csv",
+      "prediction_sha256": "fea00b3b170b8df10ed1d6664333f72b2260ce64a3b50730a7ed2c98a8c51efb",
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m2_cv_result.json",
+      "result_sha256": "245c92529b212af1ad4483aab76b727e4bf64ee033dd0357392055f2ad2f4e67",
+      "selective_risk": {
+        "CYP1A2|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8433235718257394,
+            "rows": 368
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8462406485428506,
+            "rows": 442
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8536423911371024,
+            "rows": 516
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8566853326316031,
+            "rows": 589
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8587530879720146,
+            "rows": 663
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8386025322128942,
+            "rows": 736
+          }
+        ],
+        "CYP2C9|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8171814941610087,
+            "rows": 347
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.8179560182416721,
+            "rows": 416
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7793194053335687,
+            "rows": 486
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7601519049746955,
+            "rows": 555
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7374330641450981,
+            "rows": 624
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.7187199110403761,
+            "rows": 693
+          }
+        ],
+        "CYP2D6|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.0828755340950099,
+            "rows": 388
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.07239450149708188,
+            "rows": 465
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.047208633785885766,
+            "rows": 543
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.02038662105953249,
+            "rows": 620
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.019571621393581283,
+            "rows": 698
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.008051577541657237,
+            "rows": 775
+          }
+        ],
+        "CYP2D6|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9204728392243745,
+            "rows": 387
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9333225755783862,
+            "rows": 464
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9416067721070013,
+            "rows": 542
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9262611917477996,
+            "rows": 619
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9239018729696942,
+            "rows": 696
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.9162663938299426,
+            "rows": 773
+          }
+        ],
+        "CYP3A4|TDI_shift|is_TDI|primary_classification": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "mcc",
+            "primary_value": 0.21803114510252125,
+            "rows": 936
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "mcc",
+            "primary_value": 0.19985796358712493,
+            "rows": 1123
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "mcc",
+            "primary_value": 0.1953171241855536,
+            "rows": 1310
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "mcc",
+            "primary_value": 0.16880657247923142,
+            "rows": 1497
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "mcc",
+            "primary_value": 0.14358677031780226,
+            "rows": 1684
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "mcc",
+            "primary_value": 0.13342016080540384,
+            "rows": 1871
+          }
+        ],
+        "CYP3A4|direct_inhibition|pIC50|primary_direct": [
+          {
+            "coverage": 0.5,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6767378403445592,
+            "rows": 618
+          },
+          {
+            "coverage": 0.6,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6848602171929717,
+            "rows": 741
+          },
+          {
+            "coverage": 0.7,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6691929644736865,
+            "rows": 865
+          },
+          {
+            "coverage": 0.8,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6670056203223946,
+            "rows": 988
+          },
+          {
+            "coverage": 0.9,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6508909763965363,
+            "rows": 1112
+          },
+          {
+            "coverage": 1.0,
+            "primary_metric": "st_rae",
+            "primary_value": 0.6257647555697493,
+            "rows": 1235
+          }
+        ]
+      }
+    }
+  ],
+  "seed": 20260821,
+  "test_labels_loaded": false,
+  "training_only": true,
+  "version": "openadmet-cyp-cv-analysis-v1"
+}

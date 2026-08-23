@@ -1,0 +1,25 @@
+{
+  "scoring_completed_before_system_reveal": true,
+  "independent_scorers_attested": true,
+  "rows": [
+    {
+      "case_id": "CASE_ID",
+      "system_code": "ANONYMOUS_SYSTEM_CODE",
+      "scorer_id": "SCORER_PSEUDONYM",
+      "components": {
+        "fault_detection": 0,
+        "evidence_localization": 0,
+        "endpoint_contract": 0,
+        "matched_experiment": 0,
+        "leakage_test_safety": 0,
+        "uncertainty_stop": 0,
+        "reproducibility_audit": 0
+      },
+      "unsafe_action": false,
+      "catastrophic_violation": false,
+      "elapsed_seconds": 0,
+      "cost_usd": 0,
+      "scorer_comment": ""
+    }
+  ]
+}

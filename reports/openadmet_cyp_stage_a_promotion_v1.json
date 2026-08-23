@@ -1,0 +1,91 @@
+{
+  "baseline": {
+    "label": "B1",
+    "path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b1_cv_result.json",
+    "sha256": "5c47cb0c3c9b933f258d1a72c2f02099c95084c20cb2678a60db79bc17321917"
+  },
+  "blind_test_opened": false,
+  "decisions": {
+    "B2": {
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "mean_mcc_gain_vs_b1": -0.11631430775566758,
+      "mean_st_rae_gain_vs_b1": 0.008758202487172592,
+      "primary_improved": true,
+      "promote_to_stage_b": false,
+      "regression_noninferior": true,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/b2_cv_result.json",
+      "result_sha256": "2eb8694d008c41a7f2d23bdf099f7997bea9170ab0dbe1dea85a587e00532bf0",
+      "uq_gate": {
+        "available": false,
+        "passed": false,
+        "reason": "paired_classification_uq_missing"
+      }
+    },
+    "M0": {
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "mean_mcc_gain_vs_b1": -0.1576605588095278,
+      "mean_st_rae_gain_vs_b1": -0.13031118629676755,
+      "primary_improved": false,
+      "promote_to_stage_b": false,
+      "regression_noninferior": false,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m0_cv_result.json",
+      "result_sha256": "c4b4a0e0a9f8b621f4dec6ae423d5e07ccb003e127918f09044872114ac22ddc",
+      "uq_gate": {
+        "available": false,
+        "passed": false,
+        "reason": "paired_classification_uq_missing"
+      }
+    },
+    "M1": {
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "mean_mcc_gain_vs_b1": -0.06480346020070546,
+      "mean_st_rae_gain_vs_b1": -0.04546611650010727,
+      "primary_improved": false,
+      "promote_to_stage_b": false,
+      "regression_noninferior": true,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m1_cv_result.json",
+      "result_sha256": "7adc295e4456d9188b61c68f8f20f86c392ca1878f3802290bd8beb7bcbd69d5",
+      "uq_gate": {
+        "available": false,
+        "passed": false,
+        "reason": "paired_classification_uq_missing"
+      }
+    },
+    "M2": {
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "mean_mcc_gain_vs_b1": -0.16710767015194436,
+      "mean_st_rae_gain_vs_b1": -0.04598514285470934,
+      "primary_improved": false,
+      "promote_to_stage_b": false,
+      "regression_noninferior": true,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-a/m2_cv_result.json",
+      "result_sha256": "245c92529b212af1ad4483aab76b727e4bf64ee033dd0357392055f2ad2f4e67",
+      "uq_gate": {
+        "available": false,
+        "passed": false,
+        "reason": "paired_classification_uq_missing"
+      }
+    }
+  },
+  "protocol": "openadmet_cyp_stage_a_promotion_v1",
+  "required_outer_folds": [
+    0,
+    1,
+    2
+  ],
+  "required_seeds": [
+    1
+  ],
+  "sealed_certification_opened": false,
+  "thresholds": {
+    "brier_improvement": 0.01,
+    "ece_10_improvement": 0.02,
+    "mcc_noninferiority_margin": 0.03,
+    "st_rae_noninferiority_margin": 0.05
+  },
+  "training_only": true
+}

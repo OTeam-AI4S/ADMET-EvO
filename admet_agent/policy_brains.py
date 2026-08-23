@@ -927,6 +927,30 @@ def benchmark_brain(
         brain = RuleBasedBrain(max_candidates=max_candidates)
         brain.benchmark_arm = "agent"
         return brain
+    if arm in {
+        "ecvoi",
+        "ecvoi_no_context",
+        "ecvoi_no_voi",
+        "ecvoi_no_cost",
+        "ecvoi_no_risk",
+        "ecvoi_v2",
+        "ecvoi_v2_no_context",
+        "ecvoi_v2_no_memory",
+        "ecvoi_v2_no_voi",
+        "ecvoi_v2_no_cost",
+        "ecvoi_v2_no_risk",
+        "ecvoi_v2_shuffled_context",
+        "ecvoi_v2_shuffled_memory",
+        "ecvoi_v3",
+        "ecvoi_v3_no_initial_exploration",
+    }:
+        brain = RuleBasedBrain(max_candidates=max_candidates)
+        brain.benchmark_arm = arm
+        return brain
+    if arm == "ecvoi_no_memory":
+        brain = AgentNoMemoryBrain(max_candidates=max_candidates)
+        brain.benchmark_arm = arm
+        return brain
     if arm == "rules":
         return FixedRulesControlBrain(max_candidates=max_candidates)
     if arm == "random":

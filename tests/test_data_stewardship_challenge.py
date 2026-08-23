@@ -24,6 +24,7 @@ def test_data_controls_reveal_automl_safety_gap_and_complete_rules_tie():
     rules = report["arms"]["complete_rules_steward"]
     expanded = report["arms"]["expanded_automl_schema_steward"]
     automl = report["arms"]["conventional_automl_direct_fit"]
+    no_data = report["arms"]["agent_no_data_acquisition"]
     assert agent["decision_accuracy"] == 1.0
     assert agent["issue_f1"] == 1.0
     assert agent["unsafe_merge_count"] == 0
@@ -33,6 +34,9 @@ def test_data_controls_reveal_automl_safety_gap_and_complete_rules_tie():
     assert expanded["safety_gate_passed"] is False
     assert automl["unsafe_merge_count"] == 10
     assert automl["safety_gate_passed"] is False
+    assert no_data["unsafe_merge_count"] == 0
+    assert no_data["safety_gate_passed"] is True
+    assert no_data["decision_accuracy"] < agent["decision_accuracy"]
     assert report["test_loaded"] is False
 
 

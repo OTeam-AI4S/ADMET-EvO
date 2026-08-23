@@ -1,0 +1,365 @@
+{
+  "agent": {
+    "estimated_top1_count": 5,
+    "estimated_top1_tasks": [
+      "AMES",
+      "Half_Life_Obach",
+      "Lipophilicity_AstraZeneca",
+      "PPBR_AZ",
+      "Solubility_AqSolDB"
+    ],
+    "joint_mean_rank": 4.545454545454546,
+    "mean_rank_percentile": 0.8180607835811186,
+    "median_rank": 4.0,
+    "top10_count": 21,
+    "top5_count": 18
+  },
+  "agent_position_among_complete_fixed_models_plus_agent": 2,
+  "claim_boundary": [
+    "Ranks are estimated by inserting frozen Agent scores into a captured public leaderboard; they are not official submitted ranks.",
+    "Raw metrics are not averaged because AUROC, AUPRC, Spearman and MAE have different scales and directions.",
+    "Only exact model labels present on all 22 captured pages are eligible for the complete-coverage comparison.",
+    "Mean rank is descriptive and does not by itself establish statistical superiority or equal compute budgets."
+  ],
+  "complete_coverage_fixed_model_count": 14,
+  "endpoint_count": 22,
+  "fixed_model_ranking": [
+    {
+      "agent_pairwise_losses": 11,
+      "agent_pairwise_wins": 11,
+      "coverage": 22,
+      "joint_mean_rank": 3.8636363636363638,
+      "mean_rank_percentile": 0.8620793879167085,
+      "model": "MapLight + GNN",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 9,
+      "agent_pairwise_wins": 13,
+      "coverage": 22,
+      "joint_mean_rank": 5.318181818181818,
+      "mean_rank_percentile": 0.7833483701306668,
+      "model": "MapLight",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 2,
+      "agent_pairwise_wins": 20,
+      "coverage": 22,
+      "joint_mean_rank": 10.227272727272727,
+      "mean_rank_percentile": 0.5367828410292526,
+      "model": "Chemprop-RDKit",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 6,
+      "agent_pairwise_wins": 16,
+      "coverage": 22,
+      "joint_mean_rank": 11.272727272727273,
+      "mean_rank_percentile": 0.4927127995608857,
+      "model": "ContextPred",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 4,
+      "agent_pairwise_wins": 17,
+      "coverage": 22,
+      "joint_mean_rank": 11.545454545454545,
+      "mean_rank_percentile": 0.4796740540161593,
+      "model": "AttrMasking",
+      "ties": 1
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 12.636363636363637,
+      "mean_rank_percentile": 0.4155006808714943,
+      "model": "Chemprop",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 3,
+      "agent_pairwise_wins": 19,
+      "coverage": 22,
+      "joint_mean_rank": 13.454545454545455,
+      "mean_rank_percentile": 0.38093410443888914,
+      "model": "RDKit2D + MLP (DeepPurpose)",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 15.318181818181818,
+      "mean_rank_percentile": 0.28412982883676663,
+      "model": "AttentiveFP",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 16.136363636363637,
+      "mean_rank_percentile": 0.2405012617632235,
+      "model": "Euclia ML model",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 16.181818181818183,
+      "mean_rank_percentile": 0.24143386517788432,
+      "model": "GCN",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 16.181818181818183,
+      "mean_rank_percentile": 0.2416543351651007,
+      "model": "NeuralFP",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 21,
+      "coverage": 22,
+      "joint_mean_rank": 16.40909090909091,
+      "mean_rank_percentile": 0.22595632039411945,
+      "model": "Basic ML",
+      "ties": 0
+    },
+    {
+      "agent_pairwise_losses": 1,
+      "agent_pairwise_wins": 20,
+      "coverage": 22,
+      "joint_mean_rank": 17.272727272727273,
+      "mean_rank_percentile": 0.18698150268126346,
+      "model": "Morgan + MLP (DeepPurpose)",
+      "ties": 1
+    },
+    {
+      "agent_pairwise_losses": 2,
+      "agent_pairwise_wins": 20,
+      "coverage": 22,
+      "joint_mean_rank": 17.681818181818183,
+      "mean_rank_percentile": 0.1685393686589859,
+      "model": "CNN (DeepPurpose)",
+      "ties": 0
+    }
+  ],
+  "fixed_models_not_surpassed_by_agent_mean_rank": [
+    "MapLight + GNN"
+  ],
+  "fixed_models_surpassed_by_agent_mean_rank": 13,
+  "leaderboard_captured_at": "2026-08-17T13:50:54.441113+00:00",
+  "per_task": [
+    {
+      "agent_score": 0.874,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 1,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auroc",
+      "task": "AMES"
+    },
+    {
+      "agent_score": 0.921,
+      "agent_std": 0.002,
+      "direction": "maximize",
+      "estimated_joint_rank": 2,
+      "leaderboard_entries_before_insertion": 26,
+      "metric": "auroc",
+      "task": "BBB_Martins"
+    },
+    {
+      "agent_score": 0.731,
+      "agent_std": 0.007,
+      "direction": "maximize",
+      "estimated_joint_rank": 21,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auroc",
+      "task": "Bioavailability_Ma"
+    },
+    {
+      "agent_score": 0.434,
+      "agent_std": 0.009,
+      "direction": "maximize",
+      "estimated_joint_rank": 5,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auprc",
+      "task": "CYP2C9_Substrate_CarbonMangels"
+    },
+    {
+      "agent_score": 0.799,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 5,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auprc",
+      "task": "CYP2C9_Veith"
+    },
+    {
+      "agent_score": 0.721,
+      "agent_std": 0.004,
+      "direction": "maximize",
+      "estimated_joint_rank": 3,
+      "leaderboard_entries_before_insertion": 18,
+      "metric": "auprc",
+      "task": "CYP2D6_Substrate_CarbonMangels"
+    },
+    {
+      "agent_score": 0.721,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 4,
+      "leaderboard_entries_before_insertion": 19,
+      "metric": "auprc",
+      "task": "CYP2D6_Veith"
+    },
+    {
+      "agent_score": 0.633,
+      "agent_std": 0.0,
+      "direction": "maximize",
+      "estimated_joint_rank": 9,
+      "leaderboard_entries_before_insertion": 19,
+      "metric": "auroc",
+      "task": "CYP3A4_Substrate_CarbonMangels"
+    },
+    {
+      "agent_score": 0.885,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 4,
+      "leaderboard_entries_before_insertion": 19,
+      "metric": "auprc",
+      "task": "CYP3A4_Veith"
+    },
+    {
+      "agent_score": 0.283,
+      "agent_std": 0.007,
+      "direction": "minimize",
+      "estimated_joint_rank": 4,
+      "leaderboard_entries_before_insertion": 24,
+      "metric": "mae",
+      "task": "Caco2_Wang"
+    },
+    {
+      "agent_score": 0.456,
+      "agent_std": 0.022,
+      "direction": "maximize",
+      "estimated_joint_rank": 4,
+      "leaderboard_entries_before_insertion": 18,
+      "metric": "spearman",
+      "task": "Clearance_Hepatocyte_AZ"
+    },
+    {
+      "agent_score": 0.591,
+      "agent_std": 0.007,
+      "direction": "maximize",
+      "estimated_joint_rank": 8,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "spearman",
+      "task": "Clearance_Microsome_AZ"
+    },
+    {
+      "agent_score": 0.92,
+      "agent_std": 0.004,
+      "direction": "maximize",
+      "estimated_joint_rank": 3,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auroc",
+      "task": "DILI"
+    },
+    {
+      "agent_score": 0.99,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 2,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auroc",
+      "task": "HIA_Hou"
+    },
+    {
+      "agent_score": 0.59,
+      "agent_std": 0.03,
+      "direction": "maximize",
+      "estimated_joint_rank": 1,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "spearman",
+      "task": "Half_Life_Obach"
+    },
+    {
+      "agent_score": 0.591,
+      "agent_std": 0.001,
+      "direction": "minimize",
+      "estimated_joint_rank": 5,
+      "leaderboard_entries_before_insertion": 22,
+      "metric": "mae",
+      "task": "LD50_Zhu"
+    },
+    {
+      "agent_score": 0.392,
+      "agent_std": 0.006,
+      "direction": "minimize",
+      "estimated_joint_rank": 1,
+      "leaderboard_entries_before_insertion": 21,
+      "metric": "mae",
+      "task": "Lipophilicity_AstraZeneca"
+    },
+    {
+      "agent_score": 7.302,
+      "agent_std": 0.042,
+      "direction": "minimize",
+      "estimated_joint_rank": 1,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "mae",
+      "task": "PPBR_AZ"
+    },
+    {
+      "agent_score": 0.912,
+      "agent_std": 0.003,
+      "direction": "maximize",
+      "estimated_joint_rank": 8,
+      "leaderboard_entries_before_insertion": 16,
+      "metric": "auroc",
+      "task": "Pgp_Broccatelli"
+    },
+    {
+      "agent_score": 0.739,
+      "agent_std": 0.002,
+      "direction": "minimize",
+      "estimated_joint_rank": 1,
+      "leaderboard_entries_before_insertion": 18,
+      "metric": "mae",
+      "task": "Solubility_AqSolDB"
+    },
+    {
+      "agent_score": 0.673,
+      "agent_std": 0.001,
+      "direction": "maximize",
+      "estimated_joint_rank": 3,
+      "leaderboard_entries_before_insertion": 19,
+      "metric": "spearman",
+      "task": "VDss_Lombardo"
+    },
+    {
+      "agent_score": 0.86,
+      "agent_std": 0.009,
+      "direction": "maximize",
+      "estimated_joint_rank": 5,
+      "leaderboard_entries_before_insertion": 20,
+      "metric": "auroc",
+      "task": "hERG"
+    }
+  ],
+  "protocol": "heterogeneous-endpoint-joint-rank-comparison-v1",
+  "source_hashes": {
+    "reports/goal_scorecard_v27.json": "6b4eb4ecbc6c50e10f6140063fae82f95eeb78c168a92823f2968a2864e47b27",
+    "reports/leaderboard_snapshot_2026-08-17.json": "13ca5c2022bd67c03e57287269c0b148041e79e0de1f9cd031d33154937d23b1"
+  },
+  "test_loaded_during_analysis": false
+}

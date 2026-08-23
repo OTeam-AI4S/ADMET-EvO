@@ -21,6 +21,7 @@ def main() -> None:
         "complete_rules_steward": "Complete rules steward",
         "expanded_automl_schema_steward": "Expanded AutoML schema steward",
         "conventional_automl_direct_fit": "Conventional AutoML direct fit",
+        "agent_no_data_acquisition": "Agent ablation: no data acquisition",
         "seeded_random_admission": "Seeded random",
     }
     lines = [
@@ -45,6 +46,8 @@ def main() -> None:
             "it exactly ties the complete deterministic rules steward. This establishes a useful",
             "data-governance safety capability, not learned autonomous reasoning. Independent",
             "composite dossiers and evidence-dependent remediation are required for a stronger claim.",
+            "The no-data ablation rejects every source: it remains safe but quantifies the opportunity",
+            "cost of removing autonomous data admission, including rejection of the clean dossier.",
             "",
         )
     )

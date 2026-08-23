@@ -1,0 +1,64 @@
+{
+  "aborted_predecessor_protocol_sha256": "fe90030eb13bf76e7fa3f383ae71c497044275da48e88e9ef872e428c4f2dd94",
+  "blind_test_opened": false,
+  "claim_boundary": {
+    "allowed": "OpenADMET training OOF post-selection applicability diagnostic",
+    "forbidden": [
+      "prospective_blind_UQ_validation",
+      "official_test_superiority",
+      "universal_calibration_claim"
+    ]
+  },
+  "frozen_at": "2026-08-23",
+  "gate": {
+    "combined_beats_both_single_signals": ">=4_of_6_endpoints",
+    "combined_detects_high_error": ">=4_of_6_endpoints_AUROC_gt_0.5",
+    "forbidden_blind_access": 0,
+    "low_similarity_has_higher_loss": ">=4_of_6_endpoints"
+  },
+  "implementation_sha256": {
+    "admet_agent/applicability.py": "2809d4d26b33f46b6b220b0f1ad6ba0a11b8dc5e0872638618329dc55483f68c",
+    "scripts/analyze_openadmet_applicability_v1.py": "2590609c8c5b7e9771699f463528d3b8c66681954172ab39adbad825c418eee5",
+    "scripts/analyze_openadmet_applicability_v2.py": "363e40a8e64d0a3c81b813ad5762d600e2bb6f2032fc61f87032a7eb977a31cf",
+    "scripts/analyze_openadmet_applicability_v3.py": "79a45de27aebaf6f75e98e8d38b5cb65817dc28db99b7558929499ef306fbfc4"
+  },
+  "input_prediction_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-b/b1_outer_predictions.csv",
+  "input_prediction_sha256": "077d44e606581653f617e683318a957200fc66444e499ba624a50e8c84a57da8",
+  "input_result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-b/b1_cv_result.json",
+  "input_result_sha256": "d15dbcbacb1203b1dd109a2ce4259a68285c3aa841c3667bb710477264b152b8",
+  "leaderboard_feedback_used": false,
+  "rdkit_compatibility_adapter_scope": "GetFingerprintFromSmiles_to_MolFromSmiles_plus_GetFingerprint_only",
+  "record_key_adapter_scope": "add_source_table_and_source_row_to_seed_collapse_key_only",
+  "scope": "training_only_oof_post_selection_diagnostic",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "sha256": "9f5be7a4df914ca70beeff3fbec377bb7155d1f2eccc0f5fd33bfd2c91a904cb",
+  "test_labels_loaded": false,
+  "uncertainty_contract": {
+    "combined": "equal_mean_of_available_endpoint_local_percentile_ranks",
+    "conformal": "cross_outer_fold_absolute_residual_with_constant_or_0.25_plus_combined_rank_scale",
+    "distance": "1_minus_nearest_outer_train_morgan2_2048_tanimoto",
+    "high_error": "strictly_above_endpoint_loss_q75",
+    "labels_used_to_construct_uncertainty": false,
+    "model_classification": "mean_seed_disagreement_and_one_minus_margin_percentile_ranks",
+    "model_regression": "seed_prediction_disagreement_percentile_rank",
+    "primary_loss_classification": "brier_row_loss",
+    "primary_loss_regression": "official_interval_aware_ST_RAE_numerator_row_loss",
+    "risk_coverage_grid": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ]
+  },
+  "version": "openadmet-cyp-applicability-protocol-v3"
+}

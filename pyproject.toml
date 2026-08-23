@@ -45,7 +45,14 @@ Documentation = "https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.m
 Repository = "https://github.com/YilinWang33/ADMET-EvO"
 
 [tool.setuptools.packages.find]
-include = ["admet_agent*"]
+include = ["admet_agent*", "skills", "skills.dataskill*"]
+
+[tool.setuptools.package-data]
+"skills.dataskill" = [
+  "SKILL.md",
+  "agents/*.yaml",
+  "references/*.md",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

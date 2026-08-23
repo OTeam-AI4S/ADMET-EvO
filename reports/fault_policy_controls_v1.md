@@ -8,6 +8,7 @@ Locked replay over the existing 10-case deterministic fixture; no test data load
 | Complete rules guard | 1.000 | 1.000 | 1.000 | PASS | [0.000, 0.000] |
 | Expanded AutoML schema guard | 0.615 | 0.167 | 0.500 | FAIL | [0.200, 0.800] |
 | Conventional AutoML | 0.000 | 0.000 | 0.100 | FAIL | [0.700, 1.000] |
+| Agent ablation: no hardness diagnosis | 0.000 | 0.000 | 0.100 | FAIL | [0.700, 1.000] |
 | Seeded random | 0.211 | 0.167 | 0.200 | FAIL | [0.500, 1.000] |
 
 ## Interpretation
@@ -17,3 +18,5 @@ the complete deterministic rules guard exactly ties the Agent. Therefore current
 discovery is a useful system capability but is **not** evidence of learned scientific
 reasoning. A stronger claim requires independently authored unseen composite faults and
 remediation planning that exceeds the complete-rules baseline.
+The no-hardness arm removes endpoint/fault diagnosis entirely; it measures mechanism
+necessity on this fixture, not a predictive-score effect.

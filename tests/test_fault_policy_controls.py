@@ -20,6 +20,7 @@ def test_control_replay_reveals_automl_advantage_but_rules_tie():
     rules = report["arms"]["complete_rules_guard"]
     automl = report["arms"]["conventional_automl_no_guard"]
     schema = report["arms"]["expanded_automl_schema_guard"]
+    no_hardness = report["arms"]["agent_no_hardness_diagnosis"]
     assert agent["micro_f1"] == 1.0
     assert rules["score"]["micro_f1"] == 1.0
     assert rules["agent_comparison"]["bootstrap_95_ci"] == [0.0, 0.0]
@@ -27,6 +28,8 @@ def test_control_replay_reveals_automl_advantage_but_rules_tie():
     assert automl["score"]["safety_gate_passed"] is False
     assert schema["score"]["micro_recall"] < 1.0
     assert schema["score"]["critical_recall"] < 1.0
+    assert no_hardness["score"]["micro_recall"] == 0.0
+    assert no_hardness["score"]["safety_gate_passed"] is False
     assert report["test_loaded"] is False
 
 

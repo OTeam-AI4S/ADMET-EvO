@@ -1,0 +1,4 @@
+interface:
+  display_name: "ADMET Data Collector"
+  short_description: "Collect and audit ADMET evidence for modeling"
+  default_prompt: "Use $admet-data-collector to collect, verify, and prepare evidence-grounded data for an ADMET endpoint."

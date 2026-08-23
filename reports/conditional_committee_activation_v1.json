@@ -1,0 +1,840 @@
+{
+  "avoided_default_committee_invocations": 20,
+  "avoided_default_committee_rate": 0.9090909090909091,
+  "avoided_role_assignment_rate": 0.9242424242424242,
+  "avoided_role_assignments": 61,
+  "claim_boundary": "This replay supports selective process coverage and lower planning redundancy; it does not establish predictive superiority of multi-agent planning over the single-agent policy.",
+  "conditional_role_assignments": 5,
+  "default_full_committee_role_assignments": 66,
+  "default_single_agent_task_count": 20,
+  "escalated_task_count": 2,
+  "escalated_tasks": [
+    "CYP2C9_Substrate_CarbonMangels",
+    "hERG"
+  ],
+  "fit_budget_multiplier": 1.0,
+  "mode_counts": {
+    "full_committee": 1,
+    "single_agent": 20,
+    "targeted_review": 1
+  },
+  "new_model_fits": 0,
+  "observed_candidate_divergence_coverage": {
+    "denominator": 1,
+    "numerator": 1,
+    "rate": 1.0,
+    "source_scope": "v4 first-round planning replay; 21/22 candidate sets identical, hERG differed"
+  },
+  "protocol": "tdc22-conditional-committee-activation-replay-v1",
+  "run_dir": "runs/v3-agent-tdc22-v5",
+  "scheduled_correction_coverage": {
+    "denominator": 2,
+    "numerator": 2,
+    "rate": 1.0
+  },
+  "source_hashes": {
+    "reports/self_correction_schedule_v1.json": "6102268a60943b5a3adff888bdbc85501104fc56378f705880724475a0ecd96b",
+    "runs/v3-agent-tdc22-v5/tasks/AMES/search_seed_1.json": "d2c463edbae81a5f917a8599935b6d3aa93b497b06157da198986844c0535831",
+    "runs/v3-agent-tdc22-v5/tasks/BBB_Martins/search_seed_1.json": "3c06d0f7cb91aef3daee1aca872991f047a9009632d39a97f28d271821b5511b",
+    "runs/v3-agent-tdc22-v5/tasks/Bioavailability_Ma/search_seed_1.json": "665af7d49a77a6399c3b27c5a865f0677e114e5fb325776f94917d0eb62e62e2",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Substrate_CarbonMangels/search_seed_1.json": "bca6ca604227683d54e4f2c983fd4ed55b0b703787b865a77631cf98cf0e3ee6",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2C9_Veith/search_seed_1.json": "51f1222d79b4d6a07175a10a65ce64aba76d70154f455d949f4687e3587c4df3",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Substrate_CarbonMangels/search_seed_1.json": "db88ecf5cd42870cc610d0eeb81fcbade007a9dd5752a5a6849e767f2188e300",
+    "runs/v3-agent-tdc22-v5/tasks/CYP2D6_Veith/search_seed_1.json": "f634b638d695283261b9b827062f4b4d349338fbae080e3cdfc1b184e436126f",
+    "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Substrate_CarbonMangels/search_seed_1.json": "8c590131fd30864f750ca68b85d824f4bcc1ee3305f0953605e5329fa8236912",
+    "runs/v3-agent-tdc22-v5/tasks/CYP3A4_Veith/search_seed_1.json": "d6156674c3f3afb804a850e40c35e7441001ab3514a9bf4a1d4b8cc5fb2ce8aa",
+    "runs/v3-agent-tdc22-v5/tasks/Caco2_Wang/search_seed_1.json": "050f473fd552f5623bf8e3ef39c90b88b87115af4cea0a42953f6213c72f7257",
+    "runs/v3-agent-tdc22-v5/tasks/Clearance_Hepatocyte_AZ/search_seed_1.json": "91929c88ca9adf3fa97d58a9b545750abfc87ced875dbdfc5e0e09348e2143ff",
+    "runs/v3-agent-tdc22-v5/tasks/Clearance_Microsome_AZ/search_seed_1.json": "cdb5f7df7f65fe7314b4011591bce09be49a9997d680695d6d1b708e1102c70c",
+    "runs/v3-agent-tdc22-v5/tasks/DILI/search_seed_1.json": "36a00bf1de7409379575ea6c4045285a41ef31cde5db2b6e35e43ec8179a9fa8",
+    "runs/v3-agent-tdc22-v5/tasks/HIA_Hou/search_seed_1.json": "cca24d802bb9afbcbfa6c7c45b152592a2568e511c785e538e425564a1f09393",
+    "runs/v3-agent-tdc22-v5/tasks/Half_Life_Obach/search_seed_1.json": "3ae7e89941845c207c4f24353bb1d15a541a969436c1fc784642958307de8549",
+    "runs/v3-agent-tdc22-v5/tasks/LD50_Zhu/search_seed_1.json": "53b2634c7a5c76a253978fe42476b11685f4c51ee5f51e81722c624484679af7",
+    "runs/v3-agent-tdc22-v5/tasks/Lipophilicity_AstraZeneca/search_seed_1.json": "c703c76140e62be40b601075cdd4dc4fb7399e44b5f4b4ca4ea546ee67458608",
+    "runs/v3-agent-tdc22-v5/tasks/PPBR_AZ/search_seed_1.json": "a506c05f12295f034157dd945b5696e1cf539606eceac8a12be294fad24d4293",
+    "runs/v3-agent-tdc22-v5/tasks/Pgp_Broccatelli/search_seed_1.json": "c263bec78d7f86ccb2d10e05360748c2f4c6be9d3eaf1618471a3deabbf50ace",
+    "runs/v3-agent-tdc22-v5/tasks/Solubility_AqSolDB/search_seed_1.json": "d02b352305ffd1b29897f2f5334b0f7a943a4ac1829b87e60cf77a6c455f8fd3",
+    "runs/v3-agent-tdc22-v5/tasks/VDss_Lombardo/search_seed_1.json": "099be09688800c5068c7bae93eaff7609e7249ada0e9dba6569220c8c8134035",
+    "runs/v3-agent-tdc22-v5/tasks/hERG/search_seed_1.json": "3c8b024c2b1b9afea3d8f494bc8040387adc50a4ffdc40c97cf681d9e6a44724"
+  },
+  "stage_activation_counts": {
+    "post_validation": 2,
+    "pre_action": 1
+  },
+  "task_count": 22,
+  "tasks": [
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "AMES",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "BBB_Martins",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "refuted",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "model-imbalance-aware",
+      "task": "Bioavailability_Ma",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [
+        "post_validation"
+      ],
+      "correction_execution_status": "scheduled",
+      "correction_kind": "repair_evidence",
+      "mode": "targeted_review",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "inconclusive",
+      "post_validation_decision": {
+        "activate": true,
+        "decision_sha256": "8f44f74cc161592489e6d7b9f71eb73e7008cd70121028907eb2f97b6ed95f81",
+        "mode": "targeted_review",
+        "reason_codes": [
+          "scheduled_repair_evidence_requires_independent_review"
+        ],
+        "roles": [
+          "model_researcher",
+          "skeptic"
+        ],
+        "stage": "post_validation",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [
+        "model_researcher",
+        "skeptic"
+      ],
+      "selected_action_id": "model-imbalance-aware",
+      "task": "CYP2C9_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "CYP2C9_Veith",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "CYP2D6_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "CYP2D6_Veith",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "CYP3A4_Substrate_CarbonMangels",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "CYP3A4_Veith",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Caco2_Wang",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Clearance_Hepatocyte_AZ",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Clearance_Microsome_AZ",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "DILI",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "inconclusive",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "model-imbalance-aware",
+      "task": "HIA_Hou",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Half_Life_Obach",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "LD50_Zhu",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Lipophilicity_AstraZeneca",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "PPBR_AZ",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Pgp_Broccatelli",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "Solubility_AqSolDB",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [],
+      "correction_execution_status": "stopped",
+      "correction_kind": "stop",
+      "mode": "single_agent",
+      "observed_historical_candidate_set_divergence": false,
+      "outcome_status": "supported",
+      "post_validation_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": false,
+        "decision_sha256": "0bbb4fabdb4d9fdd6b4305d298ada14654400009ebfebaf438209205d66d37ba",
+        "mode": "single_agent",
+        "reason_codes": [
+          "no_material_escalation_trigger"
+        ],
+        "roles": [],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [],
+      "selected_action_id": "feature-domain-shift",
+      "task": "VDss_Lombardo",
+      "test_loaded": false
+    },
+    {
+      "active_stages": [
+        "pre_action",
+        "post_validation"
+      ],
+      "correction_execution_status": "scheduled",
+      "correction_kind": "switch_axis",
+      "mode": "full_committee",
+      "observed_historical_candidate_set_divergence": true,
+      "outcome_status": "refuted",
+      "post_validation_decision": {
+        "activate": true,
+        "decision_sha256": "a6e779f8fd3c38066c7d99df537b296e3e8c6570656ef254cfd985ee4b2bf74a",
+        "mode": "full_committee",
+        "reason_codes": [
+          "scheduled_switch_axis_requires_independent_review",
+          "selected_data_intervention_requires_provenance_review"
+        ],
+        "roles": [
+          "data_steward",
+          "model_researcher",
+          "skeptic"
+        ],
+        "stage": "post_validation",
+        "test_loaded": false
+      },
+      "pre_action_decision": {
+        "activate": true,
+        "decision_sha256": "31e139fc34436b2b7631561c2cddda1f6f43d7576edadb9da1b89b56384fcb64",
+        "mode": "targeted_review",
+        "reason_codes": [
+          "selected_data_intervention_requires_provenance_review"
+        ],
+        "roles": [
+          "data_steward",
+          "skeptic"
+        ],
+        "stage": "pre_action",
+        "test_loaded": false
+      },
+      "roles": [
+        "data_steward",
+        "model_researcher",
+        "skeptic"
+      ],
+      "selected_action_id": "data-leakage-safe",
+      "task": "hERG",
+      "test_loaded": false
+    }
+  ],
+  "test_loaded": false,
+  "training_started": false
+}

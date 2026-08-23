@@ -1,0 +1,80 @@
+{
+  "action_outcomes_computed": false,
+  "bytes": 198027882,
+  "files": 16,
+  "frozen_at": "2026-08-23",
+  "model_actions_run": false,
+  "parent_acquisition_file_sha256": "7c7e2b3b32e9c2219ecd731e02b6cf3f6c2538ff568f7512a8a91217345309a4",
+  "protected_labels_loaded": false,
+  "raw_files": {
+    "external/ecvoi_v6_tdc_cache/bace.csv": {
+      "bytes": 3897767,
+      "sha256": "f3fb9ce90bada3e2bd6148b0df13f8f8145a357bf87df0dd5b391ede974fc737"
+    },
+    "external/ecvoi_v6_tdc_cache/herg_central.tab": {
+      "bytes": 23642622,
+      "sha256": "5775a6900c3be6a2db65d357411fd3f768189de611dc2da3456dab4acbcb3ee8"
+    },
+    "external/ecvoi_v6_tdc_cache/herg_karim.tab": {
+      "bytes": 885072,
+      "sha256": "b47cbff0d65bbb5c6ade5ecd4c5bab20158c6cbf631a68f355efbe7e5fafc099"
+    },
+    "external/ecvoi_v6_tdc_cache/hiv.tab": {
+      "bytes": 2594180,
+      "sha256": "c03bf6c0c6bff27df5443c7a34bffc9f2befca3cf300b483b0ff6de3c07b876c"
+    },
+    "external/ecvoi_v6_tdc_cache/m1_muscarinic_receptor_agonists_butkiewicz.tab": {
+      "bytes": 3419202,
+      "sha256": "6637b5512321fdc6974ea487142c5f6766eb9e935744f2fe4a7c657902a30edf"
+    },
+    "external/ecvoi_v6_tdc_cache/muv.csv.gz": {
+      "bytes": 1755511,
+      "sha256": "b47b5e92b2b76ed2f665a2e3c8795051cab6d394b3a7c7a88b3f0188cda558a0"
+    },
+    "external/ecvoi_v6_tdc_cache/orexin1_receptor_butkiewicz.tab": {
+      "bytes": 12745182,
+      "sha256": "503b3eddb53870bdcccafadd35c9cd9272f1eab088015bfe0f37226bd2127fe7"
+    },
+    "external/ecvoi_v6_tdc_cache/potassium_ion_channel_kir2.1_butkiewicz.tab": {
+      "bytes": 17340524,
+      "sha256": "492cf5e4a18c266e6f30c1a1930d24e333aeefb795a575618d829ccf8839f255"
+    },
+    "external/ecvoi_v6_tdc_cache/qm7b.pkl": {
+      "bytes": 4067668,
+      "sha256": "88f43108657d13053820f3b3576a011b25131dc51c4767e2b48d42808393a85a"
+    },
+    "external/ecvoi_v6_tdc_cache/qm8.pkl": {
+      "bytes": 12852860,
+      "sha256": "1d02f6fbfcd7650a28d02e526b8f65052cd9a799e471ae10d16e75530cb1aafe"
+    },
+    "external/ecvoi_v6_tdc_cache/qm9.pkl": {
+      "bytes": 85804945,
+      "sha256": "d69caaab46557a5bf412437c7646b38f74369c340cda31e08effc464b187c26d"
+    },
+    "external/ecvoi_v6_tdc_cache/sarscov2_3clpro_diamond.tab": {
+      "bytes": 28917,
+      "sha256": "c63a1c2d733e6f49e54f42a94d10c22370baf608d1727fbfdc65bdbf02eda368"
+    },
+    "external/ecvoi_v6_tdc_cache/sarscov2_vitro_touret.tab": {
+      "bytes": 93299,
+      "sha256": "0be5443ea7c4c0d5a75d77e63759d8ee85525402ddbff23fcdf4ef6ce3e22afc"
+    },
+    "external/ecvoi_v6_tdc_cache/serine_threonine_kinase_33_butkiewicz.tab": {
+      "bytes": 18518595,
+      "sha256": "ee3f50724d95d9a282ef84f336e7af427be9d4de57cc08dcadde96e30195b808"
+    },
+    "external/ecvoi_v6_tdc_cache/sider.csv.gz": {
+      "bytes": 34759,
+      "sha256": "4cc7ccb20dded475853c583596e227116c222c6ca7dbb40159bdbe9ee3f099b9"
+    },
+    "external/ecvoi_v6_tdc_cache/toxcast.tab": {
+      "bytes": 10346779,
+      "sha256": "14c392ede82352907e42db35291d8ba998db3b10f074d9497124e44d0329ea5f"
+    }
+  },
+  "sha256": "88401a474fd95a9292c4f83e5a9223b7755a0b7d3d6724b71ba3878fcf5b2737",
+  "source_registry_sha256": "9d15a6612cc4bf451c5f014696855d402feaadec049f9df1a26df0425f9e7f1f",
+  "tdc_19_unlocked": false,
+  "test_or_leaderboard_feedback_used": false,
+  "version": "ecvoi-v6-fresh-source-acquisition-v2"
+}

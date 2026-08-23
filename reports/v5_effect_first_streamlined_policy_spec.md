@@ -1,6 +1,8 @@
 # v5 Effect-first Streamlined Policy Spec
 
-状态：设计冻结前草案；仅使用 discovery/validation 证据，test 未加载。
+状态：已退出生产默认候选；保留为 8-slot 对照/消融协议。新的默认候选为
+`reports/streamlined_category_size_policy_v1.md` 中的 category × data-size 三阶段 shadow
+policy。仅使用 discovery/validation 证据，test 未加载。
 
 ## 目标
 

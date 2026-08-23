@@ -199,6 +199,35 @@ def test_collector_separates_actions_replicates_failures_and_ensembles(tmp_path)
     )
 
 
+def test_collector_resolves_protocol_shared_anchor_finalist(tmp_path):
+    protocol_path = tmp_path / "protocol.json"
+    protocol = write_default_protocol(protocol_path)
+    run_dir = tmp_path / "agent"
+    task_dir = run_dir / "tasks" / "HIA_Hou"
+    task_dir.mkdir(parents=True)
+    summary = _summary(protocol["sha256"], [])
+    summary["robust_results"] = []
+    summary["ensemble_results"] = []
+    summary["finalist_run_id"] = "hia_hou-shared-anchor-1"
+    summary["shared_strong_anchor"] = {
+        "aggregate_result": {
+            "run_id": "hia_hou-shared-anchor-1",
+            "task": "HIA_Hou",
+            "validation_score": 0.91,
+            "validation_std": 0.02,
+            "status": "completed",
+        }
+    }
+    (task_dir / "search_seed_1.json").write_text(
+        json.dumps(summary), encoding="utf-8"
+    )
+
+    payload = collect_policy_results(protocol_path, {"agent": run_dir})
+
+    assert payload["arms"]["agent"]["tasks"] == 1
+    assert payload["results"][0]["validation_score"] == pytest.approx(0.91)
+
+
 def test_collector_enforces_unique_configuration_action_budget(tmp_path):
     protocol_path = tmp_path / "protocol.json"
     protocol = write_default_protocol(protocol_path)

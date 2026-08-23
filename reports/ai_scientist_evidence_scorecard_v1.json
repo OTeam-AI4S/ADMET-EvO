@@ -1,0 +1,235 @@
+{
+  "allowed_claim": "On TDC ADMET-22, the frozen Agent meets the application-performance qualification. On same-team sealed process challenges it outperforms scalar AutoML and locked static rules while making zero unsafe actions, and it shows measured cost-aware stopping. A completed fresh-seed equal-budget predictive control did not establish noninferiority to expanded AutoML and is retained as negative evidence. Two real ChEMBL acquisition attempts failed closed before training; a post-qualification test-access incident is disclosed and no test feedback was used. The autonomous data-admission stack now discovers sources, judges endpoint semantics, and applies a sealed three-way structure firewall, but external predictive gain remains unproven.",
+  "claim_gates": {
+    "application_performance_qualified": true,
+    "external_data_discovery_endpoint_and_firewall_mechanism_ready": true,
+    "feedback_advantage_over_scalar_automl": true,
+    "formal_22_task_same_budget_predictive_control_complete": true,
+    "independently_authored_external_process_validation_complete": false,
+    "key_process_ablations_executed": true,
+    "local_data_advantage_over_expanded_automl": true,
+    "local_integrated_process_advantage_over_rules": true,
+    "prospective_cross_task_prior_ready": true,
+    "source_held_out_external_data_gain_complete": false
+  },
+  "control_scope": {
+    "predictive_22_task_required": [
+      "streamlined_agent",
+      "expanded_automl",
+      "strong_fixed"
+    ],
+    "reason_for_two_tracks": "Rules/random/ablations test research decisions; forcing every process control to retrain every predictive model would spend compute without answering its causal capability question.",
+    "same_action_budget_process_required": [
+      "locked_rules",
+      "seeded_random",
+      "agent_no_memory",
+      "agent_no_hardness",
+      "agent_no_data"
+    ]
+  },
+  "evidence_vector": {
+    "audit_and_test_firewall": {
+      "all_included_test_loaded_false": true,
+      "artifact_sha256_coverage": 1.0,
+      "incident_contained": true,
+      "post_qualification_test_access_incidents": 1,
+      "source_artifacts": 15,
+      "status": "historical_evidence_verified_post_qualification_incident_disclosed",
+      "strict_no_test_access_claim_for_current_goal_session": false,
+      "test_feedback_used_after_incident": false
+    },
+    "autonomous_data_admission_stack": {
+      "bridge_required": 3,
+      "candidate_sources_discovered": 3,
+      "direct_merges_allowed": 0,
+      "measurement": "executable discovery/judgment/decontamination mechanism; real predictive gain remains pending",
+      "same_firewall_and_source_budget_for_automl": true,
+      "source_heldout_gain_demonstrated": false,
+      "status": "mechanism_ready_real_source_gain_pending",
+      "test_labels_loaded": false,
+      "test_structures_exposed_to_planner": false,
+      "three_way_structure_firewall_frozen": true
+    },
+    "bounded_graph_fusion": {
+      "distinct_mpnn_ready": false,
+      "gin_ready": true,
+      "maximum_ticket_fits": 20,
+      "measurement": "backend-agnostic OOF-safe fusion implementation and frozen ticket; no distinct MPNN provider installed",
+      "oof_decision_tree_gate_ready": true,
+      "status": "blocked_missing_distinct_mpnn_provider",
+      "training_started": false,
+      "two_d_ready": true
+    },
+    "cost_aware_stopping": {
+      "composite_agent_estimated_fits": 30,
+      "composite_estimated_saving_fraction": 0.375,
+      "composite_expanded_automl_estimated_fits": 48,
+      "measurement": "pilot fits are executed; composite fit counts are counterfactual estimates",
+      "minimal_pilot_actual_fits": 14,
+      "minimal_pilot_fits_avoided": 6,
+      "minimal_pilot_maximum_fits": 20,
+      "minimal_pilot_saving_fraction": 0.3,
+      "status": "measured_pilot_and_estimated_composite_savings"
+    },
+    "cross_task_learning": {
+      "actions": 3,
+      "completed_fits": 100,
+      "endpoints": 5,
+      "failed_fits": 0,
+      "measurement": "prospective complete action grid; preserves negative and inconclusive outcomes",
+      "routing_blocked_actions": [
+        "data-quality-filter"
+      ],
+      "routing_eligible_actions": [
+        "feature-domain-shift",
+        "model-estimator-family"
+      ],
+      "routing_outcome_advantage_proven": false,
+      "shared_control_compute_reduction_fraction": 0.2926027214300513,
+      "status": "causal_action_priors_ready_routing_advantage_unproven"
+    },
+    "data_stewardship": {
+      "agent_beyond_complete_rules": false,
+      "agent_decision_accuracy": 1.0,
+      "agent_unsafe_merges": 0,
+      "cases": 11,
+      "complete_rules_decision_accuracy": 1.0,
+      "conventional_automl_decision_accuracy": 0.09090909090909091,
+      "conventional_automl_unsafe_merges": 10,
+      "expanded_automl_decision_accuracy": 0.2727272727272727,
+      "expanded_automl_unsafe_merges": 7,
+      "measurement": "sealed local data dossiers; governance decision, not source-held-out predictive gain",
+      "status": "advantage_over_automl_not_over_complete_rules"
+    },
+    "feedback_self_correction": {
+      "agent_beyond_complete_rules": false,
+      "agent_macro": 1.0,
+      "agent_minus_expanded_automl": 0.7,
+      "complete_rules_macro": 1.0,
+      "expanded_automl_macro": 0.3,
+      "measurement": "two observed feedback-linked cases plus integrated composite episodes",
+      "observed_cases": 2,
+      "status": "advantage_over_scalar_automl_not_over_complete_rules"
+    },
+    "integrated_research_decision": {
+      "agent_macro": 1.0,
+      "agent_minus_rules_bootstrap_95_ci": [
+        0.039999999999999994,
+        0.26
+      ],
+      "agent_minus_rules_case_score": 0.13999999999999999,
+      "agent_unsafe_actions": 0,
+      "conventional_automl_macro": 0.54,
+      "episodes": 10,
+      "expanded_automl_macro": 0.54,
+      "measurement": "locked commit/reveal local episodes; not independent external authorship",
+      "random_macro": 0.4800000000000001,
+      "rules_macro": 0.86,
+      "same_maximum_action_budget": true,
+      "status": "supported_on_same_team_sealed_holdout"
+    },
+    "key_process_ablations": {
+      "no_data": {
+        "ablation_decision_accuracy": 0.36363636363636365,
+        "ablation_unsafe_merges": 0,
+        "cases": 11,
+        "full_agent_decision_accuracy": 1.0,
+        "interpretation": "Reject-all remains safe but loses valid acquisition opportunities."
+      },
+      "no_hardness": {
+        "ablation_micro_recall": 0.0,
+        "ablation_safety_gate_passed": false,
+        "cases": 10,
+        "full_agent_micro_recall": 1.0,
+        "interpretation": "Mechanism ablation on hidden faults; not a predictive-score comparison."
+      },
+      "no_memory": {
+        "behavioral_advantage_demonstrated": false,
+        "interpretation": "Memory changes utilities but has not yet changed the selected action or passed its outcome gate.",
+        "legacy_claim_gate_passed": false,
+        "legacy_full_minus_winner_mean_oriented_gain": -0.0003104708951459393,
+        "ranking_changed_tasks": 2,
+        "selection_changed_tasks": 0,
+        "tasks": 22
+      },
+      "status": "executed_with_negative_memory_result"
+    },
+    "prediction_qualification": {
+      "measurement": "official frozen application results; no test labels loaded by the qualification step",
+      "passed": true,
+      "provenance_coverage": 1.0,
+      "status": "certified_application_qualification",
+      "tasks": 22,
+      "top10_tasks": 21,
+      "top5_tasks": 18
+    },
+    "real_external_data_ticket": {
+      "corrected_failure_status": "failed_closed_external_service_unavailable",
+      "endpoint": "CHEMBL240 human hERG IC50",
+      "first_failure_status": "failed_closed",
+      "fits": 0,
+      "frozen_protocol_attempts": 2,
+      "measurement": "real public-source acquisition attempts; API failure retained and closed before partial data or training",
+      "raw_artifact_created": false,
+      "source": "official ChEMBL activity API",
+      "source_heldout_gain_demonstrated": false,
+      "status": "two_frozen_acquisitions_failed_closed_before_training",
+      "training_started": false,
+      "unsafe_merges": 0
+    },
+    "same_budget_predictive_control": {
+      "agent_minus_expanded_automl_bootstrap_95_ci": [
+        -0.02770193890264464,
+        0.006483771867322602
+      ],
+      "agent_minus_expanded_automl_mean": -0.009833589028425243,
+      "agent_vs_expanded_automl_wins_ties_losses": [
+        5,
+        7,
+        10
+      ],
+      "failed_fits": 0,
+      "logical_charged_fits": 154,
+      "measurement": "fresh validation seed 11 selection -> seed 12 evaluation; frozen source and no test feedback",
+      "noninferiority_margin": -0.01,
+      "noninferiority_passed": false,
+      "physical_fit_reuse_fraction": 0.26623376623376627,
+      "physical_unique_fits": 113,
+      "status": "complete_noninferiority_not_demonstrated",
+      "tasks": 22
+    }
+  },
+  "forbidden_claims": [
+    "predictively superior to AutoML under a completed prospective same-budget 22-task run",
+    "generally superior autonomous scientist on independent external tasks",
+    "predictive gain from autonomously acquired external data"
+  ],
+  "overall_status": "qualified_prediction_local_process_advantage_external_validation_pending",
+  "protocol": "tdc22-ai-scientist-evidence-vector-v1",
+  "remaining_blockers": [
+    "Obtain independently authored composite research episodes before claiming general autonomous-research superiority.",
+    "Complete an admitted source-held-out external-data comparison; two frozen ChEMBL acquisitions failed closed on external HTTP 500 before raw data or training.",
+    "Provide one content-addressed distinct MPNN fingerprint provider, then run the <=20-fit graph representation/fusion ticket; do not expand it to all 22 tasks by default."
+  ],
+  "source_hashes": {
+    "reports/bounded_graph_fusion_ticket_v1.json": "a6070ab2eab952161375a1dc90cebf4bf1e779a6e7f7870b3aabba619510f3e0",
+    "reports/composite_research_challenge_v1.json": "77c087a9c7421e95f0f578335a2a83c6cca685e26bdab8f92a2ebbae3f9cfc2b",
+    "reports/data_stewardship_controls_v1.json": "9e650f11ae87ab2cce9f6e3d1ce8b12c9943f532a81d13ef3c8087a133dc31cc",
+    "reports/external_data_agent_capability_v1.json": "25a1e91210ccb249d821048edb01eea0818dd363933053f38506292caa9a8e11",
+    "reports/fault_policy_controls_v1.json": "f149a4d6988c5134fe57fcf18769f918109dc976fa8ba4d45b19a5afed3848b4",
+    "reports/feedback_policy_controls_v1.json": "e50f71b3e0cd747f093b4f00615c11d5c855fd5b55d7097f6ad76c0db59254e9",
+    "reports/minimal_exact_pair_pilot_v1.json": "4c3fa51425cceedaf60b702aac595a9f15a18b9199c75fe13fef9e27eb8e2a3e",
+    "reports/minimal_predictive_control_v1.json": "5455a01533eac768bd47387ed684700b4d0825fa6e79214555d782592b5b34c4",
+    "reports/performance_qualification_v1.json": "3e0cfb0c1a652282bfb4d86dfece2dc43d67c469cafe862acb8035ee71a640a4",
+    "reports/test_firewall_incident_2026-08-20.json": "a018d987ff80da4b55df8f0cd55b8e998aae37226ec70dbbc06520b052e5c20b",
+    "reports/transport_grid_results_v1.json": "157cd4227f674aa927da4257510910f252de23fbe3e0c0ad65a9faf445d718cb",
+    "reports/transport_memory_behavior_replay_v1.json": "13207e9ae3013fdb9dee7b9dbc2316fc75c76e329548f6ded74f5726e76639df",
+    "runs/chembl-herg-source-heldout-v1/acquisition_failure.json": "7624a5bca8316cd12d7ba2b0bd6f202daa99a02799e3f32aacc76a1d3e373472",
+    "runs/chembl-herg-source-heldout-v2/acquisition_failure.json": "9c7ac32167f222cd784f3bad401b9701dcfb66cfd9858c5f156bfb9350dad292",
+    "runs/v27-router-controls/report.json": "75ac4f2f538de5154e77b90f9f22146e9f2b5c364c5455ca087f522c40aafa3a"
+  },
+  "test_accessed_in_current_goal_session": true,
+  "test_feedback_used_after_incident": false,
+  "test_loaded": false,
+  "why_no_single_average": "A weighted average could hide an unsafe action or failed prediction gate; capability dimensions remain separate."
+}

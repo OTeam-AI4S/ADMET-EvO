@@ -20,7 +20,13 @@ from rdkit.Chem.MolStandardize import rdMolStandardize
 from .endpoint_contracts import EndpointContract
 
 ALLOWED_DATA_POLICIES = frozenset(
-    {"official", "canonical_deduplicate", "quality_filtered", "leakage_safe"}
+    {
+        "official",
+        "identity_safe",
+        "canonical_deduplicate",
+        "quality_filtered",
+        "leakage_safe",
+    }
 )
 
 
@@ -243,7 +249,7 @@ class MolecularDataCurator:
                     output[self.target_col] = output["_canonical_smiles"].map(medians)
                 else:
                     output = output.drop_duplicates("_canonical_smiles", keep="first")
-            if policy == "leakage_safe" and validation_smiles:
+            if policy in {"identity_safe", "leakage_safe"} and validation_smiles:
                 output = output[~output["_canonical_smiles"].isin(validation_smiles)]
             output[self.smiles_col] = output["_canonical_smiles"]
             output = output.drop(columns=["_canonical_smiles"]).reset_index(drop=True)
@@ -260,7 +266,11 @@ class MolecularDataCurator:
             non_finite_targets=non_finite,
             replicate_rows=replicate_rows,
             replicate_target_dispersion=replicate_dispersion,
-            removed_validation_overlap=(overlap if policy == "leakage_safe" and not dry_run else 0),
+            removed_validation_overlap=(
+                overlap
+                if policy in {"identity_safe", "leakage_safe"} and not dry_run
+                else 0
+            ),
             input_sha256=input_hash,
             output_sha256=frame_sha256(output),
             warnings=tuple(warnings),

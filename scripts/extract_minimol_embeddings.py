@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from importlib.metadata import version
+from importlib.metadata import distribution, version
 from pathlib import Path
 
 import numpy as np
@@ -53,12 +53,44 @@ def main() -> None:
         / "minimol_v1"
         / "state_dict.pth"
     )
+    checkpoint_dir = weight_path.parent
+    minimol_distribution = distribution("minimol")
+    license_files = [
+        Path(minimol_distribution.locate_file(item))
+        for item in (minimol_distribution.files or [])
+        if str(item).endswith(".dist-info/LICENSE")
+    ]
+    if len(license_files) != 1:
+        raise RuntimeError("Expected exactly one packaged MiniMol license file")
+    license_path = license_files[0]
+    direct_url_files = [
+        Path(minimol_distribution.locate_file(item))
+        for item in (minimol_distribution.files or [])
+        if str(item).endswith(".dist-info/direct_url.json")
+    ]
+    direct_url = (
+        json.loads(direct_url_files[0].read_text(encoding="utf-8"))
+        if len(direct_url_files) == 1
+        else None
+    )
     manifest = {
         "task": payload["task"],
         "rows": embeddings.shape[0],
         "columns": embeddings.shape[1],
         "input_sha256": sha256_file(args.input),
+        "output_sha256": sha256_file(args.output),
         "weight_sha256": sha256_file(weight_path),
+        "checkpoint_config_sha256": sha256_file(checkpoint_dir / "config.yaml"),
+        "checkpoint_base_shape_sha256": sha256_file(
+            checkpoint_dir / "base_shape.yaml"
+        ),
+        "license": "MIT",
+        "license_sha256": sha256_file(license_path),
+        "package_archive_sha256": (
+            direct_url.get("archive_info", {}).get("hashes", {}).get("sha256")
+            if direct_url is not None
+            else None
+        ),
         "minimol": version("minimol"),
         "graphium": version("graphium"),
         "torch": torch.__version__,

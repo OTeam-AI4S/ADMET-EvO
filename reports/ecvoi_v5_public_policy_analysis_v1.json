@@ -1,0 +1,169 @@
+{
+  "blind_or_leaderboard_feedback_used": false,
+  "checks": [
+    {
+      "name": "regret_reduction_vs_no_diagnosis",
+      "observed": -7.76427929816546,
+      "passed": false,
+      "requirement": ">=0.20"
+    },
+    {
+      "name": "regret_reduction_vs_shuffled",
+      "observed": -2.783974544676785,
+      "passed": false,
+      "requirement": ">=0.20"
+    },
+    {
+      "name": "total_gain_above_no_diagnosis",
+      "observed": -0.6515470824837963,
+      "passed": false,
+      "requirement": ">0"
+    },
+    {
+      "name": "total_gain_above_shuffled",
+      "observed": -0.5411004782910063,
+      "passed": false,
+      "requirement": ">0"
+    },
+    {
+      "name": "zero_harmful_interventions",
+      "observed": 0,
+      "passed": true,
+      "requirement": 0
+    },
+    {
+      "name": "strict_boosting_anchor_win",
+      "observed": 3,
+      "passed": true,
+      "requirement": ">=1"
+    },
+    {
+      "name": "source_cluster_direction_vs_no_diagnosis",
+      "observed": 0.056,
+      "passed": false,
+      "requirement": ">=0.90"
+    },
+    {
+      "name": "source_cluster_direction_vs_shuffled",
+      "observed": 0.3585,
+      "passed": false,
+      "requirement": ">=0.90"
+    },
+    {
+      "name": "matched_max_fit_budget",
+      "observed": 21,
+      "passed": true,
+      "requirement": 21
+    },
+    {
+      "name": "test_blind_leaderboard_access",
+      "observed": 0,
+      "passed": true,
+      "requirement": 0
+    }
+  ],
+  "promotion_passed": false,
+  "protocol_sha256": "356109f38a479dd3d623607ceb8743b15bad30570441c782f4d57116e5e38e4b",
+  "screen_result_sha256": "9101d34c242ae2b20d6cfcd9e352b5e9b1f1d2e94b461d642d56a4d380b80208",
+  "source_cluster_positive_probability": {
+    "no_diagnosis": 0.056,
+    "shuffled_diagnosis": 0.3585
+  },
+  "summaries": {
+    "automl_expanded": {
+      "actions": {
+        "automl_expanded": 16
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.005446624760745404,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.008469319858493328,
+      "mean_oriented_gain": 0.11437911997565348,
+      "total_fit_cost": 336.0,
+      "total_oriented_gain": 1.8300659196104556
+    },
+    "boosting_anchor": {
+      "actions": {
+        "boosting_anchor": 16
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.12599462205240425,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": -0.003146182218257434,
+      "mean_oriented_gain": 0.12599462205240425,
+      "total_fit_cost": 16.0,
+      "total_oriented_gain": 2.015913952838468
+    },
+    "full": {
+      "actions": {
+        "feature_rich": 9,
+        "nested_imbalance": 6,
+        "stop": 1
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.027335821731774772,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.04596644121353024,
+      "mean_oriented_gain": 0.07688199862061655,
+      "total_fit_cost": 45.0,
+      "total_oriented_gain": 1.2301119779298648
+    },
+    "full_no_harm": {
+      "actions": {
+        "feature_rich": 8,
+        "nested_imbalance": 7,
+        "stop": 1
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.026418164735999953,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.04029167503414694,
+      "mean_oriented_gain": 0.08255676479999985,
+      "total_fit_cost": 50.0,
+      "total_oriented_gain": 1.3209082367999976
+    },
+    "no_diagnosis": {
+      "actions": {
+        "feature_rich": 1,
+        "nested_imbalance": 15
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.020677572092457814,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.005244748558292972,
+      "mean_oriented_gain": 0.11760369127585382,
+      "total_fit_cost": 91.0,
+      "total_oriented_gain": 1.8816590604136612
+    },
+    "rules": {
+      "actions": {
+        "feature_rich": 6,
+        "nested_imbalance": 10
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.02757816390961617,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.009088513706980099,
+      "mean_oriented_gain": 0.1137599261271667,
+      "total_fit_cost": 66.0,
+      "total_oriented_gain": 1.8201588180346673
+    },
+    "shuffled_diagnosis": {
+      "actions": {
+        "feature_rich": 1,
+        "nested_imbalance": 14,
+        "stop": 1
+      },
+      "endpoints": 16,
+      "gain_per_fit": 0.020837793602598482,
+      "harmful_interventions": 0,
+      "mean_oracle_regret": 0.01214766132034235,
+      "mean_oriented_gain": 0.11070077851380444,
+      "total_fit_cost": 85.0,
+      "total_oriented_gain": 1.771212456220871
+    }
+  },
+  "tdc_19_unlocked": false,
+  "test_labels_loaded": false,
+  "version": "ecvoi-v5-public-policy-analysis-v1"
+}

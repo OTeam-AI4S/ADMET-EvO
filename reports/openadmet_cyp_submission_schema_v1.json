@@ -1,0 +1,36 @@
+{
+  "activity_dataset_size": 750,
+  "blind_table_columns": [
+    "Molecule_Name",
+    "SMILES"
+  ],
+  "blind_table_contains_labels": false,
+  "blind_table_sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+  "challenge_space_commit": "13c5057b37d1e72b3f036dd0d59718b1823f8fdd",
+  "classification_active": true,
+  "classification_columns": [
+    "SMILES",
+    "Molecule_Name",
+    "CYP2D6_is_TDI",
+    "CYP3A4_is_TDI"
+  ],
+  "config_py_sha256": "342cd287e63a79c61b8e18fa46e81950ebb7333b6e91ee427af18426e04ca52f",
+  "identifier_columns": [
+    "SMILES",
+    "Molecule_Name"
+  ],
+  "leaderboard_feedback_used": false,
+  "regression_columns": [
+    "SMILES",
+    "Molecule_Name",
+    "CYP1A2_pIC50_direct_inhibition",
+    "CYP2C9_pIC50_direct_inhibition",
+    "CYP2D6_pIC50_direct_inhibition",
+    "CYP3A4_pIC50_direct_inhibition"
+  ],
+  "source": "official_openadmet_cyp_challenge_space",
+  "submission_py_sha256": "e79d709800b57c5c693223ddf0e5f630d5bd2d85563b96151346c93ed2c890b5",
+  "test_labels_loaded": false,
+  "track_policy": "regression_and_classification_are_independent_files",
+  "version": "openadmet-cyp-submission-schema-v1"
+}

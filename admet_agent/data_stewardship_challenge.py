@@ -162,6 +162,12 @@ def _policy_prediction(
         detected = ()
         decision = "admit_source_heldout_only"
         manifest_complete = True
+    elif arm == "agent_no_data_acquisition":
+        # A real capability ablation: safe but unable to benefit from even a
+        # clean, licensed, source-held-out dataset.
+        detected = ()
+        decision = "reject"
+        manifest_complete = dossier.license_present and dossier.provenance_complete
     elif arm == "seeded_random_admission":
         detected = (rng.choice(sorted(DATA_ISSUES)),)
         decision = rng.choice(["reject", "quarantine", "admit_source_heldout_only"])
@@ -190,6 +196,7 @@ def compare_data_stewardship_controls(
         "complete_rules_steward",
         "expanded_automl_schema_steward",
         "conventional_automl_direct_fit",
+        "agent_no_data_acquisition",
         "seeded_random_admission",
     )
     scores = {}

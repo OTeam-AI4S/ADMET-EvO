@@ -1,0 +1,93 @@
+{
+  "baseline": {
+    "label": "B1",
+    "path": "/home/wyilin/admet/runs/openadmet-cyp-stage-b/b1_cv_result.json",
+    "sha256": "d15dbcbacb1203b1dd109a2ce4259a68285c3aa841c3667bb710477264b152b8"
+  },
+  "blind_test_opened": false,
+  "decisions": {
+    "M3": {
+      "admit_as_stack_component": false,
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "fold_mean_mcc_gain_vs_b1": [
+        -0.1593894380067686,
+        -0.10362250272640082,
+        -0.16185706015557538,
+        -0.15163650626247122,
+        -0.07800283137540098
+      ],
+      "fold_mean_st_rae_gain_vs_b1": [
+        -0.02390609244053643,
+        -0.0716269044901725,
+        -0.06782988680800928,
+        -0.019854620060519634,
+        -0.059000288552378155
+      ],
+      "mean_mcc_gain_vs_b1": -0.13090166770532338,
+      "mean_st_rae_gain_vs_b1": -0.0484435584703232,
+      "primary_improved": false,
+      "regression_noninferior": true,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-b/m3_cv_result.json",
+      "result_sha256": "b295eafacaa249d273083ca9e2fa523ff4252f5aea2229702d791049a9c751f4",
+      "worst_fold_mcc_gain_vs_b1": -0.16185706015557538,
+      "worst_fold_safe": false,
+      "worst_fold_st_rae_gain_vs_b1": -0.0716269044901725
+    },
+    "M4": {
+      "admit_as_stack_component": false,
+      "blind_leaderboard_can_override": false,
+      "classification_noninferior": false,
+      "fold_mean_mcc_gain_vs_b1": [
+        -0.1683576800243338,
+        -0.06167710014460326,
+        -0.15525197490800857,
+        -0.2117548411181342,
+        -0.09771468251535399
+      ],
+      "fold_mean_st_rae_gain_vs_b1": [
+        -0.12701452490830245,
+        -0.10338109023462905,
+        -0.21987806874123528,
+        -0.12349279212547759,
+        -0.30929001413744617
+      ],
+      "mean_mcc_gain_vs_b1": -0.13895125574208678,
+      "mean_st_rae_gain_vs_b1": -0.1766112980294181,
+      "primary_improved": false,
+      "regression_noninferior": false,
+      "result_path": "/home/wyilin/admet/runs/openadmet-cyp-stage-b/m4_cv_result.json",
+      "result_sha256": "e2602318f6cc7c0fc826b6f0f0412323ea4965d22540bfdea0218b6d609df394",
+      "worst_fold_mcc_gain_vs_b1": -0.2117548411181342,
+      "worst_fold_safe": false,
+      "worst_fold_st_rae_gain_vs_b1": -0.30929001413744617
+    }
+  },
+  "leaderboard_feedback_used": false,
+  "protocol": "openadmet-cyp-stage-b-component-gate-v1",
+  "recipe_mode": "single_component_B1",
+  "required_outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "required_seeds": [
+    1,
+    2,
+    3
+  ],
+  "sealed_certification_opened": false,
+  "selected_components": [
+    "B1"
+  ],
+  "statistical_unit_for_gate": "outer_fold_after_seed_averaging",
+  "thresholds": {
+    "mean_mcc_noninferiority_margin": 0.03,
+    "mean_st_rae_noninferiority_margin": 0.05,
+    "worst_fold_mcc_margin": 0.1,
+    "worst_fold_st_rae_margin": 0.1
+  },
+  "training_only": true
+}

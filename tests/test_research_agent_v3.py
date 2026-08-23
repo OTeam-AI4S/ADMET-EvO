@@ -94,6 +94,21 @@ def test_curator_canonicalizes_deduplicates_and_removes_validation_overlap():
     assert audit.input_sha256 != audit.output_sha256
 
 
+def test_identity_safe_floor_removes_overlap_without_collapsing_replicates():
+    frame = pd.DataFrame(
+        {"Drug": ["CCO", "OCC", "CCN", "CCC"], "Y": [1, 1, 0, 1]}
+    )
+    curated, audit = MolecularDataCurator().curate(
+        frame,
+        task_type="classification",
+        policy="identity_safe",
+        validation_smiles={canonical_smiles("CCN")},
+    )
+    assert curated["Drug"].tolist() == ["CCO", "CCO", "CCC"]
+    assert audit.output_rows == 3
+    assert audit.removed_validation_overlap == 1
+
+
 def test_external_source_is_cleaned_and_quarantined_with_provenance(tmp_path):
     source_path = tmp_path / "ames.csv"
     pd.DataFrame({"smiles": ["CCO", "OCC", "bad"], "label": [1, 1, 0]}).to_csv(
@@ -156,6 +171,22 @@ def test_hardness_card_is_multidimensional_and_routes_actions():
     plan = EffectFirstResearchPlanner().plan(card)
     assert plan["selected_action_id"]
     assert {item["axis"] for item in plan["actions"]} >= {"data", "replicate", "stop"}
+
+
+def test_ecvoi_v2_defers_routing_until_concrete_pairs_and_removes_leakage_action():
+    train, valid = _classification_frames()
+    card = profile_hardness(
+        train, valid, resolve_task("AMES"), sample_limit=100, seed=3
+    )
+    planner = EffectFirstResearchPlanner("ecvoi-v2")
+    plan = planner.plan(card)
+    assert plan["selected_action_id"] == "pending-ecvoi-v2-pair-resolution"
+    assert plan["routing_deferred_to_resolved_pairs"] is True
+    assert "data-leakage-safe" not in {
+        action["action_id"] for action in plan["actions"]
+    }
+    with pytest.raises(RuntimeError, match="resolved treatment/control pairs"):
+        planner.route(planner.propose(card))
 
 
 def test_diagnose_path_never_materializes_test_frame(tmp_path):
@@ -884,6 +915,69 @@ def test_matched_action_evidence_rejects_mean_gain_with_unstable_direction():
     assert evidence.status == "inconclusive"
 
 
+def test_action_evidence_uses_the_pair_promoted_and_protected_by_racing():
+    plan = {
+        "selected_action_id": "data-leakage-safe",
+        "actions": [
+            {
+                "action_id": "data-leakage-safe",
+                "axis": "data",
+                "payload": {"data_policy": "leakage_safe"},
+            }
+        ],
+    }
+
+    def spec(model, policy):
+        return ExperimentSpec(
+            task="BBB_Martins",
+            seed=1,
+            model=model,
+            representations=("morgan", "rdkit2d"),
+            data_policy=policy,
+            hypothesis="matched data pair",
+        )
+
+    experiments = {
+        "unpromoted-treatment": spec("balanced_extra_trees", "leakage_safe"),
+        "unpromoted-control": spec("balanced_extra_trees", "official"),
+        "promoted-treatment": spec("xgboost", "leakage_safe"),
+        "promoted-control": spec("xgboost", "official"),
+    }
+
+    def result(run_id, seed, score):
+        return RunResult(
+            run_id, "BBB_Martins", seed, "xgboost", "auroc", score, 1.0
+        )
+
+    seed_runs = {
+        "unpromoted-treatment": {
+            seed: result(f"ut-{seed}", seed, score)
+            for seed, score in enumerate((0.91, 0.92), 1)
+        },
+        "unpromoted-control": {
+            seed: result(f"uc-{seed}", seed, score)
+            for seed, score in enumerate((0.90, 0.91), 1)
+        },
+        "promoted-treatment": {
+            seed: result(f"t-{seed}", seed, score)
+            for seed, score in enumerate((0.91, 0.92, 0.93), 1)
+        },
+        "promoted-control": {
+            seed: result(f"c-{seed}", seed, score)
+            for seed, score in enumerate((0.90, 0.91, 0.92), 1)
+        },
+    }
+    evidence = evaluate_action_evidence(
+        plan,
+        resolve_task("BBB_Martins"),
+        experiments,
+        seed_runs,
+    )
+    assert evidence.treatment_run_id == "promoted-treatment"
+    assert evidence.control_run_id == "promoted-control"
+    assert evidence.validation_seeds == (1, 2, 3)
+
+
 def test_action_memory_shrinks_and_deduplicates_endpoint_evidence(tmp_path):
     memory = ResearchOutcomeMemory(tmp_path / "action_outcomes.jsonl")
     base = {
@@ -1127,6 +1221,117 @@ def test_unconfirmed_global_negative_memory_cannot_prune():
     row = decision.ranked_actions[0]
     assert row["routing_admitted"] is True
     assert row["routing_block_reason"] is None
+
+
+def test_ecvoi_policy_is_opt_in_and_exposes_auditable_utility_terms():
+    action = ResearchAction(
+        "feature-domain-shift",
+        "feature",
+        "A complementary representation may improve transfer.",
+        "Compare paired scaffold validation results.",
+        ("domain shift",),
+        0.7,
+        0.8,
+        0.6,
+        0.2,
+        {"representations": ["unimol2", "morgan"]},
+    )
+    planner = EffectFirstResearchPlanner(routing_policy="ecvoi")
+    decision = planner.route([action], effect_priority=0.8)
+    row = decision.ranked_actions[0]
+    assert row["routing_policy"] == "ec-voi-v1"
+    assert row["evidence_source"] == "endpoint_local_only"
+    assert 0.0 <= row["posterior_support_probability"] <= 1.0
+    assert row["robust_effect_lcb"] <= row["posterior_expected_effect"]
+    assert row["utility"] == pytest.approx(
+        row["exploitation_utility"]
+        + row["exploration_utility"]
+        - row["cost_risk_penalty"]
+    )
+
+
+def test_ecvoi_ignores_transport_counts_until_routing_eligible():
+    action = ResearchAction(
+        "feature-domain-shift",
+        "feature",
+        "A complementary representation may improve transfer.",
+        "Compare paired scaffold validation results.",
+        ("domain shift",),
+        0.7,
+        0.8,
+        0.6,
+        0.2,
+        {},
+    )
+    planner = EffectFirstResearchPlanner(routing_policy="ecvoi")
+    plain = planner.route([action]).ranked_actions[0]
+    blocked = planner.route(
+        [action],
+        action_priors={
+            action.action_id: {
+                "routing_eligible": False,
+                "supported": 100,
+                "refuted": 0,
+            }
+        },
+    ).ranked_actions[0]
+    assert blocked["evidence_source"] == "endpoint_local_context_gate"
+    assert blocked["posterior_alpha"] == pytest.approx(plain["posterior_alpha"])
+    assert blocked["posterior_beta"] == pytest.approx(plain["posterior_beta"])
+
+
+def test_ecvoi_prefers_contextual_transport_counts_and_honors_negative_gate():
+    action = ResearchAction(
+        "model-estimator-family",
+        "model",
+        "A different estimator family may help.",
+        "Compare paired validation results.",
+        ("roughness",),
+        0.4,
+        0.7,
+        0.3,
+        0.1,
+        {},
+    )
+    planner = EffectFirstResearchPlanner(routing_policy="ecvoi")
+    contextual = planner.route(
+        [action],
+        action_priors={
+            action.action_id: {
+                "routing_eligible": True,
+                "contextual_routing_eligible": True,
+                "contextual_supported": 3,
+                "contextual_refuted": 1,
+                "contextual_inconclusive": 1,
+            }
+        },
+    ).ranked_actions[0]
+    assert contextual["evidence_source"] == "context_matched_transport"
+    assert contextual["posterior_alpha"] == pytest.approx(7.3)
+    assert contextual["posterior_beta"] == pytest.approx(3.7)
+
+    blocked = planner.route(
+        [action],
+        action_priors={
+            action.action_id: {
+                "routing_eligible": True,
+                "contextual_routing_eligible": True,
+                "contextual_transport_eligible_observations": 5,
+                "contextual_supported": 0,
+                "contextual_refuted": 4,
+                "contextual_inconclusive": 1,
+                "contextual_posterior_support_probability": 0.278,
+                "contextual_negative_gate_confirmed": True,
+            }
+        },
+    ).ranked_actions[0]
+    assert blocked["routing_admitted"] is False
+    assert blocked["utility"] == pytest.approx(-1.0)
+
+
+def test_unknown_research_routing_policy_is_rejected():
+    with pytest.raises(ValueError, match="routing_policy"):
+        EffectFirstResearchPlanner(routing_policy="unknown")
 
 
 def test_executable_policy_controls_are_deterministic_and_axis_limited(monkeypatch):

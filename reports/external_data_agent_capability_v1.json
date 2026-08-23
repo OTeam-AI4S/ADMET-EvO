@@ -1,0 +1,68 @@
+{
+  "capability": "autonomous-external-data-admission-v1",
+  "claim_boundary": {
+    "allowed": "The mechanism discovers candidates, adjudicates endpoint semantics and fails closed before unsafe merge.",
+    "forbidden": "Autonomously acquired data has improved hERG prediction."
+  },
+  "discovery": {
+    "automatic_download_allowed_before_judgment": false,
+    "candidate_count": 3,
+    "connector_failures": [],
+    "connectors": [
+      "ChEMBL",
+      "TDC related hERG"
+    ],
+    "decision_counts": {
+      "bridge_required": 3
+    }
+  },
+  "endpoint_judgment": {
+    "bridge_fields": [
+      "assay equivalence",
+      "threshold/label-semantic equivalence",
+      "same-source lineage",
+      "structural overlap risk"
+    ],
+    "current_hERG_result": "3/3 bridge_required; 0 direct merge",
+    "hard_reject_fields": [
+      "endpoint/target identity",
+      "task type",
+      "species",
+      "assay system",
+      "label direction/threshold",
+      "unit for regression",
+      "provenance",
+      "license",
+      "access URL"
+    ]
+  },
+  "fair_comparison_contract": {
+    "external_data_not_mixed_into_base_predictive_control": true,
+    "only_agent_specific_difference": "endpoint judgment, hypothesis, admission/rejection rationale, and stopping",
+    "same_eligible_source_registry_for_agent_and_automl": true,
+    "same_query_and_api_call_budget": true,
+    "same_structure_firewall": true
+  },
+  "scope": "TDC ADMET endpoints; first concrete connector set is hERG",
+  "sealed_structure_firewall": {
+    "order": [
+      "desalt, neutralize and canonicalize tautomers to standard InChIKey",
+      "remove exact overlap with train/validation/test",
+      "reject whole source if >5% of test molecules occur by InChIKey skeleton",
+      "remove records with ECFP4 Tanimoto >= 0.90 to any test molecule"
+    ],
+    "test_labels_loaded": false,
+    "test_structure_access": "sealed executor only for decontamination",
+    "test_structures_exposed_to_planner": false,
+    "thresholds_frozen": {
+      "ecfp4_tanimoto": 0.9,
+      "test_scaffold_coverage": 0.05
+    }
+  },
+  "source_hashes": {
+    "admet_agent/external_data_scout.py": "b1bd85c6d1cf568e9232cc4710a8c8b4e47c7e7d1b4fe90643e68bb54cb80e60",
+    "admet_agent/external_structure_firewall.py": "fc06a149cbfaab86ba26486568e97621b3ad7c66c95a5bc8ce5fe07ad398b732",
+    "admet_agent/guard.py": "c51b2ad8f1b07ccc386aa474fab155a6c7abab8edf99dea43a39b042f60fc8a0"
+  },
+  "status": "mechanism_ready_real_source_gain_pending"
+}

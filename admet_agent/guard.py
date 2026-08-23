@@ -1,4 +1,5 @@
-"""Protocol firewall: validate experiments before compute."""
+"""Protocol firewall: validate experiments and discovery inputs before compute."""
+from pathlib import Path
 from .registry import MODELS
 from .schemas import ALLOWED_DEVICES, ALLOWED_IMBALANCE, ALLOWED_MODELS, ALLOWED_REPRESENTATIONS, ExperimentSpec
 from .tasks import resolve_task
@@ -17,6 +18,23 @@ MODEL_PARAMETERS = {
 
 class ProtocolViolation(ValueError):
     pass
+
+
+def validate_tdc_discovery_path(path: str | Path) -> Path:
+    """Reject official TDC test files from any discovery/data-research loader.
+
+    External source-heldout sets use a different namespace and are not covered
+    by this guard.  This function specifically protects the canonical TDC
+    benchmark tree, whose test labels must never enter discovery.
+    """
+
+    resolved = Path(path).resolve()
+    lowered_parts = tuple(part.lower() for part in resolved.parts)
+    in_tdc_benchmark = "admet_group" in lowered_parts
+    test_named = resolved.name.lower() in {"test.csv", "test.tsv", "test.parquet"}
+    if in_tdc_benchmark and test_named:
+        raise ProtocolViolation(f"official TDC test path is forbidden during discovery: {resolved}")
+    return resolved
 
 def validate_experiment(spec: ExperimentSpec) -> None:
     task = resolve_task(spec.task)

@@ -27,6 +27,7 @@ def main() -> None:
         "complete_rules_guard": "Complete rules guard",
         "expanded_automl_schema_guard": "Expanded AutoML schema guard",
         "conventional_automl_no_guard": "Conventional AutoML",
+        "agent_no_hardness_diagnosis": "Agent ablation: no hardness diagnosis",
         "seeded_random_fault": "Seeded random",
     }
     lines = [
@@ -62,6 +63,8 @@ def main() -> None:
             "discovery is a useful system capability but is **not** evidence of learned scientific",
             "reasoning. A stronger claim requires independently authored unseen composite faults and",
             "remediation planning that exceeds the complete-rules baseline.",
+            "The no-hardness arm removes endpoint/fault diagnosis entirely; it measures mechanism",
+            "necessity on this fixture, not a predictive-score effect.",
             "",
         )
     )

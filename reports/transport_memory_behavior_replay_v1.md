@@ -14,5 +14,6 @@ cards. Feature/model evidence can change utilities or lower ranks without changi
 the top action; the data prior correctly stays neutral.
 
 Therefore the framework may claim protocol-bound cross-task evidence retention,
-not a memory-driven behavioral or predictive advantage. The next valid upgrade is
-an independent post-memory endpoint cohort with choices frozen before execution.
+not a memory-driven behavioral or predictive advantage. The independent cohort
+has now refuted global negative pruning; the next valid upgrade requires a new
+task-type/hardness-stratified cohort while destructive pruning remains disabled.

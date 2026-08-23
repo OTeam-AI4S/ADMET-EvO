@@ -1,0 +1,111 @@
+{
+  "version": "openadmet-cyp-endpoint-contracts-v1",
+  "frozen_at": "2026-08-21",
+  "dataset_commit": "85f8b358d0a2056a98b990dd75d3b3ec9247862b",
+  "challenge_space_commit": "13c5057b37d1e72b3f036dd0d59718b1823f8fdd",
+  "species": "human",
+  "category": "metabolism",
+  "source_family": "OpenADMET_Octant_UCSF_Fraser",
+  "discovery_split": "identity_locked_chemistry_group_nested_cv",
+  "internal_certification_split": "sealed_seeded_whole_chemistry_groups_10_to_15_percent",
+  "internal_certification_split_revision": "corrected_before_model_selection: hardest-cluster selection would expose and target the certification chemistry distribution; chemistry-distance hardness is evaluated on outer folds instead",
+  "official_certification_split": "openadmet_750_compound_blinded_test",
+  "official_test_feedback_policy": "single_frozen_submission_no_same_version_reselection",
+  "direct_inhibition": {
+    "task_type": "multitask_regression",
+    "label_semantics": "direct-inhibition pIC50 measured after preincubation without NADPH; credible intervals and fitted standard deviations are measurement metadata",
+    "unit": "pIC50_negative_log10_molar",
+    "primary_metric": "macro_mean_ST_RAE_over_four_isoforms",
+    "metric_direction": "minimize",
+    "secondary_metrics": [
+      "mae",
+      "r2",
+      "spearman",
+      "kendall_tau"
+    ],
+    "soft_threshold_contract": "prediction inside fitted 95_percent_credible_interval has zero numerator error; prediction outside contributes distance to nearest interval bound; denominator applies the same rule to the endpoint mean predictor",
+    "endpoints": {
+      "CYP1A2_pIC50_direct_inhibition": {
+        "isoform": "CYP1A2",
+        "labeled_train": 1412,
+        "assay_system": "recombinant CYP1A2 biochemical fluorescence inhibition assay",
+        "probe_or_readout": "EOMCC fluorogenic probe"
+      },
+      "CYP2C9_pIC50_direct_inhibition": {
+        "isoform": "CYP2C9",
+        "labeled_train": 1285,
+        "assay_system": "recombinant CYP2C9 biochemical fluorescence inhibition assay",
+        "probe_or_readout": "EOMCC fluorogenic probe"
+      },
+      "CYP2D6_pIC50_direct_inhibition": {
+        "isoform": "CYP2D6",
+        "labeled_train": 1493,
+        "assay_system": "recombinant CYP2D6 biochemical label-free inhibition assay",
+        "probe_or_readout": "dextromethorphan parent depletion by SCIEX Echo-MS"
+      },
+      "CYP3A4_pIC50_direct_inhibition": {
+        "isoform": "CYP3A4",
+        "labeled_train": 2335,
+        "assay_system": "recombinant CYP3A4 biochemical fluorescence inhibition assay",
+        "probe_or_readout": "DBOMF fluorogenic probe"
+      }
+    }
+  },
+  "time_dependent_inhibition": {
+    "task_type": "multitask_binary_classification",
+    "label_semantics": "time-dependent inhibitor when the fitted IC50 shift after NADPH preincubation exceeds two-fold, including the official inferred-positive/assigned-negative rules near the pIC50 floor",
+    "primary_metric": "macro_mean_MCC_over_two_isoforms",
+    "metric_direction": "maximize",
+    "secondary_metrics": [
+      "accuracy",
+      "precision",
+      "recall",
+      "f1"
+    ],
+    "endpoints": {
+      "CYP2D6_is_TDI": {
+        "isoform": "CYP2D6",
+        "labeled_train": 1497,
+        "positive": 324,
+        "negative": 1173,
+        "assay_system": "paired plus/minus NADPH recombinant CYP2D6 Echo-MS IC50-shift assay"
+      },
+      "CYP3A4_is_TDI": {
+        "isoform": "CYP3A4",
+        "labeled_train": 3584,
+        "positive": 764,
+        "negative": 2820,
+        "assay_system": "paired plus/minus NADPH recombinant CYP3A4 fluorescence IC50-shift assay"
+      }
+    }
+  },
+  "auxiliary_fidelities": {
+    "single_concentration": {
+      "scored_endpoint": false,
+      "molecules": 4376,
+      "measurements": 17504,
+      "concentration_M": 0.0000495049505,
+      "label": "log2_fold_change_in_active_preincubation_condition",
+      "admission": "source_and_fidelity_conditioned_auxiliary_head_only"
+    },
+    "emax": {
+      "scored_endpoint": false,
+      "molecules": 6146,
+      "label": "Emax relative to positive control in direct and TDI conditions with credible intervals",
+      "admission": "assay_arm_conditioned_auxiliary_head_only"
+    }
+  },
+  "external_data_policy": {
+    "supervised_exact": "human recombinant same isoform inhibition, explicit IC50 or pIC50, compatible direct/TDI arm, units and relation operators, license and source provenance; sealed identity/near-neighbor contamination firewall required",
+    "bridge_required": "same biological target but assay/probe/arm or label differs; source-aware auxiliary task only",
+    "pretraining_only": "related CYP activity or weak/uncertain labels; no challenge endpoint loss",
+    "reject": "unknown license/source, non-human target without explicit transfer contract, ambiguous units/thresholds, identity conflict, or unsafe overlap",
+    "test_structure_use": "sealed contamination filtering and frozen inference only; no model or source selection"
+  },
+  "safety": {
+    "blind_test_label_columns_present": false,
+    "test_labels_loaded": false,
+    "leaderboard_feedback_used": false,
+    "selection_started": false
+  }
+}

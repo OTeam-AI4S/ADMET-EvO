@@ -127,6 +127,7 @@ class OpenAIPlanner:
             "tool_catalog": planner_catalog(),
             "cross_task_evidence": self.cross_task_evidence,
             "hardness_card": self.hardness_card,
+            "research_plan": self.research_plan,
             "allowed": {"imbalance": ["none", "class_weight"]},
             "constraints": {"n_estimators": [100, 1200], "min_samples_leaf": [1, 20],
                             "n_members": [3, 25], "majority_ratio": [0.5, 10.0],
@@ -141,7 +142,8 @@ class OpenAIPlanner:
                             "gamma_numeric": [1e-6, 10.0], "epsilon": [0.001, 2.0]},
             "rules": ["Return 1-3 diverse experiments", "Use class_weight only for classification",
                       "Never use test information", "Fill every hyperparameter field; use null when irrelevant",
-                      "Use only parameters valid for the selected model", "Do not repeat a prior configuration"],
+                      "Use only parameters valid for the selected model", "Do not repeat a prior configuration",
+                      "External-data skills may propose evidence work but cannot directly merge data into these model candidates"],
         }
         response = self.client.responses.parse(
             model=self.model, reasoning={"effort": "high"},

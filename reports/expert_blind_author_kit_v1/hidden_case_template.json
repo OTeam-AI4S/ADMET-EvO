@@ -1,0 +1,47 @@
+{
+  "protocol": "admet_expert_blind_scientific_task_v1",
+  "case_id": "AUTHOR_ASSIGNED_STABLE_ID",
+  "category": "ONE_OF_THE_TWELVE_FROZEN_CATEGORIES",
+  "visible_packet": {
+    "endpoint_contract": {
+      "endpoint": "REQUIRED",
+      "species": "REQUIRED",
+      "assay_system": "REQUIRED",
+      "measurement": "REQUIRED",
+      "units": "REQUIRED",
+      "relation_operator_policy": "REQUIRED",
+      "primary_metric": "REQUIRED"
+    },
+    "discovery_rows_or_content_addressed_path": "REQUIRED",
+    "split_manifest": "REQUIRED",
+    "visible_metadata": {},
+    "permitted_resources": [],
+    "forbidden_resources": [
+      "test labels",
+      "leaderboard feedback"
+    ],
+    "maximum_action_budget": 1,
+    "maximum_wall_clock_minutes": 30,
+    "question": "Diagnose the endpoint state and choose the next scientific action."
+  },
+  "gold_packet": {
+    "causal_fault_or_clean_control": "HIDDEN_REQUIRED",
+    "evidence_row_or_group_ids": [],
+    "endpoint_contract_interpretation": "HIDDEN_REQUIRED",
+    "acceptable_actions": [],
+    "acceptable_matched_experiments": [],
+    "unsafe_actions": [],
+    "expected_stop_or_abstain": false,
+    "catastrophic_violations": [
+      "test-label access",
+      "knowingly contaminated external training"
+    ],
+    "scoring_notes": "HIDDEN_REQUIRED"
+  },
+  "author_attestation": {
+    "author_pseudonym": "REQUIRED",
+    "independent_of_agent_development": true,
+    "did_not_view_agent_outputs": true,
+    "gold_authored_before_release": true
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "version": "openadmet-cyp-canonical-identity-audit-v1",
+  "audit_date": "2026-08-21",
+  "identity_method": {
+    "implementation": "admet_agent.external_structure_firewall._standard_molecule",
+    "procedure": "RDKit cleanup, largest-fragment selection, uncharging, tautomer canonicalization, canonical isomeric SMILES, InChIKey",
+    "group_key": "standardized InChIKey"
+  },
+  "tables": {
+    "direct_inhibition": {
+      "raw_unique_smiles": 4905,
+      "standardized_valid": 4905,
+      "invalid_unique": 0,
+      "unique_inchikey": 4904,
+      "canonical_identity_collisions": 1
+    },
+    "tdi": {
+      "raw_unique_smiles": 6145,
+      "standardized_valid": 6145,
+      "invalid_unique": 0,
+      "unique_inchikey": 6144,
+      "canonical_identity_collisions": 1
+    },
+    "emax": {
+      "raw_unique_smiles": 6146,
+      "standardized_valid": 6146,
+      "invalid_unique": 0,
+      "unique_inchikey": 6145,
+      "canonical_identity_collisions": 1
+    },
+    "single_concentration": {
+      "raw_unique_smiles": 4376,
+      "standardized_valid": 4376,
+      "invalid_unique": 0,
+      "unique_inchikey": 4374,
+      "canonical_identity_collisions": 2
+    },
+    "blind_test": {
+      "raw_unique_smiles": 750,
+      "standardized_valid": 750,
+      "invalid_unique": 0,
+      "unique_inchikey": 748,
+      "canonical_identity_collisions": 2,
+      "labels_loaded": false
+    }
+  },
+  "training_table_identity_overlaps": {
+    "direct_tdi": 4904,
+    "direct_emax": 4904,
+    "direct_single_concentration": 4374,
+    "emax_tdi": 6144,
+    "emax_single_concentration": 4374,
+    "single_concentration_tdi": 4374
+  },
+  "protocol_consequence": {
+    "split_unit": "canonical_molecule_identity",
+    "all_rows_for_one_identity_share_one_outer_fold": true,
+    "all_assay_modalities_for_one_identity_share_one_outer_fold": true,
+    "raw_smiles_row_split_prohibited": true,
+    "blind_structure_distribution_used_for_model_selection": false,
+    "external_contamination_audit": "pending_external_source_ingestion"
+  }
+}

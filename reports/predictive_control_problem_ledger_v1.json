@@ -1,0 +1,138 @@
+{
+  "automl_winner_roles_on_losses": {
+    "lightgbm": 8
+  },
+  "claim_boundary": "Post-evaluation diagnosis only. These hypotheses are not validated fixes and may only be tested on a newly frozen future split.",
+  "evaluation_seed_reuse_for_future_confirmation": false,
+  "exploratory_materiality_threshold": 0.02,
+  "exploratory_not_confirmatory": true,
+  "falsifiable_future_hypotheses": [
+    {
+      "falsifiable_change": "Give both adaptive arms three equal screen slots: Agent matched pair plus frozen LightGBM anchor; AutoML three scalar candidates.",
+      "future_protocol": "Freeze before use; select on seed 13 and evaluate once on seed 14.",
+      "hypothesis_id": "separate-research-pair-from-predictive-anchor",
+      "observation": "All material losses selected LightGBM in the AutoML arm while the minimal Agent candidate budget was consumed by its scientific pair.",
+      "success_gate": "Agent-vs-AutoML task-bootstrap lower bound >= -0.01 with no extra logical fit budget for Agent."
+    },
+    {
+      "falsifiable_change": "Retain imbalance matched evidence as research output but prevent it from displacing the frozen model anchor in finalist selection.",
+      "future_protocol": "Evaluate only in a newly frozen large-metabolism cohort; no seed-12 reuse.",
+      "hypothesis_id": "large-metabolism-needs-model-anchor-not-only-imbalance-axis",
+      "observation": "All three large Veith endpoints favored the AutoML LightGBM selection on fresh evaluation.",
+      "success_gate": "No material regression >0.02 on any Veith endpoint and mean oriented delta >= -0.005."
+    },
+    {
+      "falsifiable_change": "Trigger one model-anchor comparison when rank-metric feature evidence is unresolved or selects the basic feature control.",
+      "future_protocol": "Matched future-seed comparison on excretion rank endpoints only.",
+      "hypothesis_id": "rank-regression-feature-axis-can-miss-estimator-effect",
+      "observation": "Clearance_Microsome showed the largest loss when the feature-axis control was selected instead of LightGBM.",
+      "success_gate": "Correction improves mean normalized utility >=0.02 without more than one added configuration."
+    }
+  ],
+  "loss_categories": {
+    "absorption": 1,
+    "distribution": 1,
+    "excretion": 2,
+    "metabolism": 3,
+    "toxicity": 1
+  },
+  "material_gain_count": 3,
+  "material_gains": [
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "metabolism",
+      "metric": "auprc",
+      "normalized_delta": 0.0777935928878315,
+      "task": "CYP2D6_Substrate_CarbonMangels"
+    },
+    {
+      "agent_selection": "treatment",
+      "automl_selection": "lightgbm",
+      "category": "metabolism",
+      "metric": "auprc",
+      "normalized_delta": 0.05015197497307178,
+      "task": "CYP2C9_Substrate_CarbonMangels"
+    },
+    {
+      "agent_selection": "control",
+      "automl_selection": "extra_trees",
+      "category": "absorption",
+      "metric": "auroc",
+      "normalized_delta": 0.031372549019607954,
+      "task": "Bioavailability_Ma"
+    }
+  ],
+  "material_loss_count": 8,
+  "material_losses": [
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "excretion",
+      "metric": "spearman",
+      "normalized_delta": -0.1388027923516461,
+      "task": "Clearance_Microsome_AZ"
+    },
+    {
+      "agent_selection": "treatment",
+      "automl_selection": "lightgbm",
+      "category": "metabolism",
+      "metric": "auprc",
+      "normalized_delta": -0.053297365628952265,
+      "task": "CYP2C9_Veith"
+    },
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "toxicity",
+      "metric": "auroc",
+      "normalized_delta": -0.046511627906976716,
+      "task": "DILI"
+    },
+    {
+      "agent_selection": "treatment",
+      "automl_selection": "lightgbm",
+      "category": "absorption",
+      "metric": "mae",
+      "normalized_delta": -0.036634862634216336,
+      "task": "Lipophilicity_AstraZeneca"
+    },
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "distribution",
+      "metric": "mae",
+      "normalized_delta": -0.03402378495988112,
+      "task": "PPBR_AZ"
+    },
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "metabolism",
+      "metric": "auprc",
+      "normalized_delta": -0.02651198734531246,
+      "task": "CYP2D6_Veith"
+    },
+    {
+      "agent_selection": "control",
+      "automl_selection": "lightgbm",
+      "category": "excretion",
+      "metric": "spearman",
+      "normalized_delta": -0.026023580894648124,
+      "task": "Clearance_Hepatocyte_AZ"
+    },
+    {
+      "agent_selection": "treatment",
+      "automl_selection": "lightgbm",
+      "category": "metabolism",
+      "metric": "auprc",
+      "normalized_delta": -0.023192092897166283,
+      "task": "CYP3A4_Veith"
+    }
+  ],
+  "policy_mutated_after_evaluation": false,
+  "protocol": "predictive-control-autonomous-problem-ledger-v1",
+  "source_report": "reports/minimal_predictive_control_v1.json",
+  "source_sha256": "5455a01533eac768bd47387ed684700b4d0825fa6e79214555d782592b5b34c4",
+  "test_loaded": false
+}

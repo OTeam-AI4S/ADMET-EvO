@@ -6,7 +6,7 @@
     "max_bytes": 150000,
     "width_px": 920
   },
-  "manifest_sha256": "5bf0626b373e07aae7b1a0199c7a137a3f3151c76d40b046c4dbcb63e1b013b3",
+  "manifest_sha256": "0faddb3b9a1b3c54067544c72da85deafdc0e30a01537ebc1118e4af5f7a0115",
   "manuscript": {
     "abstract_word_count": 255,
     "author_placeholders": [
@@ -85,7 +85,7 @@
     "figure_manifest": {
       "bytes": 4054,
       "path": "paper/figures/manifest.json",
-      "sha256": "d955a6e1f5487e8867e7618a79de4c08a5aaebf5a35e023cdde76060b9faa088"
+      "sha256": "622c52c0dc428a8f90c30bb59bf943a65f10ebaf93406a1e92d65ad484e5e806"
     },
     "gpu_environment": {
       "bytes": 326,

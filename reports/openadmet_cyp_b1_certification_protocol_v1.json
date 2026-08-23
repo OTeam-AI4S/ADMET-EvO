@@ -1,0 +1,28 @@
+{
+  "blind_test_labels_loaded": false,
+  "certification_partition_opened_at_freeze": false,
+  "executor_sha256": "871e24e51db7202c3bab7814b31c886a32d089582c98fece047c69562b50dbdf",
+  "frozen_at": "2026-08-23",
+  "gate_policy": "all checks must pass before blind inference",
+  "gates": {
+    "macro_mcc_min": 0.14634642473527548,
+    "macro_st_rae_max": 0.8259416527072848,
+    "worst_endpoint_mcc_min": 0.0,
+    "worst_endpoint_st_rae_max": 1.25
+  },
+  "leaderboard_feedback_used": false,
+  "recipe_file_sha256": "6cb15a725f7e280a0f978a71ec0efc2759398afa2571efd42b8ca9cd974e2c10",
+  "recipe_path": "/home/wyilin/admet/reports/openadmet_cyp_frozen_recipe_b1_v1.json",
+  "recipe_sha256": "2182b275b35c097f5739a3daa677964d2936576b6b893ceafc221016a5f03d1e",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "selection_reopened": false,
+  "sha256": "59753e1e0ac994d056ef778d3d3df36e47079b72b335068baaf0d938b734fe9c",
+  "stage_b_macro_mcc": 0.2463464247352755,
+  "stage_b_macro_st_rae": 0.7259416527072848,
+  "stage_b_result_sha256": "d15dbcbacb1203b1dd109a2ce4259a68285c3aa841c3667bb710477264b152b8",
+  "version": "openadmet-cyp-b1-certification-protocol-v1"
+}

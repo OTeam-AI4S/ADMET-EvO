@@ -5,9 +5,11 @@
     "global_prior_has_no_hardness_by_action_interaction",
     "eligible_priors_do_not_change_the_top_selected_action",
     "data_quality_filter_prior_is_neutral_after_all_inconclusive_outcomes",
-    "no_independent_post_memory_endpoint_cohort_has_been_executed"
+    "independent_confirmation_refuted_global_negative_pruning"
   ],
-  "next_gate": "Preregister predicted action choices on an independent endpoint cohort, then execute matched actions before comparing memory versus no-memory regret.",
+  "independent_confirmation_completed": true,
+  "independent_negative_gate_confirmation_passed": false,
+  "next_gate": "Require a new task-type/hardness-stratified cohort with at least five independent endpoints per destructive gate; keep global pruning disabled.",
   "planner_action_coverage": {
     "data-quality-filter": true,
     "feature-domain-shift": true,

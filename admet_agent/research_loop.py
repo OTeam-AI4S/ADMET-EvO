@@ -11,8 +11,20 @@ from pathlib import Path
 from typing import Any, Literal
 
 from .hardness import HardnessCard
+from .research_policy import EvidenceConditionedVOIPolicy
+from .research_policy_v2 import ECVOI_V2_ROUTING_POLICIES
 
 ResearchAxis = Literal["feature", "model", "data", "replicate", "stop"]
+RESEARCH_ROUTING_POLICIES = (
+    "legacy",
+    "ecvoi",
+    "ecvoi-no-context",
+    "ecvoi-no-memory",
+    "ecvoi-no-voi",
+    "ecvoi-no-cost",
+    "ecvoi-no-risk",
+    *ECVOI_V2_ROUTING_POLICIES,
+)
 
 
 @dataclass(frozen=True)
@@ -57,10 +69,51 @@ class ResearchDecision:
 class EffectFirstResearchPlanner:
     """Translate a HardnessCard into falsifiable, single-axis actions."""
 
+    def __init__(self, routing_policy: str = "legacy"):
+        supported = set(RESEARCH_ROUTING_POLICIES)
+        if routing_policy not in supported:
+            raise ValueError(
+                f"routing_policy must be one of {sorted(supported)}"
+            )
+        self.routing_policy = routing_policy
+        if routing_policy in ECVOI_V2_ROUTING_POLICIES:
+            self.ecvoi_policy = None
+            return
+        variants = {
+            "legacy": {},
+            "ecvoi": {},
+            "ecvoi-no-context": {
+                "transport_scope": "global",
+                "policy_version": "ec-voi-v1-no-context",
+            },
+            "ecvoi-no-memory": {
+                "transport_scope": "none",
+                "policy_version": "ec-voi-v1-no-memory",
+            },
+            "ecvoi-no-voi": {
+                "information_bonus": 0.0,
+                "policy_version": "ec-voi-v1-no-voi",
+            },
+            "ecvoi-no-cost": {
+                "cost_weight": 0.0,
+                "risk_weight": 1.0,
+                "policy_version": "ec-voi-v1-no-cost",
+            },
+            "ecvoi-no-risk": {
+                "cost_weight": 1.0,
+                "risk_weight": 0.0,
+                "policy_version": "ec-voi-v1-no-risk",
+            },
+        }
+        self.ecvoi_policy = EvidenceConditionedVOIPolicy(**variants[routing_policy])
+
     def propose(self, card: HardnessCard) -> list[ResearchAction]:
         dims = card.dimensions
         actions: list[ResearchAction] = []
-        if dims["split_leakage_risk"].severity > 0:
+        if (
+            self.routing_policy not in ECVOI_V2_ROUTING_POLICIES
+            and dims["split_leakage_risk"].severity > 0
+        ):
             actions.append(
                 ResearchAction(
                     "data-leakage-safe",
@@ -160,7 +213,13 @@ class EffectFirstResearchPlanner:
                     0.45,
                     0.75,
                     0.40,
-                    {"merge_status": "quarantined_pending_assay_alignment"},
+                    {
+                        "skill": "admet-data-collector",
+                        "skill_mode": "discover",
+                        "merge_status": "quarantined_pending_assay_alignment",
+                        "required_release_state": "modeling_ready_discovery",
+                        "automatic_download_allowed": False,
+                    },
                 )
             )
         actions.append(
@@ -204,6 +263,19 @@ class EffectFirstResearchPlanner:
             raise ValueError("At least one research action is required")
         if not 0.5 <= effect_priority <= 1.0:
             raise ValueError("effect_priority must be within [0.5, 1.0]")
+        if self.routing_policy in ECVOI_V2_ROUTING_POLICIES:
+            raise RuntimeError(
+                "EC-VOI v2 must rank resolved treatment/control pairs"
+            )
+        if self.routing_policy != "legacy":
+            ranked = self.ecvoi_policy.rank(
+                actions,
+                effect_priority=effect_priority,
+                action_priors=action_priors,
+            )
+            return ResearchDecision(
+                ranked[0]["action_id"], effect_priority, tuple(ranked)
+            )
         ranked = []
         action_priors = action_priors or {}
         for action in actions:
@@ -262,18 +334,34 @@ class EffectFirstResearchPlanner:
         action_priors: dict[str, dict[str, Any]] | None = None,
     ) -> dict[str, Any]:
         actions = self.propose(card)
+        if self.routing_policy in ECVOI_V2_ROUTING_POLICIES:
+            return {
+                "task": card.task,
+                "hardness_evidence_sha256": card.evidence_sha256,
+                "selected_action_id": "pending-ecvoi-v2-pair-resolution",
+                "effect_priority": effect_priority,
+                "actions": [action.to_dict() for action in actions],
+                "routing_policy": self.routing_policy,
+                "routing_deferred_to_resolved_pairs": True,
+                "test_loaded": False,
+                "leaderboard_loaded": False,
+            }
         decision = self.route(
             actions,
             effect_priority=effect_priority,
             action_priors=action_priors,
         )
-        return {
+        output = {
             "task": card.task,
             "hardness_evidence_sha256": card.evidence_sha256,
             "selected_action_id": decision.selected_action_id,
             "effect_priority": effect_priority,
             "actions": list(decision.ranked_actions),
         }
+        if self.routing_policy != "legacy":
+            assert self.ecvoi_policy is not None
+            output["routing_policy"] = self.ecvoi_policy.policy_version
+        return output
 
 
 class EvidenceLedger:

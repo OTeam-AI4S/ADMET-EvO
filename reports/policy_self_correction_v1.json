@@ -1,0 +1,25 @@
+{
+  "claim_boundary": {
+    "not_supported": "The correction does not demonstrate predictive superiority over AutoML or that a safe stratified memory policy has already been learned.",
+    "supported": "The Agent detected an overgeneralized memory policy with an independent experiment, retained the refutation, blocked deployment and restored the candidate to the action set."
+  },
+  "current_action_admitted": true,
+  "current_prior_negative_gate_confirmed": false,
+  "deployment_blocked": true,
+  "falsification_outcomes": {
+    "inconclusive": 1,
+    "refuted": 2,
+    "supported": 2
+  },
+  "falsification_protocol_sha256": "c16bcad26b5e0920aed85bf0ac725486957d1c5726d540e4f771c233dd984aa6",
+  "hypothesis": "A global negative prior can safely prune model-estimator-family across unseen ADMET endpoints.",
+  "maximum_positive_pruning_regret": 0.2586197881421004,
+  "mean_positive_pruning_regret": 0.06537907087090614,
+  "negative_result_retained": true,
+  "regression_test": "test_unconfirmed_global_negative_memory_cannot_prune",
+  "rollback_active": true,
+  "self_correction_opportunities": 1,
+  "successful_self_corrections": 1,
+  "test_loaded": false,
+  "version": "policy-self-correction-episode-v1"
+}

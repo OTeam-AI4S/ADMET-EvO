@@ -1,0 +1,258 @@
+{
+  "actual_certification_fraction": 0.12514239218877135,
+  "blind_test_opened": false,
+  "canonical_identities": 6145,
+  "canonical_identity_collisions": 2,
+  "certification_identities": 769,
+  "chemistry_group_method": "generic_murcko_else_two_value_morgan_minhash_v1",
+  "chemistry_groups": 3869,
+  "development_identities": 5376,
+  "identity_method": "external_structure_firewall._standard_molecule",
+  "inner_folds": 4,
+  "inputs": {
+    "direct": {
+      "path": "/home/wyilin/admet/external/openadmet/cyp_challenge_data/cyp-challenge-TRAIN_inhibition.csv",
+      "sha256": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278"
+    },
+    "emax": {
+      "path": "/home/wyilin/admet/external/openadmet/cyp_challenge_data/cyp-challenge-TRAIN_Emax.csv",
+      "sha256": "70e9eb41f2401d8c79b684c42da3721a7aa4fd5c7f561636025c5b91cc29a3b9"
+    },
+    "single": {
+      "path": "/home/wyilin/admet/external/openadmet/cyp_challenge_data/cyp-challenge-single-concentration-TRAIN.csv",
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a"
+    },
+    "tdi": {
+      "path": "/home/wyilin/admet/external/openadmet/cyp_challenge_data/cyp-challenge-TRAIN_TDI.csv",
+      "sha256": "b458f599a792412292664386e8f18adc5d4a4129d6bd212ae80a60fb9b96bb60"
+    }
+  },
+  "label_availability": {
+    "CYP1A2_EmaxVsPosCtrl_TDI_condition": {
+      "certification": 183,
+      "outer_0": 253,
+      "outer_1": 235,
+      "outer_2": 248,
+      "outer_3": 243,
+      "outer_4": 252
+    },
+    "CYP1A2_EmaxVsPosCtrl_direct_inhibition": {
+      "certification": 182,
+      "outer_0": 253,
+      "outer_1": 235,
+      "outer_2": 248,
+      "outer_3": 243,
+      "outer_4": 252
+    },
+    "CYP1A2_pIC50_TDI_condition": {
+      "certification": 183,
+      "outer_0": 253,
+      "outer_1": 235,
+      "outer_2": 248,
+      "outer_3": 243,
+      "outer_4": 251
+    },
+    "CYP1A2_pIC50_direct_inhibition": {
+      "certification": 182,
+      "outer_0": 253,
+      "outer_1": 235,
+      "outer_2": 248,
+      "outer_3": 243,
+      "outer_4": 251
+    },
+    "CYP1A2_single_concentration_log2fc_estimate": {
+      "certification": 518,
+      "outer_0": 775,
+      "outer_1": 759,
+      "outer_2": 771,
+      "outer_3": 765,
+      "outer_4": 788
+    },
+    "CYP2C9_EmaxVsPosCtrl_TDI_condition": {
+      "certification": 162,
+      "outer_0": 234,
+      "outer_1": 223,
+      "outer_2": 236,
+      "outer_3": 220,
+      "outer_4": 210
+    },
+    "CYP2C9_EmaxVsPosCtrl_direct_inhibition": {
+      "certification": 162,
+      "outer_0": 234,
+      "outer_1": 223,
+      "outer_2": 236,
+      "outer_3": 220,
+      "outer_4": 210
+    },
+    "CYP2C9_pIC50_TDI_condition": {
+      "certification": 162,
+      "outer_0": 234,
+      "outer_1": 223,
+      "outer_2": 236,
+      "outer_3": 220,
+      "outer_4": 210
+    },
+    "CYP2C9_pIC50_direct_inhibition": {
+      "certification": 162,
+      "outer_0": 234,
+      "outer_1": 223,
+      "outer_2": 236,
+      "outer_3": 220,
+      "outer_4": 210
+    },
+    "CYP2C9_single_concentration_log2fc_estimate": {
+      "certification": 518,
+      "outer_0": 775,
+      "outer_1": 759,
+      "outer_2": 771,
+      "outer_3": 765,
+      "outer_4": 788
+    },
+    "CYP2D6_EmaxVsPosCtrl_TDI_condition": {
+      "certification": 176,
+      "outer_0": 254,
+      "outer_1": 260,
+      "outer_2": 261,
+      "outer_3": 257,
+      "outer_4": 290
+    },
+    "CYP2D6_EmaxVsPosCtrl_direct_inhibition": {
+      "certification": 174,
+      "outer_0": 254,
+      "outer_1": 259,
+      "outer_2": 260,
+      "outer_3": 257,
+      "outer_4": 290
+    },
+    "CYP2D6_is_TDI": {
+      "certification": 176,
+      "outer_0": 254,
+      "outer_1": 260,
+      "outer_2": 261,
+      "outer_3": 257,
+      "outer_4": 289
+    },
+    "CYP2D6_pIC50_TDI_condition": {
+      "certification": 176,
+      "outer_0": 254,
+      "outer_1": 260,
+      "outer_2": 261,
+      "outer_3": 257,
+      "outer_4": 289
+    },
+    "CYP2D6_pIC50_direct_inhibition": {
+      "certification": 174,
+      "outer_0": 254,
+      "outer_1": 259,
+      "outer_2": 260,
+      "outer_3": 257,
+      "outer_4": 289
+    },
+    "CYP2D6_single_concentration_log2fc_estimate": {
+      "certification": 518,
+      "outer_0": 775,
+      "outer_1": 759,
+      "outer_2": 771,
+      "outer_3": 765,
+      "outer_4": 788
+    },
+    "CYP3A4_EmaxVsPosCtrl_TDI_condition": {
+      "certification": 444,
+      "outer_0": 610,
+      "outer_1": 625,
+      "outer_2": 636,
+      "outer_3": 652,
+      "outer_4": 616
+    },
+    "CYP3A4_EmaxVsPosCtrl_direct_inhibition": {
+      "certification": 249,
+      "outer_0": 418,
+      "outer_1": 404,
+      "outer_2": 413,
+      "outer_3": 429,
+      "outer_4": 422
+    },
+    "CYP3A4_is_TDI": {
+      "certification": 444,
+      "outer_0": 610,
+      "outer_1": 625,
+      "outer_2": 636,
+      "outer_3": 653,
+      "outer_4": 616
+    },
+    "CYP3A4_pIC50_TDI_condition": {
+      "certification": 444,
+      "outer_0": 610,
+      "outer_1": 625,
+      "outer_2": 636,
+      "outer_3": 652,
+      "outer_4": 616
+    },
+    "CYP3A4_pIC50_direct_inhibition": {
+      "certification": 249,
+      "outer_0": 418,
+      "outer_1": 404,
+      "outer_2": 413,
+      "outer_3": 429,
+      "outer_4": 422
+    },
+    "CYP3A4_single_concentration_log2fc_estimate": {
+      "certification": 518,
+      "outer_0": 775,
+      "outer_1": 759,
+      "outer_2": 771,
+      "outer_3": 765,
+      "outer_4": 788
+    },
+    "tdi_paired_direct:CYP1A2_pIC50_direct_inhibition": {
+      "certification": 182,
+      "outer_0": 253,
+      "outer_1": 235,
+      "outer_2": 248,
+      "outer_3": 243,
+      "outer_4": 251
+    },
+    "tdi_paired_direct:CYP2C9_pIC50_direct_inhibition": {
+      "certification": 162,
+      "outer_0": 234,
+      "outer_1": 223,
+      "outer_2": 236,
+      "outer_3": 220,
+      "outer_4": 210
+    },
+    "tdi_paired_direct:CYP2D6_pIC50_direct_inhibition": {
+      "certification": 174,
+      "outer_0": 254,
+      "outer_1": 259,
+      "outer_2": 260,
+      "outer_3": 257,
+      "outer_4": 289
+    },
+    "tdi_paired_direct:CYP3A4_pIC50_direct_inhibition": {
+      "certification": 249,
+      "outer_0": 418,
+      "outer_1": 404,
+      "outer_2": 413,
+      "outer_3": 429,
+      "outer_4": 422
+    }
+  },
+  "label_availability_unit": "non_missing_observations",
+  "outer_fold_identity_counts": {
+    "0": 1076,
+    "1": 1075,
+    "2": 1075,
+    "3": 1075,
+    "4": 1075
+  },
+  "outer_folds": 5,
+  "output": {
+    "path": "/home/wyilin/admet/reports/openadmet_cyp_identity_locked_splits_v1.csv",
+    "sha256": "9859183651fe91f0e714631e2f392245f3157cf3c2abe02c2ec75721319c7321"
+  },
+  "raw_unique_smiles_union": 6147,
+  "requested_certification_fraction": 0.125,
+  "seed": 20260821,
+  "training_only": true,
+  "version": "openadmet-cyp-identity-locked-splits-v1"
+}

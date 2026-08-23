@@ -8,6 +8,12 @@ The original three-task technical report remains in `MANUSCRIPT.md`. The
 evidence-backed 22-task v2.4 working paper, including negative results and
 explicit incomplete claims, is in `MANUSCRIPT_V24.md`.
 
+The current repository freeze, included evidence, excluded local artifacts,
+and exact claim boundaries are summarized in
+[`docs/release_status_2026-08-23.md`](docs/release_status_2026-08-23.md). The
+compact paper-facing result map is
+[`reports/FINAL_EVIDENCE_INDEX.md`](reports/FINAL_EVIDENCE_INDEX.md).
+
 ## Workflow
 
 The v3 research loop is restricted to the canonical 22 TDC ADMET endpoints. It
@@ -89,11 +95,51 @@ List the available benchmark names:
 admet-agent list
 ```
 
-List the registered molecular representations, models, and allowed hyperparameters:
+List the registered molecular representations, models, skills, and allowed hyperparameters:
 
 ```bash
 admet-agent tools
 ```
+
+### External-data skill
+
+`admet-data-collector` is packaged with the Agent and appears in `admet-agent
+tools`. It keeps endpoint semantics, source evidence, licensing, contamination
+and modeling admission as separate gates. Discovery never downloads or merges
+records automatically, and held-out labels are forbidden.
+
+Inspect the immutable skill/resource manifest and discover registered source
+candidates:
+
+```bash
+admet-agent data-skill info
+admet-agent data-skill discover --task hERG
+```
+
+Initialize and audit a versioned evidence bundle:
+
+```bash
+admet-agent data-skill init \
+  --task hERG \
+  --out data/external-bundles/herg-v1 \
+  --si-choice include
+
+admet-agent data-skill audit \
+  --bundle data/external-bundles/herg-v1 \
+  --strict
+
+admet-agent data-skill status \
+  --bundle data/external-bundles/herg-v1
+```
+
+An evaluator-authorized, structure-only held-out file additionally requires
+`--heldout-authorized`. A bundle cannot become direct training data until its
+audit recommends `modeling_ready_discovery`, the versioned manifest is explicitly
+promoted, scientific review is recorded, and held-out contamination auditing is
+complete.
+When the research planner selects an external-data action, `search` writes a
+`data_skill_route_seed_<seed>.json` packet beside the research plan; it does not
+silently admit the candidate records.
 
 Validate an experiment specification without training it:
 

@@ -76,6 +76,8 @@ def is_model_available(name: str) -> bool:
 
 
 def planner_catalog() -> dict:
+    from .data_skill import skill_descriptor
+
     return {
         "representations": [
             {**asdict(value), "available": is_representation_available(value.name)}
@@ -85,4 +87,5 @@ def planner_catalog() -> dict:
             {**asdict(value), "available": is_model_available(value.name)}
             for value in MODELS.values()
         ],
+        "skills": [skill_descriptor()],
     }

@@ -1,0 +1,130 @@
+{
+  "version": "openadmet-cyp-data-manifest-v1",
+  "snapshot_date": "2026-08-21",
+  "source": {
+    "provider": "OpenADMET",
+    "dataset_url": "https://huggingface.co/datasets/openadmet/cyp-challenge-train-test",
+    "challenge_url": "https://huggingface.co/spaces/openadmet/cyp-challenge",
+    "dataset_commit": "85f8b358d0a2056a98b990dd75d3b3ec9247862b",
+    "challenge_space_commit": "13c5057b37d1e72b3f036dd0d59718b1823f8fdd",
+    "license_from_dataset_card": "Apache-2.0",
+    "challenge_period": [
+      "2026-08-17",
+      "2026-11-03"
+    ]
+  },
+  "files": {
+    "cyp-challenge-TRAIN_inhibition.csv": {
+      "sha256": "b8f79addd266fb6f9f4c222c5e4e73d926362328b6a8d2841871a54e46bd2278",
+      "bytes": 653407,
+      "rows": 4905,
+      "unique_smiles_raw": 4905,
+      "role": "direct_inhibition_training"
+    },
+    "cyp-challenge-TRAIN_TDI.csv": {
+      "sha256": "b458f599a792412292664386e8f18adc5d4a4129d6bd212ae80a60fb9b96bb60",
+      "bytes": 1218524,
+      "rows": 6145,
+      "unique_smiles_raw": 6145,
+      "role": "time_dependent_inhibition_training"
+    },
+    "cyp-challenge-TRAIN_Emax.csv": {
+      "sha256": "70e9eb41f2401d8c79b684c42da3721a7aa4fd5c7f561636025c5b91cc29a3b9",
+      "bytes": 1131044,
+      "rows": 6146,
+      "unique_smiles_raw": 6146,
+      "role": "emax_auxiliary_training"
+    },
+    "cyp-challenge-single-concentration-TRAIN.csv": {
+      "sha256": "cf275440aa33d10b16e7a3a19f1b196d59dc379052175ab79b47ca43db663c7a",
+      "bytes": 3619009,
+      "rows": 17504,
+      "unique_smiles_raw": 4376,
+      "role": "single_concentration_multifidelity_training"
+    },
+    "cyp-challenge-TEST-BLINDED.csv": {
+      "sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+      "bytes": 44935,
+      "rows": 750,
+      "unique_smiles_raw": 750,
+      "columns": [
+        "Molecule_Name",
+        "SMILES"
+      ],
+      "role": "structure_only_blind_inference",
+      "contains_label_columns": false
+    },
+    "README.md": {
+      "sha256": "917c416bc66ad13441e55b0dd7521ae138b79e05c1acb9152e635675d43cda51",
+      "bytes": 4199,
+      "role": "dataset_card"
+    }
+  },
+  "direct_inhibition_endpoints": {
+    "CYP1A2": {
+      "labeled": 1412,
+      "pIC50_min": 1.90557896,
+      "pIC50_median": 5.13333409,
+      "pIC50_max": 7.948524865,
+      "credible_interval_order_violations": 0
+    },
+    "CYP2C9": {
+      "labeled": 1285,
+      "pIC50_min": 2.097982888,
+      "pIC50_median": 4.621326012,
+      "pIC50_max": 7.47301149,
+      "credible_interval_order_violations": 0
+    },
+    "CYP2D6": {
+      "labeled": 1493,
+      "pIC50_min": 1.946780292,
+      "pIC50_median": 4.726028418,
+      "pIC50_max": 7.534508882,
+      "credible_interval_order_violations": 0
+    },
+    "CYP3A4": {
+      "labeled": 2335,
+      "pIC50_min": 1.909049648,
+      "pIC50_median": 4.266410545,
+      "pIC50_max": 7.186665953,
+      "credible_interval_order_violations": 0
+    }
+  },
+  "tdi_classification_endpoints": {
+    "CYP2D6": {
+      "labeled": 1497,
+      "positive": 324,
+      "negative": 1173,
+      "positive_rate": 0.21643286573146292
+    },
+    "CYP3A4": {
+      "labeled": 3584,
+      "positive": 764,
+      "negative": 2820,
+      "positive_rate": 0.21316964285714285
+    }
+  },
+  "single_concentration": {
+    "molecules": 4376,
+    "measurements_per_isoform": 4376,
+    "concentration_M": 0.0000495049505,
+    "isoforms": [
+      "CYP1A2",
+      "CYP2C9",
+      "CYP2D6",
+      "CYP3A4"
+    ]
+  },
+  "integrity": {
+    "raw_duplicate_rows": 0,
+    "raw_duplicate_smiles_in_wide_tables": 0,
+    "direct_credible_interval_order_violations": 0,
+    "blind_test_label_columns": 0,
+    "test_labels_loaded": false,
+    "test_feedback_used": false,
+    "canonical_identity_audit": "passed_with_grouping_required",
+    "canonical_identity_audit_artifact": "reports/openadmet_cyp_identity_audit_v1.json",
+    "external_contamination_audit": "pending_external_source_ingestion",
+    "model_selection_started": false
+  }
+}

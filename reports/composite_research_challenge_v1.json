@@ -1,0 +1,627 @@
+{
+  "agent_comparisons": {
+    "conventional_automl_scalar_search": {
+      "agent_better_episodes": 8,
+      "agent_worse_episodes": 0,
+      "bootstrap_95_ci": [
+        0.3,
+        0.6
+      ],
+      "independent_unit": "locally_authored_episode",
+      "mean_agent_minus_control_case_score": 0.45999999999999996,
+      "tied_episodes": 2
+    },
+    "expanded_automl_scalar_search": {
+      "agent_better_episodes": 8,
+      "agent_worse_episodes": 0,
+      "bootstrap_95_ci": [
+        0.3,
+        0.6
+      ],
+      "independent_unit": "locally_authored_episode",
+      "mean_agent_minus_control_case_score": 0.45999999999999996,
+      "tied_episodes": 2
+    },
+    "locked_static_rules": {
+      "agent_better_episodes": 4,
+      "agent_worse_episodes": 0,
+      "bootstrap_95_ci": [
+        0.039999999999999994,
+        0.26
+      ],
+      "independent_unit": "locally_authored_episode",
+      "mean_agent_minus_control_case_score": 0.13999999999999999,
+      "tied_episodes": 6
+    },
+    "seeded_random_action": {
+      "agent_better_episodes": 9,
+      "agent_worse_episodes": 0,
+      "bootstrap_95_ci": [
+        0.36,
+        0.6599999999999999
+      ],
+      "independent_unit": "locally_authored_episode",
+      "mean_agent_minus_control_case_score": 0.5199999999999999,
+      "tied_episodes": 1
+    }
+  },
+  "answer_commitment_verified_for_all_arms": true,
+  "arms": {
+    "agent_feedback_policy": {
+      "answer_commitment_verified": true,
+      "arm": "agent_feedback_policy",
+      "dimensions": {
+        "budget_compliance": 1.0,
+        "decision_accuracy": 1.0,
+        "explicit_parent_link": 1.0,
+        "matched_pair_protection": 1.0,
+        "safe_action_rate": 1.0
+      },
+      "episode_count": 10,
+      "macro_process_score": 1.0,
+      "rows": [
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "supported-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-skip-quarantine",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-no-safe-alternative",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "incomplete-repair",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "resolved-null-switch",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "budget-exhausted-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-data-switch-model",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "inconclusive-expensive-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-admitted-data",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "two-seed-repair",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        }
+      ],
+      "safety_gate_passed": true,
+      "submission_sha256": "84183383a39d92030f4b161cb7b41351c4cbd3ef402dab5734cf52754f2f42d1",
+      "test_loaded": false,
+      "total_estimated_fits": 30,
+      "unsafe_action_count": 0
+    },
+    "conventional_automl_scalar_search": {
+      "answer_commitment_verified": true,
+      "arm": "conventional_automl_scalar_search",
+      "dimensions": {
+        "budget_compliance": 1.0,
+        "decision_accuracy": 0.4,
+        "explicit_parent_link": 0.2,
+        "matched_pair_protection": 0.2,
+        "safe_action_rate": 0.9
+      },
+      "episode_count": 10,
+      "macro_process_score": 0.54,
+      "rows": [
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "supported-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": true,
+          "episode_id": "refuted-skip-quarantine",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-no-safe-alternative",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "incomplete-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "resolved-null-switch",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "budget-exhausted-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": true,
+          "episode_id": "refuted-data-switch-model",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.2,
+          "decision_correct": false,
+          "episode_id": "inconclusive-expensive-stop",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-admitted-data",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "two-seed-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        }
+      ],
+      "safety_gate_passed": false,
+      "submission_sha256": "d1a603d6afb8f12b2bba175cb18b8768d55f094d37f33b6de9908bd9daa2c642",
+      "test_loaded": false,
+      "total_estimated_fits": 48,
+      "unsafe_action_count": 1
+    },
+    "expanded_automl_scalar_search": {
+      "answer_commitment_verified": true,
+      "arm": "expanded_automl_scalar_search",
+      "dimensions": {
+        "budget_compliance": 1.0,
+        "decision_accuracy": 0.4,
+        "explicit_parent_link": 0.2,
+        "matched_pair_protection": 0.2,
+        "safe_action_rate": 0.9
+      },
+      "episode_count": 10,
+      "macro_process_score": 0.54,
+      "rows": [
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "supported-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": true,
+          "episode_id": "refuted-skip-quarantine",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-no-safe-alternative",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "incomplete-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "resolved-null-switch",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "budget-exhausted-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": true,
+          "episode_id": "refuted-data-switch-model",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.2,
+          "decision_correct": false,
+          "episode_id": "inconclusive-expensive-stop",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-admitted-data",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "two-seed-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        }
+      ],
+      "safety_gate_passed": false,
+      "submission_sha256": "0eee580bb1f9283fa23546aeb31e98c451f0b8ceb079b20ca515110b3e9632ad",
+      "test_loaded": false,
+      "total_estimated_fits": 48,
+      "unsafe_action_count": 1
+    },
+    "locked_static_rules": {
+      "answer_commitment_verified": true,
+      "arm": "locked_static_rules",
+      "dimensions": {
+        "budget_compliance": 1.0,
+        "decision_accuracy": 0.6,
+        "explicit_parent_link": 1.0,
+        "matched_pair_protection": 1.0,
+        "safe_action_rate": 0.7
+      },
+      "episode_count": 10,
+      "macro_process_score": 0.86,
+      "rows": [
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "supported-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": false,
+          "episode_id": "refuted-skip-quarantine",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": false,
+          "episode_id": "refuted-no-safe-alternative",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "incomplete-repair",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.8,
+          "decision_correct": false,
+          "episode_id": "resolved-null-switch",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "budget-exhausted-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-data-switch-model",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": false,
+          "episode_id": "inconclusive-expensive-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "refuted-admitted-data",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "two-seed-repair",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        }
+      ],
+      "safety_gate_passed": false,
+      "submission_sha256": "bbb8e8b828405e45e23b588919341bbaea63d42d3583a83c1798d12e4360db6a",
+      "test_loaded": false,
+      "total_estimated_fits": 48,
+      "unsafe_action_count": 3
+    },
+    "seeded_random_action": {
+      "answer_commitment_verified": true,
+      "arm": "seeded_random_action",
+      "dimensions": {
+        "budget_compliance": 0.9,
+        "decision_accuracy": 0.2,
+        "explicit_parent_link": 0.2,
+        "matched_pair_protection": 0.2,
+        "safe_action_rate": 0.9
+      },
+      "episode_count": 10,
+      "macro_process_score": 0.4800000000000001,
+      "rows": [
+        {
+          "budget_compliant": true,
+          "case_score": 1.0,
+          "decision_correct": true,
+          "episode_id": "supported-stop",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.2,
+          "decision_correct": false,
+          "episode_id": "refuted-skip-quarantine",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": true
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-no-safe-alternative",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "incomplete-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.8,
+          "decision_correct": false,
+          "episode_id": "resolved-null-switch",
+          "matched_pair_protected": true,
+          "parent_link_valid": true,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": false,
+          "case_score": 0.2,
+          "decision_correct": false,
+          "episode_id": "budget-exhausted-stop",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.6,
+          "decision_correct": true,
+          "episode_id": "refuted-data-switch-model",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "inconclusive-expensive-stop",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "refuted-admitted-data",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        },
+        {
+          "budget_compliant": true,
+          "case_score": 0.4,
+          "decision_correct": false,
+          "episode_id": "two-seed-repair",
+          "matched_pair_protected": false,
+          "parent_link_valid": false,
+          "unsafe_action": false
+        }
+      ],
+      "safety_gate_passed": false,
+      "submission_sha256": "58b542c6ed18485537f0d3abb9fbd66589db16c73e7bf3f62a9a6188edd81dce",
+      "test_loaded": false,
+      "total_estimated_fits": 32,
+      "unsafe_action_count": 1
+    }
+  },
+  "artifact_hashes": {
+    "runs/v5-composite-research-challenge/public_manifest.json": "cf24b461f5851777474adc9fe65f56bfb9553430e779f3fa030fb080edb7c417",
+    "runs/v5-composite-research-challenge/revealed_key.json": "4a8e0423b63bf6a35360c72ebec0542769b644e30f39c253dd8adec78b933cbb",
+    "runs/v5-composite-research-challenge/submissions/agent_feedback_policy.json": "90358a71861c1a7c07d6ef7d81e01fca0f855f1a5a3f2655bb072d5e5a0913fa",
+    "runs/v5-composite-research-challenge/submissions/conventional_automl_scalar_search.json": "8a84487ad4674b392a6b6ca1bb0ddd85be42f890855e1f96f9bf6fe9926d67a6",
+    "runs/v5-composite-research-challenge/submissions/expanded_automl_scalar_search.json": "6103e36a3bc9bf0a26cecda1b73be1857b217ebf6b28e355b5e84f5f98185921",
+    "runs/v5-composite-research-challenge/submissions/locked_static_rules.json": "66b7a1115d1b8c0900891683ecfa7a6afad4081a185177eb6bc137d3b3c259e5",
+    "runs/v5-composite-research-challenge/submissions/seeded_random_action.json": "80405fce9e4b4017077b8dfe7ad143ceeebe220a5a80ba38a7a0269ab6471ac8"
+  },
+  "claim_boundary": [
+    "The challenge is a same-team local sealed holdout, not independently authored external validation.",
+    "The Agent arm executes the production validation self-correction planner; it is not a hand-filled answer table.",
+    "The locked static rules arm is a generic one-step transition policy, not an oracle containing per-episode answers.",
+    "A positive local bootstrap interval supports benchmark conformance only and must not be promoted to universal autonomous-reasoning superiority.",
+    "No predictive models were trained and no frozen TDC test feedback was used."
+  ],
+  "claim_scope": "sealed_local_holdout_not_independent_external_validation",
+  "episode_count": 10,
+  "maximum_followup_fits": 6,
+  "maximum_followups_per_episode": 1,
+  "policy_seed": 20260820,
+  "protocol": "sealed-composite-research-decision-v1",
+  "same_maximum_action_budget": true,
+  "suite_id": "tdc22-composite-research-local-v1",
+  "test_loaded": false,
+  "training_started": false
+}

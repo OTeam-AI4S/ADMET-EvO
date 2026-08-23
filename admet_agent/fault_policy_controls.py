@@ -62,6 +62,7 @@ def apply_fault_control(
         "complete_rules_guard",
         "expanded_automl_schema_guard",
         "conventional_automl_no_guard",
+        "agent_no_hardness_diagnosis",
         "seeded_random_fault",
     }:
         raise ValueError(f"Unknown fault-control arm {arm!r}")
@@ -79,7 +80,7 @@ def apply_fault_control(
             # to each schema fault.  This is deliberately a strong baseline.
             proposed = len(detected)
             valid = len(detected)
-        elif arm == "conventional_automl_no_guard":
+        elif arm in {"conventional_automl_no_guard", "agent_no_hardness_diagnosis"}:
             detected = ()
             proposed = valid = 0
         else:
@@ -141,6 +142,7 @@ def compare_fault_controls(
         "complete_rules_guard",
         "expanded_automl_schema_guard",
         "conventional_automl_no_guard",
+        "agent_no_hardness_diagnosis",
         "seeded_random_fault",
     )
     controlled = {

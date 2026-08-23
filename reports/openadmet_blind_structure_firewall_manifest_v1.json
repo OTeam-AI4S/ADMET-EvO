@@ -1,0 +1,53 @@
+{
+  "version": "openadmet-blind-structure-firewall-manifest-v1",
+  "frozen_at_utc": "2026-08-21T06:00:00Z",
+  "purpose": "sealed_record_level_external_data_decontamination_and_final_frozen_inference_only",
+  "blind_table": {
+    "path": "external/openadmet/cyp_challenge_data/cyp-challenge-TEST-BLINDED.csv",
+    "sha256": "a342f8444a8dcb531ca12f3685293f0bd6c36ae9073f491e44a9bc1cc4b741f9",
+    "ordered_columns": [
+      "Molecule_Name",
+      "SMILES"
+    ],
+    "molecule_name_column": "Molecule_Name",
+    "smiles_column": "SMILES",
+    "expected_rows": 750,
+    "contains_label_columns": false
+  },
+  "parent_data_manifest": {
+    "path": "reports/openadmet_cyp_data_manifest_v1.json",
+    "sha256": "2e20adb430e352effbdf127a12f04c1227e15b3e713dd0b6bb8ba3670dde3638"
+  },
+  "standardization": {
+    "method": "cleanup_fragment_parent_uncharge_canonical_tautomer_inchikey",
+    "implementation": "admet_agent.external_structure_firewall._standard_molecule",
+    "implementation_hash": "d9800a4d12dc57a10f8710c0552fcb44a1fb46b6d760381d9acd402dc32d387b"
+  },
+  "record_exclusions": {
+    "exact_standardized_identity": true,
+    "fingerprint": "Morgan_radius_2_2048_bits",
+    "tanimoto_greater_than_or_equal": 0.9
+  },
+  "forbidden_uses": [
+    "source_acceptance_or_rejection",
+    "source_ranking",
+    "architecture_selection",
+    "hyperparameter_selection",
+    "loss_or_auxiliary_weight_selection",
+    "ensemble_weight_selection",
+    "similarity_threshold_tuning",
+    "reporting_raw_blind_structures_or_per_record_neighbors_to_the_planner"
+  ],
+  "permitted_planner_visible_outputs": [
+    "external_input_rows",
+    "invalid_external_rows",
+    "exact_blind_identity_exclusion_rows",
+    "near_blind_neighbor_exclusion_rows",
+    "filtered_external_rows",
+    "filtered_external_table_sha256",
+    "test_labels_loaded_false"
+  ],
+  "selection_policy": "blind_removal_counts_cannot_change_source_model_or_recipe",
+  "test_labels_loaded": false,
+  "leaderboard_feedback_used": false
+}

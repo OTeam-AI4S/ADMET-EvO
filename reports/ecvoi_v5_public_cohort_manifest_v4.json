@@ -1,0 +1,640 @@
+{
+  "blind_test_opened": false,
+  "checks": [
+    {
+      "name": "minimum_endpoint_source_units",
+      "observed": 16,
+      "passed": true,
+      "requirement": ">=8"
+    },
+    {
+      "name": "classification_and_regression",
+      "observed": [
+        "classification",
+        "regression"
+      ],
+      "passed": true,
+      "requirement": [
+        "classification",
+        "regression"
+      ]
+    },
+    {
+      "name": "minimum_source_families",
+      "observed": 4,
+      "passed": true,
+      "requirement": ">=4"
+    },
+    {
+      "name": "identity_fold_overlap",
+      "observed": 0,
+      "passed": true,
+      "requirement": 0
+    },
+    {
+      "name": "chemistry_group_fold_overlap",
+      "observed": 0,
+      "passed": true,
+      "requirement": 0
+    },
+    {
+      "name": "all_endpoints_have_five_folds",
+      "observed": 16,
+      "passed": true,
+      "requirement": 16
+    },
+    {
+      "name": "test_labels_loaded",
+      "observed": false,
+      "passed": true,
+      "requirement": false
+    }
+  ],
+  "compatibility_adapter_scope": "chemistry_group_parse_failure_counted_as_invalid_structure_only",
+  "endpoint_audits": {
+    "b3db::bbb_classification": {
+      "conflicting_identities_removed": 22,
+      "input_rows": 6166,
+      "missing_or_nonfinite_targets": 0,
+      "output_identities": 5800,
+      "replicate_rows_collapsed": 313
+    },
+    "b3db::logBB_regression": {
+      "conflicting_identities_removed": 0,
+      "input_rows": 942,
+      "missing_or_nonfinite_targets": 0,
+      "output_identities": 930,
+      "replicate_rows_collapsed": 12
+    },
+    "clintox::CT_TOX": {
+      "conflicting_identities_removed": 49,
+      "input_rows": 1477,
+      "missing_or_nonfinite_targets": 0,
+      "output_identities": 1362,
+      "replicate_rows_collapsed": 11
+    },
+    "freesolv::experimental_hydration_free_energy": {
+      "conflicting_identities_removed": 0,
+      "input_rows": 642,
+      "missing_or_nonfinite_targets": 0,
+      "output_identities": 642,
+      "replicate_rows_collapsed": 0
+    },
+    "ncats_pampa::pH7.4_permeability": {
+      "conflicting_identities_removed": 0,
+      "input_rows": 2035,
+      "missing_or_nonfinite_targets": 0,
+      "output_identities": 2034,
+      "replicate_rows_collapsed": 1
+    },
+    "tox21::NR-AR": {
+      "conflicting_identities_removed": 8,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 565,
+      "output_identities": 6988,
+      "replicate_rows_collapsed": 247
+    },
+    "tox21::NR-AR-LBD": {
+      "conflicting_identities_removed": 4,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1072,
+      "output_identities": 6517,
+      "replicate_rows_collapsed": 220
+    },
+    "tox21::NR-AhR": {
+      "conflicting_identities_removed": 11,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1281,
+      "output_identities": 6309,
+      "replicate_rows_collapsed": 205
+    },
+    "tox21::NR-Aromatase": {
+      "conflicting_identities_removed": 2,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 2008,
+      "output_identities": 5600,
+      "replicate_rows_collapsed": 204
+    },
+    "tox21::NR-ER": {
+      "conflicting_identities_removed": 26,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1637,
+      "output_identities": 5964,
+      "replicate_rows_collapsed": 151
+    },
+    "tox21::NR-ER-LBD": {
+      "conflicting_identities_removed": 6,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 875,
+      "output_identities": 6710,
+      "replicate_rows_collapsed": 217
+    },
+    "tox21::NR-PPAR-gamma": {
+      "conflicting_identities_removed": 2,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1380,
+      "output_identities": 6226,
+      "replicate_rows_collapsed": 207
+    },
+    "tox21::SR-ARE": {
+      "conflicting_identities_removed": 19,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1998,
+      "output_identities": 5628,
+      "replicate_rows_collapsed": 145
+    },
+    "tox21::SR-ATAD5": {
+      "conflicting_identities_removed": 6,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 758,
+      "output_identities": 6815,
+      "replicate_rows_collapsed": 228
+    },
+    "tox21::SR-HSE": {
+      "conflicting_identities_removed": 13,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1363,
+      "output_identities": 6243,
+      "replicate_rows_collapsed": 177
+    },
+    "tox21::SR-MMP": {
+      "conflicting_identities_removed": 11,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 2017,
+      "output_identities": 5596,
+      "replicate_rows_collapsed": 180
+    },
+    "tox21::SR-p53": {
+      "conflicting_identities_removed": 4,
+      "input_rows": 7818,
+      "missing_or_nonfinite_targets": 1056,
+      "output_identities": 6541,
+      "replicate_rows_collapsed": 210
+    }
+  },
+  "endpoint_summary": {
+    "b3db::bbb_classification": {
+      "chemistry_groups": 771,
+      "fold_positive": {
+        "0": 188,
+        "1": 344,
+        "2": 244,
+        "3": 325,
+        "4": 249
+      },
+      "fold_rows": {
+        "0": 301,
+        "1": 507,
+        "2": 348,
+        "3": 437,
+        "4": 423
+      },
+      "identities": 2016,
+      "negative": 666,
+      "positive": 1350,
+      "rows": 2016,
+      "source_id": "B3DB",
+      "task_type": "classification"
+    },
+    "b3db::logBB_regression": {
+      "chemistry_groups": 212,
+      "fold_rows": {
+        "0": 58,
+        "1": 77,
+        "2": 65,
+        "3": 100,
+        "4": 70
+      },
+      "identities": 370,
+      "rows": 370,
+      "source_id": "B3DB",
+      "task_type": "regression"
+    },
+    "clintox::CT_TOX": {
+      "chemistry_groups": 168,
+      "fold_positive": {
+        "0": 5,
+        "1": 4,
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "fold_rows": {
+        "0": 60,
+        "1": 56,
+        "2": 48,
+        "3": 40,
+        "4": 41
+      },
+      "identities": 245,
+      "negative": 224,
+      "positive": 21,
+      "rows": 245,
+      "source_id": "MoleculeNet_ClinTox",
+      "task_type": "classification"
+    },
+    "freesolv::experimental_hydration_free_energy": {
+      "chemistry_groups": 32,
+      "fold_rows": {
+        "0": 30,
+        "1": 5,
+        "2": 12,
+        "3": 15,
+        "4": 6
+      },
+      "identities": 68,
+      "rows": 68,
+      "source_id": "FreeSolv",
+      "task_type": "regression"
+    },
+    "ncats_pampa::pH7.4_permeability": {
+      "chemistry_groups": 987,
+      "fold_positive": {
+        "0": 209,
+        "1": 307,
+        "2": 420,
+        "3": 249,
+        "4": 429
+      },
+      "fold_rows": {
+        "0": 261,
+        "1": 367,
+        "2": 476,
+        "3": 282,
+        "4": 490
+      },
+      "identities": 1876,
+      "negative": 262,
+      "positive": 1614,
+      "rows": 1876,
+      "source_id": "NCATS_PAMPA",
+      "task_type": "classification"
+    },
+    "tox21::NR-AR": {
+      "chemistry_groups": 844,
+      "fold_positive": {
+        "0": 9,
+        "1": 54,
+        "2": 6,
+        "3": 14,
+        "4": 13
+      },
+      "fold_rows": {
+        "0": 576,
+        "1": 332,
+        "2": 372,
+        "3": 450,
+        "4": 298
+      },
+      "identities": 2028,
+      "negative": 1932,
+      "positive": 96,
+      "rows": 2028,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-AR-LBD": {
+      "chemistry_groups": 752,
+      "fold_positive": {
+        "0": 7,
+        "1": 46,
+        "2": 7,
+        "3": 10,
+        "4": 8
+      },
+      "fold_rows": {
+        "0": 527,
+        "1": 307,
+        "2": 334,
+        "3": 409,
+        "4": 273
+      },
+      "identities": 1850,
+      "negative": 1772,
+      "positive": 78,
+      "rows": 1850,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-AhR": {
+      "chemistry_groups": 757,
+      "fold_positive": {
+        "0": 41,
+        "1": 27,
+        "2": 38,
+        "3": 41,
+        "4": 30
+      },
+      "fold_rows": {
+        "0": 509,
+        "1": 293,
+        "2": 316,
+        "3": 391,
+        "4": 268
+      },
+      "identities": 1777,
+      "negative": 1600,
+      "positive": 177,
+      "rows": 1777,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-Aromatase": {
+      "chemistry_groups": 644,
+      "fold_positive": {
+        "0": 14,
+        "1": 11,
+        "2": 19,
+        "3": 28,
+        "4": 13
+      },
+      "fold_rows": {
+        "0": 449,
+        "1": 237,
+        "2": 274,
+        "3": 340,
+        "4": 229
+      },
+      "identities": 1529,
+      "negative": 1444,
+      "positive": 85,
+      "rows": 1529,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-ER": {
+      "chemistry_groups": 683,
+      "fold_positive": {
+        "0": 41,
+        "1": 79,
+        "2": 29,
+        "3": 44,
+        "4": 30
+      },
+      "fold_rows": {
+        "0": 479,
+        "1": 265,
+        "2": 294,
+        "3": 369,
+        "4": 249
+      },
+      "identities": 1656,
+      "negative": 1433,
+      "positive": 223,
+      "rows": 1656,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-ER-LBD": {
+      "chemistry_groups": 797,
+      "fold_positive": {
+        "0": 24,
+        "1": 45,
+        "2": 14,
+        "3": 20,
+        "4": 11
+      },
+      "fold_rows": {
+        "0": 559,
+        "1": 312,
+        "2": 345,
+        "3": 416,
+        "4": 279
+      },
+      "identities": 1911,
+      "negative": 1797,
+      "positive": 114,
+      "rows": 1911,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::NR-PPAR-gamma": {
+      "chemistry_groups": 704,
+      "fold_positive": {
+        "0": 15,
+        "1": 7,
+        "2": 19,
+        "3": 11,
+        "4": 9
+      },
+      "fold_rows": {
+        "0": 498,
+        "1": 283,
+        "2": 302,
+        "3": 382,
+        "4": 260
+      },
+      "identities": 1725,
+      "negative": 1664,
+      "positive": 61,
+      "rows": 1725,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::SR-ARE": {
+      "chemistry_groups": 589,
+      "fold_positive": {
+        "0": 58,
+        "1": 54,
+        "2": 62,
+        "3": 56,
+        "4": 38
+      },
+      "fold_rows": {
+        "0": 455,
+        "1": 228,
+        "2": 275,
+        "3": 343,
+        "4": 214
+      },
+      "identities": 1515,
+      "negative": 1247,
+      "positive": 268,
+      "rows": 1515,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::SR-ATAD5": {
+      "chemistry_groups": 787,
+      "fold_positive": {
+        "0": 20,
+        "1": 18,
+        "2": 14,
+        "3": 14,
+        "4": 9
+      },
+      "fold_rows": {
+        "0": 550,
+        "1": 330,
+        "2": 343,
+        "3": 423,
+        "4": 289
+      },
+      "identities": 1935,
+      "negative": 1860,
+      "positive": 75,
+      "rows": 1935,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::SR-HSE": {
+      "chemistry_groups": 688,
+      "fold_positive": {
+        "0": 35,
+        "1": 23,
+        "2": 24,
+        "3": 19,
+        "4": 17
+      },
+      "fold_rows": {
+        "0": 519,
+        "1": 275,
+        "2": 304,
+        "3": 387,
+        "4": 248
+      },
+      "identities": 1733,
+      "negative": 1615,
+      "positive": 118,
+      "rows": 1733,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::SR-MMP": {
+      "chemistry_groups": 636,
+      "fold_positive": {
+        "0": 67,
+        "1": 56,
+        "2": 63,
+        "3": 53,
+        "4": 28
+      },
+      "fold_rows": {
+        "0": 458,
+        "1": 265,
+        "2": 285,
+        "3": 342,
+        "4": 213
+      },
+      "identities": 1563,
+      "negative": 1296,
+      "positive": 267,
+      "rows": 1563,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    },
+    "tox21::SR-p53": {
+      "chemistry_groups": 769,
+      "fold_positive": {
+        "0": 32,
+        "1": 22,
+        "2": 37,
+        "3": 26,
+        "4": 21
+      },
+      "fold_rows": {
+        "0": 535,
+        "1": 295,
+        "2": 332,
+        "3": 406,
+        "4": 277
+      },
+      "identities": 1845,
+      "negative": 1707,
+      "positive": 138,
+      "rows": 1845,
+      "source_id": "Tox21_US_Federal_Challenge",
+      "task_type": "classification"
+    }
+  },
+  "fingerprint_compatibility_adapter_scope": "raw_smiles_deduplication_and_unparseable_protected_fingerprint_exact_identity_only",
+  "firewall_audit": {
+    "allowed_identities": 6239,
+    "candidate_fingerprint_failures_removed": 0,
+    "candidate_identities": 14391,
+    "exact_development_overlap_removed": 6667,
+    "exact_test_overlap_removed": 701,
+    "near_test_neighbor_removed": 784,
+    "protected_development_identities": 38432,
+    "protected_fingerprint_failures_exact_identity_only": 3,
+    "protected_structures_exposed_to_policy": false,
+    "protected_test_identities": 14264,
+    "raw_structure_deduplication_before_standardization": true,
+    "source_acceptance_depends_on_removal_counts": false,
+    "tanimoto_threshold": 0.9,
+    "test_labels_loaded": false
+  },
+  "identity_component_adapter": {
+    "identities_joining_multiple_chemistry_groups": 1,
+    "labels_used_for_component_construction": false,
+    "policy_or_metric_results_used": false
+  },
+  "invalid_smiles_by_raw_file": {
+    "b3db_classification.tab": 1,
+    "b3db_regression.tab": 0,
+    "clintox.tab": 1,
+    "hydrationfreeenergy_freesolv.tab": 0,
+    "pampa_ncats.tab": 0,
+    "tox21.tab": 13
+  },
+  "leaderboard_feedback_used": false,
+  "output_path": "/home/wyilin/admet/reports/ecvoi_v5_public_cohort_v4.csv",
+  "output_sha256": "df83fbd5b8ebfc6c2199d2a752081abd8b15b5e3f38e1507dffd44dbf09dd3df",
+  "promotion_passed": true,
+  "protocol_path": "/home/wyilin/admet/reports/ecvoi_v5_public_cohort_protocol_v4.json",
+  "protocol_sha256": "4cd0fd118065c1e6d2d1ee41646395b9361528737ff1867bd8e2c9025921660a",
+  "quarantined_raw_files": [
+    "skin_reaction.tab",
+    "carcinogens_lagunin.tab"
+  ],
+  "release_state": "modeling_ready_development",
+  "rows": 25642,
+  "source_licenses": {
+    "B3DB": {
+      "admission": "modeling_ready_development",
+      "citation": "Meng et al., Scientific Data 2021",
+      "license": "CC0_1.0",
+      "origin": "https://github.com/theochem/B3DB",
+      "redistribution": false
+    },
+    "Carcinogens_Lagunin": {
+      "admission": "quarantine_license_ambiguous",
+      "raw_file": "carcinogens_lagunin.tab"
+    },
+    "FreeSolv": {
+      "admission": "modeling_ready_development",
+      "citation": "Mobley and Guthrie, JCAMD 2014",
+      "license": "CC_BY_NC_SA_4.0_as_listed_by_TDC (more restrictive record)",
+      "origin": "https://github.com/MobleyLab/FreeSolv",
+      "redistribution": false
+    },
+    "MoleculeNet_ClinTox": {
+      "admission": "modeling_ready_development",
+      "citation": "Wu et al., MoleculeNet, Chemical Science 2018",
+      "license": "MIT_original_MoleculeNet_dataset",
+      "origin": "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/clintox.csv.gz",
+      "redistribution": false
+    },
+    "NCATS_PAMPA": {
+      "admission": "modeling_ready_development",
+      "citation": "Siramshetty et al., SLAS Discovery 2021",
+      "license": "CC_BY_4.0_as_distributed_by_TDC; public PubChem AID 1508612",
+      "origin": "https://pubchem.ncbi.nlm.nih.gov/bioassay/1508612",
+      "redistribution": false
+    },
+    "Skin_Reaction": {
+      "admission": "quarantine_license_ambiguous",
+      "raw_file": "skin_reaction.tab"
+    },
+    "Tox21_US_Federal_Challenge": {
+      "admission": "modeling_ready_development",
+      "citation": "Tox21 Data Challenge",
+      "license": "CC_BY_4.0_as_distributed_by_TDC; US federal source publicly available",
+      "origin": "https://tripod.nih.gov/tox21/pubdata",
+      "redistribution": false
+    }
+  },
+  "test_labels_loaded": false,
+  "test_structures_used_for_record_removal": true,
+  "version": "ecvoi-v5-public-cohort-manifest-v4"
+}

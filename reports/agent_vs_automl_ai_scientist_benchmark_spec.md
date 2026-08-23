@@ -1,7 +1,8 @@
 # ADMET Agent vs AutoML：AI Scientist 优势评测规范
 
 状态：新 Goal 的主规范草案。固定范围为 TDC ADMET 22 endpoints。discovery/validation
-阶段禁止读取 test；全局冻结后仅允许一次认证。
+阶段禁止读取 test 标签或使用 test 反馈；密封结构去污染器可只读 test 的 `Drug` 列，且不把
+结构或相似度结果暴露给 planner。全局冻结后仅允许一次预测认证。
 
 ## 一句话定位
 
@@ -24,7 +25,8 @@ AutoML**。
   因达到绝对合格线而隐藏相对退化；
 - 22-task 非劣任务率达到预注册门槛；
 - 不允许用平均值掩盖少数严重退化 endpoint，必须报告最差任务和 bootstrap CI；
-- test 只在所有策略、阈值、代码、数据和 finalist recipes 冻结后一次性验证。
+- test 标签只在所有策略、阈值、代码、数据和 finalist recipes 冻结后一次性验证；test 结构
+  可在冻结阈值的密封 executor 内用于 external-data exact/scaffold/ECFP4 去污染。
 
 达到门槛后，预测分数只作为 gate，不再奖励无休止的 0.00x 增益。主排名改为 Research
 Capability Scorecard。若性能 gate 未通过，不能用“科研能力”掩盖模型不可用。若只
@@ -34,8 +36,9 @@ Capability Scorecard。若性能 gate 未通过，不能用“科研能力”掩
 ### 已冻结的项目合格线
 
 根据项目方 2026-08-20 的目标调整，现有官方结果不再作为继续选模的反馈，而被封存为
-application-performance qualification：22/22 endpoints 有结果，18/22 Top-5、21/22
-Top-10；项目合格线固定为至少 15/22 Top-5 和 21/22 Top-10。因此此 gate 已通过，
+application-performance qualification：22/22 endpoints 有结果，估算 5/22 Top-1、
+18/22 Top-5、21/22 Top-10；项目合格线固定为至少 15/22 Top-5 和 21/22 Top-10。
+因此此 gate 已通过，
 Bioavailability_Ma 是唯一明确例外，不隐藏也不再针对它刷榜。资格记录见
 `reports/performance_qualification_v1.json`，绑定 full-freeze SHA-256
 `693db6936485d59791eacfd9005d18efca00056274c11c1cc80efd962058c84b`。
@@ -57,6 +60,17 @@ endpoints 做前瞻 one-shot 认证，否则不能再次把同一批 TDC test �
 | Agent | hardness→hypothesis→matched experiment→evidence→next action/stop | 同上 |
 | Agent ablations | no-hardness、no-memory、no-data、no-stop | 同上 |
 | Conditional committee | 相同 action/fit ceiling，只增加审查不增加训练 | 同上 |
+
+Conditional committee 不是默认 arm 的运行方式，而是风险触发的审查层。22-task 历史回放
+中仅 2/22 tasks 被升级，覆盖 2/2 scheduled corrections 与 1/1 已观察 candidate-set
+divergence；其余 20/22 保持单 Agent。该回放只证明选择性覆盖和规划去冗余，不能用来声称
+多 Agent 提高预测分数。
+
+正式比较的 Agent 默认路径进一步收缩为 category × data-size 三阶段策略：endpoint
+contract、一个假设/单轴 matched pair 加最多一个 strong anchor、stop 或最多一次 correction。
+small/medium/large 分别有 13/3/6 tasks；small 禁止 HPO，medium 最多一个 refinement，large
+只做 one-seed screen 但正式 pair 仍补齐五 seeds。旧 8-slot/两轮策略只保留为消融，不再是
+生产默认候选。新策略在五大类代表任务完成 validation-only 非劣 pilot 前保持 shadow 状态。
 
 两种 AutoML 和 Agent 使用相同 train/validation splits、模型库、可用基础特征、CPU/GPU、
 最大 fits 与 wall-time。只胜 conventional AutoML 可能只是搜索空间更大；只有在同原语
@@ -87,6 +101,21 @@ ties、9 losses；总 executor fit time 为 23871.9 s，AutoML 为 17514.7 s，A
 新 Goal 的合理论文主张是先证明 performance-qualified research-process advantage；更强
 claim 必须等 normalized evaluation、expanded-space AutoML、同预算 prospective run 和
 关键消融完成后再升级。
+
+### 本地 sealed composite policy challenge
+
+为避免 fault、data admission、feedback 三个孤立 fixture 被简单规则分别打平，当前加入
+10 个复合 episode：每例同时暴露 validation outcome、paired-seed 充分性、剩余 action
+budget、0.60 compute gate、quarantined/admitted data 状态和跨轴候选。Agent arm 直接执行
+生产 `ValidationSelfCorrectionPlanner`；所有 controls 每例同样最多一个 follow-up 和六个
+估算 fits。结果为 Agent 10/10、macro=1.000、unsafe=0、30 fits；locked static rules
+6/10、macro=0.860、unsafe=3、48 fits；expanded/conventional AutoML 4/10、macro=0.540、
+unsafe=1、48 fits。Agent 相对 static rules 的 paired case-score delta=+0.140，bootstrap
+95% CI [0.040, 0.260]。
+
+该结果证明闭环模块在联合约束下按设计工作，并给出相对静态规则与 scalar AutoML 的本地
+过程增量；但题目由同一团队编写，不能冒充 independently authored unseen evaluation，
+也没有覆盖九个 process dimensions。全局 process-advantage claim 继续保持 false。
 
 对既有 `runs/v3-agent-tdc22-v5` 的新过程审计显示：22/22 action 均有 single-axis 和完整
 treatment/control，18 supported、2 refuted、2 inconclusive，falsification resolution

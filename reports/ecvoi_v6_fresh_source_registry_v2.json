@@ -1,0 +1,211 @@
+{
+  "admission": {
+    "classification_each_outer_fold_per_class": ">=5",
+    "classification_minority_identities": ">=40",
+    "endpoint_selection": "canonical label name ascending after admission; at most max_endpoints per source; no model scores",
+    "minimum_admitted_endpoints": 18,
+    "minimum_admitted_sources": 9,
+    "minimum_post_firewall_identities": 400,
+    "regression_finite_fraction": ">=0.95",
+    "regression_nonzero_variance": true,
+    "require_classification_and_regression": true,
+    "valid_rdkit_smiles_fraction": ">=0.95"
+  },
+  "candidate_action_outcomes_available_before_freeze": false,
+  "candidate_records_loaded_before_freeze": true,
+  "candidates": [
+    {
+      "dataset": "ToxCast",
+      "license_status": "TDC_explicit_CC_BY_4.0",
+      "loader": "Tox",
+      "max_endpoints": 4,
+      "source_id": "epa_toxcast_2016"
+    },
+    {
+      "dataset": "hERG_Karim",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "Tox",
+      "max_endpoints": 1,
+      "source_id": "karim_cardiotox_2021"
+    },
+    {
+      "dataset": "hERG_Central",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "Tox",
+      "max_endpoints": 3,
+      "source_id": "du_hergcentral_2011"
+    },
+    {
+      "dataset": "HIV",
+      "license_status": "TDC_explicit_CC_BY_4.0",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "nci_dtp_hiv"
+    },
+    {
+      "dataset": "SARSCoV2_Vitro_Touret",
+      "license_status": "TDC_explicit_CC_BY_4.0",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "touret_sarscov2_2020"
+    },
+    {
+      "dataset": "SARSCoV2_3CLPro_Diamond",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "diamond_3clpro_2020"
+    },
+    {
+      "dataset": "orexin1_receptor_butkiewicz",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "butkiewicz_pubchem_2013"
+    },
+    {
+      "dataset": "m1_muscarinic_receptor_agonists_butkiewicz",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "butkiewicz_pubchem_2013"
+    },
+    {
+      "dataset": "potassium_ion_channel_kir2.1_butkiewicz",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "butkiewicz_pubchem_2013"
+    },
+    {
+      "dataset": "serine_threonine_kinase_33_butkiewicz",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "HTS",
+      "max_endpoints": 1,
+      "source_id": "butkiewicz_pubchem_2013"
+    },
+    {
+      "dataset": "QM7b",
+      "license_status": "TDC_CC_BY_4.0_upstream_unspecified",
+      "loader": "QM",
+      "max_endpoints": 2,
+      "source_id": "montavon_qm7b_2013"
+    },
+    {
+      "dataset": "QM8",
+      "license_status": "TDC_explicit_CC_BY_4.0",
+      "loader": "QM",
+      "max_endpoints": 2,
+      "source_id": "ramakrishnan_qm8_2015"
+    },
+    {
+      "dataset": "QM9",
+      "license_status": "TDC_explicit_CC_BY_4.0",
+      "loader": "QM",
+      "max_endpoints": 2,
+      "source_id": "ramakrishnan_qm9_2014"
+    },
+    {
+      "dataset": "BACE",
+      "license_status": "MoleculeNet_CC_BY_NC_3.0_research_only_upstream_specific_unspecified",
+      "loader": "DeepChemRaw",
+      "max_endpoints": 2,
+      "smiles_column": "mol",
+      "source_id": "bace_literature_collection_2016",
+      "url": "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/bace.csv"
+    },
+    {
+      "dataset": "SIDER",
+      "license_status": "MoleculeNet_CC_BY_NC_3.0_research_only_upstream_specific_unspecified",
+      "loader": "DeepChemRaw",
+      "max_endpoints": 4,
+      "smiles_column": "smiles",
+      "source_id": "kuhn_sider_2015",
+      "url": "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/sider.csv.gz"
+    },
+    {
+      "dataset": "MUV",
+      "license_status": "MoleculeNet_CC_BY_NC_3.0_research_only_upstream_specific_unspecified",
+      "loader": "DeepChemRaw",
+      "max_endpoints": 4,
+      "smiles_column": "smiles",
+      "source_id": "rohrer_baumann_muv_2009",
+      "url": "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/muv.csv.gz"
+    }
+  ],
+  "compute_cap": {
+    "classification": "retain every minority identity and the 30000 lowest SHA256-ranked majority identities",
+    "hash_salt": "ecvoi-v6-fresh-cohort-cap-v1",
+    "labels_used_only_for_classification_minority_retention": true,
+    "regression": "retain the 30000 lowest SHA256-ranked identities",
+    "same_capped_rows_for_every_action": true
+  },
+  "explicit_exclusions": {
+    "OpenADMET_CYP": "blind structures only for firewall; labels unavailable",
+    "canonical_TDC_ADMET22_datasets": "all excluded as candidate endpoints",
+    "v5_public_sources": [
+      "tox21",
+      "clintox",
+      "b3db",
+      "ncats_pampa",
+      "freesolv"
+    ]
+  },
+  "firewall": {
+    "near_neighbor_tanimoto_threshold": 0.9,
+    "protected_labels_loaded": false,
+    "remove_exact_identity_against_OpenADMET_blind_structures": true,
+    "remove_exact_identity_against_all_TDC22_development_and_protected_test": true,
+    "remove_exact_identity_against_v5_development": true,
+    "remove_near_neighbor_against_protected_TDC22_test_and_OpenADMET_blind": true
+  },
+  "freeze_sequence": [
+    "acquire candidates and content-hash raw cache",
+    "run deterministic chemistry/license/firewall admission",
+    "freeze final cohort manifest and action-screen protocol",
+    "only then compute action outcomes"
+  ],
+  "frozen_at": "2026-08-23",
+  "license_policy": {
+    "MoleculeNet_CC_BY_NC_3.0_research_only_upstream_specific_unspecified": "local non-commercial research modeling only; do not redistribute raw rows; disclose source-specific ambiguity",
+    "TDC_CC_BY_4.0_upstream_unspecified": "admit for local research modeling; do not redistribute raw rows; disclose upstream ambiguity",
+    "TDC_explicit_CC_BY_4.0": "admit for research modeling and derived-statistic release with attribution",
+    "missing_TDC_CC_BY_declaration": "quarantine"
+  },
+  "official_documentation": {
+    "HTS": "https://tdcommons.ai/single_pred_tasks/hts/",
+    "QM": "https://tdcommons.ai/single_pred_tasks/qm/",
+    "TDC_code": "https://github.com/mims-harvard/TDC",
+    "Tox": "https://tdcommons.ai/single_pred_tasks/tox/",
+    "accessed": "2026-08-23"
+  },
+  "quarantined_before_v2": [
+    "QM7b",
+    "QM8",
+    "QM9"
+  ],
+  "registry_role": "source acquisition and deterministic admission only; not a model-result protocol",
+  "replacement_documentation": {
+    "DeepChem_loaders": "https://github.com/deepchem/deepchem/tree/master/deepchem/molnet/load_function",
+    "MoleculeNet_paper": "https://doi.org/10.1039/C7SC02664A",
+    "accessed": "2026-08-23",
+    "paper_license": "CC BY-NC 3.0",
+    "raw_redistribution": "forbidden by this project; local research modeling and derived statistics only"
+  },
+  "sha256": "9d15a6612cc4bf451c5f014696855d402feaadec049f9df1a26df0425f9e7f1f",
+  "source_grouping": "all endpoints from the same primary study/database family share one source_id",
+  "split": {
+    "identity_and_scaffold_component_locked": true,
+    "outer_folds": 5,
+    "seed": 20260823,
+    "source_id_never_split_for_policy_meta-evaluation": true
+  },
+  "supersedes": {
+    "action_outcomes_seen": false,
+    "reason": "pre-outcome QM representation schema failure",
+    "registry_self_sha256": "fb996fb2e7e4fb1035e6f3f9e4816a61918e10550f8f8bfda43870238bd0a807"
+  },
+  "tdc_19_locked": true,
+  "test_or_leaderboard_feedback_used": false,
+  "version": "ecvoi-v6-fresh-source-registry-v2"
+}

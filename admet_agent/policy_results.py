@@ -141,8 +141,66 @@ def collect_policy_results(
                 )
             if summary.get("benchmark_protocol_sha256") != protocol["sha256"]:
                 raise ValueError(f"{path} is not bound to the requested protocol")
+            expected_source_sha256 = protocol.get("implementation_source_sha256")
+            if (
+                expected_source_sha256
+                and summary.get("source_sha256") != expected_source_sha256
+            ):
+                raise ValueError(
+                    f"{path} is not bound to the frozen implementation source"
+                )
+            expected_router = allowed[arm].get(
+                "research_routing_policy", "legacy"
+            )
+            recorded_router = summary.get("research_routing_policy", "legacy")
+            if recorded_router != expected_router:
+                raise ValueError(
+                    f"{path} records research router {recorded_router}, "
+                    f"expected {expected_router} for arm {arm}"
+                )
+            expected_memory_sha256 = protocol.get("frozen_invariants", {}).get(
+                "action_memory_snapshot_sha256"
+            )
+            if (
+                expected_memory_sha256
+                and summary.get("action_memory_snapshot_sha256")
+                != expected_memory_sha256
+            ):
+                raise ValueError(
+                    f"{path} is not bound to the frozen action-memory snapshot"
+                )
+            expected_context_sha256 = protocol.get("frozen_invariants", {}).get(
+                "action_context_registry_sha256"
+            )
+            if (
+                expected_context_sha256
+                and summary.get("action_context_registry_sha256")
+                != expected_context_sha256
+            ):
+                raise ValueError(
+                    f"{path} is not bound to the frozen task-context registry"
+                )
+            expected_v2_memory_sha256 = protocol.get("frozen_invariants", {}).get(
+                "ecvoi_v2_memory_snapshot_sha256"
+            )
+            if (
+                expected_v2_memory_sha256
+                and summary.get("ecvoi_v2_memory_snapshot_sha256")
+                != expected_v2_memory_sha256
+            ):
+                raise ValueError(
+                    f"{path} is not bound to the frozen EC-VOI v2 memory snapshot"
+                )
+            if summary.get("test_loaded", False) is not False or summary.get(
+                "leaderboard_loaded", False
+            ) is not False:
+                raise ValueError(f"{path} contains forbidden evaluation feedback")
             accounting = _fit_accounting(run_dir, summary)
             accounting_task = summary.get("profile", {}).get("task", path.parent.name)
+            if accounting_task not in set(protocol["tasks"]):
+                raise ValueError(
+                    f"{arm}/{accounting_task} is outside the protocol task cohort"
+                )
             if accounting["unique_configurations"] > int(
                 allowed[arm]["max_actions_per_task"]
             ):
@@ -163,6 +221,8 @@ def collect_policy_results(
                 totals[key] += accounting[key]
 
             finalist_id = summary.get("finalist_run_id")
+            shared_anchor = summary.get("shared_strong_anchor") or {}
+            shared_anchor_result = shared_anchor.get("aggregate_result")
             finalist = next(
                 (
                     item
@@ -172,6 +232,12 @@ def collect_policy_results(
                 ),
                 None,
             )
+            if (
+                finalist is None
+                and isinstance(shared_anchor_result, dict)
+                and shared_anchor_result.get("run_id") == finalist_id
+            ):
+                finalist = shared_anchor_result
             if finalist is None:
                 continue
             result = PolicyTaskResult(

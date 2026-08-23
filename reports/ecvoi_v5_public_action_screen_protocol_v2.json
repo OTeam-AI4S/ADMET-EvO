@@ -1,0 +1,189 @@
+{
+  "actions": {
+    "automl_expanded": {
+      "candidate_count": 4,
+      "group_disjoint_inner_folds": 5,
+      "outer_fit_cost": 21,
+      "outer_validation_labels_used_for_selection": false,
+      "representation": [
+        "morgan_r2_2048",
+        "avalon_1024",
+        "erg",
+        "rdkit2d"
+      ],
+      "role": "nested_strong_AutoML_control"
+    },
+    "baseline": {
+      "class_weight": null,
+      "outer_fit_cost": 1,
+      "representation": [
+        "morgan_r2_2048"
+      ],
+      "threshold": 0.5
+    },
+    "boosting_anchor": {
+      "model": "LightGBM fixed candidate 2",
+      "outer_fit_cost": 1,
+      "representation": [
+        "morgan_r2_2048",
+        "avalon_1024",
+        "erg",
+        "rdkit2d"
+      ],
+      "role": "fixed_strong_control"
+    },
+    "data": {
+      "available_in_this_matrix": false,
+      "reason": "no second contract-compatible supervised source was preregistered for the same public-cohort endpoint",
+      "separate_real_loop": "frozen OpenADMET external propensity experiment"
+    },
+    "feature_rich": {
+      "class_weight": null,
+      "outer_fit_cost": 1,
+      "representation": [
+        "morgan_r2_2048",
+        "avalon_1024",
+        "erg",
+        "rdkit2d"
+      ],
+      "threshold": 0.5
+    },
+    "nested_imbalance": {
+      "class_weight": "balanced",
+      "classification_only": true,
+      "outer_fit_cost": 6,
+      "representation": [
+        "morgan_r2_2048"
+      ],
+      "threshold": "five-fold group-disjoint inner OOF MCC"
+    },
+    "replicate": {
+      "availability": "only_after_seed17_policy_and_uncertainty_protocol_are_frozen",
+      "fresh_seeds": [
+        29,
+        43
+      ]
+    },
+    "stop": {
+      "always_available": true,
+      "fit_cost": 0,
+      "oriented_effect": 0.0
+    }
+  },
+  "blind_or_leaderboard_feedback_used": false,
+  "cohort": {
+    "governance_promotion_passed": true,
+    "manifest_sha256": "e5888d2640efdc2fe024e33dbb5cafac19edc4e86d50fe34566897b1af9c1301",
+    "path": "/home/wyilin/admet/reports/ecvoi_v5_public_cohort_v4.csv",
+    "sha256": "df83fbd5b8ebfc6c2199d2a752081abd8b15b5e3f38e1507dffd44dbf09dd3df"
+  },
+  "confirmation_seeds_locked_not_executed": [
+    29,
+    43
+  ],
+  "endpoint_scope": [
+    "b3db::bbb_classification",
+    "b3db::logBB_regression",
+    "clintox::CT_TOX",
+    "freesolv::experimental_hydration_free_energy",
+    "ncats_pampa::pH7.4_permeability",
+    "tox21::NR-AR",
+    "tox21::NR-AR-LBD",
+    "tox21::NR-AhR",
+    "tox21::NR-Aromatase",
+    "tox21::NR-ER",
+    "tox21::NR-ER-LBD",
+    "tox21::NR-PPAR-gamma",
+    "tox21::SR-ARE",
+    "tox21::SR-ATAD5",
+    "tox21::SR-HSE",
+    "tox21::SR-MMP",
+    "tox21::SR-p53"
+  ],
+  "estimator": {
+    "family": "ExtraTrees",
+    "max_features": "sqrt",
+    "min_samples_leaf": 2,
+    "trees": 200,
+    "workers": 4
+  },
+  "frozen_at": "2026-08-23",
+  "implementation_sha256": {
+    "admet_agent/imbalance_action.py": "ba3c070b944bb03e55cf1b8c9f7423b772d13ca5dbd6274d551e09a85edd8bc5",
+    "admet_agent/public_action_matrix.py": "2a07225cf845d3626e0e1bf20053f2e2a35173815b07f8e0e11db66ae4bf8775",
+    "scripts/run_ecvoi_v5_public_action_screen.py": "bf7bb6e6dc3ef6b4294aa4b830d6b4e4ae7914d736cb1588d81252c2a12c2810",
+    "tests/test_public_action_matrix.py": "833fe873a0b95ed0e96a52644c439e17b6e45c5dfc99caa9970112e699018058"
+  },
+  "inner_folds": 5,
+  "matched_control_contract": {
+    "controls_cannot_request_extra_fits": true,
+    "fit_cost_and_wall_time_recorded": true,
+    "same_action_effect_registry": true,
+    "same_data_permissions": true,
+    "same_outer_folds_and_seed": true
+  },
+  "mechanism_protocol_file_sha256": "90d1b079da89438f0e88a778b2b4be7dab5ab0883b3a2975a6f51d1d9d373592",
+  "mechanism_protocol_self_sha256": "94339422007e1ab77e30a5949e5819747e34a1374885a1b505883382ee1e9b15",
+  "metrics": {
+    "classification": "MCC_maximize",
+    "regression": "negative_MAE_maximize"
+  },
+  "outer_folds": 5,
+  "primary_endpoint_scope": [
+    "b3db::bbb_classification",
+    "b3db::logBB_regression",
+    "clintox::CT_TOX",
+    "ncats_pampa::pH7.4_permeability",
+    "tox21::NR-AR",
+    "tox21::NR-AR-LBD",
+    "tox21::NR-AhR",
+    "tox21::NR-Aromatase",
+    "tox21::NR-ER",
+    "tox21::NR-ER-LBD",
+    "tox21::NR-PPAR-gamma",
+    "tox21::SR-ARE",
+    "tox21::SR-ATAD5",
+    "tox21::SR-HSE",
+    "tox21::SR-MMP",
+    "tox21::SR-p53"
+  ],
+  "promotion_gate_inherited_unchanged": {
+    "at_least_one_strict_anchor_win": true,
+    "endpoint_source_cluster_bootstrap_direction_consistent": true,
+    "full_regret_reduction_vs_no_diagnosis": ">=0.20",
+    "full_regret_reduction_vs_shuffled": ">=0.20",
+    "full_total_gain_strictly_above_both": true,
+    "harmful_interventions": 0,
+    "matched_budget_and_permissions": true,
+    "test_blind_leaderboard_access": 0
+  },
+  "scope": "development_action_effect_generation_only_before_policy_analysis",
+  "screen_integrity_gate": {
+    "expected_result_rows": 415,
+    "failures": 0,
+    "promotion_analysis_in_runner": false,
+    "test_blind_leaderboard_access": 0
+  },
+  "screen_seed": 17,
+  "sha256": "e6911d3879ded1429baed7ee32a96ac378d566af1da01d265aa733f49dae41ef",
+  "small_sample_stress_scope": [
+    "freesolv::experimental_hydration_free_energy"
+  ],
+  "state_encoder": {
+    "features": [
+      "task_type",
+      "log_train_rows",
+      "train_minority_fraction",
+      "train_group_density",
+      "median_sampled_validation_to_train_tanimoto",
+      "source_id_for_heldout_partition_only"
+    ],
+    "outer_validation_baseline_score_used_as_state": false,
+    "similarity_sample_size": 256,
+    "validation_labels_used": false
+  },
+  "superseded_pre_execution_protocol_file_sha256": "058803f387d94b8cdbadac5bb8d523281632fbdcd3538ec1298395393f3f0821",
+  "supersession_reason": "add fixed LightGBM and nested expanded-AutoML controls required by the publication objective before any action score was generated",
+  "test_labels_loaded": false,
+  "version": "ecvoi-v5-public-action-screen-protocol-v2"
+}

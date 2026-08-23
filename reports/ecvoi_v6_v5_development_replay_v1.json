@@ -1,0 +1,42 @@
+{
+  "difference": {
+    "fit_cost": 0.0,
+    "mean_oracle_regret": 0.0,
+    "total_gain": 0.0
+  },
+  "fresh_confirmation_required": true,
+  "maximum_selected_shrinkage_weight": 0.0,
+  "mechanism_protocol_sha256": "d16ac02de28b2da7ecdff434541118b677e7c2f756af184e964a53c07cd09a4f",
+  "promotion_claim_allowed": false,
+  "role": "disclosed development replay; not promotion or independent confirmation",
+  "screen_result_sha256": "9101d34c242ae2b20d6cfcd9e352b5e9b1f1d2e94b461d642d56a4d380b80208",
+  "selected_diagnostics_identifiable": 0,
+  "selection_output_sha256": "2df323d1811a9918b7d14370e155f177fe2afae9d1a335fcbf86d0b8788fc76b",
+  "source_balanced_no_diagnosis": {
+    "actions": {
+      "feature_rich": 1,
+      "nested_imbalance": 15
+    },
+    "endpoints": 16,
+    "harmful_interventions": 0,
+    "mean_oracle_regret": 0.005244748558292972,
+    "mean_oriented_gain": 0.11760369127585382,
+    "total_fit_cost": 91.0,
+    "total_oriented_gain": 1.8816590604136612
+  },
+  "tdc_19_unlocked": false,
+  "test_or_leaderboard_feedback_used": false,
+  "v6": {
+    "actions": {
+      "feature_rich": 1,
+      "nested_imbalance": 15
+    },
+    "endpoints": 16,
+    "harmful_interventions": 0,
+    "mean_oracle_regret": 0.005244748558292972,
+    "mean_oriented_gain": 0.11760369127585382,
+    "total_fit_cost": 91.0,
+    "total_oriented_gain": 1.8816590604136612
+  },
+  "version": "ecvoi-v6-v5-development-replay-v1"
+}
