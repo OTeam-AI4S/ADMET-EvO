@@ -62,18 +62,22 @@ def _digest(payload: dict[str, Any]) -> str:
 
 def _git_commit(repository: Path) -> str:
     marker = repository / ".git-commit"
-    try:
-        commit = subprocess.check_output(
-            ["git", "-C", str(repository), "rev-parse", "HEAD"],
-            text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        if not marker.is_file():
-            raise RuntimeError(
-                f"Neither Git metadata nor an archive commit marker exists: {repository}"
-            )
+    metadata = repository / ".git"
+    if marker.is_file() and not metadata.exists():
         commit = marker.read_text(encoding="utf-8").strip()
+    else:
+        try:
+            commit = subprocess.check_output(
+                ["git", "-C", str(repository), "rev-parse", "HEAD"],
+                text=True,
+                stderr=subprocess.DEVNULL,
+            ).strip()
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            if not marker.is_file():
+                raise RuntimeError(
+                    f"Neither Git metadata nor an archive commit marker exists: {repository}"
+                )
+            commit = marker.read_text(encoding="utf-8").strip()
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
         raise RuntimeError(f"Invalid pinned repository commit: {commit!r}")
     return commit

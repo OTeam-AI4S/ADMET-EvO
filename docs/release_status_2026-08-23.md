@@ -34,7 +34,8 @@ execution environment, duplicated, or should remain sealed:
 
 - `runs/`, `cache/`, `.venvs/`, `external/`, and `logs/`;
 - generated archives and reviewer bundles under `release/`;
-- nested third-party working copies under `vendor/`;
+- nested third-party working copies under `vendor/`; the small, license-bearing
+  MapLight/TDC audit snapshot required by reproduction tests is retained;
 - molecule-level training/bridge/firewall CSV exports;
 - blind OpenADMET submission CSV files;
 - smoke runs, aborted payloads, and live-status files.

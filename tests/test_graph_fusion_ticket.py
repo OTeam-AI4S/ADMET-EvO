@@ -6,7 +6,16 @@ from scripts.build_graph_fusion_ticket import build, render
 def test_current_workspace_fails_closed_without_distinct_mpnn_provider():
     root = Path(__file__).resolve().parents[1]
     payload = build(root)
-    assert payload["readiness"]["gin"] is True
+    expected_gin = (
+        root / ".venvs/maplight-gnn/bin/python"
+    ).exists() and (
+        root
+        / "vendor/tdc-admet-bench-audit/models/maplight_gnn/upstream/maplight_gnn.py"
+    ).is_file()
+    assert payload["readiness"]["gin"] is expected_gin
+    assert payload["source_hashes"][
+        "vendor/tdc-admet-bench-audit/models/maplight_gnn/upstream/maplight_gnn.py"
+    ] is not None
     assert payload["readiness"]["oof_gate"] is True
     assert payload["readiness"]["mpnn"] is False
     assert payload["status"] == "blocked_missing_distinct_mpnn_provider"
