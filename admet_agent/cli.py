@@ -22,6 +22,49 @@ def parser() -> argparse.ArgumentParser:
     commands.add_parser("list", help="List the canonical 22 tasks")
     commands.add_parser("tools", help="List registered representation and model tools")
 
+    explain_cyp = commands.add_parser(
+        "explain-cyp",
+        help="Dock a ligand to a CYP isoform and render a structural explanation",
+    )
+    explain_cyp.add_argument(
+        "--isoform",
+        required=True,
+        choices=("CYP1A2", "CYP2C9", "CYP2D6", "CYP3A4"),
+    )
+    ligand_source = explain_cyp.add_mutually_exclusive_group(required=True)
+    ligand_source.add_argument("--smiles")
+    ligand_source.add_argument("--ligand-sdf", type=Path)
+    ligand_source.add_argument("--pubchem-cid", type=int)
+    explain_cyp.add_argument("--compound-name", default="ligand")
+    explain_cyp.add_argument("--pdb-id")
+    explain_cyp.add_argument("--receptor-pdb", type=Path)
+    explain_cyp.add_argument("--receptor-pdbqt", type=Path)
+    explain_cyp.add_argument("--chain")
+    explain_cyp.add_argument(
+        "--box-center", nargs=3, type=float, metavar=("X", "Y", "Z")
+    )
+    explain_cyp.add_argument(
+        "--box-size",
+        nargs=3,
+        type=float,
+        default=(26.0, 26.0, 26.0),
+        metavar=("SX", "SY", "SZ"),
+    )
+    explain_cyp.add_argument(
+        "--receptor-prep",
+        choices=("auto", "meeko", "openbabel"),
+        default="auto",
+        help="auto tries Meeko then records any HEM-specific Open Babel fallback",
+    )
+    explain_cyp.add_argument("--exhaustiveness", type=int, default=32)
+    explain_cyp.add_argument("--cpu", type=int, default=4)
+    explain_cyp.add_argument("--num-modes", type=int, default=9)
+    explain_cyp.add_argument("--energy-range", type=float, default=4.0)
+    explain_cyp.add_argument("--seed", type=int, default=20260824)
+    explain_cyp.add_argument("--out-dir", type=Path, required=True)
+    explain_cyp.add_argument("--pymol-bin")
+    explain_cyp.add_argument("--no-render", action="store_true")
+
     data_skill = commands.add_parser(
         "data-skill", help="Run the gated ADMET Data Collector workflow"
     )
@@ -59,7 +102,7 @@ def parser() -> argparse.ArgumentParser:
         help="Confirm that --heldout is evaluator-authorized and label-free",
     )
     data_audit.add_argument("--source-overlap-threshold", type=float, default=0.05)
-    data_audit.add_argument("--near-analogue-threshold", type=float, default=0.90)
+    data_audit.add_argument("--near-analogue-threshold", type=float, default=0.80)
     data_audit.add_argument("--max-analog-comparisons", type=int, default=2_000_000)
     data_audit.add_argument("--strict", action="store_true")
 
@@ -422,6 +465,35 @@ def main() -> None:
         from .registry import planner_catalog
 
         print(json.dumps(planner_catalog(), indent=2))
+        return
+    if args.command == "explain-cyp":
+        from .cyp_docking import CYPDockingConfig, run_cyp_docking
+
+        result = run_cyp_docking(
+            CYPDockingConfig(
+                isoform=args.isoform,
+                output_dir=args.out_dir,
+                compound_name=args.compound_name,
+                smiles=args.smiles,
+                ligand_sdf=args.ligand_sdf,
+                pubchem_cid=args.pubchem_cid,
+                pdb_id=args.pdb_id,
+                receptor_pdb=args.receptor_pdb,
+                receptor_pdbqt=args.receptor_pdbqt,
+                chain=args.chain,
+                box_center=(tuple(args.box_center) if args.box_center else None),
+                box_size=tuple(args.box_size),
+                receptor_prep=args.receptor_prep,
+                cpu=args.cpu,
+                exhaustiveness=args.exhaustiveness,
+                num_modes=args.num_modes,
+                energy_range=args.energy_range,
+                seed=args.seed,
+                render=not args.no_render,
+                pymol_bin=args.pymol_bin,
+            )
+        )
+        print(json.dumps(result, indent=2, ensure_ascii=False))
         return
     if args.command == "data-skill":
         from .data_skill import ADMETDataCollectorSkill

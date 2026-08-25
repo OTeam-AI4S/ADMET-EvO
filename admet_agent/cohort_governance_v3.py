@@ -26,7 +26,7 @@ def protected_structure_firewall(
     *,
     development_smiles: Sequence[str],
     protected_test_smiles: Sequence[str],
-    tanimoto_threshold: float = 0.90,
+    tanimoto_threshold: float = 0.80,
 ) -> tuple[set[str], dict[str, Any]]:
     if not 0 <= tanimoto_threshold <= 1:
         raise ValueError("Tanimoto threshold must be in [0, 1]")

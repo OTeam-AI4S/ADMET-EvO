@@ -13,7 +13,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 RECORD_REQUIRED = {
     "record_id", "source_id", "canonical_smiles", "standard_inchikey",
     "inchikey_skeleton", "endpoint_id", "property", "species", "assay_system",
@@ -181,7 +180,7 @@ def main() -> int:
     parser.add_argument("--report-dir", type=Path)
     parser.add_argument("--heldout", type=Path, help="Label-free, evaluator-authorized structures CSV")
     parser.add_argument("--source-overlap-threshold", type=float, default=0.05)
-    parser.add_argument("--near-analogue-threshold", type=float, default=0.90)
+    parser.add_argument("--near-analogue-threshold", type=float, default=0.80)
     parser.add_argument("--max-analog-comparisons", type=int, default=2_000_000)
     parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
@@ -363,9 +362,7 @@ def main() -> int:
     warning_count = len(issues["warning"])
     if critical_count:
         release_state = "research_use_only"
-    elif not records or not direct_rows:
-        release_state = "pending_scientific_review"
-    elif access_gaps or license_gaps or conflict_groups:
+    elif not records or not direct_rows or access_gaps or license_gaps or conflict_groups:
         release_state = "pending_scientific_review"
     else:
         release_state = "modeling_ready_discovery"

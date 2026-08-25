@@ -80,7 +80,7 @@ def main() -> None:
             "protected_tdc_test_structure_sources": {str(path): _sha256(path) for path in tdc_tests},
             "protected_openadmet_blind_structure_source": {"path":str(openadmet_blind),"sha256":_sha256(openadmet_blind),"contains_labels":False},
             "near_neighbor_fingerprint": "Morgan_radius_2_2048",
-            "near_neighbor_tanimoto_threshold": 0.90,
+            "near_neighbor_tanimoto_threshold": 0.80,
             "test_structure_use": "record_removal_only; counts_cannot_change_source_or_endpoint_admission",
             "test_label_columns_loaded": False,
         },

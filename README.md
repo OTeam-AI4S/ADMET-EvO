@@ -61,6 +61,28 @@ conda activate admet-agent-gpu
 
 The TDC datasets are downloaded by PyTDC on first use and cached under the directory passed to `--data-dir`.
 
+### Optional CYP structural explanation
+
+ADMET CYP predictions can be followed by a separate, hypothesis-generating
+AutoDock Vina and PyMOL workflow. Create the isolated environment so the
+structural-biology dependencies do not change the frozen benchmark environment:
+
+    conda env create -f environment-docking.yml
+
+Run a CYP3A4 example from a SMILES string, a local SDF, or a PubChem CID:
+
+    conda run -n admet-docking admet-agent explain-cyp \
+      --isoform CYP3A4 \
+      --pubchem-cid 5994 \
+      --compound-name progesterone \
+      --out-dir runs/cyp-docking/cyp3a4-progesterone
+
+The command keeps the CYP heme cofactor, uses the heme iron as the default box
+center, writes all Vina poses and scores, measures the closest ligand-heavy-atom
+distance to Fe, and renders overall, binding-site, and heme-geometry panels.
+Docking scores and poses are structural hypotheses; they are not experimental
+evidence or measured binding free energies.
+
 ### Optional Uni-Mol2 representation
 
 Install the optional Uni-Mol2 dependencies in the active CPU or GPU environment:

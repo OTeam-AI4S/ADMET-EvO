@@ -73,7 +73,7 @@ def main() -> None:
             "remove_exact_identity_against_all_TDC22_development_and_protected_test": True,
             "remove_exact_identity_against_OpenADMET_blind_structures": True,
             "remove_near_neighbor_against_protected_TDC22_test_and_OpenADMET_blind": True,
-            "near_neighbor_tanimoto_threshold": 0.90,
+            "near_neighbor_tanimoto_threshold": 0.80,
             "protected_labels_loaded": False,
         },
         "explicit_exclusions": {

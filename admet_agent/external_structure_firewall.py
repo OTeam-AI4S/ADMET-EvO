@@ -6,9 +6,9 @@ executor may use the test SMILES only to remove leakage-prone external records.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Sequence
 
 import numpy as np
 import pandas as pd
@@ -104,7 +104,7 @@ def apply_external_structure_firewall(
     test_smiles: Sequence[str],
     smiles_col: str = "Drug",
     same_source_test_overlap_limit: float = 0.05,
-    test_tanimoto_limit: float = 0.90,
+    test_tanimoto_limit: float = 0.80,
 ) -> tuple[pd.DataFrame, StructureFirewallAudit]:
     """Apply the three preregistered exclusions from the user-provided policy."""
 

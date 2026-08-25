@@ -11,7 +11,7 @@ def test_external_data_report_keeps_test_and_claim_boundaries():
     assert payload["sealed_structure_firewall"]["test_labels_loaded"] is False
     assert payload["sealed_structure_firewall"]["thresholds_frozen"] == {
         "test_scaffold_coverage": 0.05,
-        "ecfp4_tanimoto": 0.9,
+        "ecfp4_tanimoto": 0.8,
     }
     assert payload["fair_comparison_contract"]["same_structure_firewall"] is True
     assert "improved" in payload["claim_boundary"]["forbidden"]

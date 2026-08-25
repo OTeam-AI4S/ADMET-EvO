@@ -287,7 +287,7 @@ class ADMETDataCollectorSkill:
         report_dir: str | Path | None = None,
         heldout: str | Path | None = None,
         source_overlap_threshold: float = 0.05,
-        near_analogue_threshold: float = 0.90,
+        near_analogue_threshold: float = 0.80,
         max_analog_comparisons: int = 2_000_000,
         strict: bool = False,
     ) -> dict[str, Any]:

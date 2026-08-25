@@ -65,7 +65,7 @@ def build(root: Path) -> dict:
             "test_structure_access": "sealed executor only for decontamination",
             "test_labels_loaded": False,
             "test_structures_exposed_to_planner": False,
-            "thresholds_frozen": {"test_scaffold_coverage": 0.05, "ecfp4_tanimoto": 0.90},
+            "thresholds_frozen": {"test_scaffold_coverage": 0.05, "ecfp4_tanimoto": 0.80},
         },
         "fair_comparison_contract": {
             "same_eligible_source_registry_for_agent_and_automl": True,

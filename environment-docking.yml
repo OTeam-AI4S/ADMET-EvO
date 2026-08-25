@@ -1,0 +1,16 @@
+name: admet-docking
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - vina>=1.2.5
+  - meeko>=0.6
+  - openbabel>=3.1
+  - rdkit>=2023.9
+  - pymol-open-source>=3
+  - pillow>=10
+  - gemmi
+  - prody
+  - pip
+  - pip:
+      - -e .

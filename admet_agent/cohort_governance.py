@@ -75,7 +75,7 @@ def protected_structure_firewall(
     *,
     development_smiles: Sequence[str],
     protected_test_smiles: Sequence[str],
-    tanimoto_threshold: float = 0.90,
+    tanimoto_threshold: float = 0.80,
 ) -> tuple[set[str], dict[str, Any]]:
     """Filter records without exposing protected structures or using counts for selection."""
     if not 0 <= tanimoto_threshold <= 1:

@@ -59,7 +59,7 @@ def test_exactly_five_percent_is_allowed_because_rule_says_more_than():
     assert audit.external_test_skeleton_coverage_fraction == 0.05
     assert audit.dataset_rejected is False
     assert output.empty  # the row is still removed by the exact-identity layer
-    assert audit.tanimoto_rejection_threshold == 0.9
+    assert audit.tanimoto_rejection_threshold == 0.8
 
 
 def test_standard_identity_catches_salt_charge_and_tautomer_variants():
