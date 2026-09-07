@@ -4,6 +4,11 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .coverage
+.mypy_cache/
+.cache/
+.conda/
+.nature-figure.json
+nature-figure-backend.json
 
 .env
 *.env
@@ -29,9 +34,42 @@ venv/
 # Local environments, downloaded sources, and regenerable experiment caches.
 # The repository keeps manifests and compact evidence, not machine-local state.
 .venvs/
+.envs/
 cache/
 external/
 logs/
+checkpoints/
+outputs/
+assets/
+figures/
+figure3_microsoft_yahei/
+lADMETliyu2/
+
+# The autonomous task-discovery workspace is a separate, artifact-heavy study
+# with its own protocols and release lifecycle. It is not part of the core
+# installable ADMET-EvO source distribution.
+discovery_research/
+
+# Generated scientific artifacts. Compact source tables and final evidence
+# already tracked by Git remain available; new binaries require explicit review.
+*.docx
+*.xlsx
+*.pdf
+*.png
+*.svg
+*.tif
+*.tiff
+*.parquet
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.patch
 
 # Generated distribution bundles and third-party working copies.  Release
 # evidence is represented by content-addressed manifests under reports/.

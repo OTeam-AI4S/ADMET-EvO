@@ -14,6 +14,12 @@ and exact claim boundaries are summarized in
 compact paper-facing result map is
 [`reports/FINAL_EVIDENCE_INDEX.md`](reports/FINAL_EVIDENCE_INDEX.md).
 
+Version 0.3.0 consolidates the latest development work into one maintained
+tree. It adds leakage-safe external-data admission, held-out structure
+firewalls, three-axis model/feature/data ablations, and evidence-packet
+workflows. See [`docs/repository_layout.md`](docs/repository_layout.md) for the
+source layout and [`CHANGELOG.md`](CHANGELOG.md) for release details.
+
 ## Workflow
 
 The v3 research loop is restricted to the canonical 22 TDC ADMET endpoints. It
@@ -46,7 +52,7 @@ The workflow has two separate commands:
 Python 3.10 through 3.12 is supported. Clone the repository and create the CPU environment:
 
 ```bash
-git clone https://github.com/YilinWang33/ADMET-EvO.git
+git clone https://github.com/OTeam-AI4S/ADMET-EvO.git
 cd ADMET-EvO
 conda env create -f environment-cpu.yml
 conda activate admet-agent

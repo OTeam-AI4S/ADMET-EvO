@@ -3,7 +3,8 @@
 The protocol chooses the smallest relevant, diverse external coreset within one
 standard error of the best development result. External rows have at most the
 same total sample weight as TDC training rows. Development uses seeds 2-7;
-confirmation uses untouched seeds 8-11. TDC test files are never opened.
+confirmation uses untouched seeds 8-11. Only the TDC test Drug column is
+loaded for the identity firewall; test labels are never loaded.
 """
 
 from __future__ import annotations
@@ -32,16 +33,19 @@ from admet_agent.adaptive_external_data import (
     molecular_scaffold,
     select_relevance_diverse_binary_coreset,
 )
-from admet_agent.external_data_admission import require_task_admission
+from admet_agent.external_data_admission import require_bound_task_admission
 from admet_agent.herg_data_scaling import (
     fingerprints_to_csr,
     morgan_fingerprints,
     near_neighbor_keep_mask,
 )
+from admet_agent.heldout_structure_firewall import (
+    load_structure_only_inchikey_blocklist,
+)
 
 RDLogger.DisableLog("rdApp.*")
 
-PROTOCOL = "herg-adaptive-quality-quantity-coreset-v1"
+PROTOCOL = "herg-adaptive-quality-quantity-coreset-v2"
 SOURCE = Path("external/ecvoi_v6_tdc_cache/herg_central.tab")
 EXPECTED_SOURCE_SHA256 = (
     "5775a6900c3be6a2db65d357411fd3f768189de611dc2da3456dab4acbcb3ee8"
@@ -52,7 +56,6 @@ CONFIRMATION_SEEDS = (8, 9, 10, 11)
 MODELS = ("random_forest", "linear_svm", "morgan_mlp", "lightgbm")
 MINIMUM_RELEVANCE = 0.20
 NEAR_THRESHOLD = 0.80
-EXTERNAL_MASS_RATIO = 1.0
 PRACTICAL_DELTA = 0.005
 
 
@@ -77,8 +80,14 @@ def _prepare_external(data_dir: Path) -> tuple[pd.DataFrame, list, dict]:
     )
     discovery_standard, fallback_count = _standardized_tdc(discovery)
     discovery_ids = set(discovery_standard["standard_inchikey"])
-    exact_mask = external["standard_inchikey"].isin(discovery_ids)
-    exact_exclusions = int(exact_mask.sum())
+    test_ids, test_firewall_audit = load_structure_only_inchikey_blocklist(
+        data_dir / "admet_group/herg/test.csv"
+    )
+    discovery_exact_mask = external["standard_inchikey"].isin(discovery_ids)
+    test_exact_mask = external["standard_inchikey"].isin(test_ids)
+    discovery_exact_exclusions = int(discovery_exact_mask.sum())
+    test_exact_exclusions = int(test_exact_mask.sum())
+    exact_mask = discovery_exact_mask | test_exact_mask
     external = external.loc[~exact_mask].reset_index(drop=True)
     fingerprintable = external["standard_smiles"].map(
         lambda value: Chem.MolFromSmiles(str(value)) is not None
@@ -90,7 +99,9 @@ def _prepare_external(data_dir: Path) -> tuple[pd.DataFrame, list, dict]:
     return external, fingerprints, {
         **audit.__dict__,
         "raw_rows": len(raw),
-        "exact_tdc_discovery_overlap_exclusions": exact_exclusions,
+        "exact_tdc_discovery_overlap_exclusions": discovery_exact_exclusions,
+        "exact_tdc_test_structure_overlap_exclusions": test_exact_exclusions,
+        **test_firewall_audit,
         "fingerprint_parse_exclusions": parse_exclusions,
         "post_exact_firewall_identities": len(external),
         "tdc_standardization_fallback_count": fallback_count,
@@ -202,6 +213,7 @@ def _run_rows(
     external_fps: list,
     seeds: tuple[int, ...],
     ratios: tuple[float, ...],
+    weight_policy: dict,
     n_jobs: int,
 ) -> list[dict]:
     external_x = fingerprints_to_csr(external_fps)
@@ -250,7 +262,13 @@ def _run_rows(
             )
             augmented_y = np.concatenate([train_y, external_y[selected]])
             weights = external_mass_capped_weights(
-                len(train), len(selected), external_mass_ratio=EXTERNAL_MASS_RATIO
+                len(train),
+                len(selected),
+                external_mass_ratio=weight_policy["external_mass_ratio"],
+                external_row_weight_cap=weight_policy["external_row_weight_cap"],
+                external_to_min_native_weight_ratio_cap=weight_policy[
+                    "external_to_min_native_weight_ratio_cap"
+                ],
             )
             for model in MODELS:
                 fit_started = time.perf_counter()
@@ -285,8 +303,12 @@ def _run_rows(
 
 
 def run_development(args: argparse.Namespace) -> dict:
-    require_task_admission(
-        args.admission_report.resolve(), "hERG", augmentation_mode="controlled_bridge"
+    admission = require_bound_task_admission(
+        args.admission_report,
+        "hERG",
+        source_path=SOURCE,
+        source_name="hERGCentral_hERG_inhib",
+        augmentation_mode="controlled_bridge",
     )
     started = time.perf_counter()
     external, external_fps, curation = _prepare_external(args.data_dir)
@@ -296,6 +318,7 @@ def run_development(args: argparse.Namespace) -> dict:
         external_fps=external_fps,
         seeds=DEVELOPMENT_SEEDS,
         ratios=RATIOS,
+        weight_policy=admission["weight_policy"],
         n_jobs=args.n_jobs,
     )
     summaries = _summarize(rows, RATIOS)
@@ -311,11 +334,18 @@ def run_development(args: argparse.Namespace) -> dict:
         "models": list(MODELS),
         "minimum_train_relevance": MINIMUM_RELEVANCE,
         "near_neighbor_threshold": NEAR_THRESHOLD,
-        "external_mass_ratio": EXTERNAL_MASS_RATIO,
+        "admission": admission,
+        "weight_policy": admission["weight_policy"],
         "per_seed_ratio_model": rows,
         "ratio_summaries": summaries,
         "selection": selection,
-        "safety": {"tdc_test_loaded": False, "test_labels_accessible": False},
+        "safety": {
+            "tdc_test_loaded": True,
+            "tdc_test_structures_loaded_for_firewall": True,
+            "tdc_test_columns_loaded": ["Drug"],
+            "tdc_test_labels_loaded": False,
+            "test_labels_accessible": False,
+        },
         "wall_seconds": time.perf_counter() - started,
         "claim_boundary": "Development-only budget selection; no paper gain claim.",
     }
@@ -357,8 +387,12 @@ def _confirmation_summary(rows: list[dict]) -> dict:
 
 
 def run_confirmation(args: argparse.Namespace) -> dict:
-    require_task_admission(
-        args.admission_report.resolve(), "hERG", augmentation_mode="controlled_bridge"
+    admission = require_bound_task_admission(
+        args.admission_report,
+        "hERG",
+        source_path=SOURCE,
+        source_name="hERGCentral_hERG_inhib",
+        augmentation_mode="controlled_bridge",
     )
     development_path = args.development_artifact.resolve()
     development = json.loads(development_path.read_text())
@@ -366,7 +400,11 @@ def run_confirmation(args: argparse.Namespace) -> dict:
         development.get("protocol") == PROTOCOL
         and development.get("phase") == "development_budget_selection"
         and development.get("seeds") == list(DEVELOPMENT_SEEDS)
-        and development.get("safety", {}).get("tdc_test_loaded") is False
+        and development.get("safety", {}).get("tdc_test_loaded") is True
+        and development.get("safety", {}).get("tdc_test_structures_loaded_for_firewall") is True
+        and development.get("safety", {}).get("tdc_test_columns_loaded") == ["Drug"]
+        and development.get("safety", {}).get("tdc_test_labels_loaded") is False
+        and development.get("safety", {}).get("test_labels_accessible") is False
     ):
         raise RuntimeError("Invalid frozen development artifact")
     selected_ratio = development["selection"].get("selected_ratio")
@@ -380,6 +418,7 @@ def run_confirmation(args: argparse.Namespace) -> dict:
         external_fps=external_fps,
         seeds=CONFIRMATION_SEEDS,
         ratios=(float(selected_ratio),),
+        weight_policy=admission["weight_policy"],
         n_jobs=args.n_jobs,
     )
     confirmation = _confirmation_summary(rows)
@@ -388,6 +427,8 @@ def run_confirmation(args: argparse.Namespace) -> dict:
         "phase": "independent_confirmation",
         "task": "hERG",
         "source_sha256": EXPECTED_SOURCE_SHA256,
+        "admission": admission,
+        "weight_policy": admission["weight_policy"],
         "development_artifact": str(development_path),
         "development_artifact_sha256": _sha256(development_path),
         "selected_ratio": selected_ratio,
@@ -398,7 +439,10 @@ def run_confirmation(args: argparse.Namespace) -> dict:
         "per_seed_model": rows,
         **confirmation,
         "safety": {
-            "tdc_test_loaded": False,
+            "tdc_test_loaded": True,
+            "tdc_test_structures_loaded_for_firewall": True,
+            "tdc_test_columns_loaded": ["Drug"],
+            "tdc_test_labels_loaded": False,
             "test_labels_accessible": False,
             "confirmation_seeds_disjoint_from_development": True,
         },

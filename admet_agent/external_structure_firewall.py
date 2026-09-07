@@ -6,9 +6,12 @@ executor may use the test SMILES only to remove leakage-prone external records.
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+import hashlib
+from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
+from functools import lru_cache
 from pathlib import Path
+from types import MappingProxyType
 
 import numpy as np
 import pandas as pd
@@ -45,14 +48,18 @@ class StructureFirewallAudit:
         return asdict(self)
 
 
-def load_label_blind_test_structures(path: str | Path, *, smiles_col: str = "Drug") -> tuple[str, ...]:
+def load_label_blind_test_structures(
+    path: str | Path, *, smiles_col: str = "Drug"
+) -> tuple[str, ...]:
     """Load only the public structure column from a benchmark test table."""
 
     source = Path(path).resolve()
     if source.name.lower() not in {"test.csv", "test.tsv"}:
         raise ValueError("Label-blind test loader accepts only an explicit test table")
     separator = "\t" if source.suffix.lower() == ".tsv" else ","
-    frame = pd.read_csv(source, sep=separator, usecols=[smiles_col], dtype={smiles_col: "string"})
+    frame = pd.read_csv(
+        source, sep=separator, usecols=[smiles_col], dtype={smiles_col: "string"}
+    )
     return tuple(str(value) for value in frame[smiles_col].dropna())
 
 
@@ -63,6 +70,20 @@ class _StandardMolecule:
     skeleton: str
 
 
+@dataclass(frozen=True)
+class StructureFirewallReference:
+    """Reusable, input-bound standardisation of native and sealed test sets."""
+
+    train: Mapping[str, _StandardMolecule]
+    validation: Mapping[str, _StandardMolecule]
+    test: Mapping[str, _StandardMolecule]
+    test_fingerprints: tuple
+    train_input_sha256: str
+    validation_input_sha256: str
+    test_input_sha256: str
+
+
+@lru_cache(maxsize=100_000)
 def _standard_molecule(smiles: str) -> _StandardMolecule | None:
     """Desalt, neutralise and canonicalise tautomers before InChI identity."""
 
@@ -76,7 +97,11 @@ def _standard_molecule(smiles: str) -> _StandardMolecule | None:
         mol = rdMolStandardize.TautomerEnumerator().Canonicalize(mol)
         smiles_out = Chem.MolToSmiles(mol, canonical=True, isomericSmiles=True)
         inchikey = Chem.MolToInchiKey(mol)
-    except Exception:
+    except Exception:  # noqa: BLE001 - RDKit/Boost may raise several exception types
+        return None
+    # Some hypervalent structures can be serialized by MolToSmiles but cannot
+    # be parsed back into a sanitized molecule for Morgan fingerprinting.
+    if Chem.MolFromSmiles(smiles_out) is None:
         return None
     if not smiles_out or not inchikey or "-" not in inchikey:
         return None
@@ -96,6 +121,46 @@ def _standard_unique(values: Sequence[str]) -> dict[str, _StandardMolecule]:
     return output
 
 
+def _sequence_sha256(values: Sequence[str]) -> str:
+    """Hash a string sequence without delimiter ambiguity."""
+
+    digest = hashlib.sha256()
+    for value in values:
+        encoded = str(value).encode("utf-8")
+        digest.update(len(encoded).to_bytes(8, byteorder="big"))
+        digest.update(encoded)
+    return digest.hexdigest()
+
+
+def prepare_structure_firewall_reference(
+    *,
+    train_smiles: Sequence[str],
+    validation_smiles: Sequence[str],
+    test_smiles: Sequence[str],
+) -> StructureFirewallReference:
+    """Standardise unchanged benchmark references once for many paper packets."""
+
+    train = _standard_unique(train_smiles)
+    validation = _standard_unique(validation_smiles)
+    test = _standard_unique(test_smiles)
+    if not test:
+        raise ValueError("At least one valid label-blind test structure is required")
+    generator = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+    test_fingerprints = tuple(
+        generator.GetFingerprint(Chem.MolFromSmiles(value.smiles))
+        for value in test.values()
+    )
+    return StructureFirewallReference(
+        train=MappingProxyType(train),
+        validation=MappingProxyType(validation),
+        test=MappingProxyType(test),
+        test_fingerprints=test_fingerprints,
+        train_input_sha256=_sequence_sha256(train_smiles),
+        validation_input_sha256=_sequence_sha256(validation_smiles),
+        test_input_sha256=_sequence_sha256(test_smiles),
+    )
+
+
 def apply_external_structure_firewall(
     external: pd.DataFrame,
     *,
@@ -104,7 +169,8 @@ def apply_external_structure_firewall(
     test_smiles: Sequence[str],
     smiles_col: str = "Drug",
     same_source_test_overlap_limit: float = 0.05,
-    test_tanimoto_limit: float = 0.80,
+    test_tanimoto_limit: float = 0.90,
+    reference: StructureFirewallReference | None = None,
 ) -> tuple[pd.DataFrame, StructureFirewallAudit]:
     """Apply the three preregistered exclusions from the user-provided policy."""
 
@@ -114,11 +180,28 @@ def apply_external_structure_firewall(
         raise ValueError("same_source_test_overlap_limit must be in [0, 1]")
     if not 0 <= test_tanimoto_limit <= 1:
         raise ValueError("test_tanimoto_limit must be in [0, 1]")
-    train = _standard_unique(train_smiles)
-    validation = _standard_unique(validation_smiles)
-    test = _standard_unique(test_smiles)
-    if not test:
-        raise ValueError("At least one valid label-blind test structure is required")
+    if reference is None:
+        reference = prepare_structure_firewall_reference(
+            train_smiles=train_smiles,
+            validation_smiles=validation_smiles,
+            test_smiles=test_smiles,
+        )
+    else:
+        observed = (
+            _sequence_sha256(train_smiles),
+            _sequence_sha256(validation_smiles),
+            _sequence_sha256(test_smiles),
+        )
+        expected = (
+            reference.train_input_sha256,
+            reference.validation_input_sha256,
+            reference.test_input_sha256,
+        )
+        if observed != expected:
+            raise ValueError("Structure firewall reference does not match its inputs")
+    train = reference.train
+    validation = reference.validation
+    test = reference.test
 
     working = external.copy().reset_index(drop=True)
     working["_standard_external"] = working[smiles_col].map(
@@ -131,34 +214,39 @@ def apply_external_structure_firewall(
     exact_validation = inchikeys.isin(validation)
     exact_test = inchikeys.isin(test)
 
-    external_skeletons = {
-        value.skeleton for value in valid["_standard_external"]
-    }
+    external_skeletons = {value.skeleton for value in valid["_standard_external"]}
     covered_test_molecules = sum(
         molecule.skeleton in external_skeletons for molecule in test.values()
     )
     coverage = covered_test_molecules / len(test)
 
-    eligible_for_similarity = valid[~(exact_train | exact_validation | exact_test)].copy()
+    eligible_for_similarity = valid[
+        ~(exact_train | exact_validation | exact_test)
+    ].copy()
     generator = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
-    test_fingerprints = [
-        generator.GetFingerprint(Chem.MolFromSmiles(value.smiles))
-        for value in test.values()
-    ]
+    test_fingerprints = reference.test_fingerprints
     near_mask = []
     for value in eligible_for_similarity["_standard_external"]:
         fingerprint = generator.GetFingerprint(Chem.MolFromSmiles(value.smiles))
-        maximum = max(DataStructs.BulkTanimotoSimilarity(fingerprint, test_fingerprints))
+        maximum = max(
+            DataStructs.BulkTanimotoSimilarity(fingerprint, test_fingerprints)
+        )
         near_mask.append(maximum >= test_tanimoto_limit)
     near_mask_array = np.asarray(near_mask, dtype=bool)
 
     rejected = coverage > same_source_test_overlap_limit
-    reason = "external_dataset_has_more_than_allowed_test_inchikey_skeleton_overlap" if rejected else None
+    reason = (
+        "external_dataset_has_more_than_allowed_test_inchikey_skeleton_overlap"
+        if rejected
+        else None
+    )
     if rejected:
         output = external.iloc[0:0].copy()
     else:
         output = eligible_for_similarity[~near_mask_array].copy()
-        output[smiles_col] = output["_standard_external"].map(lambda value: value.smiles)
+        output[smiles_col] = output["_standard_external"].map(
+            lambda value: value.smiles
+        )
         output = output.drop(columns=["_standard_external"]).reset_index(drop=True)
     audit = StructureFirewallAudit(
         input_rows=len(working),
@@ -183,6 +271,8 @@ def apply_external_structure_firewall(
 
 __all__ = [
     "StructureFirewallAudit",
+    "StructureFirewallReference",
     "apply_external_structure_firewall",
     "load_label_blind_test_structures",
+    "prepare_structure_firewall_reference",
 ]

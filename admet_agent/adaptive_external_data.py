@@ -115,18 +115,51 @@ def select_relevance_diverse_binary_coreset(
 
 
 def external_mass_capped_weights(
-    tdc_rows: int, external_rows: int, *, external_mass_ratio: float = 1.0
+    tdc_rows: int,
+    external_rows: int,
+    *,
+    external_mass_ratio: float,
+    external_row_weight_cap: float,
+    external_to_min_native_weight_ratio_cap: float,
+    native_sample_weights: np.ndarray | None = None,
 ) -> np.ndarray:
-    """Weight external rows so their total mass is capped relative to TDC."""
+    """Apply confidence, total-mass, and strict native-dominance caps."""
 
     if tdc_rows < 1 or external_rows < 1:
         raise ValueError("Both TDC and external row counts must be positive")
     if not math.isfinite(external_mass_ratio) or external_mass_ratio <= 0:
         raise ValueError("external_mass_ratio must be finite and positive")
-    external_weight = external_mass_ratio * tdc_rows / external_rows
+    if (
+        not math.isfinite(external_row_weight_cap)
+        or external_row_weight_cap <= 0
+        or external_row_weight_cap > 1
+    ):
+        raise ValueError("external_row_weight_cap must lie in (0, 1]")
+    if (
+        not math.isfinite(external_to_min_native_weight_ratio_cap)
+        or external_to_min_native_weight_ratio_cap <= 0
+        or external_to_min_native_weight_ratio_cap >= 1
+    ):
+        raise ValueError(
+            "external_to_min_native_weight_ratio_cap must lie in (0, 1)"
+        )
+    native_weights = (
+        np.ones(tdc_rows, dtype=float)
+        if native_sample_weights is None
+        else np.asarray(native_sample_weights, dtype=float)
+    )
+    if native_weights.shape != (tdc_rows,):
+        raise ValueError("native_sample_weights must contain exactly tdc_rows values")
+    if not np.isfinite(native_weights).all() or np.any(native_weights <= 0):
+        raise ValueError("native_sample_weights must be finite and positive")
+    external_weight = min(
+        external_row_weight_cap,
+        external_mass_ratio * float(native_weights.sum()) / external_rows,
+        external_to_min_native_weight_ratio_cap * float(native_weights.min()),
+    )
     return np.concatenate(
         [
-            np.ones(tdc_rows, dtype=float),
+            native_weights,
             np.full(external_rows, external_weight, dtype=float),
         ]
     )

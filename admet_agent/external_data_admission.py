@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -49,6 +50,43 @@ VALID_REVIEW_STATUSES = {
     "bridge_only",
 }
 VALID_LINEAGE_STATUSES = {"cleared_independent", "pending", "shared_or_unresolved"}
+
+
+@dataclass(frozen=True)
+class ExternalWeightPolicy:
+    """Conservative training influence allowed for an admitted source."""
+
+    external_mass_ratio: float
+    external_row_weight_cap: float
+    external_to_min_native_weight_ratio_cap: float
+    source_tier: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+DIRECT_WEIGHT_POLICY = ExternalWeightPolicy(
+    external_mass_ratio=0.20,
+    external_row_weight_cap=0.50,
+    external_to_min_native_weight_ratio_cap=0.50,
+    source_tier="endpoint_matched_cleared_independent",
+)
+CLEARED_BRIDGE_WEIGHT_POLICY = ExternalWeightPolicy(
+    external_mass_ratio=0.05,
+    external_row_weight_cap=0.25,
+    external_to_min_native_weight_ratio_cap=0.50,
+    source_tier="controlled_bridge_cleared_independent",
+)
+PENDING_BRIDGE_WEIGHT_POLICY = ExternalWeightPolicy(
+    external_mass_ratio=0.02,
+    external_row_weight_cap=0.10,
+    external_to_min_native_weight_ratio_cap=0.50,
+    source_tier="controlled_bridge_pending_lineage",
+)
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def evaluate_external_data_admission(
@@ -214,6 +252,23 @@ def require_task_admission(
     decision = report.get("decisions", {}).get(task)
     if decision is None:
         raise RuntimeError(f"No external-data admission decision exists for {task}")
+    if augmentation_mode == "auto":
+        if decision.get("permitted_for_direct_augmentation") is True:
+            augmentation_mode = "direct"
+        elif decision.get("permitted_for_controlled_bridge_augmentation") is True:
+            augmentation_mode = "controlled_bridge"
+        else:
+            direct_reasons = list(decision.get("failed_checks", []))
+            bridge_reasons = list(
+                decision.get("controlled_bridge_failed_checks", [])
+            )
+            raise RuntimeError(
+                f"External augmentation for {task} failed closed in every mode: "
+                f"direct={direct_reasons or ['not_permitted']}; "
+                f"controlled_bridge={bridge_reasons or ['not_permitted']}; "
+                f"endpoint_review={decision.get('endpoint_review_status')}; "
+                f"lineage={decision.get('lineage_status')}"
+            )
     if augmentation_mode == "direct":
         permission_key = "permitted_for_direct_augmentation"
         failures_key = "failed_checks"
@@ -236,12 +291,109 @@ def require_task_admission(
             f"External {augmentation_mode} augmentation for {task} failed closed: "
             f"{', '.join(reasons)}"
         )
-    return decision
+    admitted = dict(decision)
+    admitted["resolved_augmentation_mode"] = augmentation_mode
+    return admitted
+
+
+def weight_policy_for_admission(
+    decision: dict[str, Any],
+) -> ExternalWeightPolicy:
+    """Resolve conservative source influence from a verified admission."""
+
+    mode = decision.get("resolved_augmentation_mode")
+    if mode == "direct":
+        if not (
+            decision.get("permitted_for_direct_augmentation") is True
+            and decision.get("endpoint_review_status") == "approved_direct"
+            and decision.get("lineage_status") == "cleared_independent"
+        ):
+            raise RuntimeError("Direct weight policy requires cleared direct admission")
+        return DIRECT_WEIGHT_POLICY
+    if mode == "controlled_bridge":
+        if not (
+            decision.get("permitted_for_controlled_bridge_augmentation") is True
+            and decision.get("endpoint_review_status") == "bridge_only"
+        ):
+            raise RuntimeError("Bridge weight policy requires controlled-bridge admission")
+        if decision.get("lineage_status") == "cleared_independent":
+            return CLEARED_BRIDGE_WEIGHT_POLICY
+        if decision.get("lineage_status") == "pending":
+            return PENDING_BRIDGE_WEIGHT_POLICY
+        raise RuntimeError("Shared or unresolved lineage cannot receive training weight")
+    raise RuntimeError("Admission decision has no resolved augmentation mode")
+
+
+def require_bound_task_admission(
+    report_path: Path,
+    task: str,
+    *,
+    source_path: Path,
+    source_name: str,
+    augmentation_mode: str = "auto",
+) -> dict[str, Any]:
+    """Fail closed unless the exact source selected for fitting was audited."""
+
+    report_path = report_path.resolve()
+    decision = require_task_admission(
+        report_path, task, augmentation_mode=augmentation_mode
+    )
+    audit_value = decision.get("audit_path")
+    audit_digest = decision.get("audit_sha256")
+    if not audit_value or not audit_digest:
+        raise RuntimeError(f"Admission decision for {task} is not bound to an audit")
+    audit_path = Path(str(audit_value))
+    if not audit_path.is_absolute():
+        audit_path = report_path.parent / audit_path
+    audit_path = audit_path.resolve()
+    if not audit_path.is_file():
+        relocated_audit = (report_path.parent / audit_path.name).resolve()
+        if relocated_audit.is_file():
+            audit_path = relocated_audit
+    if not audit_path.is_file():
+        raise RuntimeError(f"Admission audit is missing for {task}: {audit_path}")
+    if _sha256(audit_path) != str(audit_digest):
+        raise RuntimeError(f"Admission audit SHA-256 mismatch for {task}")
+    audit = json.loads(audit_path.read_text())
+    if not (
+        audit.get("task") == task
+        and audit.get("run_mode") == "data_audit_only"
+        and audit.get("safety", {}).get("tdc_test_loaded") is False
+    ):
+        raise RuntimeError(f"Invalid bound admission audit for {task}")
+    audited_source = audit.get("source", {})
+    resolved_source = source_path.resolve()
+    if not resolved_source.is_file():
+        raise RuntimeError(f"Admitted source is missing for {task}: {resolved_source}")
+    if audited_source.get("name") != source_name:
+        raise RuntimeError(f"Audited source name mismatch for {task}")
+    audited_source_path = Path(str(audited_source.get("path", ""))).resolve()
+    source_digest = _sha256(resolved_source)
+    if audited_source.get("sha256") != source_digest:
+        raise RuntimeError(f"Audited source SHA-256 mismatch for {task}")
+    policy = weight_policy_for_admission(decision)
+    return {
+        **decision,
+        "admission_report_path": str(report_path),
+        "admission_report_sha256": _sha256(report_path),
+        "audit_artifact_verified": True,
+        "audit_path": str(audit_path),
+        "audited_source_path": str(audited_source_path),
+        "selected_source_path": str(resolved_source),
+        "source_relocated_with_identical_sha256": (
+            audited_source_path != resolved_source
+        ),
+        "audited_source_sha256": source_digest,
+        "weight_policy": policy.to_dict(),
+    }
 
 
 __all__ = [
     "AdmissionThresholds",
     "ControlledBridgeThresholds",
+    "ExternalWeightPolicy",
     "evaluate_external_data_admission",
+    "require_bound_task_admission",
     "require_task_admission",
+    "weight_policy_for_admission",
 ]

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -223,7 +224,12 @@ def main() -> None:
     parser.add_argument(
         "--checkpoint-root",
         type=Path,
-        default=Path.home() / ".cache/molfeat",
+        default=Path(
+            os.environ.get(
+                "ADMET_MAPLIGHT_CHECKPOINT_ROOT",
+                str(Path.home() / ".cache/molfeat"),
+            )
+        ),
     )
     parser.add_argument(
         "--cache-root",

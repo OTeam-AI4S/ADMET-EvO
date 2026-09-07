@@ -6,7 +6,7 @@
     "max_bytes": 150000,
     "width_px": 920
   },
-  "manifest_sha256": "0faddb3b9a1b3c54067544c72da85deafdc0e30a01537ebc1118e4af5f7a0115",
+  "manifest_sha256": "fd9512d67643e4b255cf6caf67afc1e802f84de73644187308b07cdad38ce0a7",
   "manuscript": {
     "abstract_word_count": 255,
     "author_placeholders": [
@@ -68,9 +68,9 @@
       "sha256": "d3cb70dbafae903231ec2079cee5160c59910c634b75b0cce3b6d85ea7b25065"
     },
     "citation_metadata": {
-      "bytes": 485,
+      "bytes": 483,
       "path": "CITATION.cff",
-      "sha256": "fc256d5d4cbcee95bc167d4c1af0d74057d2b72699bde2a37504bf6bc854e397"
+      "sha256": "70e51459c0d3f3ed69a7c02d84f997e7314268391c0ddbffec7e9c80ee46096d"
     },
     "compute": {
       "bytes": 14910,

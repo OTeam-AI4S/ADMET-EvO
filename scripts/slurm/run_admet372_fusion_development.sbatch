@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=admet372-fuse
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu:a100:1
+#SBATCH --mem=48G
+#SBATCH --time=08:00:00
+#SBATCH --output=/home/wyilin/admet/runs/admet372/logs/%A_%a.out
+#SBATCH --error=/home/wyilin/admet/runs/admet372/logs/%A_%a.err
+
+set -euo pipefail
+cd /home/wyilin/admet
+/home/wyilin/.conda/envs/admet-agent/bin/python -m scripts.run_admet_fusion_development_endpoint \
+  --cohort "${ADMET372_SELECTION_COHORT}" \
+  --array-index "${SLURM_ARRAY_TASK_ID}" \
+  --seed 17 \
+  --workers "${SLURM_CPUS_PER_TASK}" \
+  --output-dir "${ADMET372_FUSION_OUTPUT_DIR}"

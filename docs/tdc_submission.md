@@ -5,8 +5,8 @@
 - Model: ADMET-EvO
 - Contact: Yilin Wang
 - Affiliation: Valhalla Technology
-- Code: https://github.com/YilinWang33/ADMET-EvO
-- Technical report: https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.md
+- Code: https://github.com/OTeam-AI4S/ADMET-EvO
+- Technical report: https://github.com/OTeam-AI4S/ADMET-EvO/blob/main/MANUSCRIPT.md
 
 ## Short method description
 

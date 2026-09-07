@@ -1,10 +1,14 @@
 from copy import deepcopy
+import hashlib
+import json
 
 import pytest
 
 from admet_agent.external_data_admission import (
     evaluate_external_data_admission,
+    require_bound_task_admission,
     require_task_admission,
+    weight_policy_for_admission,
 )
 
 
@@ -122,3 +126,75 @@ def test_runner_gate_fails_closed_and_accepts_only_explicit_admission(tmp_path):
     assert require_task_admission(
         path, "bridge", augmentation_mode="controlled_bridge"
     )["permitted_for_controlled_bridge_augmentation"] is True
+
+
+def test_admission_tier_assigns_conservative_weights():
+    direct = {
+        "permitted_for_direct_augmentation": True,
+        "endpoint_review_status": "approved_direct",
+        "lineage_status": "cleared_independent",
+        "resolved_augmentation_mode": "direct",
+    }
+    assert weight_policy_for_admission(direct).external_mass_ratio == 0.20
+    assert weight_policy_for_admission(direct).external_row_weight_cap == 0.50
+    assert (
+        weight_policy_for_admission(direct).external_to_min_native_weight_ratio_cap
+        == 0.50
+    )
+    bridge = {
+        "permitted_for_controlled_bridge_augmentation": True,
+        "endpoint_review_status": "bridge_only",
+        "lineage_status": "pending",
+        "resolved_augmentation_mode": "controlled_bridge",
+    }
+    policy = weight_policy_for_admission(bridge)
+    assert policy.external_mass_ratio == 0.02
+    assert policy.external_row_weight_cap == 0.10
+
+
+def test_bound_gate_rejects_source_substitution(tmp_path):
+    source = tmp_path / "source.tab"
+    source.write_text("X\tY\nCC\t1\n")
+    source_sha = hashlib.sha256(source.read_bytes()).hexdigest()
+    audit = {
+        "task": "Example",
+        "run_mode": "data_audit_only",
+        "safety": {"tdc_test_loaded": False},
+        "source": {
+            "name": "independent_assay",
+            "path": str(source.resolve()),
+            "sha256": source_sha,
+        },
+    }
+    audit_path = tmp_path / "audit.json"
+    audit_path.write_text(json.dumps(audit))
+    report = {
+        "model_scores_consulted": False,
+        "test_labels_loaded": False,
+        "decisions": {
+            "Example": {
+                "audit_path": str(audit_path),
+                "audit_sha256": hashlib.sha256(audit_path.read_bytes()).hexdigest(),
+                "permitted_for_direct_augmentation": True,
+                "endpoint_review_status": "approved_direct",
+                "lineage_status": "cleared_independent",
+            }
+        },
+    }
+    report_path = tmp_path / "report.json"
+    report_path.write_text(json.dumps(report))
+    admitted = require_bound_task_admission(
+        report_path,
+        "Example",
+        source_path=source,
+        source_name="independent_assay",
+    )
+    assert admitted["audit_artifact_verified"] is True
+    source.write_text("X\tY\nCCC\t0\n")
+    with pytest.raises(RuntimeError, match="SHA-256 mismatch"):
+        require_bound_task_admission(
+            report_path,
+            "Example",
+            source_path=source,
+            source_name="independent_assay",
+        )

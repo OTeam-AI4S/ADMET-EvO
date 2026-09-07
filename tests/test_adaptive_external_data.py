@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pytest
 
 from admet_agent.adaptive_external_data import (
     external_mass_capped_weights,
@@ -62,11 +63,41 @@ def test_coreset_respects_relevance_floor_and_available_rows():
     assert audit["minimum_train_relevance"] >= 0.5
 
 
-def test_external_weight_mass_equals_tdc_mass_by_default():
-    weights = external_mass_capped_weights(100, 800)
+def test_external_weight_obeys_row_and_total_mass_caps():
+    weights = external_mass_capped_weights(
+        100,
+        800,
+        external_mass_ratio=0.20,
+        external_row_weight_cap=1.0,
+        external_to_min_native_weight_ratio_cap=0.5,
+    )
     assert weights[:100].sum() == 100
-    assert np.isclose(weights[100:].sum(), 100)
-    assert np.isclose(weights[100], 0.125)
+    assert np.isclose(weights[100:].sum(), 20)
+    assert np.isclose(weights[100], 0.025)
+    small = external_mass_capped_weights(
+        100,
+        5,
+        external_mass_ratio=0.20,
+        external_row_weight_cap=0.25,
+        external_to_min_native_weight_ratio_cap=0.5,
+    )
+    assert np.isclose(small[100:].sum(), 1.25)
+    assert np.isclose(small[100], 0.25)
+
+
+def test_external_weight_is_strictly_below_every_valued_native_row():
+    native = np.asarray([0.22, 0.8, 1.4, 2.0])
+    weights = external_mass_capped_weights(
+        len(native),
+        2,
+        external_mass_ratio=0.20,
+        external_row_weight_cap=0.50,
+        external_to_min_native_weight_ratio_cap=0.50,
+        native_sample_weights=native,
+    )
+    assert np.allclose(weights[: len(native)], native)
+    assert weights[len(native) :].max() == pytest.approx(0.11)
+    assert weights[: len(native)].min() > weights[len(native) :].max()
 
 
 def test_regression_coreset_matches_target_range_and_relevance():

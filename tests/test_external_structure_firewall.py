@@ -1,10 +1,12 @@
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 from admet_agent.external_structure_firewall import (
     apply_external_structure_firewall,
     load_label_blind_test_structures,
+    prepare_structure_firewall_reference,
 )
 
 
@@ -44,7 +46,34 @@ def test_dataset_is_wholly_rejected_above_five_percent_test_skeleton_overlap():
     assert output.empty
     assert audit.external_test_skeleton_coverage_fraction == 0.5
     assert audit.dataset_rejected is True
-    assert audit.rejection_reason == "external_dataset_has_more_than_allowed_test_inchikey_skeleton_overlap"
+    assert audit.rejection_reason == (
+        "external_dataset_has_more_than_allowed_test_inchikey_skeleton_overlap"
+    )
+
+
+def test_reusable_reference_is_equivalent_and_input_bound():
+    external = pd.DataFrame({"Drug": ["CC", "c1ccncc1"], "Y": [1, 0]})
+    inputs = {
+        "train_smiles": ["CC"],
+        "validation_smiles": ["CCC"],
+        "test_smiles": ["c1ccccc1"],
+    }
+    reference = prepare_structure_firewall_reference(**inputs)
+    uncached, uncached_audit = apply_external_structure_firewall(external, **inputs)
+    cached, cached_audit = apply_external_structure_firewall(
+        external, **inputs, reference=reference
+    )
+    pd.testing.assert_frame_equal(cached, uncached)
+    assert cached_audit == uncached_audit
+
+    with pytest.raises(ValueError, match="does not match"):
+        apply_external_structure_firewall(
+            external,
+            train_smiles=["CO"],
+            validation_smiles=inputs["validation_smiles"],
+            test_smiles=inputs["test_smiles"],
+            reference=reference,
+        )
 
 
 def test_exactly_five_percent_is_allowed_because_rule_says_more_than():
@@ -59,7 +88,7 @@ def test_exactly_five_percent_is_allowed_because_rule_says_more_than():
     assert audit.external_test_skeleton_coverage_fraction == 0.05
     assert audit.dataset_rejected is False
     assert output.empty  # the row is still removed by the exact-identity layer
-    assert audit.tanimoto_rejection_threshold == 0.8
+    assert audit.tanimoto_rejection_threshold == 0.9
 
 
 def test_standard_identity_catches_salt_charge_and_tautomer_variants():

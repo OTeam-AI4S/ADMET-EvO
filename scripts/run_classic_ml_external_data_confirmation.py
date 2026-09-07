@@ -30,17 +30,20 @@ from sklearn.neural_network import MLPClassifier, MLPRegressor
 from sklearn.svm import LinearSVC, LinearSVR
 from tdc.benchmark_group import admet_group
 
-from admet_agent.external_data_admission import require_task_admission
+from admet_agent.external_data_admission import require_bound_task_admission
 from admet_agent.external_structure_firewall import _standard_molecule
 from admet_agent.herg_data_scaling import (
     fingerprints_to_csr,
     morgan_fingerprints,
     near_neighbor_keep_mask,
 )
+from admet_agent.heldout_structure_firewall import (
+    load_structure_only_inchikey_blocklist,
+)
 
 RDLogger.DisableLog("rdApp.warning")
 
-PROTOCOL = "classic-ml-task-conditioned-external-data-all22-confirmation-v2"
+PROTOCOL = "classic-ml-task-conditioned-external-data-all22-confirmation-v3"
 PRACTICAL_DELTA = 0.005
 DEFAULT_SEEDS = (2, 3, 4, 5)
 DEFAULT_MODELS = ("random_forest", "linear_svm", "morgan_mlp")
@@ -463,13 +466,15 @@ def _summarize(rows: list[dict], model_name: str) -> dict:
 
 def run_task(args: argparse.Namespace, task: str) -> dict:
     benchmark, task_type, metric, selection_role = TASKS[task]
+    source_spec = _source_spec(args, task)
     if not args.audit_only:
-        require_task_admission(
-            args.admission_report.resolve(),
+        require_bound_task_admission(
+            args.admission_report,
             task,
+            source_path=source_spec["path"],
+            source_name=source_spec["name"],
             augmentation_mode=args.augmentation_mode,
         )
-    source_spec = _source_spec(args, task)
     source = source_spec["path"]
     started = time.perf_counter()
     external, audit, raw = _curate_external(
@@ -485,6 +490,9 @@ def run_task(args: argparse.Namespace, task: str) -> dict:
     discovery_path = args.data_dir / "admet_group" / benchmark / "train_val.csv"
     discovery = pd.read_csv(discovery_path, usecols=["Drug", "Y"])
     discovery_standard, discovery_fallbacks = _standardized_tdc(discovery)
+    test_ids, test_firewall_audit = load_structure_only_inchikey_blocklist(
+        args.data_dir / "admet_group" / benchmark / "test.csv"
+    )
     raw_quality = _raw_quality_diagnostics(
         raw,
         smiles_column=source_spec["smiles_column"],
@@ -494,8 +502,11 @@ def run_task(args: argparse.Namespace, task: str) -> dict:
         external, discovery_standard, task_type=task_type
     )
     discovery_ids = set(discovery_standard["standard_inchikey"])
-    exact_mask = external["standard_inchikey"].isin(discovery_ids)
-    exact_exclusions = int(exact_mask.sum())
+    discovery_exact_mask = external["standard_inchikey"].isin(discovery_ids)
+    test_exact_mask = external["standard_inchikey"].isin(test_ids)
+    discovery_exact_exclusions = int(discovery_exact_mask.sum())
+    test_exact_exclusions = int(test_exact_mask.sum())
+    exact_mask = discovery_exact_mask | test_exact_mask
     external = external.loc[~exact_mask].reset_index(drop=True)
     fingerprintable = external["standard_smiles"].map(
         lambda value: Chem.MolFromSmiles(str(value)) is not None
@@ -531,7 +542,9 @@ def run_task(args: argparse.Namespace, task: str) -> dict:
         "curation": {
             **audit,
             **raw_quality,
-            "exact_tdc_discovery_overlap_exclusions": exact_exclusions,
+            "exact_tdc_discovery_overlap_exclusions": discovery_exact_exclusions,
+            "exact_tdc_test_structure_overlap_exclusions": test_exact_exclusions,
+            **test_firewall_audit,
             "post_standardization_fingerprint_parse_exclusions": parse_exclusions,
             "post_exact_firewall_identities": len(external),
             "near_neighbor_rule": f"max Morgan Tanimoto < {args.near_threshold:.2f}",
@@ -540,14 +553,18 @@ def run_task(args: argparse.Namespace, task: str) -> dict:
         "target_alignment": target_diagnostics,
         "chemical_space_alignment": similarity_diagnostics,
         "safety": {
-            "tdc_test_loaded": False,
+            "tdc_test_loaded": True,
+            "tdc_test_structures_loaded_for_firewall": True,
+            "tdc_test_columns_loaded": ["Drug"],
+            "tdc_test_labels_loaded": False,
             "test_labels_accessible": False,
         },
     }
     if args.audit_only:
         audit_result["wall_seconds"] = time.perf_counter() - started
         audit_result["claim_boundary"] = (
-            "Data audit only. No model was fit and no TDC test data was opened. "
+            "Data audit only. No model was fit; only the TDC test Drug column "
+            "was loaded for the structure firewall and no test labels were loaded. "
             "Sampled chemical-space similarity is diagnostic, not a causal test."
         )
         args.output.parent.mkdir(parents=True, exist_ok=True)

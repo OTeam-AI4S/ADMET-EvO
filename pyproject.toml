@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "admet-agent"
-version = "0.2.1"
+version = "0.3.0"
 description = "ADMET-EvO: an evolutionary, protocol-safe research agent for TDC ADMET leaderboards"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -40,9 +40,9 @@ dev = ["pytest>=8", "ruff>=0.5"]
 admet-agent = "admet_agent.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/YilinWang33/ADMET-EvO"
-Documentation = "https://github.com/YilinWang33/ADMET-EvO/blob/main/MANUSCRIPT.md"
-Repository = "https://github.com/YilinWang33/ADMET-EvO"
+Homepage = "https://github.com/OTeam-AI4S/ADMET-EvO"
+Documentation = "https://github.com/OTeam-AI4S/ADMET-EvO/blob/main/MANUSCRIPT.md"
+Repository = "https://github.com/OTeam-AI4S/ADMET-EvO"
 
 [tool.setuptools.packages.find]
 include = ["admet_agent*", "skills", "skills.dataskill*"]
@@ -56,3 +56,13 @@ include = ["admet_agent*", "skills", "skills.dataskill*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+# Keep CI focused on syntax errors, undefined names, and invalid control flow.
+# The historical experiment scripts intentionally bootstrap sys.path and retain
+# frozen formatting, so broad style enforcement is introduced incrementally.
+select = ["E9", "F63", "F7", "F82"]

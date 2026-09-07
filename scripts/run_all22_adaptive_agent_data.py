@@ -4,7 +4,8 @@ Development uses only a fixed LightGBM/Morgan agent controller on seeds 2-5 to
 choose the smallest coreset within one standard error of the best result.
 Agent confirmation uses untouched seeds 8-11. Classic models may run only after
 the agent arm is frozen and confirmed, using exactly the same rows and weights.
-No TDC test file is opened.
+Only the TDC test structure column is loaded to build an identity firewall;
+test labels are never loaded.
 """
 
 from __future__ import annotations
@@ -40,15 +41,19 @@ from admet_agent.adaptive_external_data import (
     select_relevance_diverse_binary_coreset,
     select_relevance_diverse_regression_coreset,
 )
+from admet_agent.external_data_admission import require_bound_task_admission
 from admet_agent.herg_data_scaling import (
     fingerprints_to_csr,
     morgan_fingerprints,
     near_neighbor_keep_mask,
 )
+from admet_agent.heldout_structure_firewall import (
+    load_structure_only_inchikey_blocklist,
+)
 
 RDLogger.DisableLog("rdApp.*")
 
-PROTOCOL = "all22-agent-first-adaptive-external-data-v1"
+PROTOCOL = "all22-agent-first-adaptive-external-data-v2"
 RATIOS = (0.5, 1.0, 2.0, 4.0, 8.0)
 DEVELOPMENT_SEEDS = (2, 3, 4, 5)
 CONFIRMATION_SEEDS = (8, 9, 10, 11)
@@ -56,7 +61,6 @@ AGENT_MODEL = "lightgbm"
 CLASSIC_MODELS = ("random_forest", "linear_svm", "morgan_mlp")
 NEAR_THRESHOLD = 0.80
 MINIMUM_RELEVANCE = 0.20
-EXTERNAL_MASS_RATIO = 1.0
 PRACTICAL_DELTA = 0.005
 MAX_CLASS_RATE_GAP = 0.20
 MAX_MEDIAN_SHIFT_IQR = 0.75
@@ -68,17 +72,17 @@ def _file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _admission_decision(path: Path, task: str) -> dict:
-    report = json.loads(path.read_text())
-    if report.get("test_labels_loaded") is not False:
-        raise RuntimeError("Admission metadata accessed TDC test labels")
-    return report["decisions"][task]
-
-
 def _prepare_task(args: argparse.Namespace, task: str) -> dict:
     benchmark, task_type, metric, _ = TASKS[task]
     source_args = SimpleNamespace(cohort_dir=args.cohort_dir)
     source_spec = _source_spec(source_args, task)
+    admission = require_bound_task_admission(
+        args.admission_report,
+        task,
+        source_path=source_spec["path"],
+        source_name=source_spec["name"],
+        augmentation_mode=args.augmentation_mode,
+    )
     external, audit, _ = _curate_external(
         source_spec["path"],
         task_type=task_type,
@@ -93,10 +97,16 @@ def _prepare_task(args: argparse.Namespace, task: str) -> dict:
         usecols=["Drug", "Y"],
     )
     discovery_standard, fallback_count = _standardized_tdc(discovery)
-    exact_mask = external["standard_inchikey"].isin(
+    discovery_exact_mask = external["standard_inchikey"].isin(
         set(discovery_standard["standard_inchikey"])
     )
-    exact_exclusions = int(exact_mask.sum())
+    test_ids, test_firewall_audit = load_structure_only_inchikey_blocklist(
+        args.data_dir / "admet_group" / benchmark / "test.csv"
+    )
+    test_exact_mask = external["standard_inchikey"].isin(test_ids)
+    discovery_exact_exclusions = int(discovery_exact_mask.sum())
+    test_exact_exclusions = int(test_exact_mask.sum())
+    exact_mask = discovery_exact_mask | test_exact_mask
     external = external.loc[~exact_mask].reset_index(drop=True)
     parseable = external["standard_smiles"].map(
         lambda value: Chem.MolFromSmiles(str(value)) is not None
@@ -110,6 +120,8 @@ def _prepare_task(args: argparse.Namespace, task: str) -> dict:
         "benchmark": benchmark,
         "task_type": task_type,
         "metric": metric,
+        "admission": admission,
+        "weight_policy": admission["weight_policy"],
         "source": {
             "name": source_spec["name"],
             "path": str(source_spec["path"]),
@@ -119,7 +131,9 @@ def _prepare_task(args: argparse.Namespace, task: str) -> dict:
         },
         "curation": {
             **audit,
-            "exact_tdc_discovery_overlap_exclusions": exact_exclusions,
+            "exact_tdc_discovery_overlap_exclusions": discovery_exact_exclusions,
+            "exact_tdc_test_structure_overlap_exclusions": test_exact_exclusions,
+            **test_firewall_audit,
             "fingerprint_parse_exclusions": parse_exclusions,
             "post_exact_firewall_identities": len(external),
             "minimum_required_identities": minimum,
@@ -259,7 +273,15 @@ def _run_rows(
             augmented_x = sparse.vstack([train_x, external_x[selected]], format="csr")
             augmented_y = np.concatenate([train_y, external_y[selected]])
             weights = external_mass_capped_weights(
-                len(train_y), len(selected), external_mass_ratio=EXTERNAL_MASS_RATIO
+                len(train_y),
+                len(selected),
+                external_mass_ratio=prepared["weight_policy"]["external_mass_ratio"],
+                external_row_weight_cap=prepared["weight_policy"][
+                    "external_row_weight_cap"
+                ],
+                external_to_min_native_weight_ratio_cap=prepared["weight_policy"][
+                    "external_to_min_native_weight_ratio_cap"
+                ],
             )
             for model in models:
                 fit_started = time.perf_counter()
@@ -421,10 +443,15 @@ def _base_result(args: argparse.Namespace, prepared: dict) -> dict:
         "metric": prepared["metric"],
         "source": prepared["source"],
         "curation": prepared["curation"],
-        "prior_admission_decision": _admission_decision(
-            args.admission_report.resolve(), prepared["task"]
-        ),
-        "safety": {"tdc_test_loaded": False, "test_labels_accessible": False},
+        "admission": prepared["admission"],
+        "weight_policy": prepared["weight_policy"],
+        "safety": {
+            "tdc_test_loaded": True,
+            "tdc_test_structures_loaded_for_firewall": True,
+            "tdc_test_columns_loaded": ["Drug"],
+            "tdc_test_labels_loaded": False,
+            "test_labels_accessible": False,
+        },
         "claim_tier": "controlled_train_validation_auxiliary_data",
     }
 
@@ -476,7 +503,11 @@ def _load_development(args: argparse.Namespace, task: str) -> tuple[Path, dict, 
         and payload.get("phase") == "agent_development"
         and payload.get("task") == task
         and payload.get("seeds") == list(DEVELOPMENT_SEEDS)
-        and payload.get("safety", {}).get("tdc_test_loaded") is False
+        and payload.get("safety", {}).get("tdc_test_loaded") is True
+        and payload.get("safety", {}).get("tdc_test_structures_loaded_for_firewall") is True
+        and payload.get("safety", {}).get("tdc_test_columns_loaded") == ["Drug"]
+        and payload.get("safety", {}).get("tdc_test_labels_loaded") is False
+        and payload.get("safety", {}).get("test_labels_accessible") is False
     ):
         raise RuntimeError("Invalid development artifact")
     ratio = payload.get("selection", {}).get("selected_ratio")
@@ -621,6 +652,11 @@ def parse_args() -> argparse.Namespace:
         default=Path(
             "reports/classic_ml_external_data_all22_audit_v2/admission_report_v2.json"
         ),
+    )
+    parser.add_argument(
+        "--augmentation-mode",
+        choices=("auto", "direct", "controlled_bridge"),
+        default="auto",
     )
     parser.add_argument("--n-jobs", type=int, default=4)
     args = parser.parse_args()
